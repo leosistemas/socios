@@ -6,3 +6,4 @@ git config --global user.email "email.com"
 git config --global user.name "minombre"
 git commit -m "comentario"
 git checkout "comandos_git.txt"
+eh
