@@ -2,5 +2,7 @@ comando git
 git init "dentro de la carpeta"
 git status
 git add "file"
-git config --global user.mail "email.com"
+git config --global user.email "email.com"
 git config --global user.name "minombre"
+git commit -m "comentario"
+git checkout "comandos_git.txt"
