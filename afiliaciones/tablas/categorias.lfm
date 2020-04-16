@@ -1,0 +1,8 @@
+object FCategorias: TFCategorias
+  Left = 85
+  Height = 484
+  Top = 85
+  Width = 841
+  Caption = 'Categorias'
+  LCLVersion = '5.7'
+end

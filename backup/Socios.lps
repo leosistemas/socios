@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="17">
+      <Unit0>
+        <Filename Value="Socios.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="6"/>
+        <CursorPos X="49" Y="10"/>
+        <UsageCount Value="45"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="main.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <TopLine Value="29"/>
+        <CursorPos X="2" Y="60"/>
+        <UsageCount Value="45"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="usuarios\abm_usuario.pas"/>
+        <IsPartOfProject Value="True"/>
+        <HasResources Value="True"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="45"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="usuarios\cambiar_pass.pas"/>
+        <IsPartOfProject Value="True"/>
+        <HasResources Value="True"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="45"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="usuarios\login.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FAutenticar"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Login"/>
+        <EditorIndex Value="5"/>
+        <CursorPos X="3" Y="75"/>
+        <UsageCount Value="45"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="usuarios\usuarios.pas"/>
+        <IsPartOfProject Value="True"/>
+        <HasResources Value="True"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="45"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="utiles\control_abm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="45"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="utiles\cryt.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="45"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="utiles\sets.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Sets"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="23"/>
+        <CursorPos X="23" Y="27"/>
+        <UsageCount Value="45"/>
+        <Loaded Value="True"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="afiliaciones\tablas\deleg.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FDelegaciones"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="15" Y="5"/>
+        <UsageCount Value="35"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="afiliaciones\tablas\promotores.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FPromotores"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="4"/>
+        <CursorPos X="37" Y="15"/>
+        <UsageCount Value="35"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="afiliaciones\tablas\cargos_afiliados.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Cargos"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Cargos_afiliados"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="185"/>
+        <CursorPos X="64" Y="211"/>
+        <UsageCount Value="35"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="datos\modulo_datos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DataModule1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="Modulo_datos"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="48"/>
+        <CursorPos Y="32"/>
+        <UsageCount Value="35"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="C:\codetyphon\typhon\components\pl_ZeosDBO\pl_zeosdbo.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="18"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="afiliaciones\tablas\categorias.pas"/>
+        <ComponentName Value="FCategorias"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="29" Y="25"/>
+        <UsageCount Value="19"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="C:\codetyphon\typhon\components\pl_ZeosDBO\source\component\ZAbstractRODataset.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2467"/>
+        <CursorPos Y="2485"/>
+        <UsageCount Value="10"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="C:\codetyphon\typhon\components\pl_ZeosDBO\source\dbc\ZDbcGenericResolver.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="879"/>
+        <CursorPos Y="897"/>
+        <UsageCount Value="10"/>
+      </Unit16>
+    </Units>
+    <JumpHistory Count="30" HistoryIndex="29">
+      <Position1>
+        <Filename Value="datos\modulo_datos.pas"/>
+        <Caret Line="84" Column="38" TopLine="82"/>
+      </Position1>
+      <Position2>
+        <Filename Value="datos\modulo_datos.pas"/>
+        <Caret Line="83" Column="38" TopLine="81"/>
+      </Position2>
+      <Position3>
+        <Filename Value="datos\modulo_datos.pas"/>
+        <Caret Line="82" Column="38" TopLine="80"/>
+      </Position3>
+      <Position4>
+        <Filename Value="datos\modulo_datos.pas"/>
+        <Caret Line="83" Column="38" TopLine="81"/>
+      </Position4>
+      <Position5>
+        <Filename Value="datos\modulo_datos.pas"/>
+        <Caret Line="84" Column="38" TopLine="82"/>
+      </Position5>
+      <Position6>
+        <Filename Value="datos\modulo_datos.pas"/>
+        <Caret Line="83" Column="38" TopLine="81"/>
+      </Position6>
+      <Position7>
+        <Filename Value="datos\modulo_datos.pas"/>
+        <Caret Line="84" Column="38" TopLine="82"/>
+      </Position7>
+      <Position8>
+        <Filename Value="afiliaciones\tablas\cargos_afiliados.pas"/>
+        <Caret Line="177" TopLine="148"/>
+      </Position8>
+      <Position9>
+        <Filename Value="datos\modulo_datos.pas"/>
+        <Caret Line="83" Column="38" TopLine="81"/>
+      </Position9>
+      <Position10>
+        <Filename Value="afiliaciones\tablas\cargos_afiliados.pas"/>
+        <Caret Line="178" TopLine="149"/>
+      </Position10>
+      <Position11>
+        <Filename Value="afiliaciones\tablas\cargos_afiliados.pas"/>
+        <Caret Line="179" TopLine="150"/>
+      </Position11>
+      <Position12>
+        <Filename Value="afiliaciones\tablas\cargos_afiliados.pas"/>
+        <Caret Line="180" TopLine="151"/>
+      </Position12>
+      <Position13>
+        <Filename Value="afiliaciones\tablas\cargos_afiliados.pas"/>
+        <Caret Line="179" TopLine="150"/>
+      </Position13>
+      <Position14>
+        <Filename Value="datos\modulo_datos.pas"/>
+        <Caret Line="82" Column="38" TopLine="80"/>
+      </Position14>
+      <Position15>
+        <Filename Value="datos\modulo_datos.pas"/>
+        <Caret Line="80" TopLine="63"/>
+      </Position15>
+      <Position16>
+        <Filename Value="afiliaciones\tablas\cargos_afiliados.pas"/>
+        <Caret Line="182" Column="24" TopLine="154"/>
+      </Position16>
+      <Position17>
+        <Filename Value="afiliaciones\tablas\cargos_afiliados.pas"/>
+        <Caret Line="146" Column="57" TopLine="137"/>
+      </Position17>
+      <Position18>
+        <Filename Value="afiliaciones\tablas\cargos_afiliados.pas"/>
+        <Caret Line="72" Column="29" TopLine="53"/>
+      </Position18>
+      <Position19>
+        <Filename Value="afiliaciones\tablas\cargos_afiliados.pas"/>
+        <Caret Line="71" Column="15" TopLine="53"/>
+      </Position19>
+      <Position20>
+        <Filename Value="afiliaciones\tablas\cargos_afiliados.pas"/>
+        <Caret Line="69" TopLine="53"/>
+      </Position20>
+      <Position21>
+        <Filename Value="afiliaciones\tablas\cargos_afiliados.pas"/>
+        <Caret Line="182" TopLine="163"/>
+      </Position21>
+      <Position22>
+        <Filename Value="afiliaciones\tablas\cargos_afiliados.pas"/>
+        <Caret Line="170" Column="3" TopLine="168"/>
+      </Position22>
+      <Position23>
+        <Filename Value="afiliaciones\tablas\cargos_afiliados.pas"/>
+        <Caret Line="186" Column="3" TopLine="184"/>
+      </Position23>
+      <Position24>
+        <Filename Value="afiliaciones\tablas\cargos_afiliados.pas"/>
+        <Caret Line="172" Column="5" TopLine="157"/>
+      </Position24>
+      <Position25>
+        <Filename Value="afiliaciones\tablas\cargos_afiliados.pas"/>
+        <Caret Line="173" Column="5" TopLine="158"/>
+      </Position25>
+      <Position26>
+        <Filename Value="afiliaciones\tablas\cargos_afiliados.pas"/>
+        <Caret Line="196" Column="74" TopLine="163"/>
+      </Position26>
+      <Position27>
+        <Filename Value="afiliaciones\tablas\cargos_afiliados.pas"/>
+        <Caret Line="194" Column="14" TopLine="175"/>
+      </Position27>
+      <Position28>
+        <Filename Value="afiliaciones\tablas\cargos_afiliados.pas"/>
+        <Caret Line="197" Column="3" TopLine="168"/>
+      </Position28>
+      <Position29>
+        <Filename Value="afiliaciones\tablas\cargos_afiliados.pas"/>
+        <Caret Line="190" Column="25" TopLine="163"/>
+      </Position29>
+      <Position30>
+        <Filename Value="afiliaciones\tablas\cargos_afiliados.pas"/>
+        <Caret Line="188" Column="2" TopLine="166"/>
+      </Position30>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>

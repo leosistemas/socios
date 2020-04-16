@@ -1,0 +1,78 @@
+object FPromotores: TFPromotores
+  Left = 69
+  Height = 578
+  Top = 225
+  Width = 1250
+  Caption = 'Promotores'
+  ClientHeight = 578
+  ClientWidth = 1250
+  OnShow = FormShow
+  LCLVersion = '1.4.2.0'
+  object Shape1: TShape
+    Left = 16
+    Height = 560
+    Top = 16
+    Width = 1194
+    Brush.Color = clGradientActiveCaption
+  end
+  object DBGrid1: TDBGrid
+    Left = 32
+    Height = 433
+    Top = 80
+    Width = 1152
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'NOMBRE'
+        Width = 400
+        FieldName = 'DESCRIPCION'
+      end    
+      item
+        Title.Caption = 'TELEFONO'
+        Width = 150
+        FieldName = 'TELEFONO'
+      end    
+      item
+        Title.Caption = 'CELULAR'
+        Width = 150
+        FieldName = 'CELULAR'
+      end    
+      item
+        Title.Caption = 'EMAIL'
+        Width = 400
+        FieldName = 'EMAIL'
+      end>
+    DataSource = DataModule1.DS_promotores
+    TabOrder = 0
+    OnKeyPress = DBGrid1KeyPress
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 943
+    Height = 25
+    Top = 528
+    Width = 241
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 25
+    ClientWidth = 241
+    DataSource = DataModule1.DS_promotores
+    Options = []
+    TabOrder = 1
+  end
+  object Label1: TLabel
+    Left = 496
+    Height = 37
+    Top = 32
+    Width = 182
+    Caption = 'PROMOTORES'
+    Font.Height = -27
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+end

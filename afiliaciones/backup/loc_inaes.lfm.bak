@@ -1,0 +1,130 @@
+object Floc_inaes: TFloc_inaes
+  Left = 85
+  Height = 562
+  Top = 85
+  Width = 976
+  Caption = 'Floc_inaes'
+  ClientHeight = 562
+  ClientWidth = 976
+  OnShow = FormShow
+  LCLVersion = '5.7'
+  object Label1: TLabel
+    Left = 32
+    Height = 32
+    Top = 24
+    Width = 239
+    Caption = 'Buscar por Localidad'
+    Font.Height = -24
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object localidad: TEdit
+    Left = 26
+    Height = 33
+    Top = 72
+    Width = 278
+    CharCase = ecUppercase
+    Font.Height = -19
+    Font.Style = [fsBold]
+    OnEnter = localidadEnter
+    OnKeyUp = localidadKeyUp
+    ParentFont = False
+    TabOrder = 0
+  end
+  object Label2: TLabel
+    Left = 648
+    Height = 32
+    Top = 24
+    Width = 289
+    Caption = 'Buscar por Código Postal'
+    Font.Height = -24
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object codpost: TEdit
+    Left = 784
+    Height = 33
+    Top = 72
+    Width = 128
+    Font.Height = -19
+    Font.Style = [fsBold]
+    NumbersOnly = True
+    OnEnter = codpostEnter
+    OnKeyUp = codpostKeyUp
+    ParentFont = False
+    TabOrder = 1
+  end
+  object DBGrid1: TDBGrid
+    Left = 8
+    Height = 394
+    Top = 126
+    Width = 960
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'COD_INAES'
+        Width = 84
+        FieldName = 'COD_INAES'
+      end    
+      item
+        Title.Caption = 'LOCALIDAD'
+        Width = 250
+        FieldName = 'LOCALIDAD'
+      end    
+      item
+        Title.Caption = 'PARTIDO'
+        Width = 250
+        FieldName = 'PARTIDO'
+      end    
+      item
+        Title.Caption = 'PROVINCIA'
+        Width = 250
+        FieldName = 'PROVINCIA'
+      end    
+      item
+        Title.Caption = 'COD_POSTAL'
+        Width = 84
+        FieldName = 'CP'
+      end>
+    DataSource = DS_loc_inaes
+    TabOrder = 2
+    OnDblClick = DBGrid1DblClick
+  end
+  object Label3: TLabel
+    Left = 336
+    Height = 32
+    Top = 24
+    Width = 214
+    Caption = 'Buscar por Partido'
+    Font.Height = -24
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object partido: TEdit
+    Left = 336
+    Height = 33
+    Top = 72
+    Width = 278
+    CharCase = ecUppercase
+    Font.Height = -19
+    Font.Style = [fsBold]
+    OnEnter = partidoEnter
+    OnKeyUp = partidoKeyUp
+    ParentFont = False
+    TabOrder = 3
+  end
+  object DS_loc_inaes: TDataSource
+    DataSet = localidades
+    left = 88
+    top = 528
+  end
+  object localidades: TZReadOnlyQuery
+    Connection = DataModule1.conector_socios
+    Params = <>
+    left = 144
+    top = 528
+  end
+end

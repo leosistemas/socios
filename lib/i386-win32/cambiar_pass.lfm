@@ -1,0 +1,85 @@
+object Form4: TForm4
+  Left = 114
+  Height = 240
+  Top = 85
+  Width = 431
+  BorderIcons = []
+  Caption = 'Cambio de Contraseña'
+  ClientHeight = 240
+  ClientWidth = 431
+  Color = 11137009
+  OnShow = FormShow
+  LCLVersion = '5.7'
+  object pass_anterior: TEdit
+    Left = 144
+    Height = 23
+    Top = 41
+    Width = 233
+    CharCase = ecUppercase
+    EchoMode = emPassword
+    PasswordChar = '*'
+    TabOrder = 0
+  end
+  object Label1: TLabel
+    Left = 37
+    Height = 15
+    Top = 49
+    Width = 95
+    Caption = 'Contraseña actual'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 37
+    Height = 15
+    Top = 80
+    Width = 95
+    Caption = 'Contraseña nueva'
+    ParentColor = False
+  end
+  object Label3: TLabel
+    Left = 18
+    Height = 15
+    Top = 112
+    Width = 114
+    Caption = 'Confirme contraseña '
+    ParentColor = False
+  end
+  object nueva_pass: TEdit
+    Left = 144
+    Height = 23
+    Top = 72
+    Width = 233
+    CharCase = ecUppercase
+    EchoMode = emPassword
+    PasswordChar = '*'
+    TabOrder = 1
+  end
+  object confirm_pass: TEdit
+    Left = 144
+    Height = 23
+    Top = 104
+    Width = 233
+    CharCase = ecUppercase
+    EchoMode = emPassword
+    PasswordChar = '*'
+    TabOrder = 2
+  end
+  object Button1: TButton
+    Left = 144
+    Height = 25
+    Top = 136
+    Width = 233
+    Caption = 'Cambiar Contraseña'
+    OnClick = Button1Click
+    TabOrder = 3
+  end
+  object Button2: TButton
+    Left = 336
+    Height = 25
+    Top = 200
+    Width = 75
+    Caption = 'Cancelar'
+    OnClick = Button2Click
+    TabOrder = 4
+  end
+end

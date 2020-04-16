@@ -1,0 +1,373 @@
+object Cargos: TCargos
+  Left = 43
+  Height = 542
+  Top = 85
+  Width = 1286
+  Caption = 'Afiliados-Categorías-Importes-Origenes de descuento'
+  ClientHeight = 542
+  ClientWidth = 1286
+  OnShow = FormShow
+  LCLVersion = '5.7'
+  object PageTablaAfiliaciones: TPageControl
+    Left = 0
+    Height = 512
+    Top = 16
+    Width = 1272
+    ActivePage = TabCat
+    TabIndex = 0
+    TabOrder = 0
+    object TabCat: TTabSheet
+      Caption = 'Servicios y Categorías'
+      ClientHeight = 484
+      ClientWidth = 1264
+      Font.Color = 10485760
+      Font.Style = [fsBold]
+      ParentFont = False
+      object Shape2: TShape
+        Left = 480
+        Height = 452
+        Top = 16
+        Width = 776
+        Brush.Color = clGradientActiveCaption
+      end
+      object Shape1: TShape
+        Left = 6
+        Height = 453
+        Top = 15
+        Width = 458
+        Brush.Color = clGradientActiveCaption
+      end
+      object DBGrid1: TDBGrid
+        Left = 504
+        Height = 344
+        Top = 72
+        Width = 728
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'CODIGO'
+            Width = 54
+            FieldName = 'CODIGO'
+          end        
+          item
+            Title.Caption = 'DESCRIPCION'
+            Width = 250
+            FieldName = 'DESCRIPCION'
+          end        
+          item
+            ButtonStyle = cbsCheckboxColumn
+            Title.Caption = 'TIENE BENEFICIO?'
+            Width = 110
+            ValueChecked = 'S'
+            ValueUnchecked = 'N'
+            FieldName = 'TIENENBENEFICIO'
+          end        
+          item
+            ButtonStyle = cbsCheckboxColumn
+            Title.Caption = 'VOTA?'
+            Width = 50
+            ValueChecked = 'S'
+            ValueUnchecked = 'N'
+            FieldName = 'VOTA'
+          end        
+          item
+            ButtonStyle = cbsCheckboxColumn
+            Title.Caption = 'PATROCINA?'
+            Width = 90
+            ValueChecked = 'S'
+            ValueUnchecked = 'N'
+            FieldName = 'PUEDETENERTITULAR'
+          end        
+          item
+            ButtonStyle = cbsCheckboxColumn
+            Title.Caption = 'TITULAR?'
+            Width = 70
+            ValueChecked = 'S'
+            ValueUnchecked = 'N'
+            FieldName = 'PUEDESERTITULAR'
+          end        
+          item
+            ButtonStyle = cbsPickList
+            Title.Caption = 'SERVICIO'
+            Width = 60
+            FieldName = 'SERVICIO'
+          end>
+        DataSource = DataModule1.DS_Categorias
+        Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowEditor, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+        TabOrder = 0
+        TitleFont.Color = 10485760
+        TitleFont.Style = [fsBold]
+        OnKeyPress = DBGrid1KeyPress
+      end
+      object DBNavigatorCategorias: TDBNavigator
+        Left = 991
+        Height = 25
+        Top = 432
+        Width = 241
+        BevelOuter = bvNone
+        ChildSizing.EnlargeHorizontal = crsScaleChilds
+        ChildSizing.EnlargeVertical = crsScaleChilds
+        ChildSizing.ShrinkHorizontal = crsScaleChilds
+        ChildSizing.ShrinkVertical = crsScaleChilds
+        ChildSizing.Layout = cclLeftToRightThenTopToBottom
+        ChildSizing.ControlsPerLine = 100
+        ClientHeight = 25
+        ClientWidth = 241
+        DataSource = DataModule1.DS_Categorias
+        Options = []
+        TabOrder = 1
+      end
+      object DBGrid4: TDBGrid
+        Left = 24
+        Height = 344
+        Top = 72
+        Width = 424
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'CODIGO'
+            Width = 55
+            FieldName = 'CODIGO'
+          end        
+          item
+            Title.Caption = 'DESCRIPCION'
+            Width = 230
+            FieldName = 'DESCRIPCION'
+          end        
+          item
+            Title.Caption = 'IMPORTE'
+            Width = 100
+            FieldName = 'COSTO'
+            DisplayFormat = '$  ##,##0.00'
+          end>
+        DataSource = DataModule1.DS_Importes
+        TabOrder = 2
+        TitleFont.Color = 10485760
+        TitleFont.Style = [fsBold]
+        OnEditButtonClick = DBGrid4EditButtonClick
+        OnKeyPress = DBGrid4KeyPress
+      end
+      object Label1: TLabel
+        Left = 160
+        Height = 37
+        Top = 24
+        Width = 135
+        Caption = 'SERVICIOS'
+        Font.Height = -27
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label2: TLabel
+        Left = 776
+        Height = 37
+        Top = 24
+        Width = 164
+        Caption = 'CATEGORIAS'
+        Font.Height = -27
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBNavigator2: TDBNavigator
+        Left = 207
+        Height = 25
+        Top = 432
+        Width = 241
+        BevelOuter = bvNone
+        ChildSizing.EnlargeHorizontal = crsScaleChilds
+        ChildSizing.EnlargeVertical = crsScaleChilds
+        ChildSizing.ShrinkHorizontal = crsScaleChilds
+        ChildSizing.ShrinkVertical = crsScaleChilds
+        ChildSizing.Layout = cclLeftToRightThenTopToBottom
+        ChildSizing.ControlsPerLine = 100
+        ClientHeight = 25
+        ClientWidth = 241
+        DataSource = DataModule1.DS_Importes
+        Options = []
+        TabOrder = 3
+      end
+    end
+    object TabVia: TTabSheet
+      Caption = 'Servicios y Formas de Pago'
+      ClientHeight = 484
+      ClientWidth = 1264
+      Font.Color = 8404992
+      Font.Style = [fsBold]
+      ParentFont = False
+      object Shape4: TShape
+        Left = 592
+        Height = 453
+        Top = 16
+        Width = 616
+        Brush.Color = clInfoBk
+      end
+      object Shape3: TShape
+        Left = 6
+        Height = 453
+        Top = 15
+        Width = 554
+        Brush.Color = clInfoBk
+      end
+      object DBGrid2: TDBGrid
+        Left = 15
+        Height = 344
+        Top = 80
+        Width = 529
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'CODIGO'
+            FieldName = 'CODIGO'
+          end        
+          item
+            Title.Caption = 'DESCRIPCION'
+            Width = 200
+            FieldName = 'DESCRIPCION'
+          end        
+          item
+            ButtonStyle = cbsCheckboxColumn
+            Title.Caption = 'COMERCIO'
+            Width = 70
+            ValueChecked = 'S'
+            ValueUnchecked = 'N'
+            FieldName = 'TIENECOMERCIO'
+          end        
+          item
+            ButtonStyle = cbsCheckboxColumn
+            Title.Caption = 'CERTIFICADO'
+            Width = 85
+            ValueChecked = 'S'
+            ValueUnchecked = 'N'
+            FieldName = 'REQUIERECERTIFICADO'
+          end        
+          item
+            ButtonStyle = cbsCheckboxColumn
+            Title.Caption = 'BENEFICIO'
+            Width = 70
+            ValueChecked = 'S'
+            ValueUnchecked = 'N'
+            FieldName = 'REQUIEREBENEFICIO'
+          end>
+        DataSource = DataModule1.DS_Origenes
+        TabOrder = 0
+        TitleFont.Color = 8404992
+        TitleFont.Style = [fsBold]
+        OnKeyPress = DBGrid2KeyPress
+      end
+      object DBNavigator1: TDBNavigator
+        Left = 303
+        Height = 25
+        Top = 432
+        Width = 241
+        BevelOuter = bvNone
+        ChildSizing.EnlargeHorizontal = crsScaleChilds
+        ChildSizing.EnlargeVertical = crsScaleChilds
+        ChildSizing.ShrinkHorizontal = crsScaleChilds
+        ChildSizing.ShrinkVertical = crsScaleChilds
+        ChildSizing.Layout = cclLeftToRightThenTopToBottom
+        ChildSizing.ControlsPerLine = 100
+        ClientHeight = 25
+        ClientWidth = 241
+        DataSource = DataModule1.DS_Origenes
+        Options = []
+        TabOrder = 1
+      end
+      object Label3: TLabel
+        Left = 152
+        Height = 37
+        Top = 32
+        Width = 233
+        Caption = 'FORMAS DE PAGO'
+        Font.Height = -27
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBGrid3: TDBGrid
+        Left = 608
+        Height = 344
+        Top = 80
+        Width = 575
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'CODIGO'
+            FieldName = 'CODIGO'
+          end        
+          item
+            Title.Caption = 'FORMA DE PAGO'
+            Width = 150
+            FieldName = 'FPAGO'
+          end        
+          item
+            Title.Caption = 'CONCEPTO'
+            Width = 100
+            FieldName = 'CONCEPTO'
+          end        
+          item
+            ButtonStyle = cbsCheckboxColumn
+            Title.Caption = 'CERTIFICADO?'
+            Width = 90
+            ValueChecked = 'S'
+            ValueUnchecked = 'N'
+            FieldName = 'REQUIERECERTIFICADO'
+          end        
+          item
+            ButtonStyle = cbsCheckboxColumn
+            Title.Caption = 'N° BENEFICIO?'
+            Width = 90
+            ValueChecked = 'S'
+            ValueUnchecked = 'N'
+            FieldName = 'TIENENBENEFICIO'
+          end>
+        DataSource = DataModule1.DS_Conceptos
+        TabOrder = 2
+        TitleFont.Color = 8404992
+        TitleFont.Style = [fsBold]
+        OnKeyPress = DBGrid3KeyPress
+      end
+      object Label4: TLabel
+        Left = 608
+        Height = 37
+        Top = 33
+        Width = 572
+        Caption = 'FORMA DE PAGO Y CONCEPTO DE SERVICIOS'
+        Font.Height = -27
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object DBNavigator3: TDBNavigator
+        Left = 935
+        Height = 25
+        Top = 432
+        Width = 241
+        BevelOuter = bvNone
+        ChildSizing.EnlargeHorizontal = crsScaleChilds
+        ChildSizing.EnlargeVertical = crsScaleChilds
+        ChildSizing.ShrinkHorizontal = crsScaleChilds
+        ChildSizing.ShrinkVertical = crsScaleChilds
+        ChildSizing.Layout = cclLeftToRightThenTopToBottom
+        ChildSizing.ControlsPerLine = 100
+        ClientHeight = 25
+        ClientWidth = 241
+        DataSource = DataModule1.DS_Conceptos
+        Options = []
+        TabOrder = 3
+      end
+    end
+    object TabSheet1: TTabSheet
+      Caption = 'Manual de Configuración y Uso'
+      ClientHeight = 484
+      ClientWidth = 1264
+      object DBMemo1: TDBMemo
+        Left = 77
+        Height = 363
+        Top = 69
+        Width = 715
+        TabOrder = 0
+      end
+    end
+  end
+end

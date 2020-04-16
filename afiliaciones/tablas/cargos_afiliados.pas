@@ -1,0 +1,309 @@
+unit Cargos_afiliados;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, FileUtil, ZDataset, Forms, Controls, Graphics, Dialogs,
+  StdCtrls, DBGrids, ComCtrls, ExtCtrls, Grids, DbCtrls, LazHelpHTML,
+  Modulo_datos, db, ZAbstractDataset;
+
+type
+
+  { TCargos }
+
+  TCargos = class(TForm)
+    DServicios: TDataSource;
+    DBNavigatorImp: TDBNavigator;
+    DS_Categorias: TDataSource;
+    DS_Fpago: TDataSource;
+    DS_Importes: TDataSource;
+    DS_OrigenesPago: TDataSource;
+    GridOrigenesPago: TDBGrid;
+    GridCategoria: TDBGrid;
+    DBMemo1: TDBMemo;
+    DBNavigatorServ: TDBNavigator;
+    DBNavigatorCat: TDBNavigator;
+    DBNavigatorOrigenes: TDBNavigator;
+    DBNavigatorFP: TDBNavigator;
+    GridImportes: TDBGrid;
+    GridServicios: TDBGrid;
+    GridFPago: TDBGrid;
+    HTMLBrowserHelpViewer1: THTMLBrowserHelpViewer;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    PageTablaAfiliaciones: TPageControl;
+    QCat: TZQuery;
+    QFpago: TZQuery;
+    QImportes: TZQuery;
+    QOrigenesPago: TZQuery;
+    Shape1: TShape;
+    Shape2: TShape;
+    Shape3: TShape;
+    Shape4: TShape;
+    Shape5: TShape;
+    TabCat: TTabSheet;
+    TabSheet1: TTabSheet;
+    TabVia: TTabSheet;
+    Qservicios: TZQuery;
+
+    procedure GridFPagoKeyPress(Sender: TObject; var Key: char);
+    procedure GridServiciosKeyPress(Sender: TObject; var Key: char);
+    procedure GridOrigenesPagoKeyPress(Sender: TObject; var Key: char);
+    procedure GridCategoriaKeyPress(Sender: TObject; var Key: char);
+
+    procedure FormShow(Sender: TObject);
+    procedure g_cat();
+    procedure g_org();
+    procedure g_concept();
+    procedure g_imp();
+    procedure g_servicios();
+    procedure dbnavDialogError(campo: string);
+    procedure QCatAfterPost(DataSet: TDataSet);
+    procedure QCatBeforePost(DataSet: TDataSet);
+    procedure QFpagoAfterPost(DataSet: TDataSet);
+    procedure QFpagoBeforePost(DataSet: TDataSet);
+    procedure QImportesAfterPost(DataSet: TDataSet);
+    procedure QImportesBeforePost(DataSet: TDataSet);
+    procedure QOrigenesPagoAfterPost(DataSet: TDataSet);
+    procedure QOrigenesPagoBeforePost(DataSet: TDataSet);
+    procedure QserviciosAfterPost(DataSet: TDataSet);
+    procedure QserviciosBeforePost(DataSet: TDataSet);
+
+
+
+  private
+    { private declarations }
+  public
+    { public declarations }
+    flag_imp:string;
+  end;
+
+var
+  Cargos: TCargos;
+
+implementation
+
+
+
+{$R *.lfm}
+
+{ TCargos }
+
+procedure TCargos.FormShow(Sender: TObject);
+begin
+      g_cat();
+      g_org();
+      g_concept();
+      g_servicios();
+      g_imp();
+      TabVia.TabVisible:=true;
+end;
+
+procedure Tcargos.dbnavDialogError(campo: string);
+begin
+      showmessage('Falta completar los datos del campo [' + campo + ']' );
+end;
+
+
+
+
+
+//  *********** IMPORTES **********
+
+procedure TCargos.g_imp();
+var
+  i: Integer;
+begin
+     QImportes.Close;
+     QImportes.sql.Clear;
+     QImportes.sql.add('select * from desc_importes');
+     QImportes.open;
+          for i:= 1 to QServicios.RecordCount do
+     begin
+          GridImportes.Columns[1].picklist.Add(QServicios.fieldbyname('descripcion').AsString );
+          QServicios.next;
+     end;
+
+end;
+
+procedure TCargos.QImportesAfterPost(DataSet: TDataSet);
+begin
+    DBNavigatorImp.BtnClick(nbRefresh);
+end;
+
+procedure TCargos.QImportesBeforePost(DataSet: TDataSet);
+begin
+     IF length (trim(QImportes.FieldByName('descripcion').asstring))=0  then
+        begin
+             dbnavDialogError('DESCRIPCION');
+             QImportes.Cancel;
+        end;
+       IF length(trim(QImportes.FieldByName('importe').asstring))=0 then
+       begin
+            dbnavDialogError('IMPORTE');
+            QImportes.Cancel;
+       end;
+end;
+//**********************************************************************
+//**********************************************************************
+
+
+
+
+//  *********** ORIGENES DE PAGO **********
+procedure TCargos.g_concept;
+var
+  i:integer;
+begin
+     QOrigenesPago.close;
+     QOrigenesPago.sql.Clear;
+     QOrigenesPago.sql.add('select * from desc_origenes');
+     QOrigenesPago.open;
+     QFpago.First;
+          for i:= 1 to QFpago.RecordCount do
+     begin
+          GridOrigenesPago.Columns[3].picklist.Add(QFpago.fieldbyname('descripcion').AsString );
+          QFpago.next;
+     end;
+end;
+
+procedure TCargos.GridOrigenesPagoKeyPress(Sender: TObject; var Key: char);
+begin
+   Key := UpCase(Key);
+end;
+
+procedure TCargos.QOrigenesPagoBeforePost(DataSet: TDataSet);
+begin
+    IF length (trim(QOrigenesPago.FieldByName('DESCRIPCION').asstring))=0  then
+     begin
+          dbnavDialogError('DESCRIPCION');
+          QOrigenesPago.Cancel;
+     end;
+     IF length (trim(QOrigenesPago.FieldByName('concepto').asstring))=0  then
+     begin
+          dbnavDialogError('CONCEPTO');
+          QOrigenesPago.Cancel;
+     end;
+    IF length(trim(QOrigenesPago.FieldByName('fpago').asstring))=0 then
+    begin
+         dbnavDialogError('FORMA DE PAGO');
+         QOrigenesPago.Cancel;
+    end;
+end;
+
+procedure TCargos.QOrigenesPagoAfterPost(DataSet: TDataSet);
+begin
+     DBNavigatorOrigenes.BtnClick(nbRefresh);;
+end;
+//**********************************************************************
+//**********************************************************************
+
+
+
+
+// ******** FORMA DE PAGOS ************
+procedure TCargos.g_org;
+begin
+     QFpago.Close;
+     QFpago.sql.Clear;
+     QFpago.sql.add('select * from desc_fpago order by descripcion');
+     QFpago.open;
+
+end;
+
+procedure TCargos.GridFPagoKeyPress(Sender: TObject; var Key: char);
+begin
+    Key := UpCase(Key);
+end;
+
+procedure TCargos.QFpagoBeforePost(DataSet: TDataSet);
+begin
+     IF length (trim(QFpago.FieldByName('DESCRIPCION').asstring))=0  then
+     begin
+          dbnavDialogError('DESCRIPCION');
+          QFpago.Cancel;
+     end;
+end;
+
+procedure TCargos.QFpagoAfterPost(DataSet: TDataSet);
+begin
+     DBNavigatorFP.BtnClick(nbRefresh);
+end;
+//**********************************************************************
+//**********************************************************************
+
+
+
+
+// ******** SERVICIOS ************
+
+procedure TCargos.g_servicios();
+begin
+     Qservicios.Close;
+     Qservicios.sql.Clear;
+     Qservicios.sql.add('select * from desc_servicios');
+     Qservicios.open;
+
+end;
+
+procedure TCargos.GridServiciosKeyPress(Sender: TObject; var Key: char);
+begin
+   Key := UpCase(Key);
+end;
+
+procedure TCargos.QserviciosBeforePost(DataSet: TDataSet);
+begin
+    IF length (trim(Qservicios.FieldByName('DESCRIPCION').asstring))=0  then
+        begin
+             dbnavDialogError('DESCRIPCION');
+             Qservicios.Cancel;
+        end;
+end;
+
+procedure TCargos.QserviciosAfterPost(DataSet: TDataSet);
+begin
+    DBNavigatorServ.BtnClick(nbRefresh);
+end;
+//**********************************************************************
+//**********************************************************************
+
+
+
+
+
+// ******** CATEGORIAS  ************
+procedure Tcargos.g_cat();
+begin
+     QCat.Close;
+     QCat.sql.Clear;
+     QCat.sql.add('select * from desc_categoria');
+     QCat.open;
+end;
+
+procedure TCargos.GridCategoriaKeyPress(Sender: TObject; var Key: char);
+begin
+   Key := UpCase(Key);
+end;
+
+procedure TCargos.QCatAfterPost(DataSet: TDataSet);
+begin
+     DBNavigatorCat.BtnClick(nbRefresh);
+end;
+
+procedure TCargos.QCatBeforePost(DataSet: TDataSet);
+begin
+     IF length (trim(QCat.FieldByName('DESCRIPCION').asstring))=0  then
+     begin
+          dbnavDialogError('DESCRIPCION');
+          QCat.Cancel;
+     end;
+end;
+
+
+end.
+

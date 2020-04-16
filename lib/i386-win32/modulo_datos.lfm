@@ -1,0 +1,101 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 480
+  HorizontalOffset = 423
+  VerticalOffset = 226
+  Width = 813
+  object DS_usuarios: TDataSource
+    DataSet = Qusuarios
+    left = 136
+    top = 72
+  end
+  object Qusuarios: TZQuery
+    Connection = conector_socios
+    Params = <>
+    left = 40
+    top = 72
+  end
+  object DS_Buscar: TDataSource
+    DataSet = QBuscar
+    left = 136
+    top = 152
+  end
+  object QBuscar: TZQuery
+    Params = <>
+    left = 37
+    top = 144
+  end
+  object QSets: TZQuery
+    Params = <>
+    left = 136
+    top = 8
+  end
+  object Qparticipantes: TZReadOnlyQuery
+    Params = <>
+    left = 37
+    top = 224
+  end
+  object Qpatrocinados: TZReadOnlyQuery
+    Params = <>
+    left = 37
+    top = 304
+  end
+  object DS_participantes: TDataSource
+    DataSet = Qparticipantes
+    left = 136
+    top = 232
+  end
+  object DS_patrocinados: TDataSource
+    DataSet = Qpatrocinados
+    left = 136
+    top = 304
+  end
+  object QFicha_fam: TZReadOnlyQuery
+    Params = <>
+    left = 32
+    top = 376
+  end
+  object QQQ: TZQuery
+    Params = <>
+    left = 136
+    top = 384
+  end
+  object DS_deleg: TDataSource
+    DataSet = Qdeleg
+    left = 392
+    top = 307
+  end
+  object DS_promotores: TDataSource
+    DataSet = Qpromotores
+    left = 392
+    top = 387
+  end
+  object Qdeleg: TZQuery
+    Connection = conector_socios
+    Params = <>
+    left = 312
+    top = 307
+  end
+  object Qpromotores: TZQuery
+    Connection = conector_socios
+    Params = <>
+    left = 309
+    top = 384
+  end
+  object conector_socios: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = False
+    Properties.Strings = (
+      'AutoEncodeStrings='
+    )
+    Port = 0
+    left = 576
+    top = 75
+  end
+  object QRead: TZReadOnlyQuery
+    Connection = conector_socios
+    Params = <>
+    left = 353
+    top = 55
+  end
+end

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="9"/>
+    <PathDelim Value="\"/>
+    <General>
+      <SessionStorage Value="InProjectDir"/>
+      <MainUnit Value="0"/>
+      <Title Value="Socios"/>
+      <ResourceType Value="res"/>
+      <UseXPManifest Value="True"/>
+      <Icon Value="0"/>
+    </General>
+    <VersionInfo>
+      <StringTable ProductVersion=""/>
+    </VersionInfo>
+    <BuildModes Count="1">
+      <Item1 Name="Default" Default="True"/>
+    </BuildModes>
+    <PublishOptions>
+      <Version Value="2"/>
+    </PublishOptions>
+    <RunParams>
+      <local>
+        <FormatVersion Value="1"/>
+      </local>
+    </RunParams>
+    <RequiredPackages Count="4">
+      <Item1>
+        <PackageName Value="lz_datetimectrls"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="pl_zeosdbo"/>
+      </Item2>
+      <Item3>
+        <PackageName Value="FCL"/>
+      </Item3>
+      <Item4>
+        <PackageName Value="LCL"/>
+      </Item4>
+    </RequiredPackages>
+    <Units Count="17">
+      <Unit0>
+        <Filename Value="Socios.lpr"/>
+        <IsPartOfProject Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="main.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="usuarios\abm_usuario.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form3"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ABM_usuario"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="usuarios\cambiar_pass.pas"/>
+        <IsPartOfProject Value="True"/>
+        <HasResources Value="True"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="usuarios\login.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FAutenticar"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Login"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="usuarios\usuarios.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form2"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Usuarios"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="utiles\control_abm.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="utiles\cryt.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="utiles\sets.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Sets"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="afiliaciones\tablas\deleg.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FDelegaciones"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="afiliaciones\tablas\promotores.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FPromotores"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="afiliaciones\tablas\cargos_afiliados.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Cargos"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Cargos_afiliados"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="datos\modulo_datos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DataModule1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="Modulo_datos"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="afiliaciones\ficha_familiar.pas"/>
+        <IsPartOfProject Value="True"/>
+        <HasResources Value="True"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="afiliaciones\loc_inaes.pas"/>
+        <IsPartOfProject Value="True"/>
+        <HasResources Value="True"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="afiliaciones\registro.pas"/>
+        <IsPartOfProject Value="True"/>
+        <HasResources Value="True"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="afiliaciones\titular.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="titular"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit16>
+    </Units>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="11"/>
+    <PathDelim Value="\"/>
+    <Target>
+      <Filename Value="Socios"/>
+    </Target>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir)"/>
+      <OtherUnitFiles Value="usuarios;utiles;afiliaciones\tablas;datos;afiliaciones"/>
+      <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
+    </SearchPaths>
+    <Linking>
+      <Options>
+        <Win32>
+          <GraphicApplication Value="True"/>
+        </Win32>
+      </Options>
+    </Linking>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions Count="3">
+      <Item1>
+        <Name Value="EAbort"/>
+      </Item1>
+      <Item2>
+        <Name Value="ECodetoolError"/>
+      </Item2>
+      <Item3>
+        <Name Value="EFOpenError"/>
+      </Item3>
+    </Exceptions>
+  </Debugging>
+</CONFIG>

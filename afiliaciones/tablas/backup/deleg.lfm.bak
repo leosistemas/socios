@@ -1,0 +1,68 @@
+object FDelegaciones: TFDelegaciones
+  Left = 85
+  Height = 591
+  Top = 85
+  Width = 713
+  Caption = 'Delegaciones'
+  ClientHeight = 591
+  ClientWidth = 713
+  OnShow = FormShow
+  LCLVersion = '5.7'
+  object Shape1: TShape
+    Left = 16
+    Height = 560
+    Top = 16
+    Width = 666
+    Brush.Color = clGradientActiveCaption
+  end
+  object Label1: TLabel
+    Left = 240
+    Height = 37
+    Top = 32
+    Width = 196
+    Caption = 'DELEGACIONES'
+    Font.Height = -27
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object DBGrid1: TDBGrid
+    Left = 74
+    Height = 433
+    Top = 87
+    Width = 542
+    Color = clWindow
+    Columns = <    
+      item
+        ReadOnly = True
+        Title.Caption = 'CODIGO'
+        FieldName = 'CODIGO'
+      end    
+      item
+        Title.Caption = 'DELEGACION'
+        Width = 300
+        FieldName = 'DELEGACION'
+      end>
+    DataSource = DataModule1.DS_deleg
+    TabOrder = 0
+    OnKeyPress = DBGrid1KeyPress
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 375
+    Height = 25
+    Top = 536
+    Width = 241
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 25
+    ClientWidth = 241
+    DataSource = DataModule1.DS_deleg
+    Options = []
+    TabOrder = 1
+  end
+end
