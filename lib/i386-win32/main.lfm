@@ -3188,21 +3188,25 @@ object Form1: TForm1
     end
     object MenuItem3: TMenuItem
       Caption = 'Configuraciones'
-      object MenuItem4: TMenuItem
+      object origenes: TMenuItem
         Caption = 'Orígenes de descuentos'
-        OnClick = MenuItem4Click
+        OnClick = origenesClick
       end
-      object MenuItem5: TMenuItem
+      object delegaciones: TMenuItem
         Caption = 'Delegaciones'
-        OnClick = MenuItem5Click
+        OnClick = delegacionesClick
       end
-      object MenuItem6: TMenuItem
+      object promot: TMenuItem
         Caption = 'Promotores'
-        OnClick = MenuItem6Click
+        OnClick = promotClick
       end
-      object MenuItem2: TMenuItem
+      object urs: TMenuItem
         Caption = 'Usuarios'
-        OnClick = MenuItem2Click
+        OnClick = ursClick
+      end
+      object Fuerzas: TMenuItem
+        Caption = 'Fuerzas'
+        OnClick = FuerzasClick
       end
     end
   end

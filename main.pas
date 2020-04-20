@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Menus,
-  ExtCtrls, Login,cargos_afiliados,modulo_datos,deleg,promotores,Usuarios,sets,titular;
+  ExtCtrls, Login,cargos_afiliados,modulo_datos,deleg,promotores,Usuarios,sets,titular,fuerza;
 
 type
 
@@ -17,19 +17,21 @@ type
     Image2: TImage;
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
-    MenuItem2: TMenuItem;
+    urs: TMenuItem;
     MenuItem3: TMenuItem;
-    MenuItem4: TMenuItem;
-    MenuItem5: TMenuItem;
-    MenuItem6: TMenuItem;
+    origenes: TMenuItem;
+    delegaciones: TMenuItem;
+    promot: TMenuItem;
     MenuItem7: TMenuItem;
+    Fuerzas: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure MenuItem1Click(Sender: TObject);
-    procedure MenuItem2Click(Sender: TObject);
-    procedure MenuItem4Click(Sender: TObject);
-    procedure MenuItem5Click(Sender: TObject);
-    procedure MenuItem6Click(Sender: TObject);
+    procedure ursClick(Sender: TObject);
+    procedure origenesClick(Sender: TObject);
+    procedure delegacionesClick(Sender: TObject);
+    procedure promotClick(Sender: TObject);
+    procedure FuerzasClick(Sender: TObject);
   private
     { private declarations }
   public
@@ -67,33 +69,40 @@ begin
    FTitular.Destroy;
 end;
 
-procedure TForm1.MenuItem2Click(Sender: TObject);
+procedure TForm1.ursClick(Sender: TObject);
 begin
-     Application.CreateForm(TForm2,Users);
+   Application.CreateForm(TForm2,Users);
    Users.ShowModal;
-
    Users.Destroy;
 end;
 
-procedure TForm1.MenuItem4Click(Sender: TObject);
+procedure TForm1.origenesClick(Sender: TObject);
 begin
+   datamodule1.conector_socios.ExecuteDirect('EXECUTE PROCEDURE P_cargos');
    Application.CreateForm(TCargos,Cargos);
    Cargos.ShowModal;
    Cargos.Destroy;
 end;
 
-procedure TForm1.MenuItem5Click(Sender: TObject);
+procedure TForm1.delegacionesClick(Sender: TObject);
 begin
   Application.CreateForm(TFDelegaciones,FDelegaciones);
    FDelegaciones.ShowModal;
    FDelegaciones.Destroy;
 end;
 
-procedure TForm1.MenuItem6Click(Sender: TObject);
+procedure TForm1.promotClick(Sender: TObject);
 begin
    Application.CreateForm(TFPromotores,FPromotores);
       FPromotores.ShowModal;
       FPromotores.Destroy;
+end;
+
+procedure TForm1.FuerzasClick(Sender: TObject);
+begin
+      Application.CreateForm(TFFuerzas,FFuerzas);
+           FFuerzas.ShowModal;
+           FFuerzas.Destroy;
 end;
 
 end.

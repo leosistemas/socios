@@ -6,4 +6,23 @@ git config --global user.email "email.com"
 git config --global user.name "minombre"
 git commit -m "comentario"
 git checkout "comandos_git.txt"
-eh
+
+
+crear gitignore
+git add .gitignore
+
+git branch nueva_version  ----crea la rama
+git checkout nueva_version --- entro en la rama 
+ hago cambios dentro de la verison
+ 
+ git add .
+ git commit
+ 
+ git checkout master
+ 
+ 
+git remote add origin https://github.com/leosistemas/socios.git
+git push -u origin master
+
+git clone https://github.com/leosistemas/socios.git
+eh?sd

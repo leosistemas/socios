@@ -25,18 +25,21 @@
         <FormatVersion Value="1"/>
       </local>
     </RunParams>
-    <RequiredPackages Count="3">
+    <RequiredPackages Count="4">
       <Item1>
-        <PackageName Value="FCL"/>
+        <PackageName Value="lz_datetimectrls"/>
       </Item1>
       <Item2>
         <PackageName Value="pl_zeosdbo"/>
       </Item2>
       <Item3>
-        <PackageName Value="LCL"/>
+        <PackageName Value="FCL"/>
       </Item3>
+      <Item4>
+        <PackageName Value="LCL"/>
+      </Item4>
     </RequiredPackages>
-    <Units Count="13">
+    <Units Count="18">
       <Unit0>
         <Filename Value="Socios.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -51,7 +54,10 @@
       <Unit2>
         <Filename Value="usuarios\abm_usuario.pas"/>
         <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form3"/>
         <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ABM_usuario"/>
       </Unit2>
       <Unit3>
         <Filename Value="usuarios\cambiar_pass.pas"/>
@@ -69,7 +75,10 @@
       <Unit5>
         <Filename Value="usuarios\usuarios.pas"/>
         <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form2"/>
         <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Usuarios"/>
       </Unit5>
       <Unit6>
         <Filename Value="utiles\control_abm.pas"/>
@@ -114,6 +123,33 @@
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="Modulo_datos"/>
       </Unit12>
+      <Unit13>
+        <Filename Value="afiliaciones\ficha_familiar.pas"/>
+        <IsPartOfProject Value="True"/>
+        <HasResources Value="True"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="afiliaciones\loc_inaes.pas"/>
+        <IsPartOfProject Value="True"/>
+        <HasResources Value="True"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="afiliaciones\registro.pas"/>
+        <IsPartOfProject Value="True"/>
+        <HasResources Value="True"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="afiliaciones\titular.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="titular"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="afiliaciones\tablas\fuerza.pas"/>
+        <IsPartOfProject Value="True"/>
+        <HasResources Value="True"/>
+      </Unit17>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -124,7 +160,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="usuarios;utiles;afiliaciones\tablas;datos"/>
+      <OtherUnitFiles Value="usuarios;utiles;afiliaciones\tablas;datos;afiliaciones"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>
