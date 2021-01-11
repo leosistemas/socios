@@ -148,7 +148,9 @@
       <Unit17>
         <Filename Value="afiliaciones\tablas\fuerza.pas"/>
         <IsPartOfProject Value="True"/>
+        <ComponentName Value="FFuerzas"/>
         <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
       </Unit17>
     </Units>
   </ProjectOptions>

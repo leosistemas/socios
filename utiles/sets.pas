@@ -7,6 +7,11 @@ interface
 uses
   Classes, SysUtils,dialogs;
 
+Type Tcambios = Object  // almacena el valor de un campo antes de su modificacion
+    indiceOldValue:string;  // indica valor del campo clavee del registro
+    cadenaOldValue:string;  // indica el valor antes de la modificacion;
+end;
+
 Type Tconfigs = Object
     pathSql:string;
     color_consulta:string;
@@ -127,6 +132,7 @@ Type TCamposFamiliar=Object
 end;
 
 Var
+cambios: Tcambios;
 Set_flags : TDatos;
 US_fields : TCampos;
 S_sql : TCadena;

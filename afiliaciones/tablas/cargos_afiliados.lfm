@@ -6,20 +6,22 @@ object Cargos: TCargos
   Caption = 'Afiliados-Categorías-Importes-Origenes de descuento'
   ClientHeight = 542
   ClientWidth = 1220
+  OnClose = FormClose
+  OnCreate = FormCreate
   OnShow = FormShow
   LCLVersion = '5.7'
   object PageTablaAfiliaciones: TPageControl
     Left = 8
     Height = 512
     Top = 16
-    Width = 1184
-    ActivePage = TabCat
-    TabIndex = 0
+    Width = 1212
+    ActivePage = TabVia
+    TabIndex = 1
     TabOrder = 0
     object TabCat: TTabSheet
       Caption = 'Categorías   --> Formas de Pago    --> Origen de Pagos'
       ClientHeight = 484
-      ClientWidth = 1176
+      ClientWidth = 1204
       Font.Color = 10485760
       Font.Style = [fsBold]
       ParentFont = False
@@ -34,7 +36,7 @@ object Cargos: TCargos
         Left = 432
         Height = 450
         Top = 15
-        Width = 704
+        Width = 640
         Brush.Color = clGradientActiveCaption
       end
       object Shape1: TShape
@@ -53,6 +55,7 @@ object Cargos: TCargos
         Columns = <        
           item
             ButtonStyle = cbsButton
+            ReadOnly = True
             Title.Caption = 'CODIGO'
             Width = 55
             FieldName = 'CODIGO'
@@ -96,6 +99,7 @@ object Cargos: TCargos
         DataSource = DS_Categorias
         Options = []
         TabOrder = 3
+        VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbEdit, nbPost, nbCancel, nbRefresh]
       end
       object Label5: TLabel
         Left = 576
@@ -109,18 +113,21 @@ object Cargos: TCargos
         ParentFont = False
       end
       object GridOrigenesPago: TDBGrid
-        Left = 464
+        Left = 448
         Height = 368
         Top = 56
-        Width = 632
+        Width = 584
         Color = clWindow
         Columns = <        
           item
             ButtonStyle = cbsButton
+            ReadOnly = True
             Title.Caption = 'CODIGO'
             FieldName = 'CODIGO'
           end        
           item
+            MaxSize = 250
+            Title.Alignment = taCenter
             Title.Caption = 'DESCRIPCION'
             Width = 250
             FieldName = 'DESCRIPCION'
@@ -158,6 +165,7 @@ object Cargos: TCargos
         DataSource = DS_OrigenesPago
         Options = []
         TabOrder = 5
+        VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbEdit, nbPost, nbCancel, nbRefresh]
       end
       object Label2: TLabel
         Left = 120
@@ -187,6 +195,7 @@ object Cargos: TCargos
         DataSource = DS_Fpago
         Options = []
         TabOrder = 1
+        VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbEdit, nbPost, nbCancel, nbRefresh]
       end
       object GridFPago: TDBGrid
         Left = 64
@@ -197,6 +206,7 @@ object Cargos: TCargos
         Columns = <        
           item
             ButtonStyle = cbsButton
+            ReadOnly = True
             Title.Caption = 'CODIGO'
             Width = 54
             FieldName = 'CODIGO'
@@ -217,49 +227,53 @@ object Cargos: TCargos
     object TabVia: TTabSheet
       Caption = 'Servicios  ---> Importes'
       ClientHeight = 484
-      ClientWidth = 1176
+      ClientWidth = 1204
       Font.Color = 8404992
       Font.Style = [fsBold]
       ParentFont = False
       object Shape4: TShape
-        Left = 504
+        Left = 432
         Height = 453
         Top = 15
-        Width = 608
+        Width = 760
         Brush.Color = clInfoBk
       end
       object Shape3: TShape
         Left = 6
         Height = 453
         Top = 15
-        Width = 466
+        Width = 402
         Brush.Color = clInfoBk
       end
       object GridServicios: TDBGrid
-        Left = 15
+        Left = 24
         Height = 344
         Top = 80
-        Width = 425
+        Width = 361
         Color = clWindow
         Columns = <        
           item
             ButtonStyle = cbsButton
+            ReadOnly = True
             Title.Caption = 'CODIGO'
+            Width = 55
             FieldName = 'CODIGO'
           end        
           item
+            MaxSize = 250
             Title.Caption = 'DESCRIPCION'
-            Width = 300
+            Width = 230
             FieldName = 'DESCRIPCION'
           end>
         DataSource = DServicios
         TabOrder = 0
         TitleFont.Color = 8404992
         TitleFont.Style = [fsBold]
+        OnCellClick = GridServiciosCellClick
         OnKeyPress = GridServiciosKeyPress
       end
       object DBNavigatorServ: TDBNavigator
-        Left = 200
+        Left = 144
         Height = 25
         Top = 432
         Width = 241
@@ -275,6 +289,7 @@ object Cargos: TCargos
         DataSource = DServicios
         Options = []
         TabOrder = 1
+        VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbEdit, nbPost, nbCancel, nbRefresh]
       end
       object Label3: TLabel
         Left = 152
@@ -299,23 +314,34 @@ object Cargos: TCargos
         ParentFont = False
       end
       object GridImportes: TDBGrid
-        Left = 528
+        Left = 456
         Height = 344
         Top = 80
-        Width = 543
+        Width = 720
         Color = clWindow
         Columns = <        
           item
             ButtonStyle = cbsButton
+            ReadOnly = True
             Title.Caption = 'CODIGO'
+            Width = 55
             FieldName = 'CODIGO'
           end        
           item
-            Title.Caption = 'DESCRIPCION'
-            Width = 250
+            Title.Alignment = taCenter
+            Title.Caption = 'DESCRIPCION DE SERVICIO'
+            Width = 200
+            FieldName = 'SERVICIO'
+          end        
+          item
+            MaxSize = 260
+            Title.Alignment = taCenter
+            Title.Caption = 'DESCRIPCION DE IMPORTE'
+            Width = 260
             FieldName = 'DESCRIPCION'
           end        
           item
+            Title.Alignment = taCenter
             Title.Caption = 'IMPORTE'
             Width = 150
             FieldName = 'IMPORTE'
@@ -328,7 +354,7 @@ object Cargos: TCargos
         OnKeyPress = GridOrigenesPagoKeyPress
       end
       object DBNavigatorImp: TDBNavigator
-        Left = 830
+        Left = 935
         Height = 25
         Top = 432
         Width = 241
@@ -344,6 +370,7 @@ object Cargos: TCargos
         DataSource = DS_Importes
         Options = []
         TabOrder = 3
+        VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbEdit, nbPost, nbCancel, nbRefresh]
       end
     end
     object TabSheet1: TTabSheet

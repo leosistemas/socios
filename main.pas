@@ -49,16 +49,17 @@ implementation
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-   Application.CreateForm(TFAutenticar,FAutenticar);
-   FAutenticar.ShowModal;
-   FAutenticar.Destroy;
+ //  Application.CreateForm(TFAutenticar,FAutenticar);
+ //  FAutenticar.ShowModal;
+  // FAutenticar.Destroy;
+
 end;
 
 procedure TForm1.FormShow(Sender: TObject);
 begin
 
    DataModule1.Set_conector_socios();
-   DataModule1.conector_socios.Connect;
+   //DataModule1.conector_socios.Connect;
    Form1.Caption:='Gestión de Socios de la Mutual de Suboficiales de Policía Federal Argentina.   -----    USUARIO: ' + sets.Set_flags.usuario;
 end;
 
@@ -78,7 +79,7 @@ end;
 
 procedure TForm1.origenesClick(Sender: TObject);
 begin
-   datamodule1.conector_socios.ExecuteDirect('EXECUTE PROCEDURE P_cargos');
+   //datamodule1.conector_socios.ExecuteDirect('EXECUTE PROCEDURE P_cargos');
    Application.CreateForm(TCargos,Cargos);
    Cargos.ShowModal;
    Cargos.Destroy;
