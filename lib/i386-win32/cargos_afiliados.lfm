@@ -256,12 +256,13 @@ object Cargos: TCargos
             ButtonStyle = cbsButton
             ReadOnly = True
             Title.Caption = 'CODIGO'
+            Width = 55
             FieldName = 'CODIGO'
           end        
           item
             MaxSize = 250
             Title.Caption = 'DESCRIPCION'
-            Width = 250
+            Width = 230
             FieldName = 'DESCRIPCION'
           end>
         DataSource = DServicios

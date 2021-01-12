@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, ZDataset, Forms, Controls, Graphics, Dialogs,
-  StdCtrls, DBGrids, ComCtrls, ExtCtrls, Grids, DbCtrls, LazHelpHTML,
+  StdCtrls, DBGrids, ComCtrls, ExtCtrls, Grids, DbCtrls, LazHelpHTML, types,
   Modulo_datos, db, ZAbstractDataset,Sets;
 
 type
@@ -257,9 +257,14 @@ begin
 
    IF trim(Qservicios.FieldByName('DESCRIPCION').asstring) <> trim(cambios.cadenaOldValue)  then
        begin
-            showmessage ('se modificó: ' + trim(cambios.cadenaOldValue) + ' por ' + trim(Qservicios.FieldByName('DESCRIPCION').asstring));
+            if (length(trim(cambios.cadenaOldValue))>0) and (Sets.dialogos.YesNo ('Confirme la modificación','Está seguro que desea modificar el Servicio: ' +
+                     trim(cambios.cadenaOldValue) + ''#13+''#13 + 'Por: ' + trim(Qservicios.FieldByName('DESCRIPCION').asstring)+ ''#13+''#13) = false)   then
+                                                  BEGIN
+                                                    Qservicios.Cancel;
+                                                    exit();
+                                                  end;
+                 end;
 
-       end;
 end;
 
 procedure TCargos.QserviciosAfterPost(DataSet: TDataSet);

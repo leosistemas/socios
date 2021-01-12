@@ -5,7 +5,16 @@ unit Sets;
 interface
 
 uses
-  Classes, SysUtils,dialogs;
+
+  Classes, SysUtils, Forms, Controls,  Dialogs  ;
+
+Type Tcambios = Object  // almacena el valor de un campo antes de su modificacion
+    indiceOldValue:string;  // indica valor del campo clavee del registro
+    cadenaOldValue:string;  // indica el valor antes de la modificacion;
+end;
+type TDialogos=Object
+    function YesNo(titulo , mensage:string):boolean;
+end;
 
 Type Tconfigs = Object
     pathSql:string;
@@ -63,7 +72,6 @@ Type TCamposTitular=Object
     FBaja: string;
     FIngreso: string;
     FEgreso: string;
-    Patrocinador: string;
     Promotor: string;
     Telefono: string;
     jerarquia: string;
@@ -128,12 +136,14 @@ Type TCamposFamiliar=Object
 end;
 
 Var
+cambios: Tcambios;
 Set_flags : TDatos;
 US_fields : TCampos;
 S_sql : TCadena;
 f_tit:  TCamposTitular  ;
 f_fam:  TCamposFamiliar  ;
 conf:Tconfigs;
+dialogos:TDialogos;
 
 implementation
 procedure TConfigs.colores();
@@ -181,6 +191,14 @@ begin
           if (copy(conf.color_abm,a,1)=';') and (b=1) then b:=2;
          end;
          end;
+end;
+
+function YesNo(titulo, mensage:string):boolean;
+begin
+ if  messagedlg(titulo,mensage, mtConfirmation,[mbYes, mbNo],0) = mrYes then
+ begin
+   result := true;
+ end;
 end;
 
 end.
