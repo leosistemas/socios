@@ -15,8 +15,8 @@ object Cargos: TCargos
     Height = 512
     Top = 16
     Width = 1212
-    ActivePage = TabVia
-    TabIndex = 1
+    ActivePage = TabSheet1
+    TabIndex = 2
     TabOrder = 0
     object TabCat: TTabSheet
       Caption = 'Categorías   --> Formas de Pago    --> Origen de Pagos'
@@ -36,7 +36,7 @@ object Cargos: TCargos
         Left = 432
         Height = 450
         Top = 15
-        Width = 640
+        Width = 688
         Brush.Color = clGradientActiveCaption
       end
       object Shape1: TShape
@@ -116,7 +116,7 @@ object Cargos: TCargos
         Left = 448
         Height = 368
         Top = 56
-        Width = 584
+        Width = 650
         Color = clWindow
         Columns = <        
           item
@@ -141,6 +141,11 @@ object Cargos: TCargos
             Title.Caption = 'FPAGO'
             Width = 150
             FieldName = 'FPAGO'
+          end        
+          item
+            Title.Caption = 'CODIGO_FPAGO'
+            Visible = False
+            FieldName = 'CODIGO_FPAGO'
           end>
         DataSource = DS_OrigenesPago
         TabOrder = 4
@@ -221,6 +226,8 @@ object Cargos: TCargos
         TabOrder = 0
         TitleFont.Color = 10485760
         TitleFont.Style = [fsBold]
+        OnCellClick = GridFPagoCellClick
+        OnEnter = GridFPagoEnter
         OnKeyPress = GridFPagoKeyPress
       end
     end
@@ -269,7 +276,7 @@ object Cargos: TCargos
         TabOrder = 0
         TitleFont.Color = 8404992
         TitleFont.Style = [fsBold]
-        OnCellClick = GridServiciosCellClick
+        OnEnter = GridServiciosEnter
         OnKeyPress = GridServiciosKeyPress
       end
       object DBNavigatorServ: TDBNavigator
@@ -346,6 +353,11 @@ object Cargos: TCargos
             Width = 150
             FieldName = 'IMPORTE'
             DisplayFormat = '$ #00,0.00'
+          end        
+          item
+            Title.Caption = 'CODIGO_SERVICIO'
+            Visible = False
+            FieldName = 'CODIGO_SERVICIO'
           end>
         DataSource = DS_Importes
         TabOrder = 2
@@ -376,13 +388,22 @@ object Cargos: TCargos
     object TabSheet1: TTabSheet
       Caption = 'Manual de Configuración y Uso'
       ClientHeight = 484
-      ClientWidth = 1176
+      ClientWidth = 1204
       object DBMemo1: TDBMemo
         Left = 80
         Height = 363
         Top = 69
         Width = 864
         TabOrder = 0
+      end
+      object Button1: TButton
+        Left = 1030
+        Height = 25
+        Top = 108
+        Width = 75
+        Caption = 'Button1'
+        OnClick = Button1Click
+        TabOrder = 1
       end
     end
   end
@@ -453,7 +474,8 @@ object Cargos: TCargos
     left = 1152
     top = 408
   end
-  object HTMLBrowserHelpViewer1: THTMLBrowserHelpViewer
+  object helpvewr: THTMLBrowserHelpViewer
+    BrowserPath = 'C:\Users\adminmutual\Desktop\socios\help\config_cargos.html'
     BrowserParams = '%s'
     AutoRegister = False
     left = 311
