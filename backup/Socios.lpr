@@ -7,7 +7,7 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, pl_zeosdbo, main, unit1 , Modulo_datos ,cargos_afiliados
+  Forms,  pl_zeosdbo, lz_datetimectrls, main, unit1 , Modulo_datos
   { you can add units after this };
 
 {$R *.res}
@@ -17,6 +17,7 @@ begin
   Application.Initialize;
 
   Application.CreateForm(TDataModule1, DataModule1);
+
   Application.CreateForm(TForm1, Form1);
   Application.Run;
 end.

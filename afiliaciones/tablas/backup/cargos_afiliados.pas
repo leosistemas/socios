@@ -5,14 +5,16 @@ unit Cargos_afiliados;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, ZDataset, Forms, Controls, Graphics, Dialogs,
-  StdCtrls, DBGrids, ComCtrls, ExtCtrls, Grids, DbCtrls, LazHelpHTML,  Modulo_datos, db, Sets;
+  Classes, SysUtils, FileUtil, HtmlView, ZDataset, Forms, Controls, Graphics,
+  Dialogs, StdCtrls, DBGrids, ComCtrls, ExtCtrls, Grids, DbCtrls, LazHelpHTML,
+  Modulo_datos, db, Sets;
 
 type
 
   { TCargos }
 
   TCargos = class(TForm)
+    Button1: TButton;
     DServicios: TDataSource;
     DBNavigatorImp: TDBNavigator;
     DS_Categorias: TDataSource;
@@ -21,7 +23,6 @@ type
     DS_OrigenesPago: TDataSource;
     GridOrigenesPago: TDBGrid;
     GridCategoria: TDBGrid;
-    DBMemo1: TDBMemo;
     DBNavigatorServ: TDBNavigator;
     DBNavigatorCat: TDBNavigator;
     DBNavigatorOrigenes: TDBNavigator;
@@ -29,7 +30,7 @@ type
     GridImportes: TDBGrid;
     GridServicios: TDBGrid;
     GridFPago: TDBGrid;
-    helpvewr: THTMLBrowserHelpViewer;
+    html: THtmlViewer;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
@@ -50,6 +51,8 @@ type
     TabVia: TTabSheet;
     Qservicios: TZQuery;
 
+
+    procedure Button1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure GridFPagoCellClick(Column: TColumn);
@@ -124,6 +127,13 @@ procedure TCargos.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   DataModule1.conector_socios.Disconnect;
 end;
+
+procedure TCargos.Button1Click(Sender: TObject);
+begin
+  html.Load('C:\Users\adminmutual\Desktop\socios\help\config_cargos.html');
+  html
+end;
+
 
 
 //****************************************

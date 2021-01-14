@@ -1,4 +1,132 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        h1{color:brown ;}
+        td{vertical-align: middle}
+    </style>
+</head>
+<body>
 <h1> Configuración de Aplicación para el proceso de creación de cuentas corrientes por servicios y cuota social</h1>
-<a>empezando<a>
+<h2>Controles de Edición de los datos de lista</h2>
+<p>
+             Las solapas de configuración poseen marcos contenedores con distintas listas desde las cuales se pueden conocer los parametros para configurar los datos para la generación de la cuenta corrientes de las personas asociadas. <br>
+             Cada listas posee en la parte inferior un barra de comandos para la manipulación de los datos.<br>
+             Los primeros cuatro controles son flechas que indican el desplazamiento que se puede realizar dentro de la lista. <br>
+             Los siguientes controles se encargan de la funciones de edición de datos
+</p>
+
+ <table >
+     <tr>
+         <td><img src="img/CATEGORIA.png" alt="controles" width="400" height="300"></td>
+         <td>
+             <table border="1">
+                 <tr>
+                     <td><img src="img/agregar.png" alt="controles" width="30" height="30"></td>
+                     <td>Se utiliza para agregar valores en las lista. Todas las listas poseen una columna que contiene el código del elemento de la lista, el código se genera aumaticamente no es necesario ingresarlo. Hay que señalar que este código debe permanecer inalterable por lo cual el sistema no permitirá modificarlo en ningun momento.</td>
+                 </tr>
+                 <tr>
+                     <td><img src="img/editar.png" alt="controles" width="30" height="30"></td>
+                     <td>Se utiliza para modificar un valor de las listas, la modificación se puede realizar, además, seleccionando el elemento de lista que se desea modificar y erscribiendo el nuevo valor.</td>
+                 </tr>
+                 <tr>
+                    <td><img src="img/guardar.png" alt="controles" width="30" height="30"></td>
+                     <td>Luego de realizar un modificación se debe guardar el cambio para que sea efectiva dicha modificación. La modificación de algunos elementos generan cambios en otras listas, este comportamiento se explica en detalle en la sección de Relaciones entre las listas de configuración.</td>
+                 </tr>
+                 <tr>
+                     <td><img src="img/deshacer.png" alt="controles" width="30" height="30"></td>
+                     <td>Al presionar este control se puede revertir una modificaciòn que no haya sido guardada.</td>
+                 </tr>
+            <tr>
+                     <td><img src="img/refresh.png" alt="controles" width="30" height="30"></td>
+                     <td>Se utiliza para tener una vista actualizada de los elementos de la lista.</td>
+                 </tr>
+              </table>
+            
+         </td>
+         
+     </tr>
+     
+ </table>
+ <br>
+   <h2>Las Tablas y sus Relaciones</h2>
+<p>
+            Las tablas se utilizan para crear parámetros que serán utilizados  para generar la cuenta corriente mensual de cada persona asociada. <br>
+            Algunos parámetros se utilizarán durante el proceso de carga de una nueva persona asociada (Ej: categoria, importe de cuota social), otros en cambios se utilizarán al momento de crear la cuenta corriente de un mes dado (Ej: importes de cargos fijos por servicios de salud u ortopedia, codigos de descuento de cada origen de descuento, etc.) <br>
+            A continuación se describe cada una de las tablas contenidas en las dos solapas de configuración y sus correspondientes relaciones entre ellas.
+</p>
+   <h3>Las Tablas de la solapa   &nbsp;&nbsp;&nbsp;&nbsp;[Categorías --> Formas de Pago  --> Origenes de Pagos]</h3>
+   <h3>Tabla Categorías</h3>
+   <table border="1">
+       <tr>
+           <td><img src="img/tbl_categorias.png" alt="controles" width="400" height="200"></td>
+           <td>La tabla Categorías se utiliza para definir las distintas categorías de las personas asociadas según lo establecido en el Estatuto Social vigente. </td>
+       </tr>
+        <tr>
+           <td><img src="img/tbl_fpago.png" alt="controles" width="400" height="200"></td>
+           <td>En la tabla Formas de Pago se definen las distintas formas de pago para los servicios y la cuota social.</td>
+       </tr>
+   </table>
+<table>
+     <tr>
+           <td width="70%"><img src="img/tbl_origenes.png" alt="controles" width="100%" height="200px"></td>
+           <td>La tabla de Origenes de Pago se utiliza para definir las entidades encargadas de realizar las cobranzas de los cargos por cuota social y servicios contraídos por las personas asociadas, esta tabla tiene relación directa con la tabla Formas de Pagos. <br>
+           Como se mencionó anteriormente la columna del código se genera automáticamente, a continuación se describe el contenido de cada columna.
+           
+             </td>
+       </tr>
+</table> 
+<table>
+    <th>DESCRIPCION:</th>
+    <tr><td>Corresponde a la denominación descriptiva de la entidad que genera la cobranza. Esta columna no tiene relación con otras tablas, por que la modificación de esta descripción no genera incovenientes en la generación de la cuenta corriente.
+    </td></tr>
+<th><br>CONCEPTO:</th>
+<tr><td>Corresponde al código de descuento indicado por la entidad que genera la cobranza por el cual se realizará el descuento, para el caso forma de pago por descuento de haberes este código corresponde al que figura en la imputación del descuento en el recibo de sueldo de la persona asociada. La modificación de los datos de concepto puede generar error en la información remitida a las entidades encargadas de realizar la cobranza, este dato se debe modificar solamente en los casos en los cuales sean indicados por la entidad que genera la cobranza.
+</td></tr>
+<th><br>FPAGO:</th>
+<tr><td>Esta columna hace referencia a la forma de pago. La misma se indica mediante una lista desplegable la cual recoge las opciones que están disponibles en la tabla Formas de Pago, no está permitido ingresar este dato de forma manual, solamente se introducen los valores que se muestran en la lista desplegable la cual se activa desde la flecha descendente en el borde derecho de la celda en la cual se está ingresando o modificando un valor dado.
+</td></tr>
+<th><br>TIPO:</th>
+<tr><td>Indica el tipo de solicitud del pago, el cual puede ser por única vez o de manera mensual, osea, la solicitud de pago mensual indica que todos los meses se solicitará el mismo a la entidad que realiza la cobranza, en cambio el tipo permanente se solicita sólo una vez y el mismo se realiza de forma constante y automática hasta que se solicite el cese del mismo. Este tipo de solicitud de descuento está indicado por cada entidad que realiza la cobranza.   
+</td></tr>
+</table>
+<br>
+
+ <h3>Las Tablas de la solapa   &nbsp;&nbsp;&nbsp;&nbsp;[Servicios --> Importes]</h3>
+<table>
+     <tr>
+           <td width="70%"><img src="img/tbl_importes.png" alt="controles" width="100%" height="400px"></td>
+           <td>La tabla de Servicio se utiliza para indicar los servicios de cargos contraídos por una persona asociada <br>
+               La tabla de Importes se utiliza para establecer las distintas categorías de cada servicio, un servicio puede repetirse en varias categorías del mismo pero las categorías son únicas y éstas poseen cada una su correspondiente importe. <br>
+               La tabla importe posee una columna de código que tambièn se genera automáticamente, a continuación se describe el contenido de cada columna.    
+           
+             </td>
+       </tr>
+</table>
+<table>
+    <th>DESCRIPCION DE SERVICIO:</th>
+    <tr><td>
+    <P>Corresponde al tipo de servicio al cual se v
+        
+    </P>
+    </td></tr>
+<th><br>CONCEPTO:</th>
+<tr><td>
+Corresponde a la denominación descriptiva de la entidad que genera la cobranza. Esta columna no tiene relación con otras tablas, por que la modificación de esta descripción no genera incovenientes en la generación de la cuenta corriente.
+
+Corresponde al código de descuento indicado por la entidad que genera la cobranza por el cual se realizará el descuento, para el caso forma de pago por descuento de haberes este código corresponde al que figura en la imputación del descuento en el recibo de sueldo de la persona asociada. La modificación de los datos de concepto puede generar error en la información remitida a las entidades encargadas de realizar la cobranza, este dato se debe modificar solamente en los casos en los cuales sean indicados por la entidad que genera la cobranza.
+</td></tr>
+<th><br>FPAGO:</th>
+<tr><td>Esta columna hace referencia a la forma de pago. La misma se indica mediante una lista desplegable la cual recoge las opciones que están disponibles en la tabla Formas de Pago, no está permitido ingresar este dato de forma manual, solamente se introducen los valores que se muestran en la lista desplegable la cual se activa desde la flecha descendente en el borde derecho de la celda en la cual se está ingresando o modificando un valor dado.
+</td></tr>
+<th><br>TIPO:</th>
+<tr><td>Indica el tipo de solicitud del pago, el cual puede ser por única vez o de manera mensual, osea, la solicitud de pago mensual indica que todos los meses se solicitará el mismo a la entidad que realiza la cobranza, en cambio el tipo permanente se solicita sólo una vez y el mismo se realiza de forma constante y automática hasta que se solicite el cese del mismo. Este tipo de solicitud de descuento está indicado por cada entidad que realiza la cobranza.   
+</td></tr>
+</table>
+
+</body>
+
+
 </html>

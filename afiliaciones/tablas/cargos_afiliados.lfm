@@ -389,17 +389,27 @@ object Cargos: TCargos
       Caption = 'Manual de Configuración y Uso'
       ClientHeight = 484
       ClientWidth = 1204
-      object DBMemo1: TDBMemo
-        Left = 80
-        Height = 363
-        Top = 69
-        Width = 864
+      object html: THtmlViewer
+        Left = 16
+        Height = 433
+        Top = 24
+        Width = 1032
+        BorderStyle = htFocused
+        DefFontName = 'Times New Roman'
+        DefPreFontName = 'Courier New'
+        HistoryMaxCount = 0
+        NoSelect = False
+        PrintMarginBottom = 2
+        PrintMarginLeft = 2
+        PrintMarginRight = 2
+        PrintMarginTop = 2
+        PrintScale = 1
         TabOrder = 0
       end
       object Button1: TButton
-        Left = 1030
+        Left = 1056
         Height = 25
-        Top = 108
+        Top = 32
         Width = 75
         Caption = 'Button1'
         OnClick = Button1Click
@@ -473,12 +483,5 @@ object Cargos: TCargos
     DataSet = QImportes
     left = 1152
     top = 408
-  end
-  object helpvewr: THTMLBrowserHelpViewer
-    BrowserPath = 'C:\Users\adminmutual\Desktop\socios\help\config_cargos.html'
-    BrowserParams = '%s'
-    AutoRegister = False
-    left = 311
-    top = 154
   end
 end

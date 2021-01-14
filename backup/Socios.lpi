@@ -25,19 +25,22 @@
         <FormatVersion Value="1"/>
       </local>
     </RunParams>
-    <RequiredPackages Count="4">
+    <RequiredPackages Count="5">
       <Item1>
-        <PackageName Value="lz_datetimectrls"/>
+        <PackageName Value="pl_HtmlViewer"/>
       </Item1>
       <Item2>
-        <PackageName Value="pl_zeosdbo"/>
+        <PackageName Value="lz_datetimectrls"/>
       </Item2>
       <Item3>
-        <PackageName Value="FCL"/>
+        <PackageName Value="pl_zeosdbo"/>
       </Item3>
       <Item4>
-        <PackageName Value="LCL"/>
+        <PackageName Value="FCL"/>
       </Item4>
+      <Item5>
+        <PackageName Value="LCL"/>
+      </Item5>
     </RequiredPackages>
     <Units Count="18">
       <Unit0>

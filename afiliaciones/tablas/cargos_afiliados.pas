@@ -5,8 +5,9 @@ unit Cargos_afiliados;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, ZDataset, Forms, Controls, Graphics, Dialogs,
-  StdCtrls, DBGrids, ComCtrls, ExtCtrls, Grids, DbCtrls, LazHelpHTML,  Modulo_datos, db, Sets;
+  Classes, SysUtils, FileUtil, HtmlView, ZDataset, Forms, Controls, Graphics,
+  Dialogs, StdCtrls, DBGrids, ComCtrls, ExtCtrls, Grids, DbCtrls, LazHelpHTML,
+  Modulo_datos, db, Sets;
 
 type
 
@@ -22,7 +23,6 @@ type
     DS_OrigenesPago: TDataSource;
     GridOrigenesPago: TDBGrid;
     GridCategoria: TDBGrid;
-    DBMemo1: TDBMemo;
     DBNavigatorServ: TDBNavigator;
     DBNavigatorCat: TDBNavigator;
     DBNavigatorOrigenes: TDBNavigator;
@@ -30,7 +30,7 @@ type
     GridImportes: TDBGrid;
     GridServicios: TDBGrid;
     GridFPago: TDBGrid;
-    helpvewr: THTMLBrowserHelpViewer;
+    html: THtmlViewer;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
@@ -50,6 +50,7 @@ type
     TabSheet1: TTabSheet;
     TabVia: TTabSheet;
     Qservicios: TZQuery;
+
 
     procedure Button1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -129,16 +130,10 @@ end;
 
 procedure TCargos.Button1Click(Sender: TObject);
 begin
-  var
-  v: THTMLBrowserHelpViewer;
-  BrowserPath, BrowserParams: string;
-begin
-  v:=THTMLBrowserHelpViewer.Create(nil);
-  v.FindDefaultBrowser(BrowserPath,BrowserParams);
-  debugln(['Path=',BrowserPath,' Params=',BrowserParams]);
-  v.Free;
+  html.Load('C:\Users\adminmutual\Desktop\socios\help\config_cargos.html');
+
 end;
-end;
+
 
 
 //****************************************
