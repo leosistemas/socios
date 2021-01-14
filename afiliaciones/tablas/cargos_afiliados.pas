@@ -15,6 +15,7 @@ type
 
   TCargos = class(TForm)
     Button1: TButton;
+    Button2: TButton;
     DServicios: TDataSource;
     DBNavigatorImp: TDBNavigator;
     DS_Categorias: TDataSource;
@@ -53,6 +54,7 @@ type
 
 
     procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure GridFPagoCellClick(Column: TColumn);
@@ -133,6 +135,11 @@ procedure TCargos.Button1Click(Sender: TObject);
 begin
   html.Load('C:\Users\adminmutual\Desktop\socios\help\config_cargos.html');
 
+end;
+
+procedure TCargos.Button2Click(Sender: TObject);
+begin
+  HTML.Print(1,10)  ;
 end;
 
 
@@ -217,9 +224,12 @@ end;
 
 
 procedure TCargos.GridOrigenesPagoKeyPress(Sender: TObject; var Key: char);
+var
+  columna:string;
 begin
           Key := UpCase(Key);
-     if trim(GridOrigenesPago.SelectedColumn.FieldName)='FPAGO' then
+     columna:=trim(GridOrigenesPago.SelectedColumn.FieldName);
+     if (columna='FPAGO') or (columna='TIPO') or (columna='TIENECERTIFICADO') or (columna='TIENEBENEFICIO') then
      begin
         showmessage ('Edición manual no permitida. ' + ''#13 + 'Seleccione un valor de la lista desplegable, activéla desde la flecha descendente en el borde derecho de este control');
         Key := chr(27);

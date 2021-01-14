@@ -5,7 +5,7 @@
     <title>Document</title>
     <style>
         h1{color:brown ;}
-        td{vertical-align: middle}
+        td{vertical-align: middle;padding: 2px;}
     </style>
 </head>
 <body>
@@ -89,8 +89,13 @@
 <tr><td>Esta columna hace referencia a la forma de pago. La misma se indica mediante una lista desplegable la cual recoge las opciones que están disponibles en la tabla Formas de Pago, no está permitido ingresar este dato de forma manual, solamente se introducen los valores que se muestran en la lista desplegable la cual se activa desde la flecha descendente en el borde derecho de la celda en la cual se está ingresando o modificando un valor dado.
 </td></tr>
 <th><br>TIPO:</th>
-<tr><td>Indica el tipo de solicitud del pago, el cual puede ser por única vez o de manera mensual, osea, la solicitud de pago mensual indica que todos los meses se solicitará el mismo a la entidad que realiza la cobranza, en cambio el tipo permanente se solicita sólo una vez y el mismo se realiza de forma constante y automática hasta que se solicite el cese del mismo. Este tipo de solicitud de descuento está indicado por cada entidad que realiza la cobranza.   
+<tr><td>Indica el tipo de solicitud del pago, el cual puede ser por única vez o de manera mensual, osea, la solicitud de pago mensual indica que todos los meses se solicitará el mismo a la entidad que realiza la cobranza, en cambio el tipo permanente se solicita sólo una vez y el mismo se realiza de forma constante y automática hasta que se solicite el cese del mismo. Este tipo de solicitud de descuento está indicado por cada entidad que realiza la cobranza. <br> Los únicos valores permitidos son M (Mensual) y P (Permanente) los cuales se seleccionan de una lista desplegable desde la flecha descendente que provee la columna, similar a la columna FPAGO.  
 </td></tr>
+<th><br>CERTIFICADO:</th>
+<TR><td>En esta columna se indica si el concepto requiere obligatoriamente cerficación para poder realizar el descuento de los cargos contraídos por la persona asociada. <br> Los únicos valores permitidos son S (Si) y N (No) los cuales se seleccionan de una lista desplegable desde la flecha descendente que provee la columna, similar a la columna FPAGO.</td></TR>
+<th><br>BENEFICIO:</th>
+<TR><td>En esta columna se indica si el concepto requiere obligatoriamente un número de beneficio para poder realizar el descuento de los cargos contraídos por la persona asociada. <br> Los únicos valores permitidos son S (Si) y N (No) los cuales se seleccionan de una lista desplegable desde la flecha descendente que provee la columna, similar a la columna FPAGO.</td></TR>
+
 </table>
 <br>
 
@@ -108,24 +113,160 @@
 <table>
     <th>DESCRIPCION DE SERVICIO:</th>
     <tr><td>
-    <P>Corresponde al tipo de servicio al cual se v
-        
-    </P>
+    Corresponde al tipo de servicio al cual se va a generar una categoría del mismo para definir su importe, osea para el ejemplo de una cuota social con importe diferente a la cuota normal se crea un nuevo elemento en la lista indicando que la descripción del servicio corresponde a cuota social y a continuación en la siguiente columna se ingresa la descripción del importe que se va a generar. <br>
+    El valor de esta columna se indica mediante una lista desplegable la cual recoge las opciones que están disponibles en la tabla Servicios, no está permitido ingresar este dato de forma manual, solamente se introducen los valores que se muestran en la lista desplegable la cual se activa desde la flecha descendente en el borde derecho de la celda en la cual se está ingresando o modificando un valor dado.
     </td></tr>
-<th><br>CONCEPTO:</th>
+<th><br>DESCRIPCION DE IMPORTE:</th>
 <tr><td>
-Corresponde a la denominación descriptiva de la entidad que genera la cobranza. Esta columna no tiene relación con otras tablas, por que la modificación de esta descripción no genera incovenientes en la generación de la cuenta corriente.
-
-Corresponde al código de descuento indicado por la entidad que genera la cobranza por el cual se realizará el descuento, para el caso forma de pago por descuento de haberes este código corresponde al que figura en la imputación del descuento en el recibo de sueldo de la persona asociada. La modificación de los datos de concepto puede generar error en la información remitida a las entidades encargadas de realizar la cobranza, este dato se debe modificar solamente en los casos en los cuales sean indicados por la entidad que genera la cobranza.
+Como se adelante en el párrafo anterior en esta columna se ingresa, de forma manual, la descripción correspondiente al importe correspondiente. <br>
+Por ejemplo para un Servicio de cuota social con un importe distinto tal como puede ser la cuota social para las presonas asociadas residentes en el interior del país, es en esta columna en donde se coloca dicha descripción de importe (EJ:CUOTA SOCIAL INTERIOR).
 </td></tr>
-<th><br>FPAGO:</th>
-<tr><td>Esta columna hace referencia a la forma de pago. La misma se indica mediante una lista desplegable la cual recoge las opciones que están disponibles en la tabla Formas de Pago, no está permitido ingresar este dato de forma manual, solamente se introducen los valores que se muestran en la lista desplegable la cual se activa desde la flecha descendente en el borde derecho de la celda en la cual se está ingresando o modificando un valor dado.
-</td></tr>
-<th><br>TIPO:</th>
-<tr><td>Indica el tipo de solicitud del pago, el cual puede ser por única vez o de manera mensual, osea, la solicitud de pago mensual indica que todos los meses se solicitará el mismo a la entidad que realiza la cobranza, en cambio el tipo permanente se solicita sólo una vez y el mismo se realiza de forma constante y automática hasta que se solicite el cese del mismo. Este tipo de solicitud de descuento está indicado por cada entidad que realiza la cobranza.   
+<th><br>IMPORTE:</th>
+<tr><td>En esta columna se ingresa el importe de forma manual. Este importe será utilizado por los procesos de creación de cuenta corriente. <br>
+Cuando el valor de un cargo se deba modificar, por ejemplo el caso de aumento del valor de la cuota social, NO SE DEBE crear o agregar otro item de importe con el nuevo valor de cuota social, en cambio se debe modificar el elemento de la lista correspondiente al importe que contiene la cuota social, de igual manera se debe proceder con todos los importes. <br>
+Solamente se deben crear nuevos items de importes para los casos en los que no existe el mismo. Para la creación de un importe se debe tener en cuenta que es condición necesaria que exista previamente el Servicio para el cual se desea crear una categoría de importe. <br>
+ La modificación de un importe no genera cambios en las cuentas corrientes que se haya generado hasta ese momento, el nuevo valor se verá reflejado en la siguiente generación de cuenta corriente posterior a la modificación del importe.
 </td></tr>
 </table>
+<h2>Resumen CATEGORIAS - FORMAS DE PAGO - ORIGEN DE PAGO</h2>
+<table border="1">
+    <th><h2>TABLA</h2></th>
+    <th><h2>FUNCIONALIDAD</h2></th>
+    
+    <tr> 
+    <td><h1>CATEGORIAS</h1></td>
+    <td><table border="1">
+        <tr><h5>Parámetro para categoría sociales según estatuto.</h5></tr>
+        <tr>
+        <td>CODIGO</td>
+        <td>Código interno de tabla.</td>
+        </tr>
+                <tr>
+        <td>DESCRIPCION</td>
+        <td>Descripción de la Categoría Social.</td>
+        
+        </tr>
 
+    </table><br> </td>
+    </tr>
+    
+    <tr> 
+    <td><h1>FORMAS DE PAGO</h1></td>
+    <td><table border="1">
+        <tr><h5>Parámetro para las distintas formas de pago de servicios y cuota social.</h5></tr>
+        <tr>
+        <td>CODIGO</td>
+        <td>Código interno de tabla</td>
+        </tr>
+        <tr>
+        <td>DESCRIPCION</td>
+        <td>Descripción de la Forma de Pago</td>
+        </tr>
+    </table><br>  </td>
+    </tr>
+    
+    <tr> 
+    <td><h1>ORIGEN DE PAGO</h1></td>
+    <td><table border="1">
+       
+        <tr><h5>Parámetros para las distintas entidades encargadas de realizar las cobranzas de servicios y cuota social.</h5></tr>
+        <tr>
+        <td>CODIGO</td>
+        <td>Código interno de tabla</td>
+        </tr>
+        <tr>
+        <td>DESCRIPCION</td>
+        <td>Descripción de la Forma de Pago</td>
+        </tr>
+        <tr>
+        <td>CONCEPTO</td>
+        <td>Código de descuento indicado por la entidad que genera la cobranza. Este dato se debe modificar solamente en los casos en los cuales sean indicados       por la entidad que genera la cobranza.</td>
+        </tr>
+        <tr>
+        <td>FPAGO</td>
+        <td>Forma de pago. <BR>Se indica mediante una lista desplegable, no está permitido ingresar este dato de forma manual.</td>
+        </tr>
+        
+        <tr>
+        <td>TIPO</td>
+        <td>Tipo de periodicidad de solicitud del descuento. <br>
+        [P] para descuentos permanentes y automáticos, los mismos finalizan emitiendo una solicitud de sece del mismo a la entidad que genera la cobranza. <br>
+        [M] para descuentos mensuales los cuales se envían todos los meses, estos descuentos finalizan sin solicitud, cuando un persona asociada deja de tener vínculo social con la Mutual o cuando un servicio que la persona asociada ha contraído con la Mutual, pierde su plazo de vigencia (Ej: Prestamo abonado totalmente), el sistema automáticamente finaliza la solicitud de descuento hacia la entidad que genera la cobranza.
+        <br> Se indica mediante una lista desplegable, no está permitido ingresar este dato de forma manual.</td>
+        </tr>
+        
+        <tr>
+        <td>CERTIFICADO</td>
+        <td>Indica si la entidad que genera la cobranza tiene como condición necesaria para realizar el descuento de la persona asociada que se haya emitido un certificado para tal fin (ya sea para cuota social o para servicio). <br>
+        [S] Si requiere certificado. <br>
+        [N] No requiere certificado. <br> 
+         Se indica mediante una lista desplegable, no está permitido ingresar este dato de forma manual.</td>
+        </tr>
+        
+        <tr>
+        <td>BENEFICIO</td>
+        <td>Indica si la entidad que genera la cobranza tiene como condición necesaria para realizar el descuento de la persona asociada que la misma posea un número de beneficio identificatorio para tal fin (ya sea para cuota social o para servicio). <br>
+        [S] Si requiere número de beneficio. <br>
+        [N] No requiere número de beneficio. <br> 
+         Se indica mediante una lista desplegable, no está permitido ingresar este dato de forma manual.</td>
+        </tr>
+        
+        
+    </table><br> </td>
+    </tr>
+    </table>
+    <h2>Resumen SERVICIOS  -  IMPORTES</h2>
+<table border="1">
+    <th><h2>TABLA</h2></th>
+    <th><h2>FUNCIONALIDAD</h2></th>
+    
+    <tr> 
+    <td><h1>SERVICIOS</h1></td>
+    <td><table border="1">
+        <tr><h5>Parámetro para Servicios generales contraídos por la persona asociadas.</h5></tr>
+        <tr>
+        <td>CODIGO</td>
+        <td>Código interno de tabla.</td>
+        </tr>
+                <tr>
+        <td>DESCRIPCION</td>
+        <td>Descripción de general de un rubro de Servicio.</td>
+        
+        </tr>
+
+    </table><br> </td>
+    </tr>
+    
+   
+    <tr> 
+    <td><h1>IMPORTES</h1></td>
+    <td><table border="1">
+       
+        <tr><h5>Parámetros para las distintas entidades encargadas de realizar las cobranzas de servicios y cuota social.</h5></tr>
+        <tr>
+        <td>CODIGO</td>
+        <td>Código interno de tabla</td>
+        </tr>
+        <tr>
+        <td>DESCRIPCION DE SERVICIO</td>
+        <td>Descripción de </td>
+        </tr>
+        <tr>
+        <td>DESCRIPCION DE IMPORTE</td>
+        <td>dECRIPCIÓMN.</td>
+        </tr>
+        <tr>
+        <td>IMPORTE</td>
+        <td>Forma de pago. <BR>Se indica mediante una lista desplegable, no está permitido ingresar este dato de forma manual.</td>
+        </tr>
+        
+        
+        
+    </table><br> </td>
+    </tr>
+    
+    
+</table>
 </body>
 
 

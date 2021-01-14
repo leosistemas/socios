@@ -2,10 +2,10 @@ object Cargos: TCargos
   Left = 82
   Height = 542
   Top = 88
-  Width = 1220
+  Width = 1235
   Caption = 'Afiliados-Categorías-Importes-Origenes de descuento'
   ClientHeight = 542
-  ClientWidth = 1220
+  ClientWidth = 1235
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
@@ -15,8 +15,8 @@ object Cargos: TCargos
     Height = 512
     Top = 16
     Width = 1212
-    ActivePage = TabVia
-    TabIndex = 1
+    ActivePage = TabSheet1
+    TabIndex = 2
     TabOrder = 0
     object TabCat: TTabSheet
       Caption = 'Categorías   --> Formas de Pago    --> Origen de Pagos'
@@ -26,28 +26,28 @@ object Cargos: TCargos
       Font.Style = [fsBold]
       ParentFont = False
       object Shape5: TShape
-        Left = 32
+        Left = 8
         Height = 217
         Top = 248
-        Width = 378
+        Width = 338
         Brush.Color = clGradientActiveCaption
       end
       object Shape2: TShape
-        Left = 432
+        Left = 360
         Height = 450
         Top = 15
-        Width = 688
+        Width = 824
         Brush.Color = clGradientActiveCaption
       end
       object Shape1: TShape
-        Left = 32
+        Left = 8
         Height = 225
         Top = 15
-        Width = 378
+        Width = 338
         Brush.Color = clGradientActiveCaption
       end
       object GridCategoria: TDBGrid
-        Left = 58
+        Left = 16
         Height = 144
         Top = 56
         Width = 320
@@ -72,7 +72,7 @@ object Cargos: TCargos
         OnKeyPress = GridCategoriaKeyPress
       end
       object Label1: TLabel
-        Left = 152
+        Left = 112
         Height = 28
         Top = 24
         Width = 121
@@ -83,7 +83,7 @@ object Cargos: TCargos
         ParentFont = False
       end
       object DBNavigatorCat: TDBNavigator
-        Left = 137
+        Left = 95
         Height = 25
         Top = 208
         Width = 241
@@ -102,7 +102,7 @@ object Cargos: TCargos
         VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbEdit, nbPost, nbCancel, nbRefresh]
       end
       object Label5: TLabel
-        Left = 576
+        Left = 664
         Height = 28
         Top = 24
         Width = 167
@@ -113,10 +113,10 @@ object Cargos: TCargos
         ParentFont = False
       end
       object GridOrigenesPago: TDBGrid
-        Left = 448
+        Left = 368
         Height = 368
         Top = 56
-        Width = 650
+        Width = 802
         Color = clWindow
         Columns = <        
           item
@@ -147,6 +147,34 @@ object Cargos: TCargos
             Title.Caption = 'CODIGO_FPAGO'
             Visible = False
             FieldName = 'CODIGO_FPAGO'
+          end        
+          item
+            PickList.Strings = (
+              'M'
+              'P'
+            )
+            Title.Caption = 'TIPO'
+            Width = 35
+            FieldName = 'TIPO'
+          end        
+          item
+            ButtonStyle = cbsPickList
+            PickList.Strings = (
+              'S'
+              'N'
+            )
+            Title.Caption = 'CERTIFICADO'
+            Width = 85
+            FieldName = 'TIENECERTIFICADO'
+          end        
+          item
+            ButtonStyle = cbsPickList
+            PickList.Strings = (
+              'S'
+              'N'
+            )
+            Title.Caption = 'BENEFICIO'
+            FieldName = 'TIENEBENEFICIO'
           end>
         DataSource = DS_OrigenesPago
         TabOrder = 4
@@ -155,7 +183,7 @@ object Cargos: TCargos
         OnKeyPress = GridOrigenesPagoKeyPress
       end
       object DBNavigatorOrigenes: TDBNavigator
-        Left = 800
+        Left = 872
         Height = 25
         Top = 432
         Width = 298
@@ -174,9 +202,9 @@ object Cargos: TCargos
         VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbEdit, nbPost, nbCancel, nbRefresh]
       end
       object Label2: TLabel
-        Left = 120
+        Left = 80
         Height = 28
-        Top = 264
+        Top = 256
         Width = 174
         Caption = 'FORMAS DE PAGO'
         Font.Height = -20
@@ -185,7 +213,7 @@ object Cargos: TCargos
         ParentFont = False
       end
       object DBNavigatorFP: TDBNavigator
-        Left = 144
+        Left = 95
         Height = 25
         Top = 432
         Width = 241
@@ -204,7 +232,7 @@ object Cargos: TCargos
         VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbEdit, nbPost, nbCancel, nbRefresh]
       end
       object GridFPago: TDBGrid
-        Left = 64
+        Left = 16
         Height = 128
         Top = 296
         Width = 320
@@ -417,58 +445,68 @@ object Cargos: TCargos
         OnClick = Button1Click
         TabOrder = 1
       end
+      object Button2: TButton
+        Left = 1074
+        Height = 25
+        Top = 84
+        Width = 75
+        Caption = 'Button2'
+        OnClick = Button2Click
+        TabOrder = 2
+      end
     end
   end
   object DServicios: TDataSource
     DataSet = Qservicios
-    left = 1152
-    top = 496
+    left = 480
+    top = 512
   end
   object Qservicios: TZQuery
     Connection = DataModule1.conector_socios
     BeforePost = QserviciosBeforePost
     AfterPost = QserviciosAfterPost
     Params = <>
-    left = 1152
-    top = 456
+    left = 432
+    top = 512
   end
   object QCat: TZQuery
     Connection = DataModule1.conector_socios
     BeforePost = QCatBeforePost
     AfterPost = QCatAfterPost
     Params = <>
-    left = 1152
+    left = 32
+    top = 512
   end
   object DS_Categorias: TDataSource
     DataSet = QCat
-    left = 1152
-    top = 48
+    left = 80
+    top = 514
   end
   object DS_Fpago: TDataSource
     DataSet = QFpago
-    left = 1152
-    top = 160
+    left = 184
+    top = 512
   end
   object QFpago: TZQuery
     Connection = DataModule1.conector_socios
     BeforePost = QFpagoBeforePost
     AfterPost = QFpagoAfterPost
     Params = <>
-    left = 1152
-    top = 104
+    left = 128
+    top = 512
   end
   object DS_OrigenesPago: TDataSource
     DataSet = QOrigenesPago
-    left = 1152
-    top = 280
+    left = 288
+    top = 514
   end
   object QOrigenesPago: TZQuery
     Connection = DataModule1.conector_socios
     BeforePost = QOrigenesPagoBeforePost
     AfterPost = QOrigenesPagoAfterPost
     Params = <>
-    left = 1152
-    top = 224
+    left = 240
+    top = 512
   end
   object QImportes: TZQuery
     Connection = DataModule1.conector_socios
@@ -478,12 +516,12 @@ object Cargos: TCargos
     Properties.Strings = (
       ''
     )
-    left = 1152
-    top = 360
+    left = 336
+    top = 512
   end
   object DS_Importes: TDataSource
     DataSet = QImportes
-    left = 1152
-    top = 408
+    left = 384
+    top = 512
   end
 end
