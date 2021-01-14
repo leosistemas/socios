@@ -58,6 +58,7 @@ type
     procedure GridFPagoCellClick(Column: TColumn);
     procedure GridFPagoEnter(Sender: TObject);
     procedure GridFPagoKeyPress(Sender: TObject; var Key: char);
+    procedure GridImportesKeyPress(Sender: TObject; var Key: char);
 
     procedure GridServiciosEnter(Sender: TObject);
     procedure GridServiciosKeyPress(Sender: TObject; var Key: char);
@@ -161,6 +162,7 @@ begin
 end;
 
 
+
 procedure TCargos.QFpagoBeforePost(DataSet: TDataSet);
 begin
      IF length (trim(QFpago.FieldByName('DESCRIPCION').asstring))=0  then
@@ -216,7 +218,13 @@ end;
 
 procedure TCargos.GridOrigenesPagoKeyPress(Sender: TObject; var Key: char);
 begin
-   Key := UpCase(Key);
+          Key := UpCase(Key);
+     if trim(GridOrigenesPago.SelectedColumn.FieldName)='FPAGO' then
+     begin
+        showmessage ('Edición manual no permitida. ' + ''#13 + 'Seleccione un valor de la lista desplegable, activéla desde la flecha descendente en el borde derecho de este control');
+        Key := chr(27);
+     end;
+
 end;
 
 procedure TCargos.QOrigenesPagoBeforePost(DataSet: TDataSet);
@@ -323,6 +331,17 @@ end;
 //**********************************************************************
 
   //  *********** IMPORTES **********
+
+  procedure TCargos.GridImportesKeyPress(Sender: TObject; var Key: char);
+begin
+            Key := UpCase(Key);
+     if trim(GridImportes.SelectedColumn.FieldName)='SERVICIO' then
+     begin
+        showmessage ('Edición manual no permitida. ' + ''#13 + 'Seleccione un valor de la lista desplegable, activéla desde la flecha descendente en el borde derecho de este control');
+        Key := chr(27);
+     end;
+
+end;
 
 procedure TCargos.g_imp();
 var
