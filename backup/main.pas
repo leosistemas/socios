@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Menus,
-  ExtCtrls, Login,cargos_afiliados,modulo_datos,deleg,promotores,Usuarios,sets,titular,fuerza;
+  ExtCtrls, Login,cargos_afiliados,modulo_datos,deleg,promotores,Usuarios,sets,titular,fuerza,registro;
 
 type
 
@@ -52,21 +52,22 @@ begin
    Application.CreateForm(TFAutenticar,FAutenticar);
    FAutenticar.ShowModal;
    FAutenticar.Destroy;
+
 end;
 
 procedure TForm1.FormShow(Sender: TObject);
 begin
 
    DataModule1.Set_conector_socios();
-   DataModule1.conector_socios.Connect;
+   //DataModule1.conector_socios.Connect;
    Form1.Caption:='Gestión de Socios de la Mutual de Suboficiales de Policía Federal Argentina.   -----    USUARIO: ' + sets.Set_flags.usuario;
 end;
 
 procedure TForm1.MenuItem1Click(Sender: TObject);
 begin
-    Application.CreateForm(Ttitular,Ftitular);
-   FTitular.ShowModal;
-   FTitular.Destroy;
+    Application.CreateForm(Tficha_socio,ficha_socio);
+   ficha_socio.ShowModal;
+   ficha_socio.Destroy;
 end;
 
 procedure TForm1.ursClick(Sender: TObject);
@@ -78,7 +79,7 @@ end;
 
 procedure TForm1.origenesClick(Sender: TObject);
 begin
-   datamodule1.conector_socios.ExecuteDirect('EXECUTE PROCEDURE P_cargos');
+   //datamodule1.conector_socios.ExecuteDirect('EXECUTE PROCEDURE P_cargos');
    Application.CreateForm(TCargos,Cargos);
    Cargos.ShowModal;
    Cargos.Destroy;
@@ -100,7 +101,7 @@ end;
 
 procedure TForm1.FuerzasClick(Sender: TObject);
 begin
-      Application.CreateForm(TFuerzas,FFuerzas);
+      Application.CreateForm(TFFuerzas,FFuerzas);
            FFuerzas.ShowModal;
            FFuerzas.Destroy;
 end;

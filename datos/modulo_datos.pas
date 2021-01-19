@@ -124,6 +124,7 @@ begin
 
     end;
     closefile(fuente);
+
     result:=SQ;
 end;
 

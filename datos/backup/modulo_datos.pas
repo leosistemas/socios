@@ -28,8 +28,8 @@ uses
     Qdeleg: TZQuery;
     Qpromotores: TZQuery;
     conector_socios: TZConnection;
+    QRead: TZReadOnlyQuery;
     procedure conector_sociosBeforeConnect(Sender: TObject);
-    procedure QServiciosAfterPost(DataSet: TDataSet);
     procedure Set_conector_socios();
     procedure select_usuario();
    function sql_buscar(archivo:string;cl:string;cl2:string;tipo:string):string;
@@ -97,6 +97,7 @@ var
 begin
   SQ:='';
   renglon:=conf.pathSql+archivo;
+  showmessage(renglon);
     AssignFile(fuente,renglon);
     Reset(fuente);
   if (tipo<>'nombre') and (tipo<>'socio') then
@@ -124,6 +125,7 @@ begin
 
     end;
     closefile(fuente);
+
     result:=SQ;
 end;
 

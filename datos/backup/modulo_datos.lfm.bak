@@ -1,8 +1,8 @@
 object DataModule1: TDataModule1
   OldCreateOrder = False
   Height = 480
-  HorizontalOffset = 228
-  VerticalOffset = 144
+  HorizontalOffset = 423
+  VerticalOffset = 226
   Width = 813
   object DS_usuarios: TDataSource
     DataSet = Qusuarios
@@ -91,5 +91,11 @@ object DataModule1: TDataModule1
     Port = 0
     left = 576
     top = 75
+  end
+  object QRead: TZReadOnlyQuery
+    Connection = conector_socios
+    Params = <>
+    left = 353
+    top = 55
   end
 end

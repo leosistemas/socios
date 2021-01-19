@@ -234,6 +234,7 @@ end;
 
 procedure Ttitular.FormShow(Sender: TObject);
 begin
+     DataModule1.conector_socios.Connect;
   if (sets.Set_flags.tipo_ficha='paleta_consulta') or (sets.Set_flags.tipo_ficha='paleta_abm') then paleta();
   if conf.color_a='S' then
   begin
@@ -614,14 +615,13 @@ begin
   end;
   for a :=0 to promotor.Items.Count-1 do
   begin
-     if trim(promotor.Items[a])=trim(DataModule1.QBuscar.FieldByName('promotor_1').asstring) then
+     if trim(promotor.Items[a])=trim(DataModule1.QBuscar.FieldByName('promotor').asstring) then
      begin
          promotor.ItemIndex:=a;
      end;
   end;
   for a :=0 to delegacion.Items.Count-1 do
   begin
-    // showmessage(trim(delegacion.Items[a]) + '  aa ' + inttostr(a)+ '   h'+ DataModule1.QBuscar.FieldByName('delegacion_1').asstring);
      if trim(delegacion.Items[a])=trim(DataModule1.QBuscar.FieldByName('delegacion').asstring) then
      begin
          delegacion.ItemIndex:=a;

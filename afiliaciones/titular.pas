@@ -103,6 +103,7 @@ type
     procedure ColorBox1Change(Sender: TObject);
     procedure ColorBox2Change(Sender: TObject);
     procedure ColorBox3Change(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
 
     procedure FormShow(Sender: TObject);
     procedure grabarClick(Sender: TObject);
@@ -234,6 +235,7 @@ end;
 
 procedure Ttitular.FormShow(Sender: TObject);
 begin
+     DataModule1.conector_socios.Connect;
   if (sets.Set_flags.tipo_ficha='paleta_consulta') or (sets.Set_flags.tipo_ficha='paleta_abm') then paleta();
   if conf.color_a='S' then
   begin
@@ -274,6 +276,11 @@ procedure Ttitular.ColorBox3Change(Sender: TObject);
 begin
   shape3.Brush.Color:=ColorBox3.Colors[ColorBox3.ItemIndex];
   grabar.Visible:=true;
+end;
+
+procedure Ttitular.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  DataModule1.conector_socios.Disconnect;
 end;
 
 

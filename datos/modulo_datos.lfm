@@ -21,6 +21,7 @@ object DataModule1: TDataModule1
     top = 152
   end
   object QBuscar: TZQuery
+    Connection = conector_socios
     Params = <>
     left = 37
     top = 144

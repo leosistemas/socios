@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  ExtCtrls, ComCtrls, ActnList,  DBGrids, Buscar, titular, Modulo_datos,
+  ExtCtrls, ComCtrls, ActnList,  DBGrids, titular, Modulo_datos,Buscar,
   sets ,ficha_familiar
   ;
 
@@ -134,6 +134,7 @@ implementation
 { Tficha_socio }
 procedure Tficha_socio.FormShow(Sender: TObject);
 begin
+  DataModule1.Set_conector_socios();
   if conf.color_c='S' then
   begin
     shape1.Brush.Color:=StringToColor(sets.conf.c_cons1);
@@ -218,6 +219,7 @@ begin
   Datamodule1.Qparticipantes.close;
   Datamodule1.Qpatrocinados.close;
   Datamodule1.QSets.close;
+  DataModule1.conector_socios.Disconnect;
 end;
 
 
@@ -250,6 +252,8 @@ begin
      DataModule1.QBuscar.sql.clear;
      DataModule1.QBuscar.sql.add(cl);
      DataModule1.QBuscar.Open;
+     exit();
+
      estado.text:=DataModule1.QBuscar.FieldByName('estado').AsString;
      apellido.Text:=DataModule1.QBuscar.FieldByName('apellido').AsString;
      calle.Text:=DataModule1.QBuscar.FieldByName('calle').AsString;
@@ -263,13 +267,13 @@ begin
      fnacimiento.Text:=DataModule1.QBuscar.FieldByName('fnacimiento').AsString;
      edad.Text:=DataModule1.QBuscar.FieldByName('edad').AsString;
      Celular.Text:=DataModule1.QBuscar.FieldByName('celular').AsString;
-     Delegacion.Text:=DataModule1.QBuscar.FieldByName('delegacion_1').AsString;
+     Delegacion.Text:=DataModule1.QBuscar.FieldByName('delegacion').AsString;
      FAlta.Text:=DataModule1.QBuscar.FieldByName('falta').AsString;
      FBaja.Text:=DataModule1.QBuscar.FieldByName('fbaja').AsString;
      FIngreso.Text:=DataModule1.QBuscar.FieldByName('finicio').AsString;
      FEgreso.Text:=DataModule1.QBuscar.FieldByName('fegreso').AsString;
      Patrocinador.Text:=DataModule1.QBuscar.FieldByName('patrocinador').AsString;
-     Promotor.Text:=DataModule1.QBuscar.FieldByName('promotor_1').AsString;
+     Promotor.Text:=DataModule1.QBuscar.FieldByName('promotor').AsString;
      Telefono.Text:=DataModule1.QBuscar.FieldByName('telefono').AsString;
      jerarquia.Text:=DataModule1.QBuscar.FieldByName('jerarquia').AsString;
      cbu.Text:=DataModule1.QBuscar.FieldByName('cbu').AsString;

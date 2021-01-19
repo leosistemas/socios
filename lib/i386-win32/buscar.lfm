@@ -1,0 +1,100 @@
+object Form5: TForm5
+  Left = 114
+  Height = 485
+  Top = 100
+  Width = 1046
+  BorderIcons = [biSystemMenu]
+  Caption = 'Buscar'
+  ClientHeight = 485
+  ClientWidth = 1046
+  OnClose = FormClose
+  OnShow = FormShow
+  LCLVersion = '5.7'
+  object bp: TComboBox
+    Left = 8
+    Height = 23
+    Top = 24
+    Width = 160
+    ItemHeight = 15
+    Items.Strings = (
+      'BENEFICIO'
+      'NRODOC'
+      'NOMBRE'
+      'NLEGAJO'
+      'CUIL'
+      'CBU'
+    )
+    OnChange = bpChange
+    OnEnter = bpEnter
+    TabOrder = 0
+  end
+  object clave: TEdit
+    Left = 192
+    Height = 23
+    Top = 24
+    Width = 368
+    CharCase = ecUppercase
+    OnEnter = claveEnter
+    OnExit = claveExit
+    OnKeyPress = claveKeyPress
+    TabOrder = 1
+  end
+  object DBGrid1: TDBGrid
+    Left = 8
+    Height = 396
+    Top = 80
+    Width = 1027
+    Color = clWindow
+    Columns = <    
+      item
+        MaxSize = 110
+        Title.Caption = 'ESTADO'
+        Width = 110
+        FieldName = 'ESTADO'
+      end    
+      item
+        Title.Caption = 'NRODOC'
+        Width = 90
+        FieldName = 'NRODOC'
+      end    
+      item
+        Title.Caption = 'NOMBRE'
+        Width = 300
+        FieldName = 'NOMBRE'
+      end    
+      item
+        Title.Caption = 'BENEFICIO'
+        FieldName = 'BENEFICIO'
+      end    
+      item
+        Title.Caption = 'NLEGAJO'
+        FieldName = 'NLEGAJO'
+      end    
+      item
+        Title.Caption = 'CUIL'
+        Width = 90
+        FieldName = 'CUIL'
+      end    
+      item
+        Title.Caption = 'CBU'
+        Width = 200
+        FieldName = 'CBU'
+      end>
+    DataSource = DataModule1.DS_Buscar
+    TabOrder = 3
+    OnDblClick = DBGrid1DblClick
+    OnPrepareCanvas = DBGrid1PrepareCanvas
+  end
+  object clave1: TEdit
+    Left = 568
+    Height = 23
+    Top = 24
+    Width = 368
+    CharCase = ecUppercase
+    OnEnter = claveEnter
+    OnExit = claveExit
+    OnKeyPress = clave1KeyPress
+    TabOrder = 2
+    Visible = False
+  end
+end

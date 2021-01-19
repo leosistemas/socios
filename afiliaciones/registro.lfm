@@ -2,10 +2,10 @@ object ficha_socio: Tficha_socio
   Left = 71
   Height = 578
   Top = 0
-  Width = 974
+  Width = 1112
   Caption = 'Registro de Socios'
   ClientHeight = 578
-  ClientWidth = 974
+  ClientWidth = 1112
   Icon.Data = {
     84E4000000000100010000000000010020006EE400001600000089504E470D0A
     1A0A0000000D49484452000000EF0000012D08020000006F45A0E50000E43549
@@ -1845,8 +1845,8 @@ object ficha_socio: Tficha_socio
     Height = 576
     Top = 8
     Width = 972
-    ActivePage = TabSheet2
-    TabIndex = 1
+    ActivePage = titular
+    TabIndex = 0
     TabOrder = 0
     object titular: TTabSheet
       Caption = 'Titular'
@@ -1953,10 +1953,10 @@ object ficha_socio: Tficha_socio
         Text = 'regsitrodesocios.mspfa@hotmail.com.ar'
       end
       object certificado: TEdit
-        Left = 384
+        Left = 440
         Height = 23
         Top = 184
-        Width = 160
+        Width = 264
         ReadOnly = True
         TabOrder = 7
         Text = 'certificado'
@@ -1965,7 +1965,7 @@ object ficha_socio: Tficha_socio
         Left = 192
         Height = 23
         Top = 184
-        Width = 144
+        Width = 232
         ReadOnly = True
         TabOrder = 8
         Text = 'POLICIA DE LA CIUDAD'
@@ -2029,10 +2029,10 @@ object ficha_socio: Tficha_socio
         Text = 'ARGENTINO'
       end
       object edad: TEdit
-        Left = 824
+        Left = 862
         Height = 23
         Top = 70
-        Width = 80
+        Width = 42
         ReadOnly = True
         TabOrder = 11
         Text = 'ARGENTINO'
@@ -2041,7 +2041,7 @@ object ficha_socio: Tficha_socio
         Left = 728
         Height = 23
         Top = 70
-        Width = 80
+        Width = 122
         ReadOnly = True
         TabOrder = 12
         Text = 'ARGENTINO'
@@ -2065,7 +2065,7 @@ object ficha_socio: Tficha_socio
         Text = 'FEMENINO'
       end
       object Label18: TLabel
-        Left = 391
+        Left = 448
         Height = 15
         Top = 168
         Width = 61
@@ -2075,7 +2075,7 @@ object ficha_socio: Tficha_socio
         ParentFont = False
       end
       object Label17: TLabel
-        Left = 848
+        Left = 862
         Height = 15
         Top = 56
         Width = 26
@@ -2172,7 +2172,7 @@ object ficha_socio: Tficha_socio
         ParentFont = False
       end
       object Label10: TLabel
-        Left = 592
+        Left = 747
         Height = 15
         Top = 168
         Width = 24
@@ -2200,7 +2200,7 @@ object ficha_socio: Tficha_socio
         Text = '22456456'
       end
       object cbu: TEdit
-        Left = 584
+        Left = 739
         Height = 23
         Top = 184
         Width = 160

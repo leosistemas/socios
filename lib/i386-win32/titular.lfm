@@ -1838,6 +1838,7 @@ object titular: Ttitular
     503F68B0B981FA4183CD0DD40F1A6C6EA07EF0FF1A31F58420672B6500000000
     49454E44AE426082
   }
+  OnClose = FormClose
   OnShow = FormShow
   LCLVersion = '5.7'
   object Shape1: TShape
