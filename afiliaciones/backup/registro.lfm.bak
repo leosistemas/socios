@@ -2,10 +2,10 @@ object ficha_socio: Tficha_socio
   Left = 71
   Height = 578
   Top = 0
-  Width = 974
+  Width = 1112
   Caption = 'Registro de Socios'
   ClientHeight = 578
-  ClientWidth = 974
+  ClientWidth = 1112
   Icon.Data = {
     84E4000000000100010000000000010020006EE400001600000089504E470D0A
     1A0A0000000D49484452000000EF0000012D08020000006F45A0E50000E43549
@@ -2267,8 +2267,8 @@ object ficha_socio: Tficha_socio
         Left = 192
         Height = 15
         Top = 224
-        Width = 56
-        Caption = 'N°Afiliado'
+        Width = 53
+        Caption = 'Concepto'
         Font.Style = [fsBold]
         ParentColor = False
         ParentFont = False

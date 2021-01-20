@@ -247,51 +247,66 @@ begin
        showmessage('Sin datos');
        exit;
      end;
-     cl:=DataModule1.sql_buscar('vista_afiliado.sql',sets.f_tit.numero,'','socio');
+     cl:=DataModule1.sql_buscar('vista_legajo_titular.sql',sets.f_tit.numero,'','socio');
      DataModule1.QBuscar.close;
      DataModule1.QBuscar.sql.clear;
      DataModule1.QBuscar.sql.add(cl);
      DataModule1.QBuscar.Open;
-     exit();
+     //exit();
 
-     estado.text:=DataModule1.QBuscar.FieldByName('estado').AsString;
+
+     nombre.Text:=DataModule1.QBuscar.FieldByName('nombre').AsString;
      apellido.Text:=DataModule1.QBuscar.FieldByName('apellido').AsString;
-     calle.Text:=DataModule1.QBuscar.FieldByName('calle').AsString;
-     direccion.Text:=DataModule1.QBuscar.FieldByName('numeracion_calle').AsString;
-     partido.Text:=DataModule1.QBuscar.FieldByName('partido').AsString;
-     localidad.Text:=DataModule1.QBuscar.FieldByName('localidad').AsString;
-     provincia.Text:=DataModule1.QBuscar.FieldByName('provincia').AsString;
-     codpostal.Text:=DataModule1.QBuscar.FieldByName('codpostal').AsString;
-     piso.Text:=DataModule1.QBuscar.FieldByName('piso').AsString;
-     depto.Text:=DataModule1.QBuscar.FieldByName('depto').AsString;
+     tipodoc.Text:=DataModule1.QBuscar.FieldByName('tipodoc').AsString;
+     nrodoc.Text:=DataModule1.QBuscar.FieldByName('nrodoc').AsString;
+     cuil.Text:=DataModule1.QBuscar.FieldByName('cuil').AsString;
+     sexo.Text:=DataModule1.QBuscar.FieldByName('sexo').AsString;
      fnacimiento.Text:=DataModule1.QBuscar.FieldByName('fnacimiento').AsString;
-     edad.Text:=DataModule1.QBuscar.FieldByName('edad').AsString;
+     estcivil.Text:=DataModule1.QBuscar.FieldByName('estcivil').AsString;
+     nacionalidad.Text:=DataModule1.QBuscar.FieldByName('nacionalidad').AsString;
+//     edad.Text:=DataModule1.QBuscar.FieldByName('edad').AsString;
+
+     Telefono.Text:=DataModule1.QBuscar.FieldByName('telefono').AsString;
      Celular.Text:=DataModule1.QBuscar.FieldByName('celular').AsString;
-     Delegacion.Text:=DataModule1.QBuscar.FieldByName('delegacion').AsString;
+     email.Text:=DataModule1.QBuscar.FieldByName('email').AsString;
+
+
+
+
+
+
+       estado.text:=DataModule1.QBuscar.FieldByName('estado').AsString;
+       categoria.Text:=DataModule1.QBuscar.FieldByName('categoria').AsString;
+       afiliado.Text:=DataModule1.QBuscar.FieldByName('fuerza').AsString; //ver
+       descuento.Text:=DataModule1.QBuscar.FieldByName('descripcion').AsString;
+       cbu.Text:=''; //DataModule1.QBuscar.FieldByName('descripcion').AsString; // ver
+       certificado.Text:=DataModule1.QBuscar.FieldByName('concepto').AsString; //ver
+       jerarquia.Text:=DataModule1.QBuscar.FieldByName('fpago').AsString; //ver
+     nlegajo.Text:=DataModule1.QBuscar.FieldByName('nlegajo').AsString;
+     beneficio.Text:=DataModule1.QBuscar.FieldByName('beneficio').AsString;
      FAlta.Text:=DataModule1.QBuscar.FieldByName('falta').AsString;
      FBaja.Text:=DataModule1.QBuscar.FieldByName('fbaja').AsString;
      FIngreso.Text:=DataModule1.QBuscar.FieldByName('finicio').AsString;
      FEgreso.Text:=DataModule1.QBuscar.FieldByName('fegreso').AsString;
-     Patrocinador.Text:=DataModule1.QBuscar.FieldByName('patrocinador').AsString;
-     Promotor.Text:=DataModule1.QBuscar.FieldByName('promotor').AsString;
-     Telefono.Text:=DataModule1.QBuscar.FieldByName('telefono').AsString;
-     jerarquia.Text:=DataModule1.QBuscar.FieldByName('jerarquia').AsString;
-     cbu.Text:=DataModule1.QBuscar.FieldByName('cbu').AsString;
-     nlegajo.Text:=DataModule1.QBuscar.FieldByName('nlegajo').AsString;
-     beneficio.Text:=DataModule1.QBuscar.FieldByName('beneficio').AsString;
-     cuil.Text:=DataModule1.QBuscar.FieldByName('cuil').AsString;
-     afiliado.Text:=DataModule1.QBuscar.FieldByName('nafiliado').AsString;
-     categoria.Text:=DataModule1.QBuscar.FieldByName('categoria').AsString;
-     descuento.Text:=DataModule1.QBuscar.FieldByName('descuento').AsString;
-     certificado.Text:=DataModule1.QBuscar.FieldByName('certificado').AsString;
-     email.Text:=DataModule1.QBuscar.FieldByName('email').AsString;
-     sexo.Text:=DataModule1.QBuscar.FieldByName('sexo').AsString;
-     estcivil.Text:=DataModule1.QBuscar.FieldByName('estcivil').AsString;
-     nacionalidad.Text:=DataModule1.QBuscar.FieldByName('nacionalidad').AsString;
-     tipodoc.Text:=DataModule1.QBuscar.FieldByName('tipodoc').AsString;
-     nrodoc.Text:=DataModule1.QBuscar.FieldByName('nrodoc').AsString;
-     nombre.Text:=DataModule1.QBuscar.FieldByName('nombre').AsString;
-     sets.f_tit.patrocinador:=DataModule1.QBuscar.fieldbyname('patrocinador_numero').AsString;
+     Patrocinador.Text:=DataModule1.QBuscar.FieldByName('titular_nombre').AsString;
+     Delegacion.Text:=DataModule1.QBuscar.FieldByName('delegacion_afiliante').AsString;
+     Promotor.Text:=DataModule1.QBuscar.FieldByName('delegacion_zona').AsString;       //ver
+
+
+
+
+
+     calle.Text:=DataModule1.QBuscar.FieldByName('calle').AsString;
+     direccion.Text:=DataModule1.QBuscar.FieldByName('numeracion_calle').AsString;
+     piso.Text:=DataModule1.QBuscar.FieldByName('piso').AsString;
+     depto.Text:=DataModule1.QBuscar.FieldByName('depto').AsString;
+     codpostal.Text:=DataModule1.QBuscar.FieldByName('codpostal').AsString;
+     localidad.Text:=DataModule1.QBuscar.FieldByName('localidad').AsString;
+//     partido.Text:=DataModule1.QBuscar.FieldByName('partido').AsString;
+     provincia.Text:=DataModule1.QBuscar.FieldByName('provincia').AsString;
+
+
+     sets.f_tit.patrocinador:=DataModule1.QBuscar.fieldbyname('codigo_titular').AsString;
      if length(sets.f_tit.patrocinador)>0 then
      begin
        busc_pat.Visible:=true;

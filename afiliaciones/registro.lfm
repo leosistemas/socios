@@ -2267,8 +2267,8 @@ object ficha_socio: Tficha_socio
         Left = 192
         Height = 15
         Top = 224
-        Width = 56
-        Caption = 'N°Afiliado'
+        Width = 53
+        Caption = 'Concepto'
         Font.Style = [fsBold]
         ParentColor = False
         ParentFont = False

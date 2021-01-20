@@ -4,7 +4,7 @@
     <PathDelim Value="\"/>
     <Version Value="9"/>
     <BuildModes Active="Default"/>
-    <Units Count="28">
+    <Units Count="26">
       <Unit0>
         <Filename Value="Socios.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -19,7 +19,7 @@
         <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <TopLine Value="40"/>
+        <TopLine Value="48"/>
         <CursorPos X="5" Y="55"/>
         <UsageCount Value="205"/>
         <Loaded Value="True"/>
@@ -154,7 +154,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="102"/>
+        <UsageCount Value="166"/>
       </Unit13>
       <Unit14>
         <Filename Value="afiliaciones\loc_inaes.pas"/>
@@ -164,7 +164,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="102"/>
+        <UsageCount Value="166"/>
       </Unit14>
       <Unit15>
         <Filename Value="afiliaciones\registro.pas"/>
@@ -174,9 +174,9 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="234"/>
-        <CursorPos X="2" Y="253"/>
-        <UsageCount Value="102"/>
+        <TopLine Value="262"/>
+        <CursorPos X="8" Y="255"/>
+        <UsageCount Value="166"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit15>
@@ -189,7 +189,7 @@
         <EditorIndex Value="1"/>
         <TopLine Value="281"/>
         <CursorPos X="44" Y="283"/>
-        <UsageCount Value="102"/>
+        <UsageCount Value="166"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit16>
@@ -200,7 +200,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="3"/>
-        <UsageCount Value="90"/>
+        <UsageCount Value="154"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit17>
@@ -214,7 +214,7 @@
         <EditorIndex Value="4"/>
         <TopLine Value="166"/>
         <CursorPos X="8" Y="185"/>
-        <UsageCount Value="25"/>
+        <UsageCount Value="89"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit18>
@@ -222,14 +222,14 @@
         <Filename Value="C:\lazarus\components\zeos\packages\lazarus\zcomponent.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="38" Y="5"/>
-        <UsageCount Value="6"/>
+        <UsageCount Value="9"/>
       </Unit19>
       <Unit20>
         <Filename Value="C:\lazarus\components\zeos\src\dbc\ZDbcInterbase6Utils.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="822"/>
         <CursorPos Y="837"/>
-        <UsageCount Value="15"/>
+        <UsageCount Value="8"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit20>
       <Unit21>
@@ -237,14 +237,14 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="82"/>
         <CursorPos X="88" Y="112"/>
-        <UsageCount Value="28"/>
+        <UsageCount Value="21"/>
       </Unit21>
       <Unit22>
         <Filename Value="C:\codetyphon\typhon\components\pl_ZeosDBO\source\dbc\ZDbcInterbase6Utils.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="824"/>
         <CursorPos Y="831"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="3"/>
       </Unit22>
       <Unit23>
         <Filename Value="afiliaciones\tablas\fureza.pas"/>
@@ -252,31 +252,16 @@
         <UnitName Value="fuerza"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="64" Y="16"/>
-        <UsageCount Value="14"/>
+        <UsageCount Value="7"/>
       </Unit23>
       <Unit24>
         <Filename Value="C:\codetyphon\typhon\components\pl_ZeosDBO\source\component\ZAbstractRODataset.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2467"/>
         <CursorPos Y="2485"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="3"/>
       </Unit24>
       <Unit25>
-        <Filename Value="C:\codetyphon\typhon\components\pl_ZeosDBO\source\dbc\ZDbcUtils.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="356"/>
-        <CursorPos Y="375"/>
-        <UsageCount Value="4"/>
-      </Unit25>
-      <Unit26>
-        <Filename Value="C:\codetyphon\typhon\components\pl_HtmlViewer\source\HtmlImages.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="2015"/>
-        <CursorPos Y="2034"/>
-        <UsageCount Value="5"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit26>
-      <Unit27>
         <Filename Value="afiliaciones\busc.pas"/>
         <ComponentName Value="Busqueda"/>
         <HasResources Value="True"/>
@@ -284,10 +269,10 @@
         <UnitName Value="Busc"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="74" Y="14"/>
-        <UsageCount Value="10"/>
-      </Unit27>
+        <UsageCount Value="3"/>
+      </Unit25>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="28" HistoryIndex="27">
       <Position1>
         <Filename Value="afiliaciones\tablas\cargos_afiliados.pas"/>
         <Caret Line="417" Column="79" TopLine="385"/>
@@ -389,25 +374,17 @@
         <Caret Line="99" Column="24" TopLine="77"/>
       </Position25>
       <Position26>
-        <Filename Value="datos\modulo_datos.pas"/>
-        <Caret Line="81" Column="54" TopLine="83"/>
-      </Position26>
-      <Position27>
         <Filename Value="busqueda\buscar.pas"/>
         <Caret Line="185" Column="26" TopLine="166"/>
+      </Position26>
+      <Position27>
+        <Filename Value="afiliaciones\registro.pas"/>
+        <Caret Line="244" Column="6" TopLine="234"/>
       </Position27>
       <Position28>
         <Filename Value="afiliaciones\registro.pas"/>
-        <Caret Line="9" Column="72" TopLine="147"/>
+        <Caret Line="309" Column="78" TopLine="282"/>
       </Position28>
-      <Position29>
-        <Filename Value="afiliaciones\registro.pas"/>
-        <Caret Line="256" Column="6" TopLine="276"/>
-      </Position29>
-      <Position30>
-        <Filename Value="afiliaciones\registro.pas"/>
-        <Caret Line="244" Column="6" TopLine="234"/>
-      </Position30>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>

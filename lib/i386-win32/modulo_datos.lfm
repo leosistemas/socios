@@ -32,11 +32,13 @@ object DataModule1: TDataModule1
     top = 8
   end
   object Qparticipantes: TZReadOnlyQuery
+    Connection = conector_socios
     Params = <>
     left = 37
     top = 224
   end
   object Qpatrocinados: TZReadOnlyQuery
+    Connection = conector_socios
     Params = <>
     left = 37
     top = 304

@@ -97,7 +97,6 @@ var
 begin
   SQ:='';
   renglon:=conf.pathSql+archivo;
-  showmessage(renglon);
     AssignFile(fuente,renglon);
     Reset(fuente);
   if (tipo<>'nombre') and (tipo<>'socio') then
