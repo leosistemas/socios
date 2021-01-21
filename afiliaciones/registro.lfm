@@ -2,10 +2,10 @@ object ficha_socio: Tficha_socio
   Left = 71
   Height = 578
   Top = 0
-  Width = 1112
+  Width = 1185
   Caption = 'Registro de Socios'
   ClientHeight = 578
-  ClientWidth = 1112
+  ClientWidth = 1185
   Icon.Data = {
     84E4000000000100010000000000010020006EE400001600000089504E470D0A
     1A0A0000000D49484452000000EF0000012D08020000006F45A0E50000E43549
@@ -1844,14 +1844,14 @@ object ficha_socio: Tficha_socio
     Left = 2
     Height = 576
     Top = 8
-    Width = 972
+    Width = 1172
     ActivePage = titular
     TabIndex = 0
     TabOrder = 0
     object titular: TTabSheet
       Caption = 'Titular'
       ClientHeight = 548
-      ClientWidth = 964
+      ClientWidth = 1164
       object Shape4: TShape
         Left = 10
         Height = 40
@@ -1861,20 +1861,20 @@ object ficha_socio: Tficha_socio
       end
       object Shape3: TShape
         Left = 10
-        Height = 120
-        Top = 360
+        Height = 160
+        Top = 320
         Width = 918
         Brush.Color = clSkyBlue
       end
       object Shape2: TShape
-        Left = 10
-        Height = 184
-        Top = 160
+        Left = 11
+        Height = 153
+        Top = 159
         Width = 917
         Brush.Color = clGradientActiveCaption
       end
       object Shape1: TShape
-        Left = 10
+        Left = 11
         Height = 152
         Top = 0
         Width = 917
@@ -1933,7 +1933,7 @@ object ficha_socio: Tficha_socio
         TabOrder = 5
       end
       object Label23: TLabel
-        Left = 396
+        Left = 376
         Height = 15
         Top = 104
         Width = 29
@@ -1943,7 +1943,7 @@ object ficha_socio: Tficha_socio
         ParentFont = False
       end
       object email: TEdit
-        Left = 392
+        Left = 368
         Height = 23
         Top = 120
         Width = 272
@@ -1952,19 +1952,19 @@ object ficha_socio: Tficha_socio
         TabOrder = 6
         Text = 'regsitrodesocios.mspfa@hotmail.com.ar'
       end
-      object certificado: TEdit
-        Left = 440
+      object concepto: TEdit
+        Left = 600
         Height = 23
-        Top = 184
-        Width = 264
+        Top = 232
+        Width = 72
         ReadOnly = True
         TabOrder = 7
-        Text = 'certificado'
+        Text = '7600110'
       end
-      object descuento: TEdit
-        Left = 192
+      object origen_pago: TEdit
+        Left = 24
         Height = 23
-        Top = 184
+        Top = 232
         Width = 232
         ReadOnly = True
         TabOrder = 8
@@ -1974,17 +1974,17 @@ object ficha_socio: Tficha_socio
         Left = 24
         Height = 23
         Top = 184
-        Width = 152
+        Width = 280
         ReadOnly = True
         TabOrder = 9
         Text = 'ACTIVO EN ACTIVIDAD'
       end
       object Label22: TLabel
-        Left = 200
+        Left = 32
         Height = 15
-        Top = 168
-        Width = 60
-        Caption = 'Descuento'
+        Top = 216
+        Width = 85
+        Caption = 'Origen de Pago'
         Font.Style = [fsBold]
         ParentColor = False
         ParentFont = False
@@ -1992,7 +1992,7 @@ object ficha_socio: Tficha_socio
       object Label21: TLabel
         Left = 688
         Height = 15
-        Top = 376
+        Top = 336
         Width = 22
         Caption = 'Piso'
         Font.Style = [fsBold]
@@ -2002,7 +2002,7 @@ object ficha_socio: Tficha_socio
       object Label20: TLabel
         Left = 608
         Height = 15
-        Top = 376
+        Top = 336
         Width = 53
         Caption = 'Direccion'
         Font.Style = [fsBold]
@@ -2012,26 +2012,26 @@ object ficha_socio: Tficha_socio
       object Label19: TLabel
         Left = 28
         Height = 15
-        Top = 376
+        Top = 336
         Width = 26
         Caption = 'Calle'
         Font.Style = [fsBold]
         ParentColor = False
         ParentFont = False
       end
-      object jerarquia: TEdit
-        Left = 288
+      object fpago: TEdit
+        Left = 715
         Height = 23
-        Top = 240
-        Width = 168
+        Top = 232
+        Width = 98
         ReadOnly = True
         TabOrder = 10
-        Text = 'ARGENTINO'
+        Text = 'ELECTRONICO'
       end
       object edad: TEdit
-        Left = 862
+        Left = 864
         Height = 23
-        Top = 70
+        Top = 72
         Width = 42
         ReadOnly = True
         TabOrder = 11
@@ -2040,7 +2040,7 @@ object ficha_socio: Tficha_socio
       object nacionalidad: TEdit
         Left = 728
         Height = 23
-        Top = 70
+        Top = 72
         Width = 122
         ReadOnly = True
         TabOrder = 12
@@ -2049,7 +2049,7 @@ object ficha_socio: Tficha_socio
       object estcivil: TEdit
         Left = 608
         Height = 23
-        Top = 70
+        Top = 72
         Width = 104
         ReadOnly = True
         TabOrder = 13
@@ -2058,18 +2058,18 @@ object ficha_socio: Tficha_socio
       object sexo: TEdit
         Left = 512
         Height = 23
-        Top = 70
+        Top = 72
         Width = 80
         ReadOnly = True
         TabOrder = 14
         Text = 'FEMENINO'
       end
       object Label18: TLabel
-        Left = 448
+        Left = 605
         Height = 15
-        Top = 168
-        Width = 61
-        Caption = 'Certificado'
+        Top = 216
+        Width = 53
+        Caption = 'Concepto'
         Font.Style = [fsBold]
         ParentColor = False
         ParentFont = False
@@ -2085,11 +2085,11 @@ object ficha_socio: Tficha_socio
         ParentFont = False
       end
       object Label16: TLabel
-        Left = 289
+        Left = 720
         Height = 15
-        Top = 224
-        Width = 51
-        Caption = 'Jerarquia'
+        Top = 216
+        Width = 82
+        Caption = 'Forma de Pago'
         Font.Style = [fsBold]
         ParentColor = False
         ParentFont = False
@@ -2127,25 +2127,25 @@ object ficha_socio: Tficha_socio
       object fnacimiento: TEdit
         Left = 392
         Height = 23
-        Top = 70
+        Top = 72
         Width = 96
         ReadOnly = True
         TabOrder = 15
         Text = '28/10/2017'
       end
-      object afiliado: TEdit
-        Left = 192
+      object fz: TEdit
+        Left = 283
         Height = 23
-        Top = 240
-        Width = 80
+        Top = 232
+        Width = 285
         ReadOnly = True
         TabOrder = 16
-        Text = 'afiliado'
+        Text = 'fuerza'
       end
       object cuil: TEdit
         Left = 272
         Height = 23
-        Top = 70
+        Top = 72
         Width = 96
         ReadOnly = True
         TabOrder = 17
@@ -2171,50 +2171,31 @@ object ficha_socio: Tficha_socio
         ParentColor = False
         ParentFont = False
       end
-      object Label10: TLabel
-        Left = 747
-        Height = 15
-        Top = 168
-        Width = 24
-        Caption = 'CBU'
-        Font.Style = [fsBold]
-        ParentColor = False
-        ParentFont = False
-      end
       object beneficio: TEdit
-        Left = 104
+        Left = 417
         Height = 23
-        Top = 240
+        Top = 184
         Width = 72
         ReadOnly = True
         TabOrder = 18
         Text = '230225680'
       end
       object nlegajo: TEdit
-        Left = 24
+        Left = 328
         Height = 23
-        Top = 240
+        Top = 184
         Width = 64
         ReadOnly = True
         TabOrder = 19
         Text = '22456456'
       end
-      object cbu: TEdit
-        Left = 739
-        Height = 23
-        Top = 184
-        Width = 160
-        ReadOnly = True
-        TabOrder = 20
-        Text = '012345678901234567890123'
-      end
       object nrodoc: TEdit
         Left = 176
         Height = 23
-        Top = 70
+        Top = 72
         Width = 80
         ReadOnly = True
-        TabOrder = 21
+        TabOrder = 20
         Text = '22456456'
       end
       object nombre: TEdit
@@ -2223,7 +2204,7 @@ object ficha_socio: Tficha_socio
         Top = 24
         Width = 432
         ReadOnly = True
-        TabOrder = 22
+        TabOrder = 21
       end
       object apellido: TEdit
         Left = 24
@@ -2231,7 +2212,7 @@ object ficha_socio: Tficha_socio
         Top = 24
         Width = 432
         ReadOnly = True
-        TabOrder = 23
+        TabOrder = 22
       end
       object Label9: TLabel
         Left = 280
@@ -2244,9 +2225,9 @@ object ficha_socio: Tficha_socio
         ParentFont = False
       end
       object Label8: TLabel
-        Left = 105
+        Left = 417
         Height = 15
-        Top = 224
+        Top = 168
         Width = 67
         Caption = 'N°Beneficio'
         Font.Style = [fsBold]
@@ -2254,9 +2235,9 @@ object ficha_socio: Tficha_socio
         ParentFont = False
       end
       object Label7: TLabel
-        Left = 24
+        Left = 328
         Height = 15
-        Top = 224
+        Top = 168
         Width = 50
         Caption = 'N°Legajo'
         Font.Style = [fsBold]
@@ -2264,11 +2245,11 @@ object ficha_socio: Tficha_socio
         ParentFont = False
       end
       object Label6: TLabel
-        Left = 192
+        Left = 288
         Height = 15
-        Top = 224
-        Width = 53
-        Caption = 'Concepto'
+        Top = 216
+        Width = 37
+        Caption = 'Fuerza'
         Font.Style = [fsBold]
         ParentColor = False
         ParentFont = False
@@ -2332,7 +2313,7 @@ object ficha_socio: Tficha_socio
         EditLabel.Font.Style = [fsBold]
         ParentFont = False
         ReadOnly = True
-        TabOrder = 24
+        TabOrder = 23
         Text = '0223-15-435-8934'
       end
       object Celular: TLabeledEdit
@@ -2354,160 +2335,161 @@ object ficha_socio: Tficha_socio
         EditLabel.Font.Style = [fsBold]
         ParentFont = False
         ReadOnly = True
-        TabOrder = 25
+        TabOrder = 24
         Text = 'Celular'
       end
-      object Delegacion: TLabeledEdit
+      object lugar_afiliacion: TLabeledEdit
         Left = 24
         Height = 23
-        Top = 296
-        Width = 209
-        EditLabel.AnchorSideLeft.Control = Delegacion
-        EditLabel.AnchorSideRight.Control = Delegacion
+        Top = 280
+        Width = 289
+        EditLabel.AnchorSideLeft.Control = lugar_afiliacion
+        EditLabel.AnchorSideRight.Control = lugar_afiliacion
         EditLabel.AnchorSideRight.Side = asrBottom
-        EditLabel.AnchorSideBottom.Control = Delegacion
+        EditLabel.AnchorSideBottom.Control = lugar_afiliacion
         EditLabel.Left = 24
         EditLabel.Height = 15
-        EditLabel.Top = 278
-        EditLabel.Width = 209
-        EditLabel.Caption = 'Delegacion'
+        EditLabel.Top = 262
+        EditLabel.Width = 289
+        EditLabel.Caption = 'Lugar de AFiliación'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         ReadOnly = True
-        TabOrder = 26
-        Text = 'Delegacion'
+        TabOrder = 25
+        Text = 'lugar_afiliacion'
       end
       object Promotor: TLabeledEdit
-        Left = 257
+        Left = 332
         Height = 23
-        Top = 296
+        Top = 280
         Width = 199
         EditLabel.AnchorSideLeft.Control = Promotor
         EditLabel.AnchorSideRight.Control = Promotor
         EditLabel.AnchorSideRight.Side = asrBottom
         EditLabel.AnchorSideBottom.Control = Promotor
-        EditLabel.Left = 257
+        EditLabel.Left = 332
         EditLabel.Height = 15
-        EditLabel.Top = 278
+        EditLabel.Top = 262
         EditLabel.Width = 199
         EditLabel.Caption = 'Promotor'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         ReadOnly = True
-        TabOrder = 27
+        TabOrder = 26
         Text = 'Promotor'
       end
       object FAlta: TLabeledEdit
-        Left = 484
+        Left = 512
         Height = 23
-        Top = 240
+        Top = 184
         Width = 80
         EditLabel.AnchorSideLeft.Control = FAlta
         EditLabel.AnchorSideRight.Control = FAlta
         EditLabel.AnchorSideRight.Side = asrBottom
         EditLabel.AnchorSideBottom.Control = FAlta
-        EditLabel.Left = 484
+        EditLabel.Left = 512
         EditLabel.Height = 15
-        EditLabel.Top = 222
+        EditLabel.Top = 166
         EditLabel.Width = 80
         EditLabel.Caption = 'Fecha Alta'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         ReadOnly = True
-        TabOrder = 28
+        TabOrder = 27
         Text = 'FAlta'
       end
       object FBaja: TLabeledEdit
-        Left = 584
+        Left = 612
         Height = 23
-        Top = 240
+        Top = 184
         Width = 80
         EditLabel.AnchorSideLeft.Control = FBaja
         EditLabel.AnchorSideRight.Control = FBaja
         EditLabel.AnchorSideRight.Side = asrBottom
         EditLabel.AnchorSideBottom.Control = FBaja
-        EditLabel.Left = 584
+        EditLabel.Left = 612
         EditLabel.Height = 15
-        EditLabel.Top = 222
+        EditLabel.Top = 166
         EditLabel.Width = 80
         EditLabel.Caption = 'Fecha Baja'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         ReadOnly = True
-        TabOrder = 29
+        TabOrder = 28
         Text = 'FBaja'
       end
       object FIngreso: TLabeledEdit
-        Left = 680
+        Left = 720
         Height = 23
-        Top = 240
+        Top = 184
         Width = 80
         EditLabel.AnchorSideLeft.Control = FIngreso
         EditLabel.AnchorSideRight.Control = FIngreso
         EditLabel.AnchorSideRight.Side = asrBottom
         EditLabel.AnchorSideBottom.Control = FIngreso
-        EditLabel.Left = 680
+        EditLabel.Left = 720
         EditLabel.Height = 15
-        EditLabel.Top = 222
+        EditLabel.Top = 166
         EditLabel.Width = 80
         EditLabel.Caption = 'Fecha Ingreso'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         ReadOnly = True
-        TabOrder = 30
+        TabOrder = 29
         Text = 'FIngreso'
       end
       object FEgreso: TLabeledEdit
-        Left = 784
+        Left = 826
         Height = 23
-        Top = 240
+        Top = 184
         Width = 80
         EditLabel.AnchorSideLeft.Control = FEgreso
         EditLabel.AnchorSideRight.Control = FEgreso
         EditLabel.AnchorSideRight.Side = asrBottom
         EditLabel.AnchorSideBottom.Control = FEgreso
-        EditLabel.Left = 784
+        EditLabel.Left = 826
         EditLabel.Height = 15
-        EditLabel.Top = 222
+        EditLabel.Top = 166
         EditLabel.Width = 80
         EditLabel.Caption = 'Fecha Egreso'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         ReadOnly = True
-        TabOrder = 31
+        TabOrder = 30
         Text = 'FEgreso'
       end
       object Patrocinador: TLabeledEdit
-        Left = 480
+        Left = 544
         Height = 23
-        Top = 296
-        Width = 384
+        Top = 280
+        Width = 362
         EditLabel.AnchorSideLeft.Control = Patrocinador
         EditLabel.AnchorSideRight.Control = Patrocinador
         EditLabel.AnchorSideRight.Side = asrBottom
         EditLabel.AnchorSideBottom.Control = Patrocinador
-        EditLabel.Left = 480
+        EditLabel.Left = 544
         EditLabel.Height = 15
-        EditLabel.Top = 278
-        EditLabel.Width = 384
+        EditLabel.Top = 262
+        EditLabel.Width = 362
         EditLabel.Caption = 'Patrocinador'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         ReadOnly = True
-        TabOrder = 32
+        TabOrder = 31
         Text = 'Patrocinador'
+        OnClick = busc_patClick
       end
       object Label24: TLabel
         Left = 744
         Height = 15
-        Top = 376
+        Top = 336
         Width = 35
         Caption = 'Depto'
         Font.Style = [fsBold]
@@ -2515,9 +2497,9 @@ object ficha_socio: Tficha_socio
         ParentFont = False
       end
       object label25: TLabel
-        Left = 28
+        Left = 32
         Height = 15
-        Top = 424
+        Top = 384
         Width = 40
         Caption = 'Partido'
         Font.Style = [fsBold]
@@ -2527,43 +2509,43 @@ object ficha_socio: Tficha_socio
       object calle: TEdit
         Left = 28
         Height = 23
-        Top = 392
+        Top = 352
         Width = 568
         ReadOnly = True
-        TabOrder = 33
+        TabOrder = 32
         Text = 'calle'
       end
       object direccion: TEdit
         Left = 605
         Height = 23
-        Top = 392
+        Top = 352
         Width = 59
         ReadOnly = True
-        TabOrder = 34
+        TabOrder = 33
         Text = 'direccion'
       end
       object piso: TEdit
         Left = 680
         Height = 23
-        Top = 392
+        Top = 352
         Width = 48
         ReadOnly = True
-        TabOrder = 35
+        TabOrder = 34
         Text = 'piso'
       end
       object depto: TEdit
         Left = 744
         Height = 23
-        Top = 392
+        Top = 352
         Width = 48
         ReadOnly = True
-        TabOrder = 36
+        TabOrder = 35
         Text = 'depto'
       end
       object Label28: TLabel
-        Left = 344
+        Left = 348
         Height = 15
-        Top = 424
+        Top = 384
         Width = 51
         Caption = 'Localidad'
         Font.Style = [fsBold]
@@ -2571,9 +2553,9 @@ object ficha_socio: Tficha_socio
         ParentFont = False
       end
       object Label29: TLabel
-        Left = 647
+        Left = 651
         Height = 15
-        Top = 424
+        Top = 384
         Width = 51
         Caption = 'Provincia'
         Font.Style = [fsBold]
@@ -2583,7 +2565,7 @@ object ficha_socio: Tficha_socio
       object Label26: TLabel
         Left = 808
         Height = 15
-        Top = 376
+        Top = 336
         Width = 74
         Caption = 'Codigo Postal'
         Font.Style = [fsBold]
@@ -2593,37 +2575,37 @@ object ficha_socio: Tficha_socio
       object partido: TEdit
         Left = 28
         Height = 23
-        Top = 440
+        Top = 400
         Width = 300
         ReadOnly = True
-        TabOrder = 37
+        TabOrder = 36
         Text = 'partido'
       end
       object localidad: TEdit
         Left = 344
         Height = 23
-        Top = 440
+        Top = 400
         Width = 280
         ReadOnly = True
-        TabOrder = 38
+        TabOrder = 37
         Text = 'localidad'
       end
       object provincia: TEdit
         Left = 640
         Height = 23
-        Top = 440
+        Top = 400
         Width = 248
         ReadOnly = True
-        TabOrder = 39
+        TabOrder = 38
         Text = 'provincia'
       end
       object codpostal: TEdit
         Left = 808
         Height = 23
-        Top = 392
+        Top = 352
         Width = 80
         ReadOnly = True
-        TabOrder = 40
+        TabOrder = 39
         Text = 'codpostal'
       end
       object grabar: TButton
@@ -2633,7 +2615,7 @@ object ficha_socio: Tficha_socio
         Width = 75
         Caption = 'Grabar'
         OnClick = grabarClick
-        TabOrder = 41
+        TabOrder = 40
         Visible = False
       end
       object cancelar: TButton
@@ -2643,20 +2625,20 @@ object ficha_socio: Tficha_socio
         Width = 75
         Caption = 'Cancelar'
         OnClick = cancelarClick
-        TabOrder = 42
+        TabOrder = 41
         Visible = False
       end
       object tipodoc: TEdit
         Left = 24
         Height = 23
-        Top = 70
+        Top = 72
         Width = 112
         ReadOnly = True
-        TabOrder = 43
+        TabOrder = 42
         Text = 'DNI'
       end
       object Label27: TLabel
-        Left = 715
+        Left = 676
         Height = 15
         Top = 104
         Width = 36
@@ -2666,228 +2648,48 @@ object ficha_socio: Tficha_socio
         ParentFont = False
       end
       object estado: TEdit
-        Left = 707
+        Left = 666
         Height = 23
         Top = 120
         Width = 184
         CharCase = ecUppercase
         ReadOnly = True
-        TabOrder = 44
+        TabOrder = 43
         Text = 'ALTA'
       end
-      object busc_pat: TImage
-        Left = 871
-        Height = 21
-        Top = 296
-        Width = 28
-        OnClick = busc_patClick
-        Picture.Data = {
-          0A544A706567496D616765F6170000FFD8FFE000104A46494600010100000100
-          010000FFDB0084000906070F110F100F1010101015151010100E100F0F10100E
-          10101515161715111515181D2820181A251B151521312125292B2E2E2E181F33
-          38332D37282D2E2B010A0A0A0E0D0E1B10101A2D2520252D2D2D2D2D2D2D2D2D
-          2D2D2D2D2D2D2D2F2D2D2D2D2D2D2D2E2D2D2D2D2D2D2D2D2D2D2D2D2D2D2D2D
-          2D2D2D2D2D2D2D2D2DFFC000110800FB00C903011100021101031101FFC4001C
-          0001000105010100000000000000000000000203040506070108FFC4003F1000
-          0103020207040903020407000000000100020304110521061231415171811322
-          6191072332425272A1B1C11462D115824353B2F03354639293A2E1FFC4001A01
-          0100030101010000000000000000000000030405020106FFC400341101000201
-          0302040403080203000000000001020304112112310541516113223271428191
-          14235262A1B1C1D134E1243372FFDA000C03010002110311003F00EE28080808
-          0808080808080808080808080808080808080808080808080808080808080808
-          0821248D68BB88038936082C26C6621ECDDFC858799416AEC69FEEC6D1CC93F6
-          41E37139CEE67914175156CA76B587CC20BB1390D05CD3E3AB9A09C53B5DB0F4
-          D87C90554040404040404040404040404040404041E12830B88E3AD6DDB1D9C7
-          E23EC8FE506B38A630C6032544A1A38BDD61D020D52BFD23C4DEED342F98EC05
-          DDD6F96D5EC44CF6796B4563799635DA5F8BCA7D5B1B10DDA90B5C4757DFECA6
-          AE9735BB56556DAED3D7BDE195C32BB15758BE597FED8C7D9A93A6CB1DEB2F6B
-          AED3DBB5A1B6E1B595A2DACF27E6630FE14534B47784F5C94B7696CCDAF7B616
-          BDCD04DC82064B9768C78853CA6C4EABB707775DD0A0BC639CDDFAE3C7DA039E
-          F41731C81C2E0FF2104D01010101010101010101010101078E200B941AB6398C
-          17131B0D86F236941CF31FD2CD479A6A46F6F37BC4671C7E2E2A4C58AF92DD34
-          8DE5166CF8F0D7AEF3B42860BA05595AEEDAA9EE7DF3BB896C4DF068DFD15FFD
-          9F060FFDD3BCFA4327F6CD56AA7FF1EBD35FE29FF0E8385FA3DA5880D6EF1FDA
-          D0D1FCAE67C426BC63AC43AAF84C5F9CF79B4FF46721C02919B216F3399505B5
-          99EDDECB54F0DD2D3B5217030F806C8D83A2E3E364FE29491A6C31DAB09B68E3
-          1B1B6E4B99C969EF292B8691DA3654969C16EAD971BEF3CA4DB68E1A9E3B8711
-          7201F2CD77F0F78DEA8BE3C44ED660E8749E7A676AC81D2477B58DF5DBC8A896
-          1BA506231CCD12C2E06FD3A386E2832B4D501E38119386F05057404040404040
-          404040404041E39C00B9CB8A0D6F1CC5EE3519B0EFDE47141CE31DC4A6964FD1
-          D293AC729E519F660FBA38BCAB1A7D3DB34FA4477953D66B2BA6AEFDED3DA3D5
-          B9686681434CC0F95BACE3DED539E7C5E7795672EAEB8EBF0F0711EBE72A5834
-          17CD6F8DABE67CABE50DDDAD0058643701B16777EED888DB88785CBD887932A6
-          E7AEE21C4D91ED13A5CF524245E74BA8BA664CAEBCDB97536E16D34D96E5256B
-          CA1BDF8695A58D9C34B99AB6DC754791576BA6A66AED1C5BFBB32FADC9A6BFCD
-          CD27FA39E61DA6155495172016EB5A58ED6B8E23C5675E9349E996CE3C95C95E
-          AACEF0EBD8562AC9A3654C2EBDC5FE61BD87C572EDB241287B4386C3FEEC82A2
-          020202020202020202020C062F5FACE3134F75B9CA46FF00DA8348D23C49CC61
-          2CB191E752107603F15B8019A931629C978AC21CF9E9871CE4B76866FD1EE8D3
-          616095E359C7BD77664B8E65E7C4ABFABC95C54F838FB79FBB27C3F0DB3E49D4
-          E6EFE51E90DE5664371173D7510E26545EF5DC423995173D77108E654FB45D74
-          B8EA3B54E93AD37CDDC1CD7315F99D4DFE4594B3A9EB455B6458D43838107307
-          6A9A91B4EF0AB9262D1B4B9BE9A68FDAF230662E4788E0A6D4E28D463EB8FAA3
-          FAABE8B513A4CDF0EDF45BB7B2CBD1DE90986714EF77AB90D9B7D8C9371E4767
-          92C47D43B3E1151AAFD43B1D98F0720CD20202020202020202020C76395E2184
-          BBDE3DD673E3D106A45E4400939C8E2E3C7541CBEB74184C3E97F51585EECD91
-          0D51C3C7CCFD96B6929F0B14E4F3B710F9EF11C9F1F3C618FA6BCCFBCFA3A761
-          ECD58DBE22EB3B2CEF796D69E22B8E155EF5CC43B995173D77108E6545CF5D44
-          239B293DEBB884536517BD77108E6CB49AAED90CD4D5C7BABDF36DD9196A4988
-          1BFBC52B488BBCB659F870B274A78A9E2AAB37940C8BAE973D4B6AE8FB46169E
-          9CD498E7A2DBA1CF5EBA6CE4D8E51F6139232B9D765B71DFF5597AFC1F0F2F1D
-          A7986EF856AA73E08EAFAABC4BB0E8BE25FA8A38671ED0003BE76EDF3549A6DD
-          E09039AD70DE01415101010101010101010683A655FAF37660E4DEE81FB8ED41
-          E631DCEE8FF0E36B473033FA95ED6379D9CDEDD359B7A2968E43A90EB6F7124F
-          E16EE68DA6291E50F95D35A6D16C93DED332DEA3759ADF947D962CC732FA5ACF
-          CB1F641CE5D443999517BD77108E6CA2E7AEE2114D945EF5DC4239958D654DB2
-          0A7C74DF9954CD976E21605CAC6CABBAAC8FF563995C447CEEE6DFBB8FBAD8BD
-          4BB21EA44BD7BB39EA44B97BB3CEA693A7949DCD71B9C1DD1D91FAD945AEA75E
-          9E2DFC329FC2B2FC3D64D3CAD1FD639663D0ED5DD95101DC5B23791C8AC27D53
-          AA610EF565BF0B8B7F23EE82F901010101010101042790358E71F75A5C7A0BA0
-          E3EDAA3355C77CF5E78C1EAF08362D2217ED8F89567475EACF58F752F11BF4E9
-          6F3ECAD49DD8D8DE0D0B5327379960E38E9C711ECDA2196EC69FDA3ECB2ED5DA
-          D2DEA5B7AC4FB22F7AF621CCCA8B9EBB884732A4E7AEE2114CADE592C09F05DC
-          46F28AD6DA3761DF25C92AEC57666DADBCEE817AEB673BA6E7F70732B988F99D
-          4DBE48502F526C8B744B97BB3CDD12F5EECE66584D2966B40FF91DF4CD3257AB
-          0DEBEC62BF4EA71DBDD88F43939FEA0F6FC503AFFDA41FCAF997DBBB6E1993E5
-          1E2D3E63FF0088320808080808080808317A4F2EAD1D41FF00A640EA839260AE
-          B5553BB84F09F27841B9E9147DC939FE55CD07FC8AB3BC5BFE25D08DFDD1C82D
-          3B4732C289E19CC2EA2F1DBE1CBA6E5473D36BEED5D364EAC7B7A2BB9EB8884B
-          36517BD77108A6545CF5DC423995957C96673C94D8ABF32B67B6D562CBD5AD94
-          37785EBDD9E6E3A4EE8E65223926DF2A997AEB671BA25CBDD9E6E817AF7673BB
-          1B8E3FD4BAFF000BFECBD9E296FB39AF3969F78607D10DC6205D6C840F1E765F
-          2AFBE9772C2CDDF29F907D0A0C8A020202020202020C4696B6F453FC88392D38
-          D5735DC1CD3E46E83A0E351EBC6F23DE66B0EA2EA7D2DBA72D67DD575B4EBD3D
-          EBECC352CB7634F805BB7AED697CA63BEF485E5155EA3AFB8E4543971F542C61
-          CDD16F6664C97170A94434E6DBF2A4F7A92211CCA8B9CBA884732C7E25264078
-          95670D7953D4DB888638BD58D94E6512F5EECE7A9E6BA6C6E935975E4CBD8857
-          644B89B25AD142B21D5CF71FA2EF1DBAB8459A935E580D2296D049F291D4E49A
-          9B7460BCFB3DD0D7E26AA95F7FEDCA3E8A29BD64F2DB20D6B073BDCAF977DD3B
-          06063B8E77C4F3F4C9064901010101010101059E310EBD3CCCE31BBEC8390960
-          08379C1271352464E65A3B37F4D9F4489DB9836DF860750C6F9223B9C4B7E52B
-          E96978C98EB78F47C4E4C73872DB14F94F1F6948BD75B39EA5D5262059DD398F
-          A850E4C3D5CC27C5A99A713D9906CED70B820AAFD131DD723256D1C4A0F7AEA2
-          1CCCB115F3DDD96C192B78A9B433B3E48B596BACA6D906EF5AD257932F622657
-          11C6A39B25AD170C8D47364D5A2E638947364F5A2188C5EA5E780BA61B7EF21C
-          EA29FBA973AD2BAAEEB59C4EB1E4362E7C572ED48C7EBCA4F00C1D592D9A7CB8
-          8FCFFE9BB682E1C60A26123BD27AC237E7EC8F2FBAC27D53A3D0C5A91B1BE19F
-          3282E101010101010101078E19590720C6A98C5512C7C1E6DC8E61064743ABB5
-          25742E393F6700F1B1064B49696D69DBB5B93FE5E2B57C37377C56F3EDF76078
-          D696768CF58EDDFECC3768B5B6607544BC2F5EECF3778252361B274C4BC8BCC7
-          67AEA879DAE27AA463AC793D9CB69F3440257AE6226559912E26C96B55CC7128
-          A6C9AB55C47128E6C9AB45CC71A8E6C9AB55C322514D9356AC7E924E2380DF2D
-          6FB0DAA5D37D7D53DA106B77F87D11DEDC439B613466BEBC37FC3690F94EE0C1
-          B1BCC9CBCD656AB34E5C937FD3ECFA0D169A34F8231F9F9FDDD9F0AA50E7B45B
-          BADB1B6ECB6055D6DB1A0202020202020202020D234F70DEF32A5A3223524E63
-          D93F8E8834F06C41191198F028374C3EB05443AD91206ACADFCF22BD89989DE1
-          E5AB168989ECD7710A330BADB5849D43C3C0AFA4D2EA63515FE68EEF8BF10D15
-          B497FE49ED3E9ECB62F56A2142651D65EECF375C471A8E6C9628B98E251CD935
-          68B98E2514D93D68B8644A39B26AD172C8D47364D5A2E238945364D5A2B3ACD6
-          97388000B92720028F79B4ED09676AC754F0E51A5B8F3EB6A4535302EB9D416F
-          E78715CEA73452BF0AB3F79FF09343A69C97FDA3247FF31EDEADEB43B479B4D1
-          3616779EEEFCF25BDA77E00D83AACF6C37DA4A711B6C3A9415D0101010101010
-          1010105BD7D236689F13F638107C38108393E2744F825744F198391DCE1B8841
-          E61B5EF82412373DCE69D8E1C0A0DC9BD8D4C5AECB39A7DB69F6987815DE3C96
-          C768B5651E5C54CB5E8BC6F12D6B12C29F15CB6EE67D5BCD7D06975D4CBC5B89
-          7C86BFC2B269FE6A735FECC66BAD0D991BB2B432078F11B554CB1355EC368B42
-          FE38D41365CAD1731C6A39B26AD172C8D47364D5AAE238D45364D5A215D5D0D3
-          B0C933DAC006F3B5735ADADD9D5AF5A77FD3D5CBB1FD2BAAC52534987B0F660D
-          9F2EC6DB892A3C99E291D38FBFAFFA4F83496C9317CD1C476AFF0099FF004DAB
-          43744994A2CCF592BBFE24A77780E01516ABA3E1F44D89B6199F78F1282F1010
-          1010101010101010101060F49F021551DDB61234771DC7F69F041CAEA83E3739
-          8F696B81B381C8828258762B2C0FD78DD6F887BAE1C0841BC6198CC1542C088E
-          5DF138E4E3FB4EF48E098DFBAC714C1D849C8C6EDF6191E8B430788E5C5C4F31
-          EEC9D5783E0CFCC7CB6F6FF4C2C9453446E0136F7A3CFCC6D5A54F12C178DADC
-          7DD8793C17578A77C7B5BEDFEA5561D226B329401E24EA1FAE4BD9AE1BFD1787
-          316D4E3E32639FD178CD2BA31ED3EDD63B7FA9456C331F8ABFAA7AEA7F92DFA2
-          8547A40C3D9B1C5E7E16D9C4F20DB92A0B5695FAAF1F972B54BE5BFD18ADF9ED
-          0C65469BE213F7682825CF2ED66688983C6EF2A0B67C35FA626DF7E216E9A3D4
-          DFEB98AC7B733FAF658C7A1D5556FED313AA2F1B7B080B833917FF000AB64CF7
-          BF7EDE90BF87498F1731CCFACF76E30D25250C035B529621935A07AC90F06346
-          6E2A0596CDA3D0C8E6895F1985A738617672DBFCC97F71F87720CF2020202020
-          2020202020202020F0A0C1692E8D4556DBE4C900EEC806DF077108397E2B854D
-          4CFD49985BF0BB6B1DE20A0B0325B7A0CAD169A4D100C92D50C1B049ED01E0FD
-          A832F4DA5D8749ED3A4A73FB86BB3CC20C8C72D2CA3B9534D27817807C8A0F5D
-          82D39CCB290F89EC0A0F0D2D34599929221E0F8C7D905856693E190FB554253F
-          0C0D2F27AA0C33B4E669DE21C3690EB1C83E41DA49CF576379A0DBB453425ED9
-          056E2321A9A839B5AF3AEC87C00395F964106F48080808080808080808080808
-          080808285652472B0B24635ED3B4385D06878F7A360FBBE925D43FE5CB9B3907
-          6D1F541CF719D14C4E027B4A595CDF8E106565B8DDB723AA0D667739BED02DF0
-          7020FD505A49372410639C7217E42FF8417DFD12B3B096A1B4B3B991B1D23DFD
-          93C461A05C92E22DE2831BA37540BEEFCCDF3BA0ED9E8B6B638E7929F55A3B56
-          F6B13EC358B9BED32FCB3B7341D4501010101010101010101010101010101010
-          107850509E9227FB71C6FF009D8D77DC20B3760343FF002B4FFF00863FE10578
-          2829E3F621899F2C6C6FD820AF3318F6398F01CD734B1ED3B0B48B107A141F22
-          E3785BF0EC467A475FD5CA4309F7A339B1DD5A47541B7E0B8CEA359230FAC89E
-          D923F1237723B1736BD6BDE5D5696B76877CC131DA7AB631D148D24B1AF7477E
-          FB2E01208DC45ECB9AE4ADBE99757C57A7D51B32AA4462020202020202020202
-          02020202020F2E8225C8225C83C2E4102E4112F41E17A0E31E9C3018E4AAA5A9
-          0E01CE63A395B7EF39AC376BBEA45F9287365E8AA7C18BE259AA51401B66816B
-          2C4CD79B732DDC34AC710DD303A816696772465ACE6E4EE79261C9E9DCCD8E3B
-          4F69751D1DC645432CEB091B6D76F1FDC3C16D60CD192BEEC2CF8671DBD99953
-          A0101010101010101010101079741E172089720897208972081720897A0817A0
-          817A0897A0E47E96C1FD7C2EDC69C3470B87BAFF00EA1F454B551CC2F692786B
-          700BACBC90D6C72C9514C637078DDB7C47055AB3D33BAD5A22D1B36EA0AD746E
-          64D11CC6638381DAD3E0AFE3C93598B433F2E38B44D2CE9385D7B2789B23361C
-          88DED70DAD2B631DE2F1BC3132639A5B695E2EDC080808080808083C250785C8
-          225C8225C8225C8205E8225E8205E8205E8225E82997A0817A081910737F4C31
-          1D4A59C7BAF7C6EE167007EED0ABEA2BBC6EB3A6B6D330D32825B80B26F1CB5E
-          92CCBD9DC0475556F5D97296DD90C0EAB6C64F8B7F214986DF851E7A7E286D9A
-          3D8A9A69BBC7D5BC8120E0773FA7D95FD3E5E8B73D99DA9C3D75DE3BC3A2075E
-          C474F15AAC87A8080808080805052714102E4112E4102E4102F4112F4102F410
-          2F4102F4102F414CBD040BD040BD06AFE91297B6C3A7005CB0095BC6ECCFEC17
-          19237AA4C53B5A1C870C9F30B272D5B18ADC36D825D66AA791731A172C7870DC
-          6E143DA774FF00546D2DAA2789236BC6F19ABD13D5112A131B5A61B9E86629AE
-          C34EF3DE60BC64ED747C3A7DACB4B4B93AA3A67BC32F578BA67AA3B4B67BAB6A
-          620202020202083DA82DDED2828B9C82997A0839E8205E8205E82064414CC882
-          064414CC882064414CC8828D4375D8E61CC39A5A7A84D88EEE0AE80C35124272
-          D491CDE80E5F459D96BCB4F15F886C34B35AC42CDCB0D4C53BB247BCD50774FD
-          A594D1CA8F6E23F337F214FA7B7E141A9AF6B32D1543E191B2B3DA61B81F10DE
-          DEA159A5A696DE156F48BD7A65D3A86A9B2C6C9586ED734382D8ADA2D1BC30ED
-          59ACED2B85D3C10101010101045CDBA0A3253DD05A494E505B3E32105175D052
-          73905373D040BD040B90537390532F415E0A773B620CAD2615C50717F4BB83FE
-          9B1312B459B3461FFDE3277E155CF55CC16E184A497BA165E6AB570D999A5955
-          3ED2BBDE1794EFECE66BC75FCAEAB3D36897368EAACC365933B11BC2B92A50D8
-          741311D57C948E3B8CD072BF7D9D0907FB95ED1E4FC13F933F5B8FB5E3F36E97
-          57941EA020202020202020F084107440A0A4FA4694149D8784149D868410FE96
-          10061410466C2C5B24180AE80B0A0950623A873419FA7C5D877A0D2BD3461EDA
-          8C3DB52CCDD0481C78F66EC8FD6CA2CB1BD52E1B6D671DA2956666AB570D99BA
-          57E4B3EF0D3C72C9C07585B785E4725B867F0F975A21C464AD639DEAAB9236B2
-          A7EA9D049154B76C5207B80DF1EC91BD5A4FD14B8EDD368B7A21C95EBA4D67CD
-          D6637820381B820107883B0AD986126BD0404040404040404040404040404112
-          D4184C769496DC041A7CC4828202A08DE8273D5F691490BF36BD8E61EA17931B
-          C3D8E25C5F54C723E339163DCD3CC1B2CFCB56962B32F472EC59D96AD3C56666
-          89F6703E6ABC712B36E6ACD614FB39ECE22E14F8A7699856CB1C44AFE517041E
-          1653C77412DF341AA8C9431026E63D685D7DBDC361FF00AEAAD6C13BD218DA8A
-          ED92766C0A642202020202020202020202020202020A73461C2C506A18F61641
-          2E0106B325C6482917A0D074DE8F5276CE06520EF70D76EDF316F255B3579DD6
-          B0DBC98EA1996765AB4F0DD9FA19151B557AB665E8E6B48C3D0AF693CC3CBC7C
-          B2CD4AFB0572B0A7696D9E8D25BC350370A836E658DBFD969E9FE964EA7EA86E
-          2AC2B880808080808080808080808080808082854D387820841A5E3B839692E6
-          841AC480836283178F50F6F0399EF7B4CF0705C5EBD50EE96E9B39BC52969B1C
-          883620ED0782A57A6EBF8EFB360A1A805B7546F4DA57E97DD7A2AC8CC1D99A8B
-          A364BD6954692C96B00DBECBE7F6566B33D95AD58EEECFE8EB087D2D046D9411
-          248E74F283B417DAC0F4016A61AF4D7696467BC5AFBC36853211010101010101
-          01010101010101010101051A8A70F1621069D8EE01B5CD083539E9DCD362106A
-          3A43A32E91E6686D73EDB365CF1078A86F8F7E6135326DC4B01FA2A98CD8C520
-          FED242AF6C5BF92CD32EDE6BCA7A2AB932113B9BB21F55CFECEEA75511E6E89E
-          8E742E36CADA8AAB4AF690E8D96F54C70CC3883ED386EE0AC63C115E655F26A6
-          6DC43AF856159EA02020202020202020202020202020202020208491870B1418
-          4C470163F301060E5D1737C90531A32E41774DA31C506C78761AD88648320808
-          08080808080808080808080808080808080808083CD5083CD41C107A020F5010
-          10107FFFD9
-        }
-        Stretch = True
+      object zona_delegacion: TLabeledEdit
+        Left = 264
+        Height = 23
+        Top = 440
+        Width = 394
+        EditLabel.AnchorSideTop.Control = zona_delegacion
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = zona_delegacion
+        EditLabel.AnchorSideBottom.Control = zona_delegacion
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 37
+        EditLabel.Height = 15
+        EditLabel.Top = 444
+        EditLabel.Width = 224
+        EditLabel.Caption = 'Delegación vinculada a este domicilio :    '
+        EditLabel.ParentColor = False
+        EditLabel.ParentFont = False
+        EditLabel.Font.Style = [fsBold]
+        LabelPosition = lpLeft
+        ReadOnly = True
+        TabOrder = 44
+        Text = 'zona_delegacion'
       end
     end
     object TabSheet2: TTabSheet
       Caption = 'Familiares y Patrocinados'
       ClientHeight = 548
-      ClientWidth = 964
+      ClientWidth = 1164
       object Gparticipantes: TDBGrid
         Left = 8
-        Height = 183
+        Height = 136
         Top = 16
-        Width = 937
+        Width = 640
         Color = clWindow
         Columns = <        
           item
@@ -2896,46 +2698,29 @@ object ficha_socio: Tficha_socio
             FieldName = 'ESTADO'
           end        
           item
+            Title.Caption = 'PARENTESCO'
+            Width = 150
+            FieldName = 'PARENTESCO'
+          end        
+          item
             Title.Caption = 'APELLIDO'
-            Width = 250
+            Width = 200
             FieldName = 'APELLIDO'
           end        
           item
             Title.Caption = 'NOMBRE'
             Width = 150
             FieldName = 'NOMBRE'
-          end        
-          item
-            Title.Caption = 'PARENTESCO'
-            Width = 90
-            FieldName = 'PARENTESCO'
-          end        
-          item
-            Title.Caption = 'FAMILIAR'
-            FieldName = 'FAMILIAR'
-          end        
-          item
-            Title.Caption = 'FNACIMIENTO'
-            Width = 90
-            FieldName = 'FNACIMIENTO'
-          end        
-          item
-            Title.Caption = 'EDAD'
-            FieldName = 'EDAD'
-          end        
-          item
-            Title.Caption = 'FALTA'
-            FieldName = 'FALTA'
           end>
         DataSource = DataModule1.DS_participantes
         TabOrder = 0
         OnDblClick = GparticipantesDblClick
       end
-      object Gparticipantes1: TDBGrid
-        Left = 8
-        Height = 183
-        Top = 248
-        Width = 937
+      object GPatrocinados: TDBGrid
+        Left = 608
+        Height = 143
+        Top = 176
+        Width = 545
         Color = clWindow
         Columns = <        
           item
@@ -2952,28 +2737,6 @@ object ficha_socio: Tficha_socio
             Title.Caption = 'NOMBRE'
             Width = 150
             FieldName = 'NOMBRE'
-          end        
-          item
-            Title.Caption = 'PARENTESCO'
-            Width = 90
-            FieldName = 'PARENTESCO'
-          end        
-          item
-            Title.Caption = 'FAMILIAR'
-            FieldName = 'FAMILIAR'
-          end        
-          item
-            Title.Caption = 'FNACIMIENTO'
-            Width = 90
-            FieldName = 'FNACIMIENTO'
-          end        
-          item
-            Title.Caption = 'EDAD'
-            FieldName = 'EDAD'
-          end        
-          item
-            Title.Caption = 'FALTA'
-            FieldName = 'FALTA'
           end>
         DataSource = DataModule1.DS_patrocinados
         TabOrder = 1

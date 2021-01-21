@@ -1,1 +1,1 @@
-select * from v_legajo_titular  where NUMERO=
+select * from v_legajo_titular  where numero=

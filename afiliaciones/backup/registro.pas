@@ -17,9 +17,9 @@ type
   Tficha_socio = class(TForm)
     Gparticipantes: TDBGrid;
     estado: TEdit;
-    Gparticipantes1: TDBGrid;
-    busc_pat: TImage;
+    GPatrocinados: TDBGrid;
     Label27: TLabel;
+    zona_delegacion: TLabeledEdit;
     tipodoc: TEdit;
 
     socios: TPageControl;
@@ -35,7 +35,6 @@ type
     grabar: TButton;
     cancelar: TButton;
 
-    Label10: TLabel;
     Label11: TLabel;
     Label12: TLabel;
     Label13: TLabel;
@@ -75,7 +74,7 @@ type
     fnacimiento: TEdit;
     edad: TEdit;
     Celular: TLabeledEdit;
-    Delegacion: TLabeledEdit;
+    lugar_afiliacion: TLabeledEdit;
     FAlta: TLabeledEdit;
     FBaja: TLabeledEdit;
     FIngreso: TLabeledEdit;
@@ -83,15 +82,14 @@ type
     Patrocinador: TLabeledEdit;
     Promotor: TLabeledEdit;
     Telefono: TLabeledEdit;
-    jerarquia: TEdit;
-    cbu: TEdit;
+    fpago: TEdit;
     nlegajo: TEdit;
     beneficio: TEdit;
     cuil: TEdit;
-    afiliado: TEdit;
+    fz: TEdit;
     categoria: TEdit;
-    descuento: TEdit;
-    certificado: TEdit;
+    origen_pago: TEdit;
+    concepto: TEdit;
     email: TEdit;
     sexo: TEdit;
     estcivil: TEdit;
@@ -143,6 +141,8 @@ begin
   end;
   limpiar();
   view_buttons('inicio');
+   sets.f_tit.numero:='17111';
+     asignar();
 end;
 
 
@@ -165,11 +165,12 @@ end;
 
 procedure Tficha_socio.limpiar();
 begin
+
 apellido.Text:='';calle.Text:='';direccion.Text:='';partido.Text:='';localidad.Text:='';provincia.Text:='';codpostal.Text:='';piso.Text:='';depto.Text:='';fnacimiento.Text:='';
-edad.Text:='';Celular.Text:='';Delegacion.Text:='';FAlta.Text:='';FBaja.Text:='';FIngreso.Text:='';FEgreso.Text:='';Patrocinador.Text:='';Promotor.Text:='';Telefono.Text:='';
-jerarquia.Text:='';cbu.Text:='';nlegajo.Text:='';beneficio.Text:='';cuil.Text:='';afiliado.Text:='';categoria.Text:='';descuento.Text:='';certificado.Text:='';email.Text:='';
+edad.Text:='';Celular.Text:='';lugar_afiliacion.Text:='';FAlta.Text:='';FBaja.Text:='';FIngreso.Text:='';FEgreso.Text:='';Patrocinador.Text:='';Promotor.Text:='';Telefono.Text:='';
+fpago.Text:='';zona_delegacion.Text:='';nlegajo.Text:='';beneficio.Text:='';cuil.Text:='';fz.Text:='';categoria.Text:='';origen_pago.Text:='';concepto.Text:='';email.Text:='';
 estado.Text:='';sexo.Text:='';estcivil.Text:='';nacionalidad.Text:='';tipodoc.Text:='';nrodoc.Text:='';nombre.Text:='';
-busc_pat.Visible:=false;
+
 end;
 
 procedure Tficha_socio.modificarClick(Sender: TObject);
@@ -181,6 +182,8 @@ begin
      //asignar();
      //buscar ficha cargada!!!!
 end;
+
+
 
 procedure Tficha_socio.altaClick(Sender: TObject);
 begin
@@ -254,7 +257,7 @@ begin
      DataModule1.QBuscar.Open;
      //exit();
 
-
+     //DATOS PERSONALES
      nombre.Text:=DataModule1.QBuscar.FieldByName('nombre').AsString;
      apellido.Text:=DataModule1.QBuscar.FieldByName('apellido').AsString;
      tipodoc.Text:=DataModule1.QBuscar.FieldByName('tipodoc').AsString;
@@ -264,24 +267,18 @@ begin
      fnacimiento.Text:=DataModule1.QBuscar.FieldByName('fnacimiento').AsString;
      estcivil.Text:=DataModule1.QBuscar.FieldByName('estcivil').AsString;
      nacionalidad.Text:=DataModule1.QBuscar.FieldByName('nacionalidad').AsString;
-//     edad.Text:=DataModule1.QBuscar.FieldByName('edad').AsString;
-
+     edad.Text:=DataModule1.QBuscar.FieldByName('edad').AsString;
      Telefono.Text:=DataModule1.QBuscar.FieldByName('telefono').AsString;
      Celular.Text:=DataModule1.QBuscar.FieldByName('celular').AsString;
      email.Text:=DataModule1.QBuscar.FieldByName('email').AsString;
 
-
-
-
-
-
+     //DATOS SOCIALES
        estado.text:=DataModule1.QBuscar.FieldByName('estado').AsString;
        categoria.Text:=DataModule1.QBuscar.FieldByName('categoria').AsString;
-       afiliado.Text:=DataModule1.QBuscar.FieldByName('fuerza').AsString; //ver
-       descuento.Text:=DataModule1.QBuscar.FieldByName('descripcion').AsString;
-       cbu.Text:=''; //DataModule1.QBuscar.FieldByName('descripcion').AsString; // ver
-       certificado.Text:=DataModule1.QBuscar.FieldByName('concepto').AsString; //ver
-       jerarquia.Text:=DataModule1.QBuscar.FieldByName('fpago').AsString; //ver
+       origen_pago.Text:=DataModule1.QBuscar.FieldByName('origen_pago').AsString;
+       fz.Text:=DataModule1.QBuscar.FieldByName('fuerza').AsString;
+       concepto.Text:=DataModule1.QBuscar.FieldByName('concepto').AsString;
+       fpago.Text:=DataModule1.QBuscar.FieldByName('fpago').AsString;
      nlegajo.Text:=DataModule1.QBuscar.FieldByName('nlegajo').AsString;
      beneficio.Text:=DataModule1.QBuscar.FieldByName('beneficio').AsString;
      FAlta.Text:=DataModule1.QBuscar.FieldByName('falta').AsString;
@@ -289,11 +286,11 @@ begin
      FIngreso.Text:=DataModule1.QBuscar.FieldByName('finicio').AsString;
      FEgreso.Text:=DataModule1.QBuscar.FieldByName('fegreso').AsString;
      Patrocinador.Text:=DataModule1.QBuscar.FieldByName('titular_nombre').AsString;
-     Delegacion.Text:=DataModule1.QBuscar.FieldByName('delegacion_afiliante').AsString;
-     Promotor.Text:=DataModule1.QBuscar.FieldByName('delegacion_zona').AsString;       //ver
+     lugar_afiliacion.Text:=DataModule1.QBuscar.FieldByName('delegacion_afiliante').AsString;
+     Promotor.Text:=DataModule1.QBuscar.FieldByName('delegacion_zona').AsString;
 
 
-
+      //DATOS DE DOMICILIO
 
 
      calle.Text:=DataModule1.QBuscar.FieldByName('calle').AsString;
@@ -302,18 +299,19 @@ begin
      depto.Text:=DataModule1.QBuscar.FieldByName('depto').AsString;
      codpostal.Text:=DataModule1.QBuscar.FieldByName('codpostal').AsString;
      localidad.Text:=DataModule1.QBuscar.FieldByName('localidad').AsString;
-//     partido.Text:=DataModule1.QBuscar.FieldByName('partido').AsString;
+     partido.Text:=DataModule1.QBuscar.FieldByName('partido').AsString;
      provincia.Text:=DataModule1.QBuscar.FieldByName('provincia').AsString;
-
+     zona_delegacion.Text:=DataModule1.QBuscar.FieldByName('delegacion_zona').AsString;
 
      sets.f_tit.patrocinador:=DataModule1.QBuscar.fieldbyname('codigo_titular').AsString;
-     if length(sets.f_tit.patrocinador)>0 then
+
+     if (trim(sets.f_tit.patrocinador)='0') then
      begin
-       busc_pat.Visible:=true;
+       patrocinador.Visible:=false;
        end
        else
-       busc_pat.Visible:=false;
        begin
+           patrocinador.Visible:=true;
      end;
 
      cl:=DataModule1.sql_buscar('vista_participantes.sql',sets.f_tit.numero,'','socio');

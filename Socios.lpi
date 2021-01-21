@@ -129,7 +129,9 @@
       <Unit13>
         <Filename Value="afiliaciones\ficha_familiar.pas"/>
         <IsPartOfProject Value="True"/>
+        <ComponentName Value="Ficha_fam"/>
         <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
       </Unit13>
       <Unit14>
         <Filename Value="afiliaciones\loc_inaes.pas"/>

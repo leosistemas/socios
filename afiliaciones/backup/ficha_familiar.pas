@@ -179,7 +179,7 @@ procedure TFicha_fam.apellidoExit(Sender: TObject);begin SaleEdit(Sender);end;
 
 procedure TFicha_fam.Button1Click(Sender: TObject);
 begin
-  limpiar();
+  //limpiar();
 end;
 
 procedure TFicha_fam.calleExit(Sender: TObject);begin SaleEdit(Sender);end;

@@ -404,7 +404,7 @@ object Ficha_fam: TFicha_fam
         Left = 536
         Height = 15
         Top = 64
-        Width = 24
+        Width = 25
         Caption = 'Sexo'
         ParentColor = False
       end
@@ -436,7 +436,7 @@ object Ficha_fam: TFicha_fam
         Left = 32
         Height = 15
         Top = 64
-        Width = 90
+        Width = 89
         Caption = 'Tipo Documento'
         ParentColor = False
       end
