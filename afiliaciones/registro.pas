@@ -15,11 +15,28 @@ type
   { Tficha_socio }
 
   Tficha_socio = class(TForm)
+    direccion: TLabeledEdit;
+    piso: TLabeledEdit;
+    depto: TLabeledEdit;
+    codpostal: TLabeledEdit;
+    origen_pago: TLabeledEdit;
+    fz: TLabeledEdit;
+    fpago: TLabeledEdit;
+    categoria: TLabeledEdit;
+    concepto: TLabeledEdit;
+    beneficio: TLabeledEdit;
+    nlegajo: TLabeledEdit;
+    email: TLabeledEdit;
+    foto: TImage;
+    tipodoc: TLabeledEdit;
+    edad: TLabeledEdit;
+    cuil: TLabeledEdit;
+    estcivil: TLabeledEdit;
+
     Gparticipantes: TDBGrid;
     estado: TEdit;
     GPatrocinados: TDBGrid;
     Label10: TLabel;
-    Label27: TLabel;
     Label3: TLabel;
     LabeledEdit1: TLabeledEdit;
     LabeledEdit10: TLabeledEdit;
@@ -34,11 +51,18 @@ type
     LabeledEdit7: TLabeledEdit;
     LabeledEdit8: TLabeledEdit;
     LabeledEdit9: TLabeledEdit;
+
+    nombre: TLabeledEdit;
+    apellido: TLabeledEdit;
+    fnacimiento: TLabeledEdit;
+    Vistas_legajo: TPageControl;
     Shape5: TShape;
     Shape6: TShape;
     Shape7: TShape;
+    TabACargo: TTabSheet;
+    TabSheet2: TTabSheet;
+    TabSheet3: TTabSheet;
     zona_delegacion: TLabeledEdit;
-    tipodoc: TEdit;
 
     socios: TPageControl;
     titular: TTabSheet;
@@ -47,49 +71,12 @@ type
     alta: TButton;
     modificar: TButton;
     baja: TButton;
-    reingreso: TButton;
     buscar: TButton;
-    operaciones: TButton;
     grabar: TButton;
     cancelar: TButton;
 
-    Label11: TLabel;
-    Label12: TLabel;
-    Label13: TLabel;
-    Label14: TLabel;
-    Label15: TLabel;
-    Label16: TLabel;
-    Label17: TLabel;
-    Label18: TLabel;
-    Label19: TLabel;
-    Label20: TLabel;
-    Label21: TLabel;
-    Label22: TLabel;
-    Label23: TLabel;
-    Label29: TLabel;
-    Label26: TLabel;
     Label28: TLabel;
-    Label24: TLabel;
-    label25: TLabel;
-    Label1: TLabel;
-    Label2: TLabel;
-    Label5: TLabel;
-    Label6: TLabel;
-    Label7: TLabel;
-    Label8: TLabel;
-    Label9: TLabel;
 
-    apellido: TEdit;
-    calle: TEdit;
-    direccion: TEdit;
-    partido: TEdit;
-    localidad: TEdit;
-    provincia: TEdit;
-    codpostal: TEdit;
-    piso: TEdit;
-    depto: TEdit;
-    fnacimiento: TEdit;
-    edad: TEdit;
     Celular: TLabeledEdit;
     lugar_afiliacion: TLabeledEdit;
     FAlta: TLabeledEdit;
@@ -99,25 +86,18 @@ type
     Patrocinador: TLabeledEdit;
     Promotor: TLabeledEdit;
     Telefono: TLabeledEdit;
-    fpago: TEdit;
-    nlegajo: TEdit;
-    beneficio: TEdit;
-    cuil: TEdit;
-    fz: TEdit;
-    categoria: TEdit;
-    origen_pago: TEdit;
-    concepto: TEdit;
-    email: TEdit;
-    sexo: TEdit;
-    estcivil: TEdit;
-    nacionalidad: TEdit;
+    sexo1: TEdit;
+    nacionalidad1: TEdit;
     nrodoc: TEdit;
-    nombre: TEdit;
 
     Shape3: TShape;
     Shape4: TShape;
     Shape1: TShape;
     Shape2: TShape;
+    calle: TLabeledEdit;
+    localidad: TLabeledEdit;
+    partido: TLabeledEdit;
+    provincia: TLabeledEdit;
 
     procedure altaClick(Sender: TObject);
     procedure buscarClick(Sender: TObject);
@@ -171,26 +151,26 @@ procedure Tficha_socio.view_buttons(accion:string);
 begin
    if accion='inicio' then
      begin
-       alta.visible:=true; baja.visible:=false; modificar.visible:=false; operaciones.visible:=false; reingreso.visible:=false; buscar.visible:=true; grabar.visible:=false; cancelar.visible:=false;
+       alta.visible:=true; baja.visible:=false; modificar.visible:=false; buscar.visible:=true; grabar.visible:=false; cancelar.visible:=false;
      end;
     if accion='mostrar' then
      begin
-       alta.visible:=true; baja.visible:=true; modificar.visible:=true; operaciones.visible:=true; reingreso.visible:=true; buscar.visible:=true; grabar.visible:=false; cancelar.visible:=false;
+       alta.visible:=true; baja.visible:=true; modificar.visible:=true; buscar.visible:=true; grabar.visible:=false; cancelar.visible:=false;
      end;
 
      if accion='ocultar' then
      begin
-       alta.visible:=false; baja.visible:=false; modificar.visible:=false; operaciones.visible:=false; reingreso.visible:=false; buscar.visible:=false; grabar.visible:=true; cancelar.visible:=true;
+       alta.visible:=false; baja.visible:=false; modificar.visible:=false;  buscar.visible:=false; grabar.visible:=true; cancelar.visible:=true;
      end;
 end;
 
 procedure Tficha_socio.limpiar();
 begin
 
-apellido.Text:='';calle.Text:='';direccion.Text:='';partido.Text:='';localidad.Text:='';provincia.Text:='';codpostal.Text:='';piso.Text:='';depto.Text:='';fnacimiento.Text:='';
+nombre.Text:='';calle.Text:='';direccion.Text:='';partido.Text:='';localidad.Text:='';provincia.Text:='';codpostal.Text:='';piso.Text:='';depto.Text:='';tipodoc.Text:='';
 edad.Text:='';Celular.Text:='';lugar_afiliacion.Text:='';FAlta.Text:='';FBaja.Text:='';FIngreso.Text:='';FEgreso.Text:='';Patrocinador.Text:='';Promotor.Text:='';Telefono.Text:='';
-fpago.Text:='';zona_delegacion.Text:='';nlegajo.Text:='';beneficio.Text:='';cuil.Text:='';fz.Text:='';categoria.Text:='';origen_pago.Text:='';concepto.Text:='';email.Text:='';
-estado.Text:='';sexo.Text:='';estcivil.Text:='';nacionalidad.Text:='';tipodoc.Text:='';nrodoc.Text:='';nombre.Text:='';
+fpago.Text:='';zona_delegacion.Text:='';nlegajo.Text:='';beneficio.Text:='';email.Text:='';fz.Text:='';categoria.Text:='';origen_pago.Text:='';concepto.Text:='';email.Text:='';
+estado.Text:='';sexo1.Text:='';estcivil.Text:='';nacionalidad1.Text:='';tipodoc.Text:='';nrodoc.Text:='';fnacimiento.Text:='';
 
 end;
 
@@ -279,15 +259,15 @@ begin
      //exit();
 
      //DATOS PERSONALES
-     nombre.Text:=DataModule1.QBuscar.FieldByName('nombre').AsString;
-     apellido.Text:=DataModule1.QBuscar.FieldByName('apellido').AsString;
+     fnacimiento.Text:=DataModule1.QBuscar.FieldByName('nombre').AsString;
+     nombre.Text:=DataModule1.QBuscar.FieldByName('apellido').AsString;
      tipodoc.Text:=DataModule1.QBuscar.FieldByName('tipodoc').AsString;
      nrodoc.Text:=DataModule1.QBuscar.FieldByName('nrodoc').AsString;
-     cuil.Text:=DataModule1.QBuscar.FieldByName('cuil').AsString;
-     sexo.Text:=DataModule1.QBuscar.FieldByName('sexo').AsString;
-     fnacimiento.Text:=DataModule1.QBuscar.FieldByName('fnacimiento').AsString;
-     estcivil.Text:=DataModule1.QBuscar.FieldByName('estcivil').AsString;
-     nacionalidad.Text:=DataModule1.QBuscar.FieldByName('nacionalidad').AsString;
+     email.Text:=DataModule1.QBuscar.FieldByName('cuil').AsString;
+     sexo1.Text:=DataModule1.QBuscar.FieldByName('sexo').AsString;
+     tipodoc.Text:=DataModule1.QBuscar.FieldByName('fnacimiento').AsString;
+     fnacimiento.Text:=DataModule1.QBuscar.FieldByName('estcivil').AsString;
+     nacionalidad1.Text:=DataModule1.QBuscar.FieldByName('nacionalidad').AsString;
      edad.Text:=DataModule1.QBuscar.FieldByName('edad').AsString;
      Telefono.Text:=DataModule1.QBuscar.FieldByName('telefono').AsString;
      Celular.Text:=DataModule1.QBuscar.FieldByName('celular').AsString;
@@ -311,7 +291,7 @@ begin
      Promotor.Text:=DataModule1.QBuscar.FieldByName('delegacion_zona').AsString;
 
 
-      ficha_socio.Caption:='[' + trim(apellido.text)+ ', ' + trim(nombre.text) + ']    [' + trim(tipodoc.text) + trim(nrodoc.text) +  ']    [' +  trim('LEGAJO '+ nlegajo.text)
+      ficha_socio.Caption:='[' + trim(nombre.text)+ ', ' + trim(fnacimiento.text) + ']    [' + trim(tipodoc.text) + trim(nrodoc.text) +  ']    [' +  trim('LEGAJO '+ nlegajo.text)
                       +  ']    [' +    trim(categoria.text) +  ']    [' +   trim(origen_pago.text) +  ']    [' +  trim(fz.text) +  ']    [' +  trim(concepto.text)
                       +  ']    [' +  trim(fpago.text) +   ']    [' +  trim(beneficio.text) ;
       //DATOS DE DOMICILIO
