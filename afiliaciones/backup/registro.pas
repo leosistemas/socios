@@ -8,7 +8,7 @@ uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
   ExtCtrls, ComCtrls, ActnList,  DBGrids, titular, Modulo_datos,Buscar,
   sets ,ficha_familiar
-  ;
+  , Grids;
 
 type
 
@@ -18,13 +18,18 @@ type
     Gparticipantes: TDBGrid;
     estado: TEdit;
     GPatrocinados: TDBGrid;
+    Label10: TLabel;
     Label27: TLabel;
+    Label3: TLabel;
+    Shape5: TShape;
+    Shape6: TShape;
+    Shape7: TShape;
     zona_delegacion: TLabeledEdit;
     tipodoc: TEdit;
 
     socios: TPageControl;
     titular: TTabSheet;
-    TabSheet2: TTabSheet;
+    familiares_patrocinados: TTabSheet;
 
     alta: TButton;
     modificar: TButton;
@@ -108,6 +113,10 @@ type
      procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure GparticipantesDblClick(Sender: TObject);
+    procedure GparticipantesPrepareCanvas(sender: TObject; DataCol: Integer;
+      Column: TColumn; AState: TGridDrawState);
+    procedure GPatrocinadosPrepareCanvas(sender: TObject; DataCol: Integer;
+      Column: TColumn; AState: TGridDrawState);
     procedure grabarClick(Sender: TObject);
     procedure busc_patClick(Sender: TObject);
     procedure limpiar();
@@ -141,7 +150,7 @@ begin
   end;
   limpiar();
   view_buttons('inicio');
-   sets.f_tit.numero:='17111';
+   sets.f_tit.numero:='7491';
      asignar();
 end;
 
@@ -290,6 +299,9 @@ begin
      Promotor.Text:=DataModule1.QBuscar.FieldByName('delegacion_zona').AsString;
 
 
+      ficha_socio.Caption:='[' + trim(apellido.text)+ ', ' + trim(nombre.text) + ']    [' + trim(tipodoc.text) + trim(nrodoc.text) +  ']    [' +  trim('LEGAJO '+ nlegajo.text)
+                      +  ']    [' +    trim(categoria.text) +  ']    [' +   trim(origen_pago.text) +  ']    [' +  trim(fz.text) +  ']    [' +  trim(concepto.text)
+                      +  ']    [' +  trim(fpago.text) +   ']    [' +  trim(beneficio.text) ;
       //DATOS DE DOMICILIO
 
 
@@ -338,6 +350,48 @@ begin
     sets.f_fam.idfamiliar:=DataModule1.Qparticipantes.FieldByName('id_familiar').AsString;
     Application.CreateForm(TFicha_fam, Ficha_fam);
     Ficha_fam.ShowModal;
+  end;
+end;
+
+procedure Tficha_socio.GparticipantesPrepareCanvas(sender: TObject;
+  DataCol: Integer; Column: TColumn; AState: TGridDrawState);
+begin
+  if (AState = [gdSelected]) then
+         begin
+           Canvas.Font.Color:= clBlack;
+           Canvas.Brush.Color:= clRed;
+         end  ;
+     //grid_usuarios.canvas.brush.color := clWhite;
+  if (DataModule1.Qparticipantes.RecNo mod 2) = 0 then
+  begin
+    if TDBGrid(Sender).Canvas.Brush.Color = TDBGrid(Sender).Color then
+    TDBGrid(Sender).Canvas.Brush.Color := clYellow ;
+  end;
+  if DataModule1.Qparticipantes.fieldbyname('codigo_estado').AsInteger < 0 then
+  begin
+    TDBGrid(Sender).Canvas.font.Color := clRed ;
+  end;
+
+
+end;
+
+procedure Tficha_socio.GPatrocinadosPrepareCanvas(sender: TObject;
+  DataCol: Integer; Column: TColumn; AState: TGridDrawState);
+begin
+     if (AState = [gdSelected]) then
+         begin
+           Canvas.Font.Color:= clBlack;
+           Canvas.Brush.Color:= clRed;
+         end  ;
+     //grid_usuarios.canvas.brush.color := clWhite;
+  if (DataModule1.Qpatrocinados.RecNo mod 2) = 0 then
+  begin
+    if TDBGrid(Sender).Canvas.Brush.Color = TDBGrid(Sender).Color then
+    TDBGrid(Sender).Canvas.Brush.Color := clYellow ;
+  end;
+  if DataModule1.Qpatrocinados.fieldbyname('codigo_estado').AsInteger < 0 then
+  begin
+    TDBGrid(Sender).Canvas.font.Color := clRed ;
   end;
 end;
 

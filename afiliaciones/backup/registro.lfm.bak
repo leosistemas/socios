@@ -1,11 +1,11 @@
 object ficha_socio: Tficha_socio
-  Left = 71
+  Left = 85
   Height = 578
-  Top = 0
-  Width = 1185
+  Top = 85
+  Width = 1230
   Caption = 'Registro de Socios'
   ClientHeight = 578
-  ClientWidth = 1185
+  ClientWidth = 1230
   Icon.Data = {
     84E4000000000100010000000000010020006EE400001600000089504E470D0A
     1A0A0000000D49484452000000EF0000012D08020000006F45A0E50000E43549
@@ -1844,14 +1844,14 @@ object ficha_socio: Tficha_socio
     Left = 2
     Height = 576
     Top = 8
-    Width = 1172
+    Width = 1214
     ActivePage = titular
     TabIndex = 0
     TabOrder = 0
     object titular: TTabSheet
       Caption = 'Titular'
       ClientHeight = 548
-      ClientWidth = 1164
+      ClientWidth = 1206
       object Shape4: TShape
         Left = 10
         Height = 40
@@ -2681,14 +2681,35 @@ object ficha_socio: Tficha_socio
         Text = 'zona_delegacion'
       end
     end
-    object TabSheet2: TTabSheet
+    object familiares_patrocinados: TTabSheet
       Caption = 'Familiares y Patrocinados'
       ClientHeight = 548
-      ClientWidth = 1164
+      ClientWidth = 1206
+      object Shape7: TShape
+        Left = 0
+        Height = 282
+        Top = 224
+        Width = 1200
+        Brush.Color = 16711390
+      end
+      object Shape6: TShape
+        Left = 664
+        Height = 202
+        Top = 8
+        Width = 536
+        Brush.Color = 16711390
+      end
+      object Shape5: TShape
+        Left = 0
+        Height = 202
+        Top = 8
+        Width = 656
+        Brush.Color = 16711390
+      end
       object Gparticipantes: TDBGrid
         Left = 8
-        Height = 136
-        Top = 16
+        Height = 144
+        Top = 49
         Width = 640
         Color = clWindow
         Columns = <        
@@ -2715,12 +2736,13 @@ object ficha_socio: Tficha_socio
         DataSource = DataModule1.DS_participantes
         TabOrder = 0
         OnDblClick = GparticipantesDblClick
+        OnPrepareCanvas = GparticipantesPrepareCanvas
       end
       object GPatrocinados: TDBGrid
-        Left = 608
+        Left = 672
         Height = 143
-        Top = 176
-        Width = 545
+        Top = 48
+        Width = 521
         Color = clWindow
         Columns = <        
           item
@@ -2730,7 +2752,7 @@ object ficha_socio: Tficha_socio
           end        
           item
             Title.Caption = 'APELLIDO'
-            Width = 250
+            Width = 220
             FieldName = 'APELLIDO'
           end        
           item
@@ -2740,6 +2762,29 @@ object ficha_socio: Tficha_socio
           end>
         DataSource = DataModule1.DS_patrocinados
         TabOrder = 1
+        OnPrepareCanvas = GPatrocinadosPrepareCanvas
+      end
+      object Label3: TLabel
+        Left = 240
+        Height = 25
+        Top = 16
+        Width = 132
+        Caption = 'Grupo Familiar'
+        Font.Height = -19
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label10: TLabel
+        Left = 832
+        Height = 25
+        Top = 16
+        Width = 117
+        Caption = 'Patrocinados'
+        Font.Height = -19
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
       end
     end
   end

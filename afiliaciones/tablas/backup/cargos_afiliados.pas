@@ -139,7 +139,7 @@ end;
 
 procedure TCargos.Button2Click(Sender: TObject);
 begin
-  HTML.Print()  ;
+  HTML.Print(1,10)  ;
 end;
 
 
