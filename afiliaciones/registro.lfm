@@ -1878,7 +1878,7 @@ object ficha_socio: Tficha_socio
         Height = 207
         Top = 0
         Width = 565
-        Brush.Color = clLime
+        Brush.Color = 16709824
       end
       object buscar: TButton
         Left = 477
@@ -1917,10 +1917,10 @@ object ficha_socio: Tficha_socio
         TabOrder = 3
       end
       object nacionalidad1: TEdit
-        Left = 208
+        Left = 240
         Height = 23
         Top = 104
-        Width = 115
+        Width = 83
         ReadOnly = True
         TabOrder = 4
         Text = 'ARGENTINO'
@@ -2143,10 +2143,11 @@ object ficha_socio: Tficha_socio
         EditLabel.AnchorSideRight.Control = Patrocinador
         EditLabel.AnchorSideBottom.Control = Patrocinador
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 324
-        EditLabel.Height = 1
-        EditLabel.Top = 187
-        EditLabel.Width = 1
+        EditLabel.Left = 254
+        EditLabel.Height = 15
+        EditLabel.Top = 180
+        EditLabel.Width = 71
+        EditLabel.Caption = 'Patrocinador'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
@@ -2229,7 +2230,18 @@ object ficha_socio: Tficha_socio
         TabOrder = 20
         object TabACargo: TTabSheet
           Caption = 'A Cargo'
+          ClientHeight = 515
+          ClientWidth = 616
           ParentFont = False
+          object DBGrid1: TDBGrid
+            Left = 8
+            Height = 171
+            Top = 8
+            Width = 600
+            Color = clWindow
+            Columns = <>
+            TabOrder = 0
+          end
         end
         object TabSheet2: TTabSheet
           Caption = 'TabSheet2'
@@ -2362,7 +2374,7 @@ object ficha_socio: Tficha_socio
         Left = 81
         Height = 23
         Top = 104
-        Width = 113
+        Width = 143
         EditLabel.AnchorSideTop.Control = estcivil
         EditLabel.AnchorSideTop.Side = asrCenter
         EditLabel.AnchorSideRight.Control = estcivil
@@ -2379,7 +2391,7 @@ object ficha_socio: Tficha_socio
         LabelPosition = lpLeft
         ReadOnly = True
         TabOrder = 26
-        Text = 'COINCUBINATO'
+        Text = 'UNION CONVIVENCIAL'
         OnClick = busc_patClick
       end
       object edad: TLabeledEdit

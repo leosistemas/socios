@@ -15,6 +15,7 @@ type
   { Tficha_socio }
 
   Tficha_socio = class(TForm)
+    DBGrid1: TDBGrid;
     direccion: TLabeledEdit;
     piso: TLabeledEdit;
     depto: TLabeledEdit;
