@@ -18,6 +18,8 @@ uses
     DS_participantes: TDataSource;
     DS_patrocinados: TDataSource;
     DS_usuarios: TDataSource;
+    DS_ACARGO: TDataSource;
+    QAcargo: TZQuery;
     QQQ: TZQuery;
     QFicha_fam: TZReadOnlyQuery;
     Qpatrocinados: TZReadOnlyQuery;

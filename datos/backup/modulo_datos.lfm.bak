@@ -32,6 +32,7 @@ object DataModule1: TDataModule1
     top = 8
   end
   object Qparticipantes: TZReadOnlyQuery
+    Connection = conector_socios
     Params = <>
     left = 37
     top = 224
@@ -99,5 +100,16 @@ object DataModule1: TDataModule1
     Params = <>
     left = 353
     top = 55
+  end
+  object DS_ACARGO: TDataSource
+    DataSet = QAcargo
+    left = 232
+    top = 75
+  end
+  object QAcargo: TZQuery
+    Connection = conector_socios
+    Params = <>
+    left = 232
+    top = 152
   end
 end

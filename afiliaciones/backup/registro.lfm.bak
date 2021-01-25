@@ -1845,8 +1845,8 @@ object ficha_socio: Tficha_socio
     Height = 576
     Top = 8
     Width = 1214
-    ActivePage = titular
-    TabIndex = 0
+    ActivePage = familiares_patrocinados
+    TabIndex = 1
     TabOrder = 0
     object titular: TTabSheet
       Caption = 'Titular'
@@ -1878,7 +1878,7 @@ object ficha_socio: Tficha_socio
         Height = 207
         Top = 0
         Width = 565
-        Brush.Color = clLime
+        Brush.Color = 16709824
       end
       object buscar: TButton
         Left = 477
@@ -1917,10 +1917,10 @@ object ficha_socio: Tficha_socio
         TabOrder = 3
       end
       object nacionalidad1: TEdit
-        Left = 208
+        Left = 240
         Height = 23
         Top = 104
-        Width = 115
+        Width = 83
         ReadOnly = True
         TabOrder = 4
         Text = 'ARGENTINO'
@@ -1944,7 +1944,7 @@ object ficha_socio: Tficha_socio
         Text = '22456456'
       end
       object Telefono: TLabeledEdit
-        Left = 80
+        Left = 81
         Height = 23
         Top = 128
         Width = 114
@@ -1953,7 +1953,7 @@ object ficha_socio: Tficha_socio
         EditLabel.AnchorSideRight.Control = Telefono
         EditLabel.AnchorSideBottom.Control = Telefono
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 28
+        EditLabel.Left = 29
         EditLabel.Height = 15
         EditLabel.Top = 132
         EditLabel.Width = 49
@@ -2143,10 +2143,11 @@ object ficha_socio: Tficha_socio
         EditLabel.AnchorSideRight.Control = Patrocinador
         EditLabel.AnchorSideBottom.Control = Patrocinador
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 324
-        EditLabel.Height = 1
-        EditLabel.Top = 187
-        EditLabel.Width = 1
+        EditLabel.Left = 254
+        EditLabel.Height = 15
+        EditLabel.Top = 180
+        EditLabel.Width = 71
+        EditLabel.Caption = 'Patrocinador'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
@@ -2229,7 +2230,64 @@ object ficha_socio: Tficha_socio
         TabOrder = 20
         object TabACargo: TTabSheet
           Caption = 'A Cargo'
+          ClientHeight = 515
+          ClientWidth = 616
           ParentFont = False
+          object DBGridACargo: TDBGrid
+            Left = 8
+            Height = 200
+            Top = 8
+            Width = 600
+            Color = clWindow
+            Columns = <            
+              item
+                Title.Caption = 'VINCULO'
+                Width = 250
+                FieldName = 'vinculo'
+              end            
+              item
+                Title.Caption = 'NOMBRE'
+                Width = 200
+                FieldName = 'NOMBRE'
+              end            
+              item
+                Title.Caption = 'ESTADO CIVIL'
+                Width = 115
+                FieldName = 'ESTCIVIL'
+              end>
+            DataSource = DataModule1.DS_ACARGO
+            ReadOnly = True
+            TabOrder = 0
+            OnCellClick = DBGridACargoCellClick
+            OnPrepareCanvas = DBGridACargoPrepareCanvas
+          end
+          object DBGridACargo1: TDBGrid
+            Left = 8
+            Height = 171
+            Top = 344
+            Width = 600
+            Color = clWindow
+            Columns = <            
+              item
+                Title.Caption = 'FECHA'
+                Width = 60
+                FieldName = 'fcausa'
+              end            
+              item
+                Title.Caption = 'DETALLE'
+                Width = 300
+                FieldName = 'detalle'
+              end            
+              item
+                Title.Caption = 'USUARIO'
+                Width = 150
+                FieldName = 'USUARIO'
+              end>
+            DataSource = DataModule1.DS_AC_antecedentes
+            ReadOnly = True
+            TabOrder = 1
+            OnPrepareCanvas = DBGridACargoPrepareCanvas
+          end
         end
         object TabSheet2: TTabSheet
           Caption = 'TabSheet2'
@@ -2260,7 +2318,6 @@ object ficha_socio: Tficha_socio
         ReadOnly = True
         TabOrder = 21
         Text = 'GOMEZ RONCALDO DE WARALIBNEVSKI'
-        OnClick = busc_patClick
       end
       object nombre: TLabeledEdit
         Left = 81
@@ -2284,7 +2341,6 @@ object ficha_socio: Tficha_socio
         ReadOnly = True
         TabOrder = 22
         Text = 'ROGELIO MARCELO ALEJANDRO'
-        OnClick = busc_patClick
       end
       object fnacimiento: TLabeledEdit
         Left = 81
@@ -2308,7 +2364,6 @@ object ficha_socio: Tficha_socio
         ReadOnly = True
         TabOrder = 23
         Text = '28/10/2017'
-        OnClick = busc_patClick
       end
       object tipodoc: TLabeledEdit
         Left = 81
@@ -2332,7 +2387,6 @@ object ficha_socio: Tficha_socio
         ReadOnly = True
         TabOrder = 24
         Text = 'DNI'
-        OnClick = busc_patClick
       end
       object cuil: TLabeledEdit
         Left = 231
@@ -2356,13 +2410,12 @@ object ficha_socio: Tficha_socio
         ReadOnly = True
         TabOrder = 25
         Text = '23-22456456-9'
-        OnClick = busc_patClick
       end
       object estcivil: TLabeledEdit
         Left = 81
         Height = 23
         Top = 104
-        Width = 113
+        Width = 151
         EditLabel.AnchorSideTop.Control = estcivil
         EditLabel.AnchorSideTop.Side = asrCenter
         EditLabel.AnchorSideRight.Control = estcivil
@@ -2379,8 +2432,7 @@ object ficha_socio: Tficha_socio
         LabelPosition = lpLeft
         ReadOnly = True
         TabOrder = 26
-        Text = 'COINCUBINATO'
-        OnClick = busc_patClick
+        Text = 'UNION CONVIVENCIAL'
       end
       object edad: TLabeledEdit
         Left = 201
@@ -2404,7 +2456,6 @@ object ficha_socio: Tficha_socio
         ReadOnly = True
         TabOrder = 27
         Text = '100'
-        OnClick = busc_patClick
       end
       object email: TLabeledEdit
         Left = 32
@@ -2428,7 +2479,6 @@ object ficha_socio: Tficha_socio
         ReadOnly = True
         TabOrder = 28
         Text = 'regsitrodesocios.mspfa@hotmail.com.ar'
-        OnClick = busc_patClick
       end
       object foto: TImage
         Left = 360
@@ -3039,7 +3089,7 @@ object ficha_socio: Tficha_socio
         Left = 0
         Height = 282
         Top = 224
-        Width = 1200
+        Width = 656
         Brush.Color = 16711390
       end
       object Shape6: TShape
@@ -3181,18 +3231,18 @@ object ficha_socio: Tficha_socio
         Text = 'LabeledEdit2'
       end
       object LabeledEdit7: TLabeledEdit
-        Left = 256
+        Left = 96
         Height = 23
-        Top = 472
+        Top = 352
         Width = 256
         EditLabel.AnchorSideTop.Control = LabeledEdit7
         EditLabel.AnchorSideTop.Side = asrCenter
         EditLabel.AnchorSideRight.Control = LabeledEdit7
         EditLabel.AnchorSideBottom.Control = LabeledEdit7
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 171
+        EditLabel.Left = 11
         EditLabel.Height = 15
-        EditLabel.Top = 476
+        EditLabel.Top = 356
         EditLabel.Width = 82
         EditLabel.Caption = 'Forma de Pago'
         EditLabel.ParentColor = False
@@ -3313,18 +3363,18 @@ object ficha_socio: Tficha_socio
         Text = 'LabeledEdit8'
       end
       object LabeledEdit13: TLabeledEdit
-        Left = 936
+        Left = 292
         Height = 23
-        Top = 440
+        Top = 436
         Width = 112
         EditLabel.AnchorSideTop.Control = LabeledEdit13
         EditLabel.AnchorSideTop.Side = asrCenter
         EditLabel.AnchorSideRight.Control = LabeledEdit13
         EditLabel.AnchorSideBottom.Control = LabeledEdit13
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 907
+        EditLabel.Left = 263
         EditLabel.Height = 15
-        EditLabel.Top = 444
+        EditLabel.Top = 440
         EditLabel.Width = 26
         EditLabel.Caption = 'Edad'
         EditLabel.ParentColor = False
@@ -3335,18 +3385,18 @@ object ficha_socio: Tficha_socio
         Text = 'LabeledEdit13'
       end
       object LabeledEdit12: TLabeledEdit
-        Left = 908
+        Left = 264
         Height = 23
-        Top = 412
+        Top = 408
         Width = 112
         EditLabel.AnchorSideTop.Control = LabeledEdit12
         EditLabel.AnchorSideTop.Side = asrCenter
         EditLabel.AnchorSideRight.Control = LabeledEdit12
         EditLabel.AnchorSideBottom.Control = LabeledEdit12
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 879
+        EditLabel.Left = 235
         EditLabel.Height = 15
-        EditLabel.Top = 416
+        EditLabel.Top = 412
         EditLabel.Width = 26
         EditLabel.Caption = 'Edad'
         EditLabel.ParentColor = False
@@ -3357,18 +3407,18 @@ object ficha_socio: Tficha_socio
         Text = 'LabeledEdit12'
       end
       object LabeledEdit11: TLabeledEdit
-        Left = 880
+        Left = 236
         Height = 23
-        Top = 384
+        Top = 380
         Width = 112
         EditLabel.AnchorSideTop.Control = LabeledEdit11
         EditLabel.AnchorSideTop.Side = asrCenter
         EditLabel.AnchorSideRight.Control = LabeledEdit11
         EditLabel.AnchorSideBottom.Control = LabeledEdit11
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 812
+        EditLabel.Left = 168
         EditLabel.Height = 15
-        EditLabel.Top = 388
+        EditLabel.Top = 384
         EditLabel.Width = 65
         EditLabel.Caption = 'Incapacidad'
         EditLabel.ParentColor = False
@@ -3379,18 +3429,18 @@ object ficha_socio: Tficha_socio
         Text = 'LabeledEdit11'
       end
       object LabeledEdit10: TLabeledEdit
-        Left = 852
+        Left = 208
         Height = 23
-        Top = 356
+        Top = 352
         Width = 112
         EditLabel.AnchorSideTop.Control = LabeledEdit10
         EditLabel.AnchorSideTop.Side = asrCenter
         EditLabel.AnchorSideRight.Control = LabeledEdit10
         EditLabel.AnchorSideBottom.Control = LabeledEdit10
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 806
+        EditLabel.Left = 162
         EditLabel.Height = 15
-        EditLabel.Top = 360
+        EditLabel.Top = 356
         EditLabel.Width = 43
         EditLabel.Caption = 'A Cargo'
         EditLabel.ParentColor = False

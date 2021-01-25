@@ -101,4 +101,26 @@ object DataModule1: TDataModule1
     left = 353
     top = 55
   end
+  object DS_ACARGO: TDataSource
+    DataSet = QAcargo
+    left = 232
+    top = 75
+  end
+  object QAcargo: TZQuery
+    Connection = conector_socios
+    Params = <>
+    left = 232
+    top = 152
+  end
+  object DS_AC_antecedentes: TDataSource
+    DataSet = QAC_Antecedentes
+    left = 328
+    top = 144
+  end
+  object QAC_Antecedentes: TZQuery
+    Connection = conector_socios
+    Params = <>
+    left = 336
+    top = 208
+  end
 end

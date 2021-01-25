@@ -15,7 +15,8 @@ type
   { Tficha_socio }
 
   Tficha_socio = class(TForm)
-    DBGrid1: TDBGrid;
+    DBGridACargo: TDBGrid;
+    DBGridACargo1: TDBGrid;
     direccion: TLabeledEdit;
     piso: TLabeledEdit;
     depto: TLabeledEdit;
@@ -103,6 +104,9 @@ type
     procedure altaClick(Sender: TObject);
     procedure buscarClick(Sender: TObject);
      procedure cancelarClick(Sender: TObject);
+     procedure DBGridACargoCellClick(Column: TColumn);
+     procedure DBGridACargoPrepareCanvas(sender: TObject; DataCol: Integer;
+       Column: TColumn; AState: TGridDrawState);
      procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure GparticipantesDblClick(Sender: TObject);
@@ -218,6 +222,37 @@ begin
      view_buttons('mostrar');
 end;
 
+procedure Tficha_socio.DBGridACargoCellClick(Column: TColumn);
+var
+  c1:string;
+begin
+     c1:='select AFILIADO,FAMILIAR,FCAUSA,cast (detalle as varchar(500)) detalle ,USUARIO from antecedentes where AFILIADO=' + DataModule1.QAcargo.FieldByName('ID').AsString +' AND FAMILIAR=' + DataModule1.QAcargo.FieldByName('familiar').AsString +';';     DataModule1.QAC_Antecedentes.Close;
+     DataModule1.QAC_Antecedentes.sql.clear;
+     DataModule1.QAC_Antecedentes.sql.add(c1);
+     DataModule1.QAC_Antecedentes.Open;
+
+end;
+
+procedure Tficha_socio.DBGridACargoPrepareCanvas(sender: TObject;
+  DataCol: Integer; Column: TColumn; AState: TGridDrawState);
+begin
+     if (AState = [gdSelected]) then
+         begin
+           Canvas.Font.Color:= clBlack;
+           Canvas.Brush.Color:= clRed;
+         end  ;
+     //grid_usuarios.canvas.brush.color := clWhite;
+  if (DataModule1.QAcargo.RecNo mod 2) = 0 then
+  begin
+    if TDBGrid(Sender).Canvas.Brush.Color = TDBGrid(Sender).Color then
+    TDBGrid(Sender).Canvas.Brush.Color := clYellow ;
+  end;
+  if DataModule1.QAcargo.fieldbyname('codigo_estado').AsInteger < 0 then
+  begin
+    TDBGrid(Sender).Canvas.font.Color := clRed ;
+  end;
+end;
+
 procedure Tficha_socio.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   DataModule1.QBuscar.close;
@@ -246,7 +281,7 @@ procedure Tficha_socio.asignar();
 var
   cl:string;
 begin
-     //showmessage('asig' + sets.f_tit.numero);
+    // showmessage('asig' + sets.f_tit.numero);
      if sets.f_tit.numero='0' then
      begin
        showmessage('Sin datos');
@@ -260,14 +295,14 @@ begin
      //exit();
 
      //DATOS PERSONALES
-     fnacimiento.Text:=DataModule1.QBuscar.FieldByName('nombre').AsString;
-     nombre.Text:=DataModule1.QBuscar.FieldByName('apellido').AsString;
+     apellido.Text:=DataModule1.QBuscar.FieldByName('apellido').AsString;
+     nombre.Text:=DataModule1.QBuscar.FieldByName('nombre').AsString;
      tipodoc.Text:=DataModule1.QBuscar.FieldByName('tipodoc').AsString;
      nrodoc.Text:=DataModule1.QBuscar.FieldByName('nrodoc').AsString;
      email.Text:=DataModule1.QBuscar.FieldByName('cuil').AsString;
      sexo1.Text:=DataModule1.QBuscar.FieldByName('sexo').AsString;
-     tipodoc.Text:=DataModule1.QBuscar.FieldByName('fnacimiento').AsString;
-     fnacimiento.Text:=DataModule1.QBuscar.FieldByName('estcivil').AsString;
+     fnacimiento.Text:=DataModule1.QBuscar.FieldByName('fnacimiento').AsString;
+     estcivil.Text:=DataModule1.QBuscar.FieldByName('estcivil').AsString;
      nacionalidad1.Text:=DataModule1.QBuscar.FieldByName('nacionalidad').AsString;
      edad.Text:=DataModule1.QBuscar.FieldByName('edad').AsString;
      Telefono.Text:=DataModule1.QBuscar.FieldByName('telefono').AsString;
@@ -292,7 +327,7 @@ begin
      Promotor.Text:=DataModule1.QBuscar.FieldByName('delegacion_zona').AsString;
 
 
-      ficha_socio.Caption:='[' + trim(nombre.text)+ ', ' + trim(fnacimiento.text) + ']    [' + trim(tipodoc.text) + trim(nrodoc.text) +  ']    [' +  trim('LEGAJO '+ nlegajo.text)
+      ficha_socio.Caption:='[' + trim(nombre.text)+ ', ' + trim(apellido.text) + ']    [' + trim(tipodoc.text) + trim(nrodoc.text) +  ']    [' +  trim('LEGAJO '+ nlegajo.text)
                       +  ']    [' +    trim(categoria.text) +  ']    [' +   trim(origen_pago.text) +  ']    [' +  trim(fz.text) +  ']    [' +  trim(concepto.text)
                       +  ']    [' +  trim(fpago.text) +   ']    [' +  trim(beneficio.text) ;
       //DATOS DE DOMICILIO
@@ -325,11 +360,20 @@ begin
      DataModule1.Qparticipantes.sql.add(cl);
      DataModule1.Qparticipantes.Open;
 
+
      cl:=DataModule1.sql_buscar('vista_patrocinado.sql',sets.f_tit.numero,'','socio');
      DataModule1.Qpatrocinados.close;
      DataModule1.Qpatrocinados.sql.clear;
      DataModule1.Qpatrocinados.sql.add(cl);
      DataModule1.Qpatrocinados.Open;
+     familiares_patrocinados.Caption:='Familiares ('+ DataModule1.Qparticipantes.RecordCount.ToString() + ')    + Patrocinados ('+  DataModule1.Qpatrocinados.RecordCount.ToString()+')';
+
+    cl:= 'EXECUTE PROCEDURE P_CREAR_FICHA_FAMLIARES_Y_PATRO('+sets.f_tit.numero+')' ;
+     DataModule1.conector_socios.ExecuteDirect(cl);
+     DataModule1.QAcargo.close;
+     DataModule1.QAcargo.sql.clear;
+     DataModule1.QAcargo.sql.add('select * from VISTA_FICHA_FAMILIARES_Y_PATROC');
+     DataModule1.QAcargo.Open;
      view_buttons('mostrar');
 
 end;

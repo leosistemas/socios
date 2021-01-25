@@ -49,10 +49,10 @@ implementation
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-   Application.CreateForm(TFAutenticar,FAutenticar);
+  { Application.CreateForm(TFAutenticar,FAutenticar);
    FAutenticar.ShowModal;
    FAutenticar.Destroy;
-
+   }
 end;
 
 procedure TForm1.FormShow(Sender: TObject);

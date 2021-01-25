@@ -53,6 +53,9 @@ begin
    FAutenticar.ShowModal;
    FAutenticar.Destroy;
    }
+            Application.CreateForm(Tficha_socio,ficha_socio);
+   ficha_socio.ShowModal;
+   ficha_socio.Destroy;
 end;
 
 procedure TForm1.FormShow(Sender: TObject);
