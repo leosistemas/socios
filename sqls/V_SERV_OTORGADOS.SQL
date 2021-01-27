@@ -1,0 +1,1 @@
+select * from  V_servICIOS_otorgados where TITULAR=

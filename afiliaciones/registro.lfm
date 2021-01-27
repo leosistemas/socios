@@ -1845,8 +1845,8 @@ object ficha_socio: Tficha_socio
     Height = 576
     Top = 8
     Width = 1214
-    ActivePage = familiares_patrocinados
-    TabIndex = 1
+    ActivePage = titular
+    TabIndex = 0
     TabOrder = 0
     object titular: TTabSheet
       Caption = 'Titular'
@@ -2225,8 +2225,8 @@ object ficha_socio: Tficha_socio
         Height = 543
         Top = 1
         Width = 624
-        ActivePage = TabACargo
-        TabIndex = 0
+        ActivePage = TabCargos
+        TabIndex = 1
         TabOrder = 20
         object TabACargo: TTabSheet
           Caption = 'A Cargo'
@@ -2261,10 +2261,10 @@ object ficha_socio: Tficha_socio
             OnCellClick = DBGridACargoCellClick
             OnPrepareCanvas = DBGridACargoPrepareCanvas
           end
-          object DBGridACargo1: TDBGrid
+          object DBGridACargoAntecedentes: TDBGrid
             Left = 8
             Height = 171
-            Top = 344
+            Top = 224
             Width = 600
             Color = clWindow
             Columns = <            
@@ -2274,23 +2274,62 @@ object ficha_socio: Tficha_socio
                 FieldName = 'fcausa'
               end            
               item
-                Title.Caption = 'DETALLE'
-                Width = 300
-                FieldName = 'detalle'
+                Title.Caption = 'CAUSA'
+                Width = 200
+                FieldName = 'causa_descripcion'
               end            
               item
                 Title.Caption = 'USUARIO'
                 Width = 150
                 FieldName = 'USUARIO'
+              end            
+              item
+                Title.Caption = 'ESTADO'
+                FieldName = 'est_descripcion'
               end>
             DataSource = DataModule1.DS_AC_antecedentes
             ReadOnly = True
             TabOrder = 1
+            OnCellClick = DBGridACargoAntecedentesCellClick
             OnPrepareCanvas = DBGridACargoPrepareCanvas
           end
+          object Memo1: TMemo
+            Left = 8
+            Height = 90
+            Top = 416
+            Width = 291
+            Lines.Strings = (
+              'Memo1'
+            )
+            TabOrder = 2
+          end
         end
-        object TabSheet2: TTabSheet
-          Caption = 'TabSheet2'
+        object TabCargos: TTabSheet
+          Caption = 'Cargos '
+          ClientHeight = 515
+          ClientWidth = 616
+          object DBGridCargosFijos: TDBGrid
+            Left = 8
+            Height = 144
+            Top = 8
+            Width = 600
+            Color = clWindow
+            Columns = <            
+              item
+                Title.Caption = 'VINCULO'
+                Width = 400
+                FieldName = 'vinculo'
+              end            
+              item
+                Title.Caption = 'DESCRIPCION'
+                Width = 150
+                FieldName = 'DESCRIPCION'
+              end>
+            DataSource = DataModule1.DS_CargosFijos
+            ReadOnly = True
+            TabOrder = 0
+            OnPrepareCanvas = DBGridCargosFijosPrepareCanvas
+          end
         end
         object TabSheet3: TTabSheet
           Caption = 'TabSheet3'
@@ -2481,9 +2520,9 @@ object ficha_socio: Tficha_socio
         Text = 'regsitrodesocios.mspfa@hotmail.com.ar'
       end
       object foto: TImage
-        Left = 360
+        Left = 352
         Height = 160
-        Top = 9
+        Top = 8
         Width = 176
         Align = alCustom
         Center = True
@@ -3087,14 +3126,14 @@ object ficha_socio: Tficha_socio
       ClientWidth = 1206
       object Shape7: TShape
         Left = 664
-        Height = 496
+        Height = 621
         Top = -85
         Width = 537
         Brush.Color = 16711390
       end
       object Shape6: TShape
         Left = 0
-        Height = 202
+        Height = 312
         Top = 224
         Width = 640
         Brush.Color = 16711390
@@ -3453,7 +3492,7 @@ object ficha_socio: Tficha_socio
       object LabeledEdit9: TLabeledEdit
         Left = 1104
         Height = 23
-        Top = 0
+        Top = 16
         Width = 32
         EditLabel.AnchorSideTop.Control = LabeledEdit9
         EditLabel.AnchorSideTop.Side = asrCenter
@@ -3462,7 +3501,7 @@ object ficha_socio: Tficha_socio
         EditLabel.AnchorSideBottom.Side = asrBottom
         EditLabel.Left = 1075
         EditLabel.Height = 15
-        EditLabel.Top = 4
+        EditLabel.Top = 20
         EditLabel.Width = 26
         EditLabel.Caption = 'Edad'
         EditLabel.ParentColor = False
@@ -3471,6 +3510,38 @@ object ficha_socio: Tficha_socio
         LabelPosition = lpLeft
         TabOrder = 14
         Text = 'LabeledEdit9'
+      end
+      object Gparticipantes1: TDBGrid
+        Left = 8
+        Height = 120
+        Top = 408
+        Width = 600
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'ESTADO'
+            Width = 100
+            FieldName = 'ESTADO'
+          end        
+          item
+            Title.Caption = 'PARENTESCO'
+            Width = 100
+            FieldName = 'PARENTESCO'
+          end        
+          item
+            Title.Caption = 'APELLIDO'
+            Width = 200
+            FieldName = 'APELLIDO'
+          end        
+          item
+            Title.Caption = 'NOMBRE'
+            Width = 150
+            FieldName = 'NOMBRE'
+          end>
+        DataSource = DataModule1.DS_participantes
+        TabOrder = 15
+        OnDblClick = GparticipantesDblClick
+        OnPrepareCanvas = GparticipantesPrepareCanvas
       end
     end
   end

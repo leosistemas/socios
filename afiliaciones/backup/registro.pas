@@ -16,8 +16,10 @@ type
 
   Tficha_socio = class(TForm)
     DBGridACargo: TDBGrid;
-    DBGridACargo1: TDBGrid;
+    DBGridACargoAntecedentes: TDBGrid;
+    DBGridCargosFijos: TDBGrid;
     direccion: TLabeledEdit;
+    Memo1: TMemo;
     piso: TLabeledEdit;
     depto: TLabeledEdit;
     codpostal: TLabeledEdit;
@@ -62,7 +64,7 @@ type
     Shape6: TShape;
     Shape7: TShape;
     TabACargo: TTabSheet;
-    TabSheet2: TTabSheet;
+    TabCargos: TTabSheet;
     TabSheet3: TTabSheet;
     zona_delegacion: TLabeledEdit;
 
@@ -104,9 +106,12 @@ type
     procedure altaClick(Sender: TObject);
     procedure buscarClick(Sender: TObject);
      procedure cancelarClick(Sender: TObject);
+     procedure DBGridACargoAntecedentesCellClick(Column: TColumn);
      procedure DBGridACargoCellClick(Column: TColumn);
      procedure DBGridACargoPrepareCanvas(sender: TObject; DataCol: Integer;
        Column: TColumn; AState: TGridDrawState);
+     procedure DBGridCargosFijosPrepareCanvas(sender: TObject;
+       DataCol: Integer; Column: TColumn; AState: TGridDrawState);
      procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure GparticipantesDblClick(Sender: TObject);
@@ -176,7 +181,7 @@ nombre.Text:='';calle.Text:='';direccion.Text:='';partido.Text:='';localidad.Tex
 edad.Text:='';Celular.Text:='';lugar_afiliacion.Text:='';FAlta.Text:='';FBaja.Text:='';FIngreso.Text:='';FEgreso.Text:='';Patrocinador.Text:='';Promotor.Text:='';Telefono.Text:='';
 fpago.Text:='';zona_delegacion.Text:='';nlegajo.Text:='';beneficio.Text:='';email.Text:='';fz.Text:='';categoria.Text:='';origen_pago.Text:='';concepto.Text:='';email.Text:='';
 estado.Text:='';sexo1.Text:='';estcivil.Text:='';nacionalidad1.Text:='';tipodoc.Text:='';nrodoc.Text:='';fnacimiento.Text:='';
-
+memo1.clear;
 end;
 
 procedure Tficha_socio.modificarClick(Sender: TObject);
@@ -222,14 +227,22 @@ begin
      view_buttons('mostrar');
 end;
 
+procedure Tficha_socio.DBGridACargoAntecedentesCellClick(Column: TColumn);
+begin
+  memo1.Clear;
+  memo1.Append(DataModule1.QAC_Antecedentes.FieldByName('detalle').AsString);
+end;
+
 procedure Tficha_socio.DBGridACargoCellClick(Column: TColumn);
 var
-  c1:string;
+  cl:string;
 begin
-     c1:='select AFILIADO,FAMILIAR,FCAUSA,cast (detalle as varchar(500)) detalle ,USUARIO from antecedentes where AFILIADO=' + DataModule1.QAcargo.FieldByName('ID').AsString +' AND FAMILIAR=' + DataModule1.QAcargo.FieldByName('familiar').AsString +';';     DataModule1.QAC_Antecedentes.Close;
+     cl:=DataModule1.sql_buscar('vista_antecedentes_acargo.sql',DataModule1.QAcargo.FieldByName('ID').AsString +' AND ant.FAMILIAR=' + DataModule1.QAcargo.FieldByName('familiar').AsString,'','socio');
+     showmessage(cl);
      DataModule1.QAC_Antecedentes.sql.clear;
-     DataModule1.QAC_Antecedentes.sql.add(c1);
+     DataModule1.QAC_Antecedentes.sql.add(cl);
      DataModule1.QAC_Antecedentes.Open;
+
 
 end;
 
@@ -250,6 +263,22 @@ begin
   if DataModule1.QAcargo.fieldbyname('codigo_estado').AsInteger < 0 then
   begin
     TDBGrid(Sender).Canvas.font.Color := clRed ;
+  end;
+end;
+
+procedure Tficha_socio.DBGridCargosFijosPrepareCanvas(sender: TObject;
+  DataCol: Integer; Column: TColumn; AState: TGridDrawState);
+begin
+    if (AState = [gdSelected]) then
+         begin
+           Canvas.Font.Color:= clBlack;
+           Canvas.Brush.Color:= clRed;
+         end  ;
+     //grid_usuarios.canvas.brush.color := clWhite;
+  if (DataModule1.QCargosFijos.RecNo mod 2) = 0 then
+  begin
+    if TDBGrid(Sender).Canvas.Brush.Color = TDBGrid(Sender).Color then
+    TDBGrid(Sender).Canvas.Brush.Color := clYellow ;
   end;
 end;
 
@@ -374,6 +403,15 @@ begin
      DataModule1.QAcargo.sql.clear;
      DataModule1.QAcargo.sql.add('select * from VISTA_FICHA_FAMILIARES_Y_PATROC');
      DataModule1.QAcargo.Open;
+     tabAcargo.Caption:='A Cargo ('+ trim(DataModule1.QAcargo.RecordCount.ToString()) + ')';
+
+     cl:=DataModule1.sql_buscar('V_SERV_OTORGADOS.sql',sets.f_tit.numero,'','socio');
+     DataModule1.QCargosFijos.close;
+     DataModule1.QCargosFijos.sql.clear;
+     DataModule1.QCargosFijos.sql.add(cl);
+     DataModule1.QCargosFijos.Open;
+     tabCargos.Caption:='Cargos Fijos ('+ trim(DataModule1.QCargosFijos.RecordCount.ToString()) + ')';
+
      view_buttons('mostrar');
 
 end;
