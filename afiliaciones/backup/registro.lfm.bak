@@ -2291,17 +2291,29 @@ object ficha_socio: Tficha_socio
             ReadOnly = True
             TabOrder = 1
             OnCellClick = DBGridACargoAntecedentesCellClick
-            OnPrepareCanvas = DBGridACargoPrepareCanvas
+            OnPrepareCanvas = DBGridACargoAntecedentesPrepareCanvas
           end
           object Memo1: TMemo
-            Left = 8
-            Height = 90
-            Top = 416
+            Left = 317
+            Height = 112
+            Top = 400
             Width = 291
             Lines.Strings = (
               'Memo1'
             )
             TabOrder = 2
+          end
+          object Memo2: TMemo
+            Left = 8
+            Height = 114
+            Top = 400
+            Width = 299
+            Font.Style = [fsBold]
+            Lines.Strings = (
+              'Memo1'
+            )
+            ParentFont = False
+            TabOrder = 3
           end
         end
         object TabCargos: TTabSheet
@@ -3126,14 +3138,14 @@ object ficha_socio: Tficha_socio
       ClientWidth = 1206
       object Shape7: TShape
         Left = 664
-        Height = 512
+        Height = 621
         Top = -85
         Width = 537
         Brush.Color = 16711390
       end
       object Shape6: TShape
         Left = 0
-        Height = 202
+        Height = 312
         Top = 224
         Width = 640
         Brush.Color = 16711390
@@ -3492,7 +3504,7 @@ object ficha_socio: Tficha_socio
       object LabeledEdit9: TLabeledEdit
         Left = 1104
         Height = 23
-        Top = 0
+        Top = 16
         Width = 32
         EditLabel.AnchorSideTop.Control = LabeledEdit9
         EditLabel.AnchorSideTop.Side = asrCenter
@@ -3501,7 +3513,7 @@ object ficha_socio: Tficha_socio
         EditLabel.AnchorSideBottom.Side = asrBottom
         EditLabel.Left = 1075
         EditLabel.Height = 15
-        EditLabel.Top = 4
+        EditLabel.Top = 20
         EditLabel.Width = 26
         EditLabel.Caption = 'Edad'
         EditLabel.ParentColor = False
@@ -3510,6 +3522,38 @@ object ficha_socio: Tficha_socio
         LabelPosition = lpLeft
         TabOrder = 14
         Text = 'LabeledEdit9'
+      end
+      object Gparticipantes1: TDBGrid
+        Left = 8
+        Height = 120
+        Top = 408
+        Width = 600
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'ESTADO'
+            Width = 100
+            FieldName = 'ESTADO'
+          end        
+          item
+            Title.Caption = 'PARENTESCO'
+            Width = 100
+            FieldName = 'PARENTESCO'
+          end        
+          item
+            Title.Caption = 'APELLIDO'
+            Width = 200
+            FieldName = 'APELLIDO'
+          end        
+          item
+            Title.Caption = 'NOMBRE'
+            Width = 150
+            FieldName = 'NOMBRE'
+          end>
+        DataSource = DataModule1.DS_participantes
+        TabOrder = 15
+        OnDblClick = GparticipantesDblClick
+        OnPrepareCanvas = GparticipantesPrepareCanvas
       end
     end
   end

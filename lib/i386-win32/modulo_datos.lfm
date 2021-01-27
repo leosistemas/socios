@@ -134,4 +134,10 @@ object DataModule1: TDataModule1
     left = 232
     top = 296
   end
+  object QMicroficha: TZQuery
+    Connection = conector_socios
+    Params = <>
+    left = 224
+    top = 8
+  end
 end

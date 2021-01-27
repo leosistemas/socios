@@ -123,4 +123,15 @@ object DataModule1: TDataModule1
     left = 336
     top = 208
   end
+  object DS_CargosFijos: TDataSource
+    DataSet = QCargosFijos
+    left = 232
+    top = 224
+  end
+  object QCargosFijos: TZQuery
+    Connection = conector_socios
+    Params = <>
+    left = 232
+    top = 296
+  end
 end

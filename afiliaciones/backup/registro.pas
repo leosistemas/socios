@@ -19,7 +19,9 @@ type
     DBGridACargoAntecedentes: TDBGrid;
     DBGridCargosFijos: TDBGrid;
     direccion: TLabeledEdit;
+    Gparticipantes1: TDBGrid;
     Memo1: TMemo;
+    Memo2: TMemo;
     piso: TLabeledEdit;
     depto: TLabeledEdit;
     codpostal: TLabeledEdit;
@@ -107,6 +109,8 @@ type
     procedure buscarClick(Sender: TObject);
      procedure cancelarClick(Sender: TObject);
      procedure DBGridACargoAntecedentesCellClick(Column: TColumn);
+     procedure DBGridACargoAntecedentesPrepareCanvas(sender: TObject;
+       DataCol: Integer; Column: TColumn; AState: TGridDrawState);
      procedure DBGridACargoCellClick(Column: TColumn);
      procedure DBGridACargoPrepareCanvas(sender: TObject; DataCol: Integer;
        Column: TColumn; AState: TGridDrawState);
@@ -181,7 +185,7 @@ nombre.Text:='';calle.Text:='';direccion.Text:='';partido.Text:='';localidad.Tex
 edad.Text:='';Celular.Text:='';lugar_afiliacion.Text:='';FAlta.Text:='';FBaja.Text:='';FIngreso.Text:='';FEgreso.Text:='';Patrocinador.Text:='';Promotor.Text:='';Telefono.Text:='';
 fpago.Text:='';zona_delegacion.Text:='';nlegajo.Text:='';beneficio.Text:='';email.Text:='';fz.Text:='';categoria.Text:='';origen_pago.Text:='';concepto.Text:='';email.Text:='';
 estado.Text:='';sexo1.Text:='';estcivil.Text:='';nacionalidad1.Text:='';tipodoc.Text:='';nrodoc.Text:='';fnacimiento.Text:='';
-memo1.clear;
+memo1.clear;    memo2.Clear;
 end;
 
 procedure Tficha_socio.modificarClick(Sender: TObject);
@@ -233,17 +237,46 @@ begin
   memo1.Append(DataModule1.QAC_Antecedentes.FieldByName('detalle').AsString);
 end;
 
+procedure Tficha_socio.DBGridACargoAntecedentesPrepareCanvas(sender: TObject;
+  DataCol: Integer; Column: TColumn; AState: TGridDrawState);
+begin
+         if (AState = [gdSelected]) then
+         begin
+           Canvas.Font.Color:= clBlack;
+           Canvas.Brush.Color:= clRed;
+         end  ;
+     //grid_usuarios.canvas.brush.color := clWhite;
+  if (DataModule1.QAC_Antecedentes.RecNo mod 2) = 0 then
+  begin
+    if TDBGrid(Sender).Canvas.Brush.Color = TDBGrid(Sender).Color then
+    TDBGrid(Sender).Canvas.Brush.Color := clYellow ;
+  end;
+  if DataModule1.QAC_Antecedentes.fieldbyname('estado').AsInteger < 0 then
+  begin
+    TDBGrid(Sender).Canvas.font.Color := clRed ;
+  end;
+end;
+
 procedure Tficha_socio.DBGridACargoCellClick(Column: TColumn);
 var
   cl:string;
 begin
-     cl:=DataModule1.sql_buscar('vista_antecedentes_acargo.sql',DataModule1.QAcargo.FieldByName('ID').AsString +' AND ant.FAMILIAR=' + DataModule1.QAcargo.FieldByName('familiar').AsString,'','socio');
-     showmessage(cl);
+  memo1.Clear;
+  memo2.Clear;
+  cl:=DataModule1.sql_buscar('vista_antecedentes_acargo.sql',DataModule1.QAcargo.FieldByName('ID').AsString +' AND ant.FAMILIAR=' + DataModule1.QAcargo.FieldByName('familiar').AsString,'','socio');
      DataModule1.QAC_Antecedentes.sql.clear;
      DataModule1.QAC_Antecedentes.sql.add(cl);
      DataModule1.QAC_Antecedentes.Open;
 
-
+     DataModule1.QMicroficha.sql.clear;
+     DataModule1.QMicroficha.sql.add('select * from v_familiares_y_patrocinados where nrodoc='+ trim(DataModule1.QAcargo.FieldByName('nrodoc').AsString));
+     DataModule1.QMicroficha.Open;
+                                     memo2.Append('');
+     memo2.Append(trim(DataModule1.QMicroficha.FieldByName('nombre').AsString)+ '  ' + trim(DataModule1.QMicroficha.FieldByName('tipodoc').AsString) + ' ' +trim(DataModule1.QMicroficha.FieldByName('nrodoc').AsString));
+          memo2.Append('');
+     memo2.Append(' Nacimiento:' + trim(DataModule1.QMicroficha.FieldByName('fnacimiento').AsString) + '   Edad:' +trim(DataModule1.QMicroficha.FieldByName('edad').AsString));
+     memo2.Append('Fecha Alta: '+trim(DataModule1.QMicroficha.FieldByName('falta').AsString)+ '     Fecha Baja: '+trim(DataModule1.QMicroficha.FieldByName('falta').AsString) );
+     memo2.Append('A Cargo:' + trim(DataModule1.QMicroficha.FieldByName('acargo').AsString) + '   Incapacidad:' +trim(DataModule1.QMicroficha.FieldByName('incapacidad').AsString));
 end;
 
 procedure Tficha_socio.DBGridACargoPrepareCanvas(sender: TObject;

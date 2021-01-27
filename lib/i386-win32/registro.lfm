@@ -2225,8 +2225,8 @@ object ficha_socio: Tficha_socio
         Height = 543
         Top = 1
         Width = 624
-        ActivePage = TabCargos
-        TabIndex = 1
+        ActivePage = TabACargo
+        TabIndex = 0
         TabOrder = 20
         object TabACargo: TTabSheet
           Caption = 'A Cargo'
@@ -2291,17 +2291,29 @@ object ficha_socio: Tficha_socio
             ReadOnly = True
             TabOrder = 1
             OnCellClick = DBGridACargoAntecedentesCellClick
-            OnPrepareCanvas = DBGridACargoPrepareCanvas
+            OnPrepareCanvas = DBGridACargoAntecedentesPrepareCanvas
           end
           object Memo1: TMemo
-            Left = 8
-            Height = 90
-            Top = 416
+            Left = 317
+            Height = 112
+            Top = 400
             Width = 291
             Lines.Strings = (
               'Memo1'
             )
             TabOrder = 2
+          end
+          object Memo2: TMemo
+            Left = 8
+            Height = 114
+            Top = 400
+            Width = 299
+            Font.Style = [fsBold]
+            Lines.Strings = (
+              'Memo1'
+            )
+            ParentFont = False
+            TabOrder = 3
           end
         end
         object TabCargos: TTabSheet
