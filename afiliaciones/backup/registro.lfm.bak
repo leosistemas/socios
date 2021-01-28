@@ -2225,8 +2225,8 @@ object ficha_socio: Tficha_socio
         Height = 543
         Top = 1
         Width = 624
-        ActivePage = TabACargo
-        TabIndex = 0
+        ActivePage = TabCargos
+        TabIndex = 1
         TabOrder = 20
         object TabACargo: TTabSheet
           Caption = 'A Cargo'
@@ -2235,8 +2235,8 @@ object ficha_socio: Tficha_socio
           ParentFont = False
           object DBGridACargo: TDBGrid
             Left = 8
-            Height = 200
-            Top = 8
+            Height = 192
+            Top = 16
             Width = 600
             Color = clWindow
             Columns = <            
@@ -2263,8 +2263,8 @@ object ficha_socio: Tficha_socio
           end
           object DBGridACargoAntecedentes: TDBGrid
             Left = 8
-            Height = 171
-            Top = 224
+            Height = 160
+            Top = 216
             Width = 600
             Color = clWindow
             Columns = <            
@@ -2295,18 +2295,20 @@ object ficha_socio: Tficha_socio
           end
           object Memo1: TMemo
             Left = 317
-            Height = 112
-            Top = 400
+            Height = 114
+            Top = 390
             Width = 291
+            Font.Style = [fsBold]
             Lines.Strings = (
               'Memo1'
             )
+            ParentFont = False
             TabOrder = 2
           end
           object Memo2: TMemo
             Left = 8
             Height = 114
-            Top = 400
+            Top = 390
             Width = 299
             Font.Style = [fsBold]
             Lines.Strings = (
@@ -2328,6 +2330,7 @@ object ficha_socio: Tficha_socio
             Color = clWindow
             Columns = <            
               item
+                Color = clWindow
                 Title.Caption = 'VINCULO'
                 Width = 400
                 FieldName = 'vinculo'
@@ -2341,6 +2344,50 @@ object ficha_socio: Tficha_socio
             ReadOnly = True
             TabOrder = 0
             OnPrepareCanvas = DBGridCargosFijosPrepareCanvas
+          end
+          object DBGridAyudas: TDBGrid
+            Left = 8
+            Height = 144
+            Top = 168
+            Width = 600
+            Color = clWindow
+            Columns = <            
+              item
+                Title.Caption = 'DESCRIPCION'
+                Width = 150
+                FieldName = 'DESCRIPCION'
+              end            
+              item
+                Title.Caption = 'TOTAL'
+                Width = 100
+                FieldName = 'PRESTAMO'
+                DisplayFormat = '#,##0.00'
+              end            
+              item
+                Title.Caption = 'CUOTAS'
+                Width = 55
+                FieldName = 'CTAS'
+              end            
+              item
+                Title.Caption = 'IMP CTA'
+                FieldName = 'ICUOTA'
+                DisplayFormat = '#,##0.00'
+              end            
+              item
+                Color = clWindow
+                Title.Caption = 'COBRADAS'
+                Width = 70
+                FieldName = 'CCOBRADAS'
+              end            
+              item
+                Title.Caption = 'PENDIENTES'
+                Width = 73
+                FieldName = 'CPENDIENTES'
+              end>
+            DataSource = DataModule1.DS_Ayudas
+            ReadOnly = True
+            TabOrder = 1
+            OnPrepareCanvas = DBGridAyudasPrepareCanvas
           end
         end
         object TabSheet3: TTabSheet

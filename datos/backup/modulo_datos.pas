@@ -22,6 +22,7 @@ uses
     DS_usuarios: TDataSource;
     DS_ACARGO: TDataSource;
     QAcargo: TZQuery;
+    QMicroficha: TZQuery;
     QCargosFijos: TZQuery;
     QAC_Antecedentes: TZQuery;
     QQQ: TZQuery;

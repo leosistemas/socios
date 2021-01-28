@@ -18,6 +18,7 @@ type
     DBGridACargo: TDBGrid;
     DBGridACargoAntecedentes: TDBGrid;
     DBGridCargosFijos: TDBGrid;
+    DBGridAyudas: TDBGrid;
     direccion: TLabeledEdit;
     Gparticipantes1: TDBGrid;
     Memo1: TMemo;
@@ -113,6 +114,8 @@ type
        DataCol: Integer; Column: TColumn; AState: TGridDrawState);
      procedure DBGridACargoCellClick(Column: TColumn);
      procedure DBGridACargoPrepareCanvas(sender: TObject; DataCol: Integer;
+       Column: TColumn; AState: TGridDrawState);
+     procedure DBGridAyudasPrepareCanvas(sender: TObject; DataCol: Integer;
        Column: TColumn; AState: TGridDrawState);
      procedure DBGridCargosFijosPrepareCanvas(sender: TObject;
        DataCol: Integer; Column: TColumn; AState: TGridDrawState);
@@ -273,10 +276,11 @@ begin
      DataModule1.QMicroficha.Open;
                                      memo2.Append('');
      memo2.Append(trim(DataModule1.QMicroficha.FieldByName('nombre').AsString)+ '  ' + trim(DataModule1.QMicroficha.FieldByName('tipodoc').AsString) + ' ' +trim(DataModule1.QMicroficha.FieldByName('nrodoc').AsString));
-          memo2.Append('');
+     memo2.Append('');
      memo2.Append(' Nacimiento:' + trim(DataModule1.QMicroficha.FieldByName('fnacimiento').AsString) + '   Edad:' +trim(DataModule1.QMicroficha.FieldByName('edad').AsString));
      memo2.Append('Fecha Alta: '+trim(DataModule1.QMicroficha.FieldByName('falta').AsString)+ '     Fecha Baja: '+trim(DataModule1.QMicroficha.FieldByName('falta').AsString) );
      memo2.Append('A Cargo:' + trim(DataModule1.QMicroficha.FieldByName('acargo').AsString) + '   Incapacidad:' +trim(DataModule1.QMicroficha.FieldByName('incapacidad').AsString));
+
 end;
 
 procedure Tficha_socio.DBGridACargoPrepareCanvas(sender: TObject;
@@ -291,11 +295,27 @@ begin
   if (DataModule1.QAcargo.RecNo mod 2) = 0 then
   begin
     if TDBGrid(Sender).Canvas.Brush.Color = TDBGrid(Sender).Color then
-    TDBGrid(Sender).Canvas.Brush.Color := clYellow ;
+    TDBGrid(Sender).Canvas.Brush.Color := $00CCFFFF ;
   end;
   if DataModule1.QAcargo.fieldbyname('codigo_estado').AsInteger < 0 then
   begin
     TDBGrid(Sender).Canvas.font.Color := clRed ;
+  end;
+end;
+
+procedure Tficha_socio.DBGridAyudasPrepareCanvas(sender: TObject;
+  DataCol: Integer; Column: TColumn; AState: TGridDrawState);
+begin
+      if (AState = [gdSelected]) then
+         begin
+           Canvas.Font.Color:= clBlack;
+           Canvas.Brush.Color:= clRed;
+         end  ;
+     //grid_usuarios.canvas.brush.color := clWhite;
+  if (DataModule1.QAyudas.RecNo mod 2) = 0 then
+  begin
+    if TDBGrid(Sender).Canvas.Brush.Color = TDBGrid(Sender).Color then
+    TDBGrid(Sender).Canvas.Brush.Color := $00CCFFFF ;
   end;
 end;
 
@@ -311,7 +331,7 @@ begin
   if (DataModule1.QCargosFijos.RecNo mod 2) = 0 then
   begin
     if TDBGrid(Sender).Canvas.Brush.Color = TDBGrid(Sender).Color then
-    TDBGrid(Sender).Canvas.Brush.Color := clYellow ;
+    TDBGrid(Sender).Canvas.Brush.Color := $00CCFFFF ;
   end;
 end;
 
@@ -443,7 +463,15 @@ begin
      DataModule1.QCargosFijos.sql.clear;
      DataModule1.QCargosFijos.sql.add(cl);
      DataModule1.QCargosFijos.Open;
+
+      cl:=DataModule1.sql_buscar('V_AY_Y_COMERCIOS.sql',sets.f_tit.numero+' and codigo_estado<=0','','socio');
+     DataModule1.QAyudas.close;
+     DataModule1.QAyudas.sql.clear;
+     DataModule1.QAyudas.sql.add(cl);
+     DataModule1.QAyudas.Open;
+
      tabCargos.Caption:='Cargos Fijos ('+ trim(DataModule1.QCargosFijos.RecordCount.ToString()) + ')';
+     tabCargos.Caption:=tabCargos.Caption+ ' Ayudas Económicas ('+ trim(DataModule1.QAyudas.RecordCount.ToString()) + ')';
 
      view_buttons('mostrar');
 

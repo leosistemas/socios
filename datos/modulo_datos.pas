@@ -14,6 +14,8 @@ uses
   TDataModule1 = class(TDataModule)
     DS_CargosFijos: TDataSource;
     DS_AC_antecedentes: TDataSource;
+    DS_Ayudas: TDataSource;
+    DS_CargosEnCuotas: TDataSource;
     DS_deleg: TDataSource;
     DS_promotores: TDataSource;
     DS_Buscar: TDataSource;
@@ -22,6 +24,8 @@ uses
     DS_usuarios: TDataSource;
     DS_ACARGO: TDataSource;
     QAcargo: TZQuery;
+    QAyudas: TZQuery;
+    QCargosEnCuotas: TZQuery;
     QMicroficha: TZQuery;
     QCargosFijos: TZQuery;
     QAC_Antecedentes: TZQuery;
