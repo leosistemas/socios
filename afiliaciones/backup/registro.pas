@@ -17,13 +17,21 @@ type
   Tficha_socio = class(TForm)
     DBGridACargo: TDBGrid;
     DBGridACargoAntecedentes: TDBGrid;
+    DBGridACargoAntecedentes1: TDBGrid;
     DBGridCargosCuotas: TDBGrid;
     DBGridCargosFijos: TDBGrid;
     DBGridAyudas: TDBGrid;
     direccion: TLabeledEdit;
+    fpdepto: TLabeledEdit;
+    fppiso: TLabeledEdit;
+    fplocalidad: TLabeledEdit;
+    fppartido: TLabeledEdit;
+    fpprovincia: TLabeledEdit;
+    fpcodpostal: TLabeledEdit;
     Gparticipantes1: TDBGrid;
     Memo1: TMemo;
     Memo2: TMemo;
+    Memo3: TMemo;
     piso: TLabeledEdit;
     depto: TLabeledEdit;
     codpostal: TLabeledEdit;
@@ -46,19 +54,19 @@ type
     GPatrocinados: TDBGrid;
     Label10: TLabel;
     Label3: TLabel;
-    LabeledEdit1: TLabeledEdit;
-    LabeledEdit10: TLabeledEdit;
-    LabeledEdit11: TLabeledEdit;
-    LabeledEdit12: TLabeledEdit;
-    LabeledEdit13: TLabeledEdit;
-    LabeledEdit2: TLabeledEdit;
-    LabeledEdit3: TLabeledEdit;
-    LabeledEdit4: TLabeledEdit;
-    LabeledEdit5: TLabeledEdit;
-    LabeledEdit6: TLabeledEdit;
-    LabeledEdit7: TLabeledEdit;
-    LabeledEdit8: TLabeledEdit;
-    LabeledEdit9: TLabeledEdit;
+    fpnacimiento: TLabeledEdit;
+    fpacargo: TLabeledEdit;
+    fpincapacidad: TLabeledEdit;
+    fpnumeracion: TLabeledEdit;
+    fpcalle: TLabeledEdit;
+    fpegreso: TLabeledEdit;
+    fpecivil: TLabeledEdit;
+    fpalta: TLabeledEdit;
+    fpbaja: TLabeledEdit;
+    fpingreso: TLabeledEdit;
+    fpfpago: TLabeledEdit;
+    fpdocumento: TLabeledEdit;
+    fpedad: TLabeledEdit;
 
     nombre: TLabeledEdit;
     apellido: TLabeledEdit;
@@ -121,6 +129,7 @@ type
        Column: TColumn; AState: TGridDrawState);
      procedure DBGridCargosCuotasPrepareCanvas(sender: TObject;
        DataCol: Integer; Column: TColumn; AState: TGridDrawState);
+     procedure DBGridCargosFijosCellClick(Column: TColumn);
      procedure DBGridCargosFijosPrepareCanvas(sender: TObject;
        DataCol: Integer; Column: TColumn; AState: TGridDrawState);
      procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -311,6 +320,8 @@ procedure Tficha_socio.DBGridAyudasCellClick(Column: TColumn);
 var
   cl:string;
 begin
+    memo3.Visible:=false;
+  DBGridCargosCuotas.Visible:=true;
   cl:='';
    if trim(DataModule1.QAyudas.fieldbyname('tipo').asstring)='cuotas' then cl:='V_Cuotas_Ctas.sql';
    if trim(DataModule1.QAyudas.fieldbyname('tipo').asstring)='ay' then cl:='V_Cuotas_Ay.sql';
@@ -362,6 +373,15 @@ begin
   end;
 
 
+end;
+
+procedure Tficha_socio.DBGridCargosFijosCellClick(Column: TColumn);
+begin
+  memo3.Visible:=true;
+  memo3.clear;
+  DBGridCargosCuotas.Visible:=false;
+  memo3.Append(DataModule1.QCargosFijos.FieldByName('descripcion').asstring);
+  memo3.Append('Importe: ' + DataModule1.QCargosFijos.FieldByName('importe').asstring);
 end;
 
 procedure Tficha_socio.DBGridCargosFijosPrepareCanvas(sender: TObject;

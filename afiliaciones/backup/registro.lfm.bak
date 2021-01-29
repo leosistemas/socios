@@ -1845,8 +1845,8 @@ object ficha_socio: Tficha_socio
     Height = 576
     Top = 8
     Width = 1214
-    ActivePage = titular
-    TabIndex = 0
+    ActivePage = familiares_patrocinados
+    TabIndex = 1
     TabOrder = 0
     object titular: TTabSheet
       Caption = 'Titular'
@@ -2346,6 +2346,7 @@ object ficha_socio: Tficha_socio
             ReadOnly = True
             Scrollbars = ssAutoVertical
             TabOrder = 0
+            OnCellClick = DBGridCargosFijosCellClick
             OnPrepareCanvas = DBGridCargosFijosPrepareCanvas
           end
           object DBGridAyudas: TDBGrid
@@ -2394,7 +2395,7 @@ object ficha_socio: Tficha_socio
             OnPrepareCanvas = DBGridAyudasPrepareCanvas
           end
           object DBGridCargosCuotas: TDBGrid
-            Left = 6
+            Left = 8
             Height = 144
             Top = 327
             Width = 600
@@ -2436,7 +2437,21 @@ object ficha_socio: Tficha_socio
             ReadOnly = True
             Scrollbars = ssAutoVertical
             TabOrder = 2
+            Visible = False
             OnPrepareCanvas = DBGridCargosCuotasPrepareCanvas
+          end
+          object Memo3: TMemo
+            Left = 8
+            Height = 114
+            Top = 328
+            Width = 291
+            Font.Style = [fsBold]
+            Lines.Strings = (
+              'Memo1'
+            )
+            ParentFont = False
+            TabOrder = 3
+            Visible = False
           end
         end
         object TabSheet3: TTabSheet
@@ -3233,9 +3248,9 @@ object ficha_socio: Tficha_socio
       ClientHeight = 548
       ClientWidth = 1206
       object Shape7: TShape
-        Left = 664
-        Height = 621
-        Top = -85
+        Left = 656
+        Height = 528
+        Top = 8
         Width = 537
         Brush.Color = 16711390
       end
@@ -3333,83 +3348,86 @@ object ficha_socio: Tficha_socio
         ParentColor = False
         ParentFont = False
       end
-      object LabeledEdit1: TLabeledEdit
-        Left = 744
+      object fpnacimiento: TLabeledEdit
+        Left = 952
         Height = 23
-        Top = 40
+        Top = 16
         Width = 72
-        EditLabel.AnchorSideTop.Control = LabeledEdit1
+        EditLabel.AnchorSideTop.Control = fpnacimiento
         EditLabel.AnchorSideTop.Side = asrCenter
-        EditLabel.AnchorSideRight.Control = LabeledEdit1
-        EditLabel.AnchorSideBottom.Control = LabeledEdit1
+        EditLabel.AnchorSideRight.Control = fpnacimiento
+        EditLabel.AnchorSideBottom.Control = fpnacimiento
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 677
+        EditLabel.Left = 885
         EditLabel.Height = 15
-        EditLabel.Top = 44
+        EditLabel.Top = 20
         EditLabel.Width = 64
         EditLabel.Caption = 'Nacimiento'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         LabelPosition = lpLeft
+        ReadOnly = True
         TabOrder = 2
-        Text = 'LabeledEdit1'
+        Text = 'fpnacimiento'
       end
-      object LabeledEdit2: TLabeledEdit
-        Left = 744
+      object fpegreso: TLabeledEdit
+        Left = 760
         Height = 23
-        Top = 136
+        Top = 88
         Width = 72
-        EditLabel.AnchorSideTop.Control = LabeledEdit2
+        EditLabel.AnchorSideTop.Control = fpegreso
         EditLabel.AnchorSideTop.Side = asrCenter
-        EditLabel.AnchorSideRight.Control = LabeledEdit2
-        EditLabel.AnchorSideBottom.Control = LabeledEdit2
+        EditLabel.AnchorSideRight.Control = fpegreso
+        EditLabel.AnchorSideBottom.Control = fpegreso
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 704
+        EditLabel.Left = 720
         EditLabel.Height = 15
-        EditLabel.Top = 140
+        EditLabel.Top = 92
         EditLabel.Width = 37
         EditLabel.Caption = 'Egreso'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         LabelPosition = lpLeft
+        ReadOnly = True
         TabOrder = 3
-        Text = 'LabeledEdit2'
+        Text = 'fpegreso'
       end
-      object LabeledEdit7: TLabeledEdit
+      object fpfpago: TLabeledEdit
         Left = 760
         Height = 23
-        Top = 187
+        Top = 112
         Width = 256
-        EditLabel.AnchorSideTop.Control = LabeledEdit7
+        EditLabel.AnchorSideTop.Control = fpfpago
         EditLabel.AnchorSideTop.Side = asrCenter
-        EditLabel.AnchorSideRight.Control = LabeledEdit7
-        EditLabel.AnchorSideBottom.Control = LabeledEdit7
+        EditLabel.AnchorSideRight.Control = fpfpago
+        EditLabel.AnchorSideBottom.Control = fpfpago
         EditLabel.AnchorSideBottom.Side = asrBottom
         EditLabel.Left = 675
         EditLabel.Height = 15
-        EditLabel.Top = 191
+        EditLabel.Top = 116
         EditLabel.Width = 82
         EditLabel.Caption = 'Forma de Pago'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         LabelPosition = lpLeft
+        ReadOnly = True
         TabOrder = 4
-        Text = 'LabeledEdit7'
+        Text = 'fpfpago'
       end
-      object LabeledEdit6: TLabeledEdit
-        Left = 744
+      object fpingreso: TLabeledEdit
+        Left = 888
         Height = 23
         Top = 88
         Width = 72
-        EditLabel.AnchorSideTop.Control = LabeledEdit6
+        EditLabel.AnchorSideTop.Control = fpingreso
         EditLabel.AnchorSideTop.Side = asrCenter
-        EditLabel.AnchorSideRight.Control = LabeledEdit6
-        EditLabel.AnchorSideBottom.Control = LabeledEdit6
+        EditLabel.AnchorSideRight.Control = fpingreso
+        EditLabel.AnchorSideBottom.Control = fpingreso
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 699
+        EditLabel.Left = 843
         EditLabel.Height = 15
         EditLabel.Top = 92
         EditLabel.Width = 42
@@ -3418,42 +3436,44 @@ object ficha_socio: Tficha_socio
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         LabelPosition = lpLeft
+        ReadOnly = True
         TabOrder = 5
-        Text = 'LabeledEdit6'
+        Text = 'fpingreso'
       end
-      object LabeledEdit5: TLabeledEdit
-        Left = 744
+      object fpbaja: TLabeledEdit
+        Left = 888
         Height = 23
-        Top = 112
+        Top = 64
         Width = 72
-        EditLabel.AnchorSideTop.Control = LabeledEdit5
+        EditLabel.AnchorSideTop.Control = fpbaja
         EditLabel.AnchorSideTop.Side = asrCenter
-        EditLabel.AnchorSideRight.Control = LabeledEdit5
-        EditLabel.AnchorSideBottom.Control = LabeledEdit5
+        EditLabel.AnchorSideRight.Control = fpbaja
+        EditLabel.AnchorSideBottom.Control = fpbaja
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 718
+        EditLabel.Left = 862
         EditLabel.Height = 15
-        EditLabel.Top = 116
+        EditLabel.Top = 68
         EditLabel.Width = 23
         EditLabel.Caption = 'Baja'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         LabelPosition = lpLeft
+        ReadOnly = True
         TabOrder = 6
-        Text = 'LabeledEdit5'
+        Text = 'fpbaja'
       end
-      object LabeledEdit4: TLabeledEdit
-        Left = 744
+      object fpalta: TLabeledEdit
+        Left = 760
         Height = 23
         Top = 64
         Width = 72
-        EditLabel.AnchorSideTop.Control = LabeledEdit4
+        EditLabel.AnchorSideTop.Control = fpalta
         EditLabel.AnchorSideTop.Side = asrCenter
-        EditLabel.AnchorSideRight.Control = LabeledEdit4
-        EditLabel.AnchorSideBottom.Control = LabeledEdit4
+        EditLabel.AnchorSideRight.Control = fpalta
+        EditLabel.AnchorSideBottom.Control = fpalta
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 719
+        EditLabel.Left = 735
         EditLabel.Height = 15
         EditLabel.Top = 68
         EditLabel.Width = 22
@@ -3462,42 +3482,44 @@ object ficha_socio: Tficha_socio
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         LabelPosition = lpLeft
+        ReadOnly = True
         TabOrder = 7
-        Text = 'LabeledEdit4'
+        Text = 'fpalta'
       end
-      object LabeledEdit3: TLabeledEdit
-        Left = 744
+      object fpecivil: TLabeledEdit
+        Left = 760
         Height = 23
-        Top = 160
-        Width = 192
-        EditLabel.AnchorSideTop.Control = LabeledEdit3
+        Top = 40
+        Width = 152
+        EditLabel.AnchorSideTop.Control = fpecivil
         EditLabel.AnchorSideTop.Side = asrCenter
-        EditLabel.AnchorSideRight.Control = LabeledEdit3
-        EditLabel.AnchorSideBottom.Control = LabeledEdit3
+        EditLabel.AnchorSideRight.Control = fpecivil
+        EditLabel.AnchorSideBottom.Control = fpecivil
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 679
+        EditLabel.Left = 695
         EditLabel.Height = 15
-        EditLabel.Top = 164
+        EditLabel.Top = 44
         EditLabel.Width = 62
         EditLabel.Caption = 'Estado Civil'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         LabelPosition = lpLeft
+        ReadOnly = True
         TabOrder = 8
-        Text = 'LabeledEdit3'
+        Text = 'fpecivil'
       end
-      object LabeledEdit8: TLabeledEdit
-        Left = 744
+      object fpdocumento: TLabeledEdit
+        Left = 760
         Height = 23
         Top = 16
         Width = 112
-        EditLabel.AnchorSideTop.Control = LabeledEdit8
+        EditLabel.AnchorSideTop.Control = fpdocumento
         EditLabel.AnchorSideTop.Side = asrCenter
-        EditLabel.AnchorSideRight.Control = LabeledEdit8
-        EditLabel.AnchorSideBottom.Control = LabeledEdit8
+        EditLabel.AnchorSideRight.Control = fpdocumento
+        EditLabel.AnchorSideBottom.Control = fpdocumento
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 675
+        EditLabel.Left = 691
         EditLabel.Height = 15
         EditLabel.Top = 20
         EditLabel.Width = 66
@@ -3506,108 +3528,113 @@ object ficha_socio: Tficha_socio
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         LabelPosition = lpLeft
+        ReadOnly = True
         TabOrder = 9
-        Text = 'LabeledEdit8'
+        Text = 'fpdocumento'
       end
-      object LabeledEdit13: TLabeledEdit
-        Left = 920
+      object fpcalle: TLabeledEdit
+        Left = 760
         Height = 23
-        Top = 112
-        Width = 112
-        EditLabel.AnchorSideTop.Control = LabeledEdit13
+        Top = 136
+        Width = 408
+        EditLabel.AnchorSideTop.Control = fpcalle
         EditLabel.AnchorSideTop.Side = asrCenter
-        EditLabel.AnchorSideRight.Control = LabeledEdit13
-        EditLabel.AnchorSideBottom.Control = LabeledEdit13
+        EditLabel.AnchorSideRight.Control = fpcalle
+        EditLabel.AnchorSideBottom.Control = fpcalle
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 891
+        EditLabel.Left = 731
         EditLabel.Height = 15
-        EditLabel.Top = 116
+        EditLabel.Top = 140
         EditLabel.Width = 26
-        EditLabel.Caption = 'Edad'
+        EditLabel.Caption = 'Calle'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         LabelPosition = lpLeft
+        ReadOnly = True
         TabOrder = 10
-        Text = 'LabeledEdit13'
+        Text = 'fpcalle'
       end
-      object LabeledEdit12: TLabeledEdit
-        Left = 920
+      object fpnumeracion: TLabeledEdit
+        Left = 760
         Height = 23
-        Top = 80
-        Width = 112
-        EditLabel.AnchorSideTop.Control = LabeledEdit12
+        Top = 160
+        Width = 96
+        EditLabel.AnchorSideTop.Control = fpnumeracion
         EditLabel.AnchorSideTop.Side = asrCenter
-        EditLabel.AnchorSideRight.Control = LabeledEdit12
-        EditLabel.AnchorSideBottom.Control = LabeledEdit12
+        EditLabel.AnchorSideRight.Control = fpnumeracion
+        EditLabel.AnchorSideBottom.Control = fpnumeracion
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 891
+        EditLabel.Left = 711
         EditLabel.Height = 15
-        EditLabel.Top = 84
-        EditLabel.Width = 26
-        EditLabel.Caption = 'Edad'
+        EditLabel.Top = 164
+        EditLabel.Width = 46
+        EditLabel.Caption = 'Número'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         LabelPosition = lpLeft
+        ReadOnly = True
         TabOrder = 11
-        Text = 'LabeledEdit12'
+        Text = 'fpnumeracion'
       end
-      object LabeledEdit11: TLabeledEdit
-        Left = 1024
+      object fpincapacidad: TLabeledEdit
+        Left = 1040
         Height = 23
-        Top = 16
+        Top = 88
         Width = 32
-        EditLabel.AnchorSideTop.Control = LabeledEdit11
+        EditLabel.AnchorSideTop.Control = fpincapacidad
         EditLabel.AnchorSideTop.Side = asrCenter
-        EditLabel.AnchorSideRight.Control = LabeledEdit11
-        EditLabel.AnchorSideBottom.Control = LabeledEdit11
+        EditLabel.AnchorSideRight.Control = fpincapacidad
+        EditLabel.AnchorSideBottom.Control = fpincapacidad
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 956
+        EditLabel.Left = 972
         EditLabel.Height = 15
-        EditLabel.Top = 20
+        EditLabel.Top = 92
         EditLabel.Width = 65
         EditLabel.Caption = 'Incapacidad'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         LabelPosition = lpLeft
+        ReadOnly = True
         TabOrder = 12
-        Text = 'LabeledEdit11'
+        Text = 'fpincapacidad'
       end
-      object LabeledEdit10: TLabeledEdit
-        Left = 912
+      object fpacargo: TLabeledEdit
+        Left = 1036
         Height = 23
-        Top = 16
+        Top = 64
         Width = 36
-        EditLabel.AnchorSideTop.Control = LabeledEdit10
+        EditLabel.AnchorSideTop.Control = fpacargo
         EditLabel.AnchorSideTop.Side = asrCenter
-        EditLabel.AnchorSideRight.Control = LabeledEdit10
-        EditLabel.AnchorSideBottom.Control = LabeledEdit10
+        EditLabel.AnchorSideRight.Control = fpacargo
+        EditLabel.AnchorSideBottom.Control = fpacargo
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 866
+        EditLabel.Left = 990
         EditLabel.Height = 15
-        EditLabel.Top = 20
+        EditLabel.Top = 68
         EditLabel.Width = 43
         EditLabel.Caption = 'A Cargo'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         LabelPosition = lpLeft
+        ReadOnly = True
         TabOrder = 13
-        Text = 'LabeledEdit10'
+        Text = 'fpacargo'
       end
-      object LabeledEdit9: TLabeledEdit
-        Left = 1104
+      object fpedad: TLabeledEdit
+        Left = 1072
         Height = 23
         Top = 16
         Width = 32
-        EditLabel.AnchorSideTop.Control = LabeledEdit9
+        EditLabel.AnchorSideTop.Control = fpedad
         EditLabel.AnchorSideTop.Side = asrCenter
-        EditLabel.AnchorSideRight.Control = LabeledEdit9
-        EditLabel.AnchorSideBottom.Control = LabeledEdit9
+        EditLabel.AnchorSideRight.Control = fpedad
+        EditLabel.AnchorSideBottom.Control = fpedad
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 1075
+        EditLabel.Left = 1043
         EditLabel.Height = 15
         EditLabel.Top = 20
         EditLabel.Width = 26
@@ -3616,8 +3643,9 @@ object ficha_socio: Tficha_socio
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         LabelPosition = lpLeft
+        ReadOnly = True
         TabOrder = 14
-        Text = 'LabeledEdit9'
+        Text = 'fpedad'
       end
       object Gparticipantes1: TDBGrid
         Left = 8
@@ -3650,6 +3678,178 @@ object ficha_socio: Tficha_socio
         TabOrder = 15
         OnDblClick = GparticipantesDblClick
         OnPrepareCanvas = GparticipantesPrepareCanvas
+      end
+      object fpdepto: TLabeledEdit
+        Left = 896
+        Height = 23
+        Top = 160
+        Width = 56
+        EditLabel.AnchorSideTop.Control = fpdepto
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = fpdepto
+        EditLabel.AnchorSideBottom.Control = fpdepto
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 858
+        EditLabel.Height = 15
+        EditLabel.Top = 164
+        EditLabel.Width = 35
+        EditLabel.Caption = 'Depto'
+        EditLabel.ParentColor = False
+        EditLabel.ParentFont = False
+        EditLabel.Font.Style = [fsBold]
+        LabelPosition = lpLeft
+        ReadOnly = True
+        TabOrder = 16
+        Text = 'fpdepto'
+      end
+      object fppiso: TLabeledEdit
+        Left = 984
+        Height = 23
+        Top = 160
+        Width = 44
+        EditLabel.AnchorSideTop.Control = fppiso
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = fppiso
+        EditLabel.AnchorSideBottom.Control = fppiso
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 959
+        EditLabel.Height = 15
+        EditLabel.Top = 164
+        EditLabel.Width = 22
+        EditLabel.Caption = 'Piso'
+        EditLabel.ParentColor = False
+        EditLabel.ParentFont = False
+        EditLabel.Font.Style = [fsBold]
+        LabelPosition = lpLeft
+        ReadOnly = True
+        TabOrder = 17
+        Text = 'fppiso'
+      end
+      object fplocalidad: TLabeledEdit
+        Left = 760
+        Height = 23
+        Top = 184
+        Width = 284
+        EditLabel.AnchorSideTop.Control = fplocalidad
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = fplocalidad
+        EditLabel.AnchorSideBottom.Control = fplocalidad
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 706
+        EditLabel.Height = 15
+        EditLabel.Top = 188
+        EditLabel.Width = 51
+        EditLabel.Caption = 'Localidad'
+        EditLabel.ParentColor = False
+        EditLabel.ParentFont = False
+        EditLabel.Font.Style = [fsBold]
+        LabelPosition = lpLeft
+        ReadOnly = True
+        TabOrder = 18
+        Text = 'fplocalidad'
+      end
+      object fppartido: TLabeledEdit
+        Left = 760
+        Height = 23
+        Top = 208
+        Width = 284
+        EditLabel.AnchorSideTop.Control = fppartido
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = fppartido
+        EditLabel.AnchorSideBottom.Control = fppartido
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 717
+        EditLabel.Height = 15
+        EditLabel.Top = 212
+        EditLabel.Width = 40
+        EditLabel.Caption = 'Partido'
+        EditLabel.ParentColor = False
+        EditLabel.ParentFont = False
+        EditLabel.Font.Style = [fsBold]
+        LabelPosition = lpLeft
+        ReadOnly = True
+        TabOrder = 19
+        Text = 'fppartido'
+      end
+      object fpprovincia: TLabeledEdit
+        Left = 760
+        Height = 23
+        Top = 232
+        Width = 284
+        EditLabel.AnchorSideTop.Control = fpprovincia
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = fpprovincia
+        EditLabel.AnchorSideBottom.Control = fpprovincia
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 706
+        EditLabel.Height = 15
+        EditLabel.Top = 236
+        EditLabel.Width = 51
+        EditLabel.Caption = 'Provincia'
+        EditLabel.ParentColor = False
+        EditLabel.ParentFont = False
+        EditLabel.Font.Style = [fsBold]
+        LabelPosition = lpLeft
+        ReadOnly = True
+        TabOrder = 20
+        Text = 'fpprovincia'
+      end
+      object fpcodpostal: TLabeledEdit
+        Left = 1096
+        Height = 23
+        Top = 160
+        Width = 72
+        EditLabel.AnchorSideTop.Control = fpcodpostal
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = fpcodpostal
+        EditLabel.AnchorSideBottom.Control = fpcodpostal
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 1036
+        EditLabel.Height = 15
+        EditLabel.Top = 164
+        EditLabel.Width = 57
+        EditLabel.Caption = 'Cod.Postal'
+        EditLabel.ParentColor = False
+        EditLabel.ParentFont = False
+        EditLabel.Font.Style = [fsBold]
+        LabelPosition = lpLeft
+        ReadOnly = True
+        TabOrder = 21
+        Text = 'fpcodpostal'
+      end
+      object DBGridACargoAntecedentes1: TDBGrid
+        Left = 672
+        Height = 160
+        Top = 368
+        Width = 520
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'FECHA'
+            Width = 60
+            FieldName = 'fcausa'
+          end        
+          item
+            Title.Caption = 'CAUSA'
+            Width = 150
+            FieldName = 'causa_descripcion'
+          end        
+          item
+            Title.Caption = 'USUARIO'
+            Width = 150
+            FieldName = 'USUARIO'
+          end        
+          item
+            Title.Caption = 'ESTADO'
+            Width = 200
+            FieldName = 'est_descripcion'
+          end>
+        DataSource = DataModule1.DS_AC_antecedentes
+        ReadOnly = True
+        Scrollbars = ssAutoVertical
+        TabOrder = 22
+        OnCellClick = DBGridACargoAntecedentesCellClick
+        OnPrepareCanvas = DBGridACargoAntecedentesPrepareCanvas
       end
     end
   end
