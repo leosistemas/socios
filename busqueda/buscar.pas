@@ -178,6 +178,7 @@ var
   c1:string;
   c2:string;
 begin
+  datamodule1.conector_socios.Reconnect;
   if length(trim(bp.text))=0 then exit;
   if bp.text<>'NOMBRE' then
        begin

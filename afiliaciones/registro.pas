@@ -116,8 +116,11 @@ type
      procedure DBGridACargoCellClick(Column: TColumn);
      procedure DBGridACargoPrepareCanvas(sender: TObject; DataCol: Integer;
        Column: TColumn; AState: TGridDrawState);
+     procedure DBGridAyudasCellClick(Column: TColumn);
      procedure DBGridAyudasPrepareCanvas(sender: TObject; DataCol: Integer;
        Column: TColumn; AState: TGridDrawState);
+     procedure DBGridCargosCuotasPrepareCanvas(sender: TObject;
+       DataCol: Integer; Column: TColumn; AState: TGridDrawState);
      procedure DBGridCargosFijosPrepareCanvas(sender: TObject;
        DataCol: Integer; Column: TColumn; AState: TGridDrawState);
      procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -304,6 +307,21 @@ begin
   end;
 end;
 
+procedure Tficha_socio.DBGridAyudasCellClick(Column: TColumn);
+var
+  cl:string;
+begin
+  cl:='';
+   if trim(DataModule1.QAyudas.fieldbyname('tipo').asstring)='cuotas' then cl:='V_Cuotas_Ctas.sql';
+   if trim(DataModule1.QAyudas.fieldbyname('tipo').asstring)='ay' then cl:='V_Cuotas_Ay.sql';
+
+     cl:= DataModule1.sql_buscar(cl,DataModule1.QAyudas.FieldByName('orden').asstring,'','socio');
+     DataModule1.QAyudasCtas.close;
+     DataModule1.QAyudasCtas.sql.clear;
+     DataModule1.QAyudasCtas.sql.add(cl);
+     DataModule1.QAyudasCtas.Open;
+end;
+
 procedure Tficha_socio.DBGridAyudasPrepareCanvas(sender: TObject;
   DataCol: Integer; Column: TColumn; AState: TGridDrawState);
 begin
@@ -318,6 +336,32 @@ begin
     if TDBGrid(Sender).Canvas.Brush.Color = TDBGrid(Sender).Color then
     TDBGrid(Sender).Canvas.Brush.Color := $00CCFFFF ;
   end;
+end;
+
+procedure Tficha_socio.DBGridCargosCuotasPrepareCanvas(sender: TObject;
+  DataCol: Integer; Column: TColumn; AState: TGridDrawState);
+begin
+      if (AState = [gdSelected]) then
+           begin
+             Canvas.Font.Color:= clBlack;
+             Canvas.Brush.Color:= clRed;
+           end  ;
+
+    if (DataModule1.QAyudasCtas.RecNo mod 2) = 0 then
+    begin
+      if TDBGrid(Sender).Canvas.Brush.Color = TDBGrid(Sender).Color then
+      TDBGrid(Sender).Canvas.Brush.Color := $00CCFFFF ;
+    end;
+     if DataModule1.QAyudasCtas.fieldbyname('IMPPAGO').AsInteger = 0 then
+  begin
+    TDBGrid(Sender).Canvas.font.Color := clRed ;
+  end;
+          if DataModule1.QAyudasCtas.fieldbyname('IMPPAGO').AsInteger > 0 then
+  begin
+    TDBGrid(Sender).Canvas.font.Style:=[fsBold];
+  end;
+
+
 end;
 
 procedure Tficha_socio.DBGridCargosFijosPrepareCanvas(sender: TObject;
@@ -465,11 +509,16 @@ begin
      DataModule1.QCargosFijos.sql.add(cl);
      DataModule1.QCargosFijos.Open;
 
-      cl:=DataModule1.sql_buscar('V_AY_Y_COMERCIOS.sql',sets.f_tit.numero+' and codigo_estado<=0','','socio');
+      cl:=DataModule1.sql_buscar('V_AY.sql',sets.f_tit.numero +' and codigo_estado<=0 UNION ALL ','','socio');
+      cl:= cl+DataModule1.sql_buscar('V_CARGOS_EN_CUOTAS.sql',sets.f_tit.numero + ' and codigo_estado<=0','','socio');
      DataModule1.QAyudas.close;
      DataModule1.QAyudas.sql.clear;
      DataModule1.QAyudas.sql.add(cl);
      DataModule1.QAyudas.Open;
+
+
+
+
 
      tabCargos.Caption:='Cargos Fijos ('+ trim(DataModule1.QCargosFijos.RecordCount.ToString()) + ')';
      tabCargos.Caption:=tabCargos.Caption+ ' Ayudas Económicas ('+ trim(DataModule1.QAyudas.RecordCount.ToString()) + ')';

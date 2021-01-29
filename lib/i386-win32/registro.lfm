@@ -2225,8 +2225,8 @@ object ficha_socio: Tficha_socio
         Height = 543
         Top = 1
         Width = 624
-        ActivePage = TabCargos
-        TabIndex = 1
+        ActivePage = TabACargo
+        TabIndex = 0
         TabOrder = 20
         object TabACargo: TTabSheet
           Caption = 'A Cargo'
@@ -2257,6 +2257,7 @@ object ficha_socio: Tficha_socio
               end>
             DataSource = DataModule1.DS_ACARGO
             ReadOnly = True
+            Scrollbars = ssAutoVertical
             TabOrder = 0
             OnCellClick = DBGridACargoCellClick
             OnPrepareCanvas = DBGridACargoPrepareCanvas
@@ -2275,7 +2276,7 @@ object ficha_socio: Tficha_socio
               end            
               item
                 Title.Caption = 'CAUSA'
-                Width = 200
+                Width = 150
                 FieldName = 'causa_descripcion'
               end            
               item
@@ -2285,10 +2286,12 @@ object ficha_socio: Tficha_socio
               end            
               item
                 Title.Caption = 'ESTADO'
+                Width = 200
                 FieldName = 'est_descripcion'
               end>
             DataSource = DataModule1.DS_AC_antecedentes
             ReadOnly = True
+            Scrollbars = ssAutoVertical
             TabOrder = 1
             OnCellClick = DBGridACargoAntecedentesCellClick
             OnPrepareCanvas = DBGridACargoAntecedentesPrepareCanvas
@@ -2330,7 +2333,6 @@ object ficha_socio: Tficha_socio
             Color = clWindow
             Columns = <            
               item
-                Color = clWindow
                 Title.Caption = 'VINCULO'
                 Width = 400
                 FieldName = 'vinculo'
@@ -2342,6 +2344,7 @@ object ficha_socio: Tficha_socio
               end>
             DataSource = DataModule1.DS_CargosFijos
             ReadOnly = True
+            Scrollbars = ssAutoVertical
             TabOrder = 0
             OnPrepareCanvas = DBGridCargosFijosPrepareCanvas
           end
@@ -2374,7 +2377,6 @@ object ficha_socio: Tficha_socio
                 DisplayFormat = '#,##0.00'
               end            
               item
-                Color = clWindow
                 Title.Caption = 'COBRADAS'
                 Width = 70
                 FieldName = 'CCOBRADAS'
@@ -2386,8 +2388,55 @@ object ficha_socio: Tficha_socio
               end>
             DataSource = DataModule1.DS_Ayudas
             ReadOnly = True
+            Scrollbars = ssAutoVertical
             TabOrder = 1
+            OnCellClick = DBGridAyudasCellClick
             OnPrepareCanvas = DBGridAyudasPrepareCanvas
+          end
+          object DBGridCargosCuotas: TDBGrid
+            Left = 6
+            Height = 144
+            Top = 327
+            Width = 600
+            Color = clWindow
+            Columns = <            
+              item
+                Title.Caption = 'VIA'
+                Width = 70
+                FieldName = 'VIA'
+              end            
+              item
+                Title.Caption = 'CUOTA'
+                Width = 50
+                FieldName = 'NCUOTA'
+              end            
+              item
+                Title.Caption = 'A COBRAR'
+                Width = 100
+                FieldName = 'IMPCUOTA'
+                DisplayFormat = '#,##0.00'
+              end            
+              item
+                Title.Caption = 'COBRADO'
+                Width = 100
+                FieldName = 'IMPPAGO'
+                DisplayFormat = '#,##0.00'
+              end            
+              item
+                Title.Caption = 'MES A PAGAR'
+                Width = 100
+                FieldName = 'MCOBRO'
+              end            
+              item
+                Title.Caption = 'MES DE PAGO'
+                Width = 100
+                FieldName = 'MCOBRADO'
+              end>
+            DataSource = DataModule1.DS_AyudasCtas
+            ReadOnly = True
+            Scrollbars = ssAutoVertical
+            TabOrder = 2
+            OnPrepareCanvas = DBGridCargosCuotasPrepareCanvas
           end
         end
         object TabSheet3: TTabSheet

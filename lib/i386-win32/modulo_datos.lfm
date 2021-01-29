@@ -1,9 +1,9 @@
 object DataModule1: TDataModule1
   OldCreateOrder = False
-  Height = 480
+  Height = 524
   HorizontalOffset = 423
-  VerticalOffset = 226
-  Width = 813
+  VerticalOffset = 194
+  Width = 889
   object DS_usuarios: TDataSource
     DataSet = Qusuarios
     left = 136
@@ -28,8 +28,8 @@ object DataModule1: TDataModule1
   end
   object QSets: TZQuery
     Params = <>
-    left = 136
-    top = 8
+    left = 32
+    top = 16
   end
   object Qparticipantes: TZReadOnlyQuery
     Connection = conector_socios
@@ -55,35 +55,35 @@ object DataModule1: TDataModule1
   end
   object QFicha_fam: TZReadOnlyQuery
     Params = <>
-    left = 32
-    top = 376
+    left = 120
+    top = 8
   end
   object QQQ: TZQuery
     Params = <>
-    left = 136
-    top = 384
+    left = 536
+    top = 448
   end
   object DS_deleg: TDataSource
     DataSet = Qdeleg
-    left = 392
-    top = 307
+    left = 787
+    top = 384
   end
   object DS_promotores: TDataSource
     DataSet = Qpromotores
-    left = 392
-    top = 387
+    left = 787
+    top = 464
   end
   object Qdeleg: TZQuery
     Connection = conector_socios
     Params = <>
-    left = 312
-    top = 307
+    left = 707
+    top = 384
   end
   object Qpromotores: TZQuery
     Connection = conector_socios
     Params = <>
-    left = 309
-    top = 384
+    left = 704
+    top = 461
   end
   object conector_socios: TZConnection
     ControlsCodePage = cCP_UTF8
@@ -92,47 +92,47 @@ object DataModule1: TDataModule1
       'AutoEncodeStrings='
     )
     Port = 0
-    left = 576
-    top = 75
+    left = 816
+    top = 16
   end
   object QRead: TZReadOnlyQuery
     Connection = conector_socios
     Params = <>
-    left = 353
-    top = 55
+    left = 304
+    top = 16
   end
   object DS_ACARGO: TDataSource
     DataSet = QAcargo
-    left = 232
-    top = 75
+    left = 136
+    top = 448
   end
   object QAcargo: TZQuery
     Connection = conector_socios
     Params = <>
-    left = 232
-    top = 152
+    left = 24
+    top = 448
   end
   object DS_AC_antecedentes: TDataSource
     DataSet = QAC_Antecedentes
-    left = 328
-    top = 144
+    left = 368
+    top = 80
   end
   object QAC_Antecedentes: TZQuery
     Connection = conector_socios
     Params = <>
-    left = 336
-    top = 208
+    left = 280
+    top = 88
   end
   object DS_CargosFijos: TDataSource
     DataSet = QCargosFijos
-    left = 232
-    top = 224
+    left = 136
+    top = 376
   end
   object QCargosFijos: TZQuery
     Connection = conector_socios
     Params = <>
-    left = 232
-    top = 296
+    left = 32
+    top = 376
   end
   object QMicroficha: TZQuery
     Connection = conector_socios
@@ -142,24 +142,35 @@ object DataModule1: TDataModule1
   end
   object DS_Ayudas: TDataSource
     DataSet = QAyudas
-    left = 664
-    top = 152
+    left = 368
+    top = 232
   end
   object DS_CargosEnCuotas: TDataSource
     DataSet = QCargosEnCuotas
-    left = 552
-    top = 216
+    left = 368
+    top = 160
   end
   object QAyudas: TZQuery
     Connection = conector_socios
     Params = <>
-    left = 552
-    top = 152
+    left = 280
+    top = 232
   end
   object QCargosEnCuotas: TZQuery
     Connection = conector_socios
     Params = <>
-    left = 664
-    top = 224
+    left = 280
+    top = 160
+  end
+  object QAyudasCtas: TZQuery
+    Connection = conector_socios
+    Params = <>
+    left = 280
+    top = 304
+  end
+  object DS_AyudasCtas: TDataSource
+    DataSet = QAyudasCtas
+    left = 368
+    top = 304
   end
 end

@@ -182,7 +182,7 @@ begin
   if bp.text<>'NOMBRE' then
        begin
           c1:=DataModule1.sql_buscar('buscar_socio.sql',trim(clave.text),'',trim(bp.text)+'=');
-           showmessage(c1);
+     //      showmessage(c1);
           DataModule1.QBuscar.close;
           DataModule1.QBuscar.SQL.clear;
           DataModule1.QBuscar.SQL.add(c1);

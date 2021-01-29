@@ -12,6 +12,7 @@ uses
   { TDataModule1 }
 
   TDataModule1 = class(TDataModule)
+    DS_AyudasCtas: TDataSource;
     DS_CargosFijos: TDataSource;
     DS_AC_antecedentes: TDataSource;
     DS_Ayudas: TDataSource;
@@ -25,6 +26,7 @@ uses
     DS_ACARGO: TDataSource;
     QAcargo: TZQuery;
     QAyudas: TZQuery;
+    QAyudasCtas: TZQuery;
     QCargosEnCuotas: TZQuery;
     QMicroficha: TZQuery;
     QCargosFijos: TZQuery;
@@ -106,6 +108,7 @@ var
     renglon:string;
     SQ:string;
 begin
+  //
   SQ:='';
   renglon:=conf.pathSql+archivo;
     AssignFile(fuente,renglon);
