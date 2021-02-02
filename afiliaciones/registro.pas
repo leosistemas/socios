@@ -17,21 +17,23 @@ type
   Tficha_socio = class(TForm)
     DBGridACargo: TDBGrid;
     DBGridACargoAntecedentes: TDBGrid;
-    DBGridACargoAntecedentes1: TDBGrid;
+    GMicroAntecedente: TDBGrid;
     DBGridCargosCuotas: TDBGrid;
     DBGridCargosFijos: TDBGrid;
     DBGridAyudas: TDBGrid;
     direccion: TLabeledEdit;
-    fpdepto: TLabeledEdit;
-    fppiso: TLabeledEdit;
-    fplocalidad: TLabeledEdit;
-    fppartido: TLabeledEdit;
-    fpprovincia: TLabeledEdit;
-    fpcodpostal: TLabeledEdit;
-    Gparticipantes1: TDBGrid;
+    fpestado: TLabeledEdit;
+    fpnombre: TLabeledEdit;
+    fpnacionalidad: TLabeledEdit;
+    fpemail: TLabeledEdit;
+    fptelefono: TLabeledEdit;
+    fpcelular: TLabeledEdit;
+    GpartPat: TDBGrid;
+    fpfoto: TImage;
     Memo1: TMemo;
     Memo2: TMemo;
     Memo3: TMemo;
+    Memo4: TMemo;
     piso: TLabeledEdit;
     depto: TLabeledEdit;
     codpostal: TLabeledEdit;
@@ -44,6 +46,8 @@ type
     nlegajo: TLabeledEdit;
     email: TLabeledEdit;
     foto: TImage;
+    Shape8: TShape;
+    Shape9: TShape;
     tipodoc: TLabeledEdit;
     edad: TLabeledEdit;
     cuil: TLabeledEdit;
@@ -54,6 +58,8 @@ type
     GPatrocinados: TDBGrid;
     Label10: TLabel;
     Label3: TLabel;
+
+
     fpnacimiento: TLabeledEdit;
     fpacargo: TLabeledEdit;
     fpincapacidad: TLabeledEdit;
@@ -67,7 +73,12 @@ type
     fpfpago: TLabeledEdit;
     fpdocumento: TLabeledEdit;
     fpedad: TLabeledEdit;
-
+    fpdepto: TLabeledEdit;
+    fppiso: TLabeledEdit;
+    fplocalidad: TLabeledEdit;
+    fppartido: TLabeledEdit;
+    fpprovincia: TLabeledEdit;
+    fpcodpostal: TLabeledEdit;
     nombre: TLabeledEdit;
     apellido: TLabeledEdit;
     fnacimiento: TLabeledEdit;
@@ -134,9 +145,15 @@ type
        DataCol: Integer; Column: TColumn; AState: TGridDrawState);
      procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
+    procedure GMicroAntecedenteCellClick(Column: TColumn);
+    procedure GMicroAntecedentePrepareCanvas(sender: TObject; DataCol: Integer;
+      Column: TColumn; AState: TGridDrawState);
+    procedure GparticipantesCellClick(Column: TColumn);
     procedure GparticipantesDblClick(Sender: TObject);
     procedure GparticipantesPrepareCanvas(sender: TObject; DataCol: Integer;
       Column: TColumn; AState: TGridDrawState);
+    procedure GpartPatCellClick(Column: TColumn);
+    procedure GPatrocinadosCellClick(Column: TColumn);
     procedure GPatrocinadosPrepareCanvas(sender: TObject; DataCol: Integer;
       Column: TColumn; AState: TGridDrawState);
     procedure grabarClick(Sender: TObject);
@@ -145,8 +162,8 @@ type
     procedure modificarClick(Sender: TObject);
     procedure view_buttons(accion:string);
     procedure asignar();
-
-
+    procedure limpiar_ficha_acargo();
+    procedure asignar_ficha_acargo(ndoc:string;tipo:string);
   private
     { private declarations }
   public
@@ -171,10 +188,16 @@ begin
     shape3.Brush.Color:=StringToColor(sets.conf.c_cons3);
   end;
   limpiar();
+  limpiar_ficha_acargo();
   view_buttons('inicio');
-   sets.f_tit.numero:='7491';
-     asignar();
+  sets.f_tit.numero:='7491';
+  asignar();
 end;
+
+
+
+
+
 
 
 procedure Tficha_socio.view_buttons(accion:string);
@@ -203,6 +226,8 @@ fpago.Text:='';zona_delegacion.Text:='';nlegajo.Text:='';beneficio.Text:='';emai
 estado.Text:='';sexo1.Text:='';estcivil.Text:='';nacionalidad1.Text:='';tipodoc.Text:='';nrodoc.Text:='';fnacimiento.Text:='';
 memo1.clear;    memo2.Clear;
 end;
+
+
 
 procedure Tficha_socio.modificarClick(Sender: TObject);
 begin
@@ -267,7 +292,7 @@ begin
     if TDBGrid(Sender).Canvas.Brush.Color = TDBGrid(Sender).Color then
     TDBGrid(Sender).Canvas.Brush.Color := clYellow ;
   end;
-  if DataModule1.QAC_Antecedentes.fieldbyname('estado').AsInteger < 0 then
+  if DataModule1.QAC_Antecedentes.fieldbyname('CODIGO_estado').AsInteger < 0 then
   begin
     TDBGrid(Sender).Canvas.font.Color := clRed ;
   end;
@@ -501,7 +526,7 @@ begin
            patrocinador.Visible:=true;
      end;
 
-     cl:=DataModule1.sql_buscar('vista_participantes.sql',sets.f_tit.numero,'','socio');
+     cl:=DataModule1.sql_buscar('vista_participantes.sql',sets.f_tit.numero,'','socio');  //V_FAMILIARES
      DataModule1.Qparticipantes.close;
      DataModule1.Qparticipantes.sql.clear;
      DataModule1.Qparticipantes.sql.add(cl);
@@ -536,17 +561,142 @@ begin
      DataModule1.QAyudas.sql.add(cl);
      DataModule1.QAyudas.Open;
 
-
-
-
-
-     tabCargos.Caption:='Cargos Fijos ('+ trim(DataModule1.QCargosFijos.RecordCount.ToString()) + ')';
+       tabCargos.Caption:='Cargos Fijos ('+ trim(DataModule1.QCargosFijos.RecordCount.ToString()) + ')';
      tabCargos.Caption:=tabCargos.Caption+ ' Ayudas Económicas ('+ trim(DataModule1.QAyudas.RecordCount.ToString()) + ')';
 
      view_buttons('mostrar');
 
 end;
 
+/// ficha participantes a cargos**************************
+
+procedure Tficha_socio.limpiar_ficha_acargo();
+begin
+  fpnacimiento.text:='';  fpacargo.text:='';     fpincapacidad.text:='';    fpnumeracion.text:='';    fpcalle.text:='';
+  fpegreso.text:='';     fpecivil.text:='';    fpalta.text:='';    fpbaja.text:='';    fpingreso.text:='';
+  fpfpago.text:='';    fpdocumento.text:='';    fpedad.text:='';    fpdepto.text:='';    fppiso.text:='';
+  fplocalidad.text:='';    fppartido.text:='';    fpprovincia.text:='';    fpcodpostal.text:=''; fpnacionalidad.text:='';
+  fpestado.text:='';    fpemail.text:='';    fptelefono.text:='';    fpcelular.text:=''; fpfoto.Visible:=false;
+  DataModule1.QAC_Antecedentes.Close;    memo4.Clear;
+end;
+
+
+
+
+//************** G PARTICIPANTES ***************
+procedure Tficha_socio.asignar_ficha_acargo(ndoc:string;tipo:string);
+begin
+  if tipo='familiar' then
+  begin
+    fpnombre.text:=trim(DataModule1.Qparticipantes.fieldbyname('apellido').asstring) + ', ' + trim(DataModule1.Qparticipantes.fieldbyname('nombre').asstring);
+      fpnacimiento.text:=DataModule1.Qparticipantes.fieldbyname('FNACIMIENTO').asstring;
+	fpacargo.text:=DataModule1.Qparticipantes.fieldbyname('ACARGO').asstring;
+	fpincapacidad.text:=DataModule1.Qparticipantes.fieldbyname('INCAPACIDAD').asstring;
+	fpnumeracion.text:=DataModule1.Qparticipantes.fieldbyname('NUMERACION_CALLE').asstring;
+	fpcalle.text:=DataModule1.Qparticipantes.fieldbyname('CALLE').asstring;
+    fpegreso.text:=DataModule1.Qparticipantes.fieldbyname('FEGRESO').asstring;
+	fpecivil.text:=DataModule1.Qparticipantes.fieldbyname('ESTCIVIL').asstring;
+     	fpnacionalidad.text:=DataModule1.Qparticipantes.fieldbyname('NACIONALIDAD').asstring;
+        fpalta.text:=DataModule1.Qparticipantes.fieldbyname('FALTA').asstring;
+	fpbaja.text:=DataModule1.Qparticipantes.fieldbyname('FBAJA').asstring;
+	fpingreso.text:=DataModule1.Qparticipantes.fieldbyname('FINICIO').asstring;
+   	fpdocumento.text:=DataModule1.Qparticipantes.fieldbyname('TIPODOC').asstring + ' ' + DataModule1.Qparticipantes.fieldbyname('NRODOC').asstring;
+	fpedad.text:=DataModule1.Qparticipantes.fieldbyname('EDAD').asstring;
+	fpdepto.text:=DataModule1.Qparticipantes.fieldbyname('DEPTO').asstring;
+	fppiso.text:=DataModule1.Qparticipantes.fieldbyname('PISO').asstring;
+        fplocalidad.text:=DataModule1.Qparticipantes.fieldbyname('localidad').asstring;
+  	fppartido.text:=DataModule1.Qparticipantes.fieldbyname('partido').asstring;
+  	fpprovincia.text:=DataModule1.Qparticipantes.fieldbyname('provincia').asstring;
+	fpcodpostal.text:=DataModule1.Qparticipantes.fieldbyname('CODPOSTAL').asstring;
+        fpestado.text:=DataModule1.Qparticipantes.fieldbyname('estado').asstring;
+     	fptelefono.text:=DataModule1.Qparticipantes.fieldbyname('telefono').asstring;
+     	fpcelular.text:=DataModule1.Qparticipantes.fieldbyname('celular').asstring;
+     	fpemail.text:=DataModule1.Qparticipantes.fieldbyname('email').asstring;
+        if length(trim(DataModule1.Qparticipantes.fieldbyname('foto').asstring))>0 then
+        begin
+             fpfoto.visible:=true;
+             fpfoto.Picture.LoadFromFile(DataModule1.Qparticipantes.fieldbyname('foto').asstring);
+        end;
+
+        end;
+    if tipo='patrocinado' then
+  begin
+        fpnombre.text:=trim(DataModule1.Qpatrocinados.fieldbyname('apellido').asstring) + ', ' +trim (DataModule1.Qpatrocinados.fieldbyname('nombre').asstring);
+        fpnacimiento.text:=DataModule1.Qpatrocinados.fieldbyname('FNACIMIENTO').asstring;
+	fpnumeracion.text:=DataModule1.Qpatrocinados.fieldbyname('NUMERACION_CALLE').asstring;
+	fpcalle.text:=DataModule1.Qpatrocinados.fieldbyname('CALLE').asstring;
+    fpegreso.text:=DataModule1.Qpatrocinados.fieldbyname('FEGRESO').asstring;
+	fpecivil.text:=DataModule1.Qpatrocinados.fieldbyname('ESTCIVIL').asstring;
+     	fpnacionalidad.text:=DataModule1.Qpatrocinados.fieldbyname('NACIONALIDAD').asstring;
+        fpalta.text:=DataModule1.Qpatrocinados.fieldbyname('FALTA').asstring;
+	fpbaja.text:=DataModule1.Qpatrocinados.fieldbyname('FBAJA').asstring;
+	fpingreso.text:=DataModule1.Qpatrocinados.fieldbyname('FINICIO').asstring;
+        fpfpago.text:=DataModule1.Qpatrocinados.fieldbyname('origen_pago').asstring;
+	fpdocumento.text:=DataModule1.Qpatrocinados.fieldbyname('TIPODOC').asstring + ' ' + DataModule1.Qpatrocinados.fieldbyname('NRODOC').asstring;
+	fpedad.text:=DataModule1.Qpatrocinados.fieldbyname('EDAD').asstring;
+	fpdepto.text:=DataModule1.Qpatrocinados.fieldbyname('DEPTO').asstring;
+	fppiso.text:=DataModule1.Qpatrocinados.fieldbyname('PISO').asstring;
+        fplocalidad.text:=DataModule1.Qpatrocinados.fieldbyname('localidad').asstring;
+  	fppartido.text:=DataModule1.Qpatrocinados.fieldbyname('partido').asstring;
+  	fpprovincia.text:=DataModule1.Qpatrocinados.fieldbyname('provincia').asstring;
+	fpcodpostal.text:=DataModule1.Qpatrocinados.fieldbyname('CODPOSTAL').asstring;
+        fpestado.text:=DataModule1.Qpatrocinados.fieldbyname('estado').asstring;
+     	fptelefono.text:=DataModule1.Qpatrocinados.fieldbyname('telefono').asstring;
+     	fpcelular.text:=DataModule1.Qpatrocinados.fieldbyname('celular').asstring;
+     	fpemail.text:=DataModule1.Qpatrocinados.fieldbyname('email').asstring;
+        if length(trim(DataModule1.Qpatrocinados.fieldbyname('foto').asstring))>0 then
+        begin
+             fpfoto.visible:=true;
+             fpfoto.Picture.LoadFromFile(DataModule1.Qpatrocinados.fieldbyname('foto').asstring);
+        end;
+  end;
+    if tipo='familiar_patrocinado' then
+  begin
+        fpnombre.text:=trim(DataModule1.QpartPatrocinado.fieldbyname('apellido').asstring)+ ', ' +trim (DataModule1.QpartPatrocinado.fieldbyname('nombre').asstring);
+         fpnacimiento.text:=DataModule1.QpartPatrocinado.fieldbyname('FNACIMIENTO').asstring;
+	fpacargo.text:=DataModule1.QpartPatrocinado.fieldbyname('ACARGO').asstring;
+	fpincapacidad.text:=DataModule1.QpartPatrocinado.fieldbyname('INCAPACIDAD').asstring;
+	fpnumeracion.text:=DataModule1.QpartPatrocinado.fieldbyname('NUMERACION_CALLE').asstring;
+	fpcalle.text:=DataModule1.QpartPatrocinado.fieldbyname('CALLE').asstring;
+    fpegreso.text:=DataModule1.QpartPatrocinado.fieldbyname('FEGRESO').asstring;
+	fpecivil.text:=DataModule1.QpartPatrocinado.fieldbyname('ESTCIVIL').asstring;
+     	fpnacionalidad.text:=DataModule1.QpartPatrocinado.fieldbyname('NACIONALIDAD').asstring;
+        fpalta.text:=DataModule1.QpartPatrocinado.fieldbyname('FALTA').asstring;
+	fpbaja.text:=DataModule1.QpartPatrocinado.fieldbyname('FBAJA').asstring;
+	fpingreso.text:=DataModule1.QpartPatrocinado.fieldbyname('FINICIO').asstring;
+   	fpdocumento.text:=DataModule1.QpartPatrocinado.fieldbyname('TIPODOC').asstring + ' ' + DataModule1.QpartPatrocinado.fieldbyname('NRODOC').asstring;
+	fpedad.text:=DataModule1.QpartPatrocinado.fieldbyname('EDAD').asstring;
+	fpdepto.text:=DataModule1.QpartPatrocinado.fieldbyname('DEPTO').asstring;
+	fppiso.text:=DataModule1.QpartPatrocinado.fieldbyname('PISO').asstring;
+        fplocalidad.text:=DataModule1.QpartPatrocinado.fieldbyname('localidad').asstring;
+  	fppartido.text:=DataModule1.QpartPatrocinado.fieldbyname('partido').asstring;
+  	fpprovincia.text:=DataModule1.QpartPatrocinado.fieldbyname('provincia').asstring;
+	fpcodpostal.text:=DataModule1.QpartPatrocinado.fieldbyname('CODPOSTAL').asstring;
+        fpestado.text:=DataModule1.QpartPatrocinado.fieldbyname('estado').asstring;
+     	fptelefono.text:=DataModule1.QpartPatrocinado.fieldbyname('telefono').asstring;
+     	fpcelular.text:=DataModule1.QpartPatrocinado.fieldbyname('celular').asstring;
+     	fpemail.text:=DataModule1.QpartPatrocinado.fieldbyname('email').asstring;
+        if length(trim(DataModule1.QpartPatrocinado.fieldbyname('foto').asstring))>0 then
+        begin
+             fpfoto.visible:=true;
+             fpfoto.Picture.LoadFromFile(DataModule1.QpartPatrocinado.fieldbyname('foto').asstring);
+        end;
+  end;
+
+end;
+
+procedure Tficha_socio.GparticipantesCellClick(Column: TColumn);
+var
+  cl:string;
+begin
+   limpiar_ficha_acargo();
+   asignar_ficha_acargo(DataModule1.Qparticipantes.fieldbyname('nrodoc').asstring,'familiar');
+   cl:=DataModule1.sql_buscar('vista_antecedentes_acargo.sql',DataModule1.Qparticipantes.fieldbyname('numero').asstring +' AND ant.FAMILIAR=' + DataModule1.Qparticipantes.fieldbyname('familiar').asstring,'','socio');
+   DataModule1.QMicroantecedente.Close;
+   DataModule1.QMicroantecedente.sql.clear;
+   DataModule1.QMicroantecedente.sql.add(cl);
+   DataModule1.QMicroantecedente.open;
+end;
 procedure Tficha_socio.GparticipantesDblClick(Sender: TObject);
 begin
   if DataModule1.Qparticipantes.IsEmpty then exit;
@@ -567,7 +717,7 @@ begin
            Canvas.Font.Color:= clBlack;
            Canvas.Brush.Color:= clRed;
          end  ;
-     //grid_usuarios.canvas.brush.color := clWhite;
+
   if (DataModule1.Qparticipantes.RecNo mod 2) = 0 then
   begin
     if TDBGrid(Sender).Canvas.Brush.Color = TDBGrid(Sender).Color then
@@ -581,6 +731,25 @@ begin
 
 end;
 
+
+//***************** G PATROCINADOS *************************************
+
+procedure Tficha_socio.GPatrocinadosCellClick(Column: TColumn);
+VAR
+  cl:string;
+begin
+    limpiar_ficha_acargo();
+   asignar_ficha_acargo(DataModule1.Qpatrocinados.fieldbyname('nrodoc').asstring,'patrocinado');
+   DataModule1.QpartPatrocinado.close;
+   DataModule1.QpartPatrocinado.SQL.Clear;
+   DataModule1.QpartPatrocinado.sql.Add('select * from v_familiares where numero='+trim(DataModule1.Qpatrocinados.fieldbyname('numero').asstring));
+   DataModule1.QpartPatrocinado.Open;
+  cl:=DataModule1.sql_buscar('vista_antecedentes.sql',DataModule1.QPatrocinados.fieldbyname('NUMERO').asstring ,'','socio');
+   DataModule1.QMicroantecedente.Close;
+   DataModule1.QMicroantecedente.sql.clear;
+   DataModule1.QMicroantecedente.sql.add(cl);
+   DataModule1.QMicroantecedente.open;
+end;
 procedure Tficha_socio.GPatrocinadosPrepareCanvas(sender: TObject;
   DataCol: Integer; Column: TColumn; AState: TGridDrawState);
 begin
@@ -599,6 +768,46 @@ begin
   begin
     TDBGrid(Sender).Canvas.font.Color := clRed ;
   end;
+end;
+procedure Tficha_socio.GpartPatCellClick(Column: TColumn);
+var
+  cl:string;
+begin
+    limpiar_ficha_acargo();
+   asignar_ficha_acargo( DataModule1.QpartPatrocinado.fieldbyname('nrodoc').asstring,'familiar_patrocinado');
+   cl:=DataModule1.sql_buscar('vista_antecedentes_acargo.sql',DataModule1.QpartPatrocinado.fieldbyname('numero').asstring +' AND ant.FAMILIAR=' + DataModule1.QpartPatrocinado.fieldbyname('familiar').asstring,'','socio');
+   DataModule1.QMicroantecedente.Close;
+   DataModule1.QMicroantecedente.sql.clear;
+   DataModule1.QMicroantecedente.sql.add(cl);
+   DataModule1.QMicroantecedente.open;
+
+end;
+
+//***** microantecedentes
+procedure Tficha_socio.GMicroAntecedentePrepareCanvas(sender: TObject;
+  DataCol: Integer; Column: TColumn; AState: TGridDrawState);
+begin
+  if (AState = [gdSelected]) then
+             begin
+               Canvas.Font.Color:= clBlack;
+               Canvas.Brush.Color:= clRed;
+             end  ;
+
+      if (DataModule1.QMicroantecedente.RecNo mod 2) = 0 then
+      begin
+        if TDBGrid(Sender).Canvas.Brush.Color = TDBGrid(Sender).Color then
+        TDBGrid(Sender).Canvas.Brush.Color := $00CCFFFF ;
+      end;
+       if DataModule1.QMicroantecedente.fieldbyname('codigo_estado').AsInteger = 0 then
+    begin
+      TDBGrid(Sender).Canvas.font.Color := clRed ;
+    end;
+end;
+procedure Tficha_socio.GMicroAntecedenteCellClick(Column: TColumn);
+begin
+memo4.Clear;
+memo4.Append('Usuario: ' + DataModule1.QMicroantecedente.fieldbyname('usuario').ASSTRING);
+memo4.Append('Detalle: ' + DataModule1.QMicroantecedente.fieldbyname('DETALLE').ASSTRING);
 end;
 
 end.

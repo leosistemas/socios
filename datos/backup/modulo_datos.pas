@@ -18,6 +18,7 @@ uses
     DS_Ayudas: TDataSource;
     DS_CargosEnCuotas: TDataSource;
     DS_deleg: TDataSource;
+    DS_partPatrocinado: TDataSource;
     DS_promotores: TDataSource;
     DS_Buscar: TDataSource;
     DS_participantes: TDataSource;
@@ -31,6 +32,7 @@ uses
     QMicroficha: TZQuery;
     QCargosFijos: TZQuery;
     QAC_Antecedentes: TZQuery;
+    QpartPatrocinado: TZReadOnlyQuery;
     QQQ: TZQuery;
     QFicha_fam: TZReadOnlyQuery;
     Qpatrocinados: TZReadOnlyQuery;
@@ -108,7 +110,7 @@ var
     renglon:string;
     SQ:string;
 begin
-  //datamodule1.conector_socios.Reconnect;
+  //
   SQ:='';
   renglon:=conf.pathSql+archivo;
     AssignFile(fuente,renglon);

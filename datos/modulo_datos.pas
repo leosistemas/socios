@@ -12,12 +12,14 @@ uses
   { TDataModule1 }
 
   TDataModule1 = class(TDataModule)
+    DSMicroantecedente: TDataSource;
     DS_AyudasCtas: TDataSource;
     DS_CargosFijos: TDataSource;
     DS_AC_antecedentes: TDataSource;
     DS_Ayudas: TDataSource;
     DS_CargosEnCuotas: TDataSource;
     DS_deleg: TDataSource;
+    DS_partPatrocinado: TDataSource;
     DS_promotores: TDataSource;
     DS_Buscar: TDataSource;
     DS_participantes: TDataSource;
@@ -25,12 +27,14 @@ uses
     DS_usuarios: TDataSource;
     DS_ACARGO: TDataSource;
     QAcargo: TZQuery;
+    QMicroantecedente: TZQuery;
     QAyudas: TZQuery;
     QAyudasCtas: TZQuery;
     QCargosEnCuotas: TZQuery;
     QMicroficha: TZQuery;
     QCargosFijos: TZQuery;
     QAC_Antecedentes: TZQuery;
+    QpartPatrocinado: TZReadOnlyQuery;
     QQQ: TZQuery;
     QFicha_fam: TZReadOnlyQuery;
     Qpatrocinados: TZReadOnlyQuery;

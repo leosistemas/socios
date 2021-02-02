@@ -2,7 +2,7 @@ object DataModule1: TDataModule1
   OldCreateOrder = False
   Height = 524
   HorizontalOffset = 423
-  VerticalOffset = 226
+  VerticalOffset = 194
   Width = 889
   object DS_usuarios: TDataSource
     DataSet = Qusuarios
@@ -35,7 +35,7 @@ object DataModule1: TDataModule1
     Connection = conector_socios
     Params = <>
     left = 37
-    top = 224
+    top = 208
   end
   object Qpatrocinados: TZReadOnlyQuery
     Connection = conector_socios
@@ -46,7 +46,7 @@ object DataModule1: TDataModule1
   object DS_participantes: TDataSource
     DataSet = Qparticipantes
     left = 136
-    top = 232
+    top = 208
   end
   object DS_patrocinados: TDataSource
     DataSet = Qpatrocinados
@@ -104,13 +104,13 @@ object DataModule1: TDataModule1
   object DS_ACARGO: TDataSource
     DataSet = QAcargo
     left = 136
-    top = 448
+    top = 472
   end
   object QAcargo: TZQuery
     Connection = conector_socios
     Params = <>
     left = 24
-    top = 448
+    top = 472
   end
   object DS_AC_antecedentes: TDataSource
     DataSet = QAC_Antecedentes
@@ -126,13 +126,13 @@ object DataModule1: TDataModule1
   object DS_CargosFijos: TDataSource
     DataSet = QCargosFijos
     left = 136
-    top = 376
+    top = 424
   end
   object QCargosFijos: TZQuery
     Connection = conector_socios
     Params = <>
     left = 32
-    top = 376
+    top = 424
   end
   object QMicroficha: TZQuery
     Connection = conector_socios
@@ -172,5 +172,16 @@ object DataModule1: TDataModule1
     DataSet = QAyudasCtas
     left = 368
     top = 304
+  end
+  object DS_partPatrocinado: TDataSource
+    DataSet = QpartPatrocinado
+    left = 131
+    top = 368
+  end
+  object QpartPatrocinado: TZReadOnlyQuery
+    Connection = conector_socios
+    Params = <>
+    left = 32
+    top = 368
   end
 end

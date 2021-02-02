@@ -2225,8 +2225,8 @@ object ficha_socio: Tficha_socio
         Height = 543
         Top = 1
         Width = 624
-        ActivePage = TabCargos
-        TabIndex = 1
+        ActivePage = TabACargo
+        TabIndex = 0
         TabOrder = 20
         object TabACargo: TTabSheet
           Caption = 'A Cargo'
@@ -2306,6 +2306,7 @@ object ficha_socio: Tficha_socio
               'Memo1'
             )
             ParentFont = False
+            ReadOnly = True
             TabOrder = 2
           end
           object Memo2: TMemo
@@ -2318,6 +2319,7 @@ object ficha_socio: Tficha_socio
               'Memo1'
             )
             ParentFont = False
+            ReadOnly = True
             TabOrder = 3
           end
         end
@@ -2450,6 +2452,7 @@ object ficha_socio: Tficha_socio
               'Memo1'
             )
             ParentFont = False
+            ReadOnly = True
             TabOrder = 3
             Visible = False
           end
@@ -3247,10 +3250,24 @@ object ficha_socio: Tficha_socio
       Caption = 'Familiares y Patrocinados'
       ClientHeight = 548
       ClientWidth = 1206
+      object Shape9: TShape
+        Left = 656
+        Height = 161
+        Top = 232
+        Width = 537
+        Brush.Color = 16711390
+      end
+      object Shape8: TShape
+        Left = 656
+        Height = 136
+        Top = 8
+        Width = 537
+        Brush.Color = 16711390
+      end
       object Shape7: TShape
-        Left = 664
-        Height = 621
-        Top = -85
+        Left = 656
+        Height = 73
+        Top = 152
         Width = 537
         Brush.Color = 16711390
       end
@@ -3296,8 +3313,9 @@ object ficha_socio: Tficha_socio
             FieldName = 'NOMBRE'
           end>
         DataSource = DataModule1.DS_participantes
+        ReadOnly = True
         TabOrder = 0
-        OnDblClick = GparticipantesDblClick
+        OnCellClick = GparticipantesCellClick
         OnPrepareCanvas = GparticipantesPrepareCanvas
       end
       object GPatrocinados: TDBGrid
@@ -3323,7 +3341,9 @@ object ficha_socio: Tficha_socio
             FieldName = 'NOMBRE'
           end>
         DataSource = DataModule1.DS_patrocinados
+        ReadOnly = True
         TabOrder = 1
+        OnCellClick = GPatrocinadosCellClick
         OnPrepareCanvas = GPatrocinadosPrepareCanvas
       end
       object Label3: TLabel
@@ -3348,17 +3368,17 @@ object ficha_socio: Tficha_socio
         ParentColor = False
         ParentFont = False
       end
-      object LabeledEdit1: TLabeledEdit
-        Left = 744
+      object fpnacimiento: TLabeledEdit
+        Left = 992
         Height = 23
         Top = 40
         Width = 72
-        EditLabel.AnchorSideTop.Control = LabeledEdit1
+        EditLabel.AnchorSideTop.Control = fpnacimiento
         EditLabel.AnchorSideTop.Side = asrCenter
-        EditLabel.AnchorSideRight.Control = LabeledEdit1
-        EditLabel.AnchorSideBottom.Control = LabeledEdit1
+        EditLabel.AnchorSideRight.Control = fpnacimiento
+        EditLabel.AnchorSideBottom.Control = fpnacimiento
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 677
+        EditLabel.Left = 925
         EditLabel.Height = 15
         EditLabel.Top = 44
         EditLabel.Width = 64
@@ -3367,274 +3387,287 @@ object ficha_socio: Tficha_socio
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         LabelPosition = lpLeft
+        ReadOnly = True
         TabOrder = 2
-        Text = 'LabeledEdit1'
+        Text = 'fpnacimiento'
       end
-      object LabeledEdit2: TLabeledEdit
-        Left = 744
+      object fpegreso: TLabeledEdit
+        Left = 1080
         Height = 23
-        Top = 136
+        Top = 192
         Width = 72
-        EditLabel.AnchorSideTop.Control = LabeledEdit2
+        EditLabel.AnchorSideTop.Control = fpegreso
         EditLabel.AnchorSideTop.Side = asrCenter
-        EditLabel.AnchorSideRight.Control = LabeledEdit2
-        EditLabel.AnchorSideBottom.Control = LabeledEdit2
+        EditLabel.AnchorSideRight.Control = fpegreso
+        EditLabel.AnchorSideBottom.Control = fpegreso
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 704
+        EditLabel.Left = 1040
         EditLabel.Height = 15
-        EditLabel.Top = 140
+        EditLabel.Top = 196
         EditLabel.Width = 37
         EditLabel.Caption = 'Egreso'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         LabelPosition = lpLeft
+        ReadOnly = True
         TabOrder = 3
-        Text = 'LabeledEdit2'
+        Text = 'fpegreso'
       end
-      object LabeledEdit7: TLabeledEdit
-        Left = 760
+      object fpfpago: TLabeledEdit
+        Left = 952
         Height = 23
-        Top = 187
-        Width = 256
-        EditLabel.AnchorSideTop.Control = LabeledEdit7
+        Top = 160
+        Width = 200
+        EditLabel.AnchorSideTop.Control = fpfpago
         EditLabel.AnchorSideTop.Side = asrCenter
-        EditLabel.AnchorSideRight.Control = LabeledEdit7
-        EditLabel.AnchorSideBottom.Control = LabeledEdit7
+        EditLabel.AnchorSideRight.Control = fpfpago
+        EditLabel.AnchorSideBottom.Control = fpfpago
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 675
+        EditLabel.Left = 867
         EditLabel.Height = 15
-        EditLabel.Top = 191
+        EditLabel.Top = 164
         EditLabel.Width = 82
         EditLabel.Caption = 'Forma de Pago'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         LabelPosition = lpLeft
+        ReadOnly = True
         TabOrder = 4
-        Text = 'LabeledEdit7'
+        Text = 'fpfpago'
       end
-      object LabeledEdit6: TLabeledEdit
-        Left = 744
+      object fpingreso: TLabeledEdit
+        Left = 960
         Height = 23
-        Top = 88
+        Top = 192
         Width = 72
-        EditLabel.AnchorSideTop.Control = LabeledEdit6
+        EditLabel.AnchorSideTop.Control = fpingreso
         EditLabel.AnchorSideTop.Side = asrCenter
-        EditLabel.AnchorSideRight.Control = LabeledEdit6
-        EditLabel.AnchorSideBottom.Control = LabeledEdit6
+        EditLabel.AnchorSideRight.Control = fpingreso
+        EditLabel.AnchorSideBottom.Control = fpingreso
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 699
+        EditLabel.Left = 915
         EditLabel.Height = 15
-        EditLabel.Top = 92
+        EditLabel.Top = 196
         EditLabel.Width = 42
         EditLabel.Caption = 'Ingreso'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         LabelPosition = lpLeft
+        ReadOnly = True
         TabOrder = 5
-        Text = 'LabeledEdit6'
+        Text = 'fpingreso'
       end
-      object LabeledEdit5: TLabeledEdit
-        Left = 744
+      object fpbaja: TLabeledEdit
+        Left = 832
         Height = 23
-        Top = 112
+        Top = 192
         Width = 72
-        EditLabel.AnchorSideTop.Control = LabeledEdit5
+        EditLabel.AnchorSideTop.Control = fpbaja
         EditLabel.AnchorSideTop.Side = asrCenter
-        EditLabel.AnchorSideRight.Control = LabeledEdit5
-        EditLabel.AnchorSideBottom.Control = LabeledEdit5
+        EditLabel.AnchorSideRight.Control = fpbaja
+        EditLabel.AnchorSideBottom.Control = fpbaja
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 718
+        EditLabel.Left = 806
         EditLabel.Height = 15
-        EditLabel.Top = 116
+        EditLabel.Top = 196
         EditLabel.Width = 23
         EditLabel.Caption = 'Baja'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         LabelPosition = lpLeft
+        ReadOnly = True
         TabOrder = 6
-        Text = 'LabeledEdit5'
+        Text = 'fpbaja'
       end
-      object LabeledEdit4: TLabeledEdit
-        Left = 744
+      object fpalta: TLabeledEdit
+        Left = 720
         Height = 23
-        Top = 64
+        Top = 192
         Width = 72
-        EditLabel.AnchorSideTop.Control = LabeledEdit4
+        EditLabel.AnchorSideTop.Control = fpalta
         EditLabel.AnchorSideTop.Side = asrCenter
-        EditLabel.AnchorSideRight.Control = LabeledEdit4
-        EditLabel.AnchorSideBottom.Control = LabeledEdit4
+        EditLabel.AnchorSideRight.Control = fpalta
+        EditLabel.AnchorSideBottom.Control = fpalta
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 719
+        EditLabel.Left = 695
         EditLabel.Height = 15
-        EditLabel.Top = 68
+        EditLabel.Top = 196
         EditLabel.Width = 22
         EditLabel.Caption = 'Alta'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         LabelPosition = lpLeft
+        ReadOnly = True
         TabOrder = 7
-        Text = 'LabeledEdit4'
+        Text = 'fpalta'
       end
-      object LabeledEdit3: TLabeledEdit
-        Left = 744
+      object fpecivil: TLabeledEdit
+        Left = 760
         Height = 23
-        Top = 160
-        Width = 192
-        EditLabel.AnchorSideTop.Control = LabeledEdit3
+        Top = 64
+        Width = 152
+        EditLabel.AnchorSideTop.Control = fpecivil
         EditLabel.AnchorSideTop.Side = asrCenter
-        EditLabel.AnchorSideRight.Control = LabeledEdit3
-        EditLabel.AnchorSideBottom.Control = LabeledEdit3
+        EditLabel.AnchorSideRight.Control = fpecivil
+        EditLabel.AnchorSideBottom.Control = fpecivil
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 679
+        EditLabel.Left = 695
         EditLabel.Height = 15
-        EditLabel.Top = 164
+        EditLabel.Top = 68
         EditLabel.Width = 62
         EditLabel.Caption = 'Estado Civil'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         LabelPosition = lpLeft
+        ReadOnly = True
         TabOrder = 8
-        Text = 'LabeledEdit3'
+        Text = 'fpecivil'
       end
-      object LabeledEdit8: TLabeledEdit
-        Left = 744
+      object fpdocumento: TLabeledEdit
+        Left = 760
         Height = 23
-        Top = 16
+        Top = 40
         Width = 112
-        EditLabel.AnchorSideTop.Control = LabeledEdit8
+        EditLabel.AnchorSideTop.Control = fpdocumento
         EditLabel.AnchorSideTop.Side = asrCenter
-        EditLabel.AnchorSideRight.Control = LabeledEdit8
-        EditLabel.AnchorSideBottom.Control = LabeledEdit8
+        EditLabel.AnchorSideRight.Control = fpdocumento
+        EditLabel.AnchorSideBottom.Control = fpdocumento
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 675
+        EditLabel.Left = 691
         EditLabel.Height = 15
-        EditLabel.Top = 20
+        EditLabel.Top = 44
         EditLabel.Width = 66
         EditLabel.Caption = 'Documento'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         LabelPosition = lpLeft
+        ReadOnly = True
         TabOrder = 9
-        Text = 'LabeledEdit8'
+        Text = 'fpdocumento'
       end
-      object LabeledEdit13: TLabeledEdit
-        Left = 920
+      object fpcalle: TLabeledEdit
+        Left = 720
+        Height = 23
+        Top = 240
+        Width = 408
+        EditLabel.AnchorSideTop.Control = fpcalle
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = fpcalle
+        EditLabel.AnchorSideBottom.Control = fpcalle
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 691
+        EditLabel.Height = 15
+        EditLabel.Top = 244
+        EditLabel.Width = 26
+        EditLabel.Caption = 'Calle'
+        EditLabel.ParentColor = False
+        EditLabel.ParentFont = False
+        EditLabel.Font.Style = [fsBold]
+        LabelPosition = lpLeft
+        ReadOnly = True
+        TabOrder = 10
+        Text = 'fpcalle'
+      end
+      object fpnumeracion: TLabeledEdit
+        Left = 720
+        Height = 23
+        Top = 264
+        Width = 96
+        EditLabel.AnchorSideTop.Control = fpnumeracion
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = fpnumeracion
+        EditLabel.AnchorSideBottom.Control = fpnumeracion
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 671
+        EditLabel.Height = 15
+        EditLabel.Top = 268
+        EditLabel.Width = 46
+        EditLabel.Caption = 'Número'
+        EditLabel.ParentColor = False
+        EditLabel.ParentFont = False
+        EditLabel.Font.Style = [fsBold]
+        LabelPosition = lpLeft
+        ReadOnly = True
+        TabOrder = 11
+        Text = 'fpnumeracion'
+      end
+      object fpincapacidad: TLabeledEdit
+        Left = 904
         Height = 23
         Top = 112
-        Width = 112
-        EditLabel.AnchorSideTop.Control = LabeledEdit13
+        Width = 32
+        EditLabel.AnchorSideTop.Control = fpincapacidad
         EditLabel.AnchorSideTop.Side = asrCenter
-        EditLabel.AnchorSideRight.Control = LabeledEdit13
-        EditLabel.AnchorSideBottom.Control = LabeledEdit13
+        EditLabel.AnchorSideRight.Control = fpincapacidad
+        EditLabel.AnchorSideBottom.Control = fpincapacidad
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 891
+        EditLabel.Left = 836
         EditLabel.Height = 15
         EditLabel.Top = 116
-        EditLabel.Width = 26
-        EditLabel.Caption = 'Edad'
-        EditLabel.ParentColor = False
-        EditLabel.ParentFont = False
-        EditLabel.Font.Style = [fsBold]
-        LabelPosition = lpLeft
-        TabOrder = 10
-        Text = 'LabeledEdit13'
-      end
-      object LabeledEdit12: TLabeledEdit
-        Left = 920
-        Height = 23
-        Top = 80
-        Width = 112
-        EditLabel.AnchorSideTop.Control = LabeledEdit12
-        EditLabel.AnchorSideTop.Side = asrCenter
-        EditLabel.AnchorSideRight.Control = LabeledEdit12
-        EditLabel.AnchorSideBottom.Control = LabeledEdit12
-        EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 891
-        EditLabel.Height = 15
-        EditLabel.Top = 84
-        EditLabel.Width = 26
-        EditLabel.Caption = 'Edad'
-        EditLabel.ParentColor = False
-        EditLabel.ParentFont = False
-        EditLabel.Font.Style = [fsBold]
-        LabelPosition = lpLeft
-        TabOrder = 11
-        Text = 'LabeledEdit12'
-      end
-      object LabeledEdit11: TLabeledEdit
-        Left = 1024
-        Height = 23
-        Top = 16
-        Width = 32
-        EditLabel.AnchorSideTop.Control = LabeledEdit11
-        EditLabel.AnchorSideTop.Side = asrCenter
-        EditLabel.AnchorSideRight.Control = LabeledEdit11
-        EditLabel.AnchorSideBottom.Control = LabeledEdit11
-        EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 956
-        EditLabel.Height = 15
-        EditLabel.Top = 20
         EditLabel.Width = 65
         EditLabel.Caption = 'Incapacidad'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         LabelPosition = lpLeft
+        ReadOnly = True
         TabOrder = 12
-        Text = 'LabeledEdit11'
+        Text = 'fpincapacidad'
       end
-      object LabeledEdit10: TLabeledEdit
-        Left = 912
+      object fpacargo: TLabeledEdit
+        Left = 760
         Height = 23
-        Top = 16
+        Top = 112
         Width = 36
-        EditLabel.AnchorSideTop.Control = LabeledEdit10
+        EditLabel.AnchorSideTop.Control = fpacargo
         EditLabel.AnchorSideTop.Side = asrCenter
-        EditLabel.AnchorSideRight.Control = LabeledEdit10
-        EditLabel.AnchorSideBottom.Control = LabeledEdit10
+        EditLabel.AnchorSideRight.Control = fpacargo
+        EditLabel.AnchorSideBottom.Control = fpacargo
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 866
+        EditLabel.Left = 714
         EditLabel.Height = 15
-        EditLabel.Top = 20
+        EditLabel.Top = 116
         EditLabel.Width = 43
         EditLabel.Caption = 'A Cargo'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         LabelPosition = lpLeft
+        ReadOnly = True
         TabOrder = 13
-        Text = 'LabeledEdit10'
+        Text = 'fpacargo'
       end
-      object LabeledEdit9: TLabeledEdit
-        Left = 1104
+      object fpedad: TLabeledEdit
+        Left = 1120
         Height = 23
-        Top = 16
+        Top = 40
         Width = 32
-        EditLabel.AnchorSideTop.Control = LabeledEdit9
+        EditLabel.AnchorSideTop.Control = fpedad
         EditLabel.AnchorSideTop.Side = asrCenter
-        EditLabel.AnchorSideRight.Control = LabeledEdit9
-        EditLabel.AnchorSideBottom.Control = LabeledEdit9
+        EditLabel.AnchorSideRight.Control = fpedad
+        EditLabel.AnchorSideBottom.Control = fpedad
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 1075
+        EditLabel.Left = 1091
         EditLabel.Height = 15
-        EditLabel.Top = 20
+        EditLabel.Top = 44
         EditLabel.Width = 26
         EditLabel.Caption = 'Edad'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
         LabelPosition = lpLeft
+        ReadOnly = True
         TabOrder = 14
-        Text = 'LabeledEdit9'
+        Text = 'fpedad'
       end
-      object Gparticipantes1: TDBGrid
+      object GpartPat: TDBGrid
         Left = 8
         Height = 120
         Top = 408
@@ -3661,10 +3694,571 @@ object ficha_socio: Tficha_socio
             Width = 150
             FieldName = 'NOMBRE'
           end>
-        DataSource = DataModule1.DS_participantes
+        DataSource = DataModule1.DS_partPatrocinado
+        ReadOnly = True
         TabOrder = 15
-        OnDblClick = GparticipantesDblClick
+        OnCellClick = GpartPatCellClick
         OnPrepareCanvas = GparticipantesPrepareCanvas
+      end
+      object fpdepto: TLabeledEdit
+        Left = 856
+        Height = 23
+        Top = 264
+        Width = 56
+        EditLabel.AnchorSideTop.Control = fpdepto
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = fpdepto
+        EditLabel.AnchorSideBottom.Control = fpdepto
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 818
+        EditLabel.Height = 15
+        EditLabel.Top = 268
+        EditLabel.Width = 35
+        EditLabel.Caption = 'Depto'
+        EditLabel.ParentColor = False
+        EditLabel.ParentFont = False
+        EditLabel.Font.Style = [fsBold]
+        LabelPosition = lpLeft
+        ReadOnly = True
+        TabOrder = 16
+        Text = 'fpdepto'
+      end
+      object fppiso: TLabeledEdit
+        Left = 944
+        Height = 23
+        Top = 264
+        Width = 44
+        EditLabel.AnchorSideTop.Control = fppiso
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = fppiso
+        EditLabel.AnchorSideBottom.Control = fppiso
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 919
+        EditLabel.Height = 15
+        EditLabel.Top = 268
+        EditLabel.Width = 22
+        EditLabel.Caption = 'Piso'
+        EditLabel.ParentColor = False
+        EditLabel.ParentFont = False
+        EditLabel.Font.Style = [fsBold]
+        LabelPosition = lpLeft
+        ReadOnly = True
+        TabOrder = 17
+        Text = 'fppiso'
+      end
+      object fplocalidad: TLabeledEdit
+        Left = 720
+        Height = 23
+        Top = 288
+        Width = 284
+        EditLabel.AnchorSideTop.Control = fplocalidad
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = fplocalidad
+        EditLabel.AnchorSideBottom.Control = fplocalidad
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 666
+        EditLabel.Height = 15
+        EditLabel.Top = 292
+        EditLabel.Width = 51
+        EditLabel.Caption = 'Localidad'
+        EditLabel.ParentColor = False
+        EditLabel.ParentFont = False
+        EditLabel.Font.Style = [fsBold]
+        LabelPosition = lpLeft
+        ReadOnly = True
+        TabOrder = 18
+        Text = 'fplocalidad'
+      end
+      object fppartido: TLabeledEdit
+        Left = 720
+        Height = 23
+        Top = 312
+        Width = 284
+        EditLabel.AnchorSideTop.Control = fppartido
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = fppartido
+        EditLabel.AnchorSideBottom.Control = fppartido
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 677
+        EditLabel.Height = 15
+        EditLabel.Top = 316
+        EditLabel.Width = 40
+        EditLabel.Caption = 'Partido'
+        EditLabel.ParentColor = False
+        EditLabel.ParentFont = False
+        EditLabel.Font.Style = [fsBold]
+        LabelPosition = lpLeft
+        ReadOnly = True
+        TabOrder = 19
+        Text = 'fppartido'
+      end
+      object fpprovincia: TLabeledEdit
+        Left = 720
+        Height = 23
+        Top = 336
+        Width = 284
+        EditLabel.AnchorSideTop.Control = fpprovincia
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = fpprovincia
+        EditLabel.AnchorSideBottom.Control = fpprovincia
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 666
+        EditLabel.Height = 15
+        EditLabel.Top = 340
+        EditLabel.Width = 51
+        EditLabel.Caption = 'Provincia'
+        EditLabel.ParentColor = False
+        EditLabel.ParentFont = False
+        EditLabel.Font.Style = [fsBold]
+        LabelPosition = lpLeft
+        ReadOnly = True
+        TabOrder = 20
+        Text = 'fpprovincia'
+      end
+      object fpcodpostal: TLabeledEdit
+        Left = 1056
+        Height = 23
+        Top = 264
+        Width = 72
+        EditLabel.AnchorSideTop.Control = fpcodpostal
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = fpcodpostal
+        EditLabel.AnchorSideBottom.Control = fpcodpostal
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 996
+        EditLabel.Height = 15
+        EditLabel.Top = 268
+        EditLabel.Width = 57
+        EditLabel.Caption = 'Cod.Postal'
+        EditLabel.ParentColor = False
+        EditLabel.ParentFont = False
+        EditLabel.Font.Style = [fsBold]
+        LabelPosition = lpLeft
+        ReadOnly = True
+        TabOrder = 21
+        Text = 'fpcodpostal'
+      end
+      object GMicroAntecedente: TDBGrid
+        Left = 656
+        Height = 128
+        Top = 408
+        Width = 272
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'FECHA'
+            Width = 60
+            FieldName = 'fcausa'
+          end        
+          item
+            Title.Caption = 'CAUSA'
+            Width = 170
+            FieldName = 'causa_descripcion'
+          end>
+        DataSource = DataModule1.DSMicroantecedente
+        ReadOnly = True
+        Scrollbars = ssAutoVertical
+        TabOrder = 22
+        OnCellClick = GMicroAntecedenteCellClick
+        OnPrepareCanvas = GMicroAntecedentePrepareCanvas
+      end
+      object fpnacionalidad: TLabeledEdit
+        Left = 1000
+        Height = 23
+        Top = 64
+        Width = 152
+        EditLabel.AnchorSideTop.Control = fpnacionalidad
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = fpnacionalidad
+        EditLabel.AnchorSideBottom.Control = fpnacionalidad
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 927
+        EditLabel.Height = 15
+        EditLabel.Top = 68
+        EditLabel.Width = 70
+        EditLabel.Caption = 'Nacionalidad'
+        EditLabel.ParentColor = False
+        EditLabel.ParentFont = False
+        EditLabel.Font.Style = [fsBold]
+        LabelPosition = lpLeft
+        ReadOnly = True
+        TabOrder = 23
+        Text = 'fpnacionalidad'
+      end
+      object fptelefono: TLabeledEdit
+        Left = 720
+        Height = 23
+        Top = 360
+        Width = 88
+        EditLabel.AnchorSideTop.Control = fptelefono
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = fptelefono
+        EditLabel.AnchorSideBottom.Control = fptelefono
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 668
+        EditLabel.Height = 15
+        EditLabel.Top = 364
+        EditLabel.Width = 49
+        EditLabel.Caption = 'Telefono'
+        EditLabel.ParentColor = False
+        EditLabel.ParentFont = False
+        EditLabel.Font.Style = [fsBold]
+        LabelPosition = lpLeft
+        ReadOnly = True
+        TabOrder = 24
+        Text = '022331462761'
+      end
+      object fpcelular: TLabeledEdit
+        Left = 852
+        Height = 23
+        Top = 360
+        Width = 152
+        EditLabel.AnchorSideTop.Control = fpcelular
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = fpcelular
+        EditLabel.AnchorSideBottom.Control = fpcelular
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 811
+        EditLabel.Height = 15
+        EditLabel.Top = 364
+        EditLabel.Width = 38
+        EditLabel.Caption = 'Celular'
+        EditLabel.ParentColor = False
+        EditLabel.ParentFont = False
+        EditLabel.Font.Style = [fsBold]
+        LabelPosition = lpLeft
+        ReadOnly = True
+        TabOrder = 25
+        Text = 'fpcelular'
+      end
+      object fpnombre: TLabeledEdit
+        Left = 760
+        Height = 23
+        Top = 16
+        Width = 392
+        EditLabel.AnchorSideTop.Control = fpnombre
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = fpnombre
+        EditLabel.AnchorSideBottom.Control = fpnombre
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 711
+        EditLabel.Height = 15
+        EditLabel.Top = 20
+        EditLabel.Width = 46
+        EditLabel.Caption = 'Nombre'
+        EditLabel.ParentColor = False
+        EditLabel.ParentFont = False
+        EditLabel.Font.Style = [fsBold]
+        LabelPosition = lpLeft
+        ReadOnly = True
+        TabOrder = 26
+        Text = 'fpnombre'
+      end
+      object fpestado: TLabeledEdit
+        Left = 720
+        Height = 23
+        Top = 160
+        Width = 136
+        EditLabel.AnchorSideTop.Control = fpestado
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = fpestado
+        EditLabel.AnchorSideBottom.Control = fpestado
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 681
+        EditLabel.Height = 15
+        EditLabel.Top = 164
+        EditLabel.Width = 36
+        EditLabel.Caption = 'Estado'
+        EditLabel.ParentColor = False
+        EditLabel.ParentFont = False
+        EditLabel.Font.Style = [fsBold]
+        LabelPosition = lpLeft
+        ReadOnly = True
+        TabOrder = 27
+        Text = 'fpestado'
+      end
+      object fpemail: TLabeledEdit
+        Left = 760
+        Height = 23
+        Top = 88
+        Width = 392
+        EditLabel.AnchorSideTop.Control = fpemail
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = fpemail
+        EditLabel.AnchorSideBottom.Control = fpemail
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 728
+        EditLabel.Height = 15
+        EditLabel.Top = 92
+        EditLabel.Width = 29
+        EditLabel.Caption = 'Email'
+        EditLabel.ParentColor = False
+        EditLabel.ParentFont = False
+        EditLabel.Font.Style = [fsBold]
+        LabelPosition = lpLeft
+        ReadOnly = True
+        TabOrder = 28
+        Text = 'fpemail'
+      end
+      object fpfoto: TImage
+        Left = 1016
+        Height = 88
+        Top = 291
+        Width = 113
+        Align = alCustom
+        Center = True
+        Picture.Data = {
+          1754506F727461626C654E6574776F726B47726170686963451D000089504E47
+          0D0A1A0A0000000D4948445200000200000002000803000000C3A624C8000000
+          0373424954080808DBE14FE0000000097048597300000DD700000DD70142289B
+          780000001974455874536F667477617265007777772E696E6B73636170652E6F
+          72679BEE3C1A00000300504C5445FFFFFF000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          00000000000000000000000000000B23B7E1000000FF74524E53000102030405
+          060708090A0B0C0D0E0F101112131415161718191A1B1C1D1E1F202122232425
+          262728292A2B2C2D2E2F303132333435363738393A3B3C3D3E3F404142434445
+          464748494A4B4C4D4E4F505152535455565758595A5B5C5D5E5F606162636465
+          666768696A6B6C6D6E6F707172737475767778797A7B7C7D7E7F808182838485
+          868788898A8B8C8D8E8F909192939495969798999A9B9C9D9E9FA0A1A2A3A4A5
+          A6A7A8A9AAABACADAEAFB0B1B2B3B4B5B6B7B8B9BABBBCBDBEBFC0C1C2C3C4C5
+          C6C7C8C9CACBCCCDCECFD0D1D2D3D4D5D6D7D8D9DADBDCDDDEDFE0E1E2E3E4E5
+          E6E7E8E9EAEBECEDEEEFF0F1F2F3F4F5F6F7F8F9FAFBFCFDFEEB08D935000018
+          AC4944415478DAED9D776014551EC767373D4008310D23066981A031944388A8
+          60940888701C281E06110105E54051091810C5A3C9292D54A58B706A50508A47
+          20364253624E3A72A105E49280404242B2BB87F560DE9BDD99CD9B99F726DFCF
+          9F3B9399F77EBF4F76675E952400000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000B0212C3E1108427C18C3C4C70F48CFC8CCC92F7301
+          8128CBCFC9CC481FD0BC8AC9B7274D3D84608ACCA137EEB47B9BFD80AE0BCF20
+          82E273664197002FD21F3AE5226267152E4E09D5FADF3FB20861B3124523B57C
+          0BD8538F216456E358AAEA8781945C84CB8AE4A6A84A7FE00A84CAAAAC08F49C
+          FFBA3B1027EBB2A3AEA7FCB73E8928599993ADDDE7BF4F2962646D4AFBB849BF
+          6D0202647D26D814055886E854079629E5FF65C4A67AF0323DFF3D9C084DF5C0
+          D98396FF844B884C75E1520299FF887C0F7F54712A1F08C2A90A0FC9CC8F90E7
+          DFFF4BE5B34BD60C4E4988B061509438D822125206AF2951CEE997FEB2BF98A7
+          7466F1E2EE4108A89804755F5CAC94D779D79FDA4AE101B0746208E228322113
+          159AF69CADAE3B2F8B7A9263510C42283A318B1CD4E4665D7B5267EA29475B20
+          7C56A0C5516A7A3B5F3300248F7642763862670DC2B369F9CDFBFF0091FEB4E3
+          F3FD1039ABE0379F96E1FE7F3C2C9EA01C4D47D8AC443A25C5277E7FBD1B4539
+          B81431B3164B29491EF5DBB1C3E4A16D010899B508D84666F9F0AF87E2C923C7
+          A31031AB11759CCC73FC2F474693073A225ED6A30399E7D1BF1CC8213E5F8F68
+          59917544A2737EFE389A68057624205856A47925D11E1C7DF5E341EA870C01B1
+          5948A47A10ED8BC1591FA1B22631C457C03A490ABE2CFF703B2265553E97E7FA
+          72B094487C2DA4215056652491EC44A90BF1595304CAAA342692DD451A28FFE8
+          00E2645DF6CBB33D501A27FF280361B22E19F26C8F230703E211C0C2A4914303
+          D7CA3FEA873059977EF26CAF9576CB3F4A4698AC4BB23CDBBBA502F947CD1026
+          EBD24C9EED028918321A8630F9C7B6EDF9CC84C9BCF2CAE06EAD6EF4F1AA6661
+          44BF8F44BC198656EFE43779E9AB421166C93A4E6F78AAAEE6DA8512D78100D7
+          606B33719F50B37C7346C5410066F83E755CC089BEB9DD20001B7A1E1074AEF7
+          17ED2040D5B93B47E0E9FE994D2140D5A8B95AEC051F2A27DA21401588FD4EF8
+          353FD6D582005ED3FEAC05567DF9BE0104F09201E59658F7A7F01E08E015AF5B
+          65E5A72B7D208037FFFFD659FBABAC2D04D0FEFB5F6E1D015CA7632080D6E7FF
+          B32E2BB12B0802687BFFFFCE652D5642004DAC76598DE7208096F65FCBE5DF75
+          210202A847B1FDDFB13F6BC5346E07844C5FFDA5F2BABEB32080FAFE3F7A082B
+          3E1DC4FFFA188D5FFC5AA135A0110450892FB5FFD7F9CFC682943F89BEBCF33F
+          21804A9EA2856F7F6B816AD0BD9056853B20802A6CB4F13F1B6A0B558706DFD3
+          3A0621802ADA506237DF47B04AD4DA426911AE0901D43091F2FFEF235C2DEA1C
+          21ABD10B02A8811CFFBBBFB680D588BF40D4631904504113F2F9BFB59015194A
+          54A4C8474701C29F98B3EBDC79DE39B976ACA7A50E5FD2F6FEC4F1DBEC41A226
+          1DF413A0B738BD676BA2DDC6ED2BA2FDA7B1A0DF657F26AA3E4D2F017C5689D4
+          2C5ED4C95DD88857E84F857D9F3D25AFCA277A09304AAC8E91B36E3A46FC89F9
+          7F83847D9C21D6F8D8A39300F16582758DB9F9558F25FA7FC45D1FBB2B61BE4E
+          02640AD739DA46B12E6D897740715F686A13EF33FEFA08704638014628D685E8
+          09CC12F89596680A88D545807AE20D8F78573166CFCA4F5D61A536AD245D04E8
+          229E00798A319BA0FED5A92A4DF58D927A0C4E9F313763F6AC99D3A78CE89D14
+          ABCB4E5C9BE595F98B2E02C48927C01AC5984D969F3A996D4E7C9AF599B4BE80
+          32DCE04CD694DEB7301660A3FC2E7D7411C0F69370028C3145005B8B315F94BA
+          2D57E1C6B189E209A0B0BF2CCFDC6FBC00A1BD1715A82ADBB1D99DFC051320D9
+          2958FE73EC060B604B5EA565A6D14FEF75144A0069AE58F9BFEC66E10C3D0488
+          4E3BA2B98C7B87D41448805A424DA4710C918C14A0E587155E15F3A79971C208
+          20054C710893FFC34992810224ACF1BEA4CE776F114500496A3B77A7083D02A7
+          D6A6054BC609D06C75D51E8FCA67468822C0CF231062EBF38EE770B214207259
+          D5BF172FBC525318012C014301528B987C699DE901014414E0E60DCC7EB796D7
+          8100A209607BF622CB27972E10402C01C237337E787D3B0402082440CB7CE6AF
+          2F87E220803002A496EAF0027BAE1304104300DF19FA3461540E83002208506B
+          ABBA7C569CD89BB3E9FDE5999F6DCB3B56A9EE4FE6F94100EE0508D9E6B98537
+          EF9D97BAC75D9B4CFFF89EA397AAE830CAAA01013817207487871CEE9FD35BA9
+          39F2E6C7979CF0F0D75B832000D70284ED769BBF1393E33D341FDCB5E0BCDB2B
+          7C1608013816207C8FBB5EE895F7A9D9BD21F0E16C77067CEA0F01B815A066AE
+          9BCC6DB84DF5751E7037BCE2233F08C0A900F675CA69FB46D3C6BBF654372D49
+          AB6C10804F01A629E6EC3F7D6D1A8B1130B2C88B21CD10C04C019E544A58F1C8
+          002F0A123A59A93DD1F1008F0204747CE9FD3DB9BCF3D5CCD4863A09D0E18A42
+          BE1679DB991BA334DCBEB8217F02B4DD2FCC90D0E9C17A087093C25776E570EF
+          BF8D7C3314EA9057833701268B3326D4E53ADC92BD00B67F2974E1DC5FA51FA4
+          A7150614AFE64C00C1F6D7395A83B900CF2AB4FB55757DA18E85F40B3FC69500
+          379D174B0057066B01E2E80F6C0C16986DB8977AE5C2089E04582E58FE5DCE5B
+          D90AE0BB937A9B6976A9EA847C42BDF67B3C0920DEEEEA43D90A3096FAB4F904
+          9B1753FB4C6A15BAF123409470F9772D662AC04DD41F801759354DD83EA45DFE
+          640837023C209E00B94C05584ABBC552768D5335A87D4CB3B81120413C01D6B3
+          14A0056DFAD7B600760248F568CB705DA9CF8B00BEA5C209F01A4B01284BF3BB
+          8EB35D5DB01D6DDEE5226E1E02BF164E806E0C05789072FD92168CBB2852698D
+          8C8D79112055B4FC1F0E6228401EE535B397FE9D542E778BDD19DD12B856ACFC
+          3BDA336C08BA8F7283F1EC7B29ED1F53EAD19C1701EAFE2894005359F6055046
+          817C6E632F801472567B6B90719D41911F8A93FEE25496BD818D29AF006D7519
+          A9308CF22210C9CF788047361509F1EDBF777E5DA6E30128CD7499FA0C55F13B
+          A2B9B1C9E011410D531EE09DF635353F6CB917A036390BBCB2A94E83951E2105
+          38842161260F09A3EC32BA40AFA2D9285D4E1D2080B90290A3B64A6FD4AD6C1D
+          B5BE094200BD058824A7754ED2B1709F12772BAB0301CC14600811A5223DC374
+          1B39F2AE0F04305380AD44945ED0B5744BB4753A42009D058822FE234B6AE95A
+          BA9644567EB44100F304785C7BF37C15214708B68600E609B09008528ACEC54B
+          23EE380E02982700B1295381DEFBCCD7237E7472208069028411FD00FFD0BD7C
+          C4E201150110C02C01C8A120F7EB5EBED1C43D5B4000B30498243FB73C58F7F2
+          B521F2D21F029825C067C44000FDCBE743CCC27A0B029825C00F5A9EC859F191
+          FCA65B20804902F8125377EF36A080CF118DCF10C024011A12210A37A08029C4
+          5DA3F91020B6E7DFDF5BC53BEF0C4B0A6626402762B0991186D6271293C88300
+          B1C2EC1E5A32CCC64800A22B70BB1102D88969389D3810E0890B020D0ADE528F
+          8D00C45BE032437EA48845041F335F80CE62CD0BD8EDCB4480D966BC04481231
+          00FB79D305083D25D8CCA0B14C04203AE79F314480B7D597D0280132449B1A76
+          A5010B01DE979FDACF1001A6CB6FBBC874010E8926806B000B01887DE17A1822
+          C004F96D579A2D40A8533801E6B210E04BF9A9F71A22C028F96D57982D40B270
+          F977ED622100B137C09F0C11E059F5C3020D12A08D78026C612100B12C423B43
+          041829BFED62B30508B8229C0053580840740676364480D7E4B77DDBF487C0DD
+          C209D08B8500999AC6E83383988EBAC07401468896FFD3A12C0420D6C77CDA10
+          018835C9669B2E805DB445827A3069089A2B3F35CD100188A542D2CD6F0A6E52
+          2254FE57B0E90B78437EEA2443042086853EC1416750FC0E71D25F3ED6978D00
+          CFA96F9161493E8FBD8192CFA8836234075DDC94C06A3CC043F253F719917F32
+          55CD391911543BF9A9A779E7B1784F0B786B10A0B9FCD4CA200304B85B436230
+          244C3B1A040822BEF3DA98D11058224100730490885EF0C1061490988FF82D04
+          304B802FE4E7CE31A080C442410B21805902104382BED7BF7CB58976F72110C0
+          2C011E2562D450F7F2F5716978F08000FA0A703311A3E7742FDF4AF92D2B0221
+          8059024827E42767EB5D3CBF73F25B7E274100D3045845B40484E95C3C72F0CD
+          0208609E00E47691A93A178F5C9AF82108609E00714490BED4B774C1C5F21B96
+          064300F304A0EC16A26F6320B930E5C7120430510072C7C8D57A16CE7690B8DF
+          9310C04C019A1251AA8CD5B1705D89DB392221809902507E03DED2B1709B89BB
+          7D2D41005305207F032E44E956B6365AA63841004304A84FAEDFBD58B7270072
+          C388E2200860AE00E4D87097B3AD4E457B92FC02982641009305B887CCCA6EBB
+          2E250B25F78D73348000660B205176F6D6675CC82CF2469F4A10C07401FA9379
+          298CD4A160ADC8DD695C5D2080F9020450764DDDCCFE47A0CE51F236DFD82080
+          F90248C32983CF5F67FE0640D9A1D6F3D2D410C00801FC280BA438594F147E99
+          92FFCD1204E04100E9CF94E414B16D114E7650246B0501F810801C1DFCF3BB60
+          08C34235A1EC1CAEA6DB09021823406BDAACB8AF6B322B53839394EB5F690401
+          781180B29DDF553E67B57B44EC31DAE55F952000370284D2FE455D596CA60AC6
+          FC40BBF8B77E10801F01A4FBA953A337B1F80E8839489DE37E9B0401381280D6
+          4E7B95DCFA552E4FD269EA95C74810802B01820E50F35458D5B5239F2EA75E77
+          870F04E04B00A94D0535531523AA5218FF85F4552E2E3595200067025006ECFE
+          CA72EFE3D620877E49C7431204E04E00CA9C8D5FF9F1099B77FFFE634A15AEF8
+          A204013814C067A3D2BA44392DBD28C83DFB942EF78E0401781440AABD572965
+          8EB95AE70CDEB8447199AB6C3F08C0A700528322C5AC150ED5D226D06461B9E2
+          958E68700902182A40CC3B0E37EBD39DCFB85DE5755A7FE0EE3A65FF0883003C
+          0A50EB758FCBA5EE78B286C7CB440EF9C2D365CEA7054100DE04F01DFAA39A65
+          2A2FCCEDE4CE81F0C159956A2E7362001A82F812A0EB41D54B955ED9362985D2
+          536C6BDA6FF6AE0AD557F9FE3E08C08F0011EFB9B451F99F2DEFA4F7BDAB75E2
+          AD4D1B366CD7F399096F679DD77809D7D21B20002702A416BACCE0EC5F21000F
+          02C46E7499C5FA580860B600B661975CE671E9590860AE00E19FB8CCE5E33008
+          60A200F79C7499CDF13B21805902F88C77B8CCA762B40D029822404CB68B0F36
+          454200130468E7A1E9AF7C4EE29B650CD2FBC9EDC99F7B38E5642204305C803E
+          97DDE6A46CD64D574FAAB7B0A28AE9CF4EFAE55923CBC3DB40370860B00063DD
+          6E917579C68DBF9DD76845559E13BE7DE0F7FBB5FFCCED898E1110C04801FC97
+          B9CB46E99BD1D79C1BBFCADBAD95F31EB9F6F1AEDD06B727CFF1810086097083
+          BB1EDB4B6FC8D7898B1A7D547BF6CB57B697DFF64FEBDCFDC1C6100860900091
+          FF564EC3C52911B4F6C294E51735A53F6704F5C9BEE5476EFE66672804304480
+          E87DCA49D85C4FE9BA410F7F54AE32FBDFBCA4DCC6FFE069377F1706010C10E0
+          46E5AEFFD2BFB91D001EFA608FA14BF6B97B7A2CF962DA5F7BB89FF61DE6A6EB
+          794F3804D05D809B0E2B7F07C7A9B941C8BD69999416E4CADC050313548DF3E9
+          FD5FE5C7C60808A0B300B13F2836C98EF3557F97A8DB3BF61CF8E2C479ABD72D
+          9F31FE6FA90F2635D33068384AF949606F1404D0558068C5E7F97DAD0C2C64BF
+          734AC5F8772804D05180903D0A7177BE19686829631447A164074000DD04F0DF
+          AC10F5FC0E869773B0D27BE56A1B04D049009BD203F89A10130ADA50E96DE44D
+          08A093006F29447C818F29258DD8A5509EE720802E02BCA010EFBF9B55D49AFF
+          527820E90D017410E07E7AB79E73847965F55FADD01DD11C023017A01EBDF9A5
+          E231330B6BCFA01B70B01604602C80FF767ADB6D67938B3B8E6EC0071080B100
+          B3A9712E6E677A799FA6FF328D84004C05E84B1F8BD79C8302F7A2763256DC05
+          01180A104F9DFA7F30968B12DF7B8156B8824808C04C00DF6FA8CD7F919C14B9
+          2375CC5926046026C078EAD89F046ECA3C98FA03F528046024404BDAD86E6777
+          8E0A3D832640513404602240C0F7B4F08EE1A9D0F4250A3F82004C0498420BEE
+          BB7C95BA36759CE26310808100D9B417ED1D819C15BB216D9592E25C08507501
+          A80D0075B92B770755D34F200013014A5B7358F04110C030011EE1B2E4D32180
+          41024CE0B3E43E1B2080210264DB382D7A782104304080F266DC96BD3F043040
+          80D7392EFC5608A0BB004702392E7C5C1904D05B8014AE4B3F1E02E82CC02ABE
+          4B1F700002E82AC0F9BA9C17BF0304D0558067B82FFF1208A0A3003BEDDC97DF
+          7D630004A89200952D04A8407F08A09B00D385A8C15608A09300176A0B51833B
+          20804E024C17A40ADB20802E02381A0852855E104017013245A9824F3E04D043
+          80BB84A9C3F310400701768B5387900B1080BD007D05AAC45B1080B900A7FC04
+          AAC42D0E08C05A803142D5E24308C05880D21B84AA457B08C058807982556327
+          04602A80B3A960D5781402301560BB68D5082C85002C057845B87AAC87002C05
+          68235C3D8641008602FCD72E5C3D1A41008602AC10B0228721003B01FA0A5891
+          99108099008E08012BD21902301360A7881509BA0C015809F0AA9035D9080158
+          09D056C89A0C87008C0428B40B599326108091002B05ADCA0F10808D008F0B5A
+          957910808D00AD04ADCA7008C046803A8256A52B04602240B1A855690A019808
+          B05BD4AA043821000B01560B5B97E3108085009384ADCB5608C0428081C2D6E5
+          6D08C042808EC2D6653404602140ACB0757918023010A0DC2E6C5D5A41000602
+          1C12B72EA1108081001B04AE4C2104A8BA00190257663704A8BA009F885B97C0
+          8B1040332FC8AB7D2940D8BADC49E4F03E08E00972B5E564EBD4C559070278A2
+          16B1B8C65461EBD257FD1B0D04F883BD44D47C05AD892FD119F42E04F0CC62A2
+          E2CF5BE50BC0351C0278662851F18BF584AC489DD3444D922080676E15788DD0
+          EB584A9A1C080154B09D342055C06A0CD0B4D01104F83F941D171C4384AB45F7
+          4AB21A8910400D41C5942935E304AB442FCAD4D01C0902A882BAD0EADC5A02D5
+          206421AD0A8F430075C4515757294CAB2148F9038715D02A5014080154F2017D
+          91BDB32F84735FF4D0FA9DA79FA5173F5D82002AA97B4E69D3909D6F4EE6988C
+          2DA795370BC9F38300AA19E8B21C95AD2508A01ADB16CB09E0A14B0B025C4FA3
+          528BE5FF501004D0C4106BE5FF72920401B4F1AA95F25FD14D82005A99619DFC
+          3B3D2F740901C807C125961140454F060420F1F9D022F91F2D4100EF0C78CD61
+          81F45F78548200DE726F81F0F9DFD3588200DE13B949F0FC67A89CD50001941E
+          05479E1338FDF97F51DD890401940879B950D0F41F7952FD6EA710C00D35479D
+          1530FD07527DB47423430077043FBEAA48ACEFFE79DDB4AD6B01013C61BFE395
+          6D154224BF64C3F038CDD5A30840BC038749D51D7B44F37BFB0C7F9DDB0121E3
+          87F6BA2BCEBBFFD33062EC8B44BC02379380656926CF7601B9BA4432C2645D92
+          E5D9DE2DAD957FD40F61B22EFDE4D95E4B6E3790863059973479B6E749E38856
+          4584C9BA649053A18891B1071026EB72409EED815217E2CDB029E26455C8BD25
+          BA48892E3C0454DF470057A2144CCC2FDD8E405915624D84CBC192B48E185B58
+          1F91B226F589CD65D65DFD7410F1B5B00CA1B226CB88540FBAFA6934A1852301
+          B1B2220944BF8F33FAE7CF73082FD6235856643D91E85F171321771C1178FB14
+          A04847A591E4F1E481E3518897D58822779773C5FF7AE83079645B0022662D02
+          B691593EFCDBB15194F1264B11326BB19492E451BF1D0B3A4139988E98598974
+          4A8A4FFCB198407FDA98B3F97E089B55F09B4FCB70FF3F8EDBF368C7B3C31139
+          6B109E4DCB6FDE35038A3B53C79D1E6D81D859811647A9E9ED7CED3959D4531C
+          8B62103ED18959449FFC9C75DD59AD9CF4C1E7A513431042910999A8B00E96B3
+          D5F527CE539A7F50BCB87B10E2282641DD17172BE555BEA6BCFF576EE6A0AC19
+          9C9210614340C5C116919032784D89724EBFF297FF49E4314F4B509DCA078270
+          CAD3ECB66391A43489252E504D28A1EE29D1CB89C8540F9CBDE83F1CE3119AEA
+          C178A5278755884D756095E2F3BC7D2AA2637DA6BA5B5322F53202646D2E7BD8
+          1BEF8E02C4C8CA14DCE1B1E97817A2645D76A9E8DC095C813859951581AADA11
+          5372112A2B929BA2B625D99E7A0CE1B21AC752B5AC281730B20821B3124523B5
+          8EF30E9D721161B30A17A778B3AA5C40D78567103BF139B3A08BD7B33CEC4953
+          0F21822273E88D3BED551C5B103F203D233327BF0CC11489B2FC9CCC8CF401CD
+          190E32098B4F0482108FF57E0100000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000056FC0F2D2E55B2E759CBE90000000049454E44AE4260
+          82
+        }
+        Proportional = True
+      end
+      object Memo4: TMemo
+        Left = 944
+        Height = 128
+        Top = 408
+        Width = 249
+        Font.Style = [fsBold]
+        Lines.Strings = (
+          'Memo1'
+        )
+        ParentFont = False
+        ReadOnly = True
+        TabOrder = 29
       end
     end
   end
