@@ -2225,8 +2225,8 @@ object ficha_socio: Tficha_socio
         Height = 543
         Top = 1
         Width = 624
-        ActivePage = TabACargo
-        TabIndex = 0
+        ActivePage = TabCargos
+        TabIndex = 1
         TabOrder = 20
         object TabACargo: TTabSheet
           Caption = 'A Cargo'
@@ -4259,6 +4259,64 @@ object ficha_socio: Tficha_socio
         ParentFont = False
         ReadOnly = True
         TabOrder = 29
+      end
+    end
+    object tabConsumos: TTabSheet
+      Caption = 'Consumos y servicios'
+      ClientHeight = 548
+      ClientWidth = 1206
+      object Shape10: TShape
+        Left = 0
+        Height = 520
+        Top = 8
+        Width = 656
+        Brush.Color = 16711390
+      end
+      object Shape11: TShape
+        Left = 680
+        Height = 256
+        Top = 8
+        Width = 504
+        Brush.Color = 16711390
+      end
+      object Shape12: TShape
+        Left = 680
+        Height = 232
+        Top = 296
+        Width = 504
+        Brush.Color = 16711390
+      end
+      object Gayudas: TDBGrid
+        Left = 8
+        Height = 144
+        Top = 24
+        Width = 600
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'ESTADO'
+            Width = 100
+            FieldName = 'ESTADO'
+          end        
+          item
+            Title.Caption = 'PARENTESCO'
+            Width = 100
+            FieldName = 'PARENTESCO'
+          end        
+          item
+            Title.Caption = 'APELLIDO'
+            Width = 200
+            FieldName = 'APELLIDO'
+          end        
+          item
+            Title.Caption = 'NOMBRE'
+            Width = 150
+            FieldName = 'NOMBRE'
+          end>
+        ReadOnly = True
+        TabOrder = 0
+        OnCellClick = GparticipantesCellClick
+        OnPrepareCanvas = GparticipantesPrepareCanvas
       end
     end
   end

@@ -1,0 +1,145 @@
+object llaves: Tllaves
+  Left = 85
+  Height = 561
+  Top = 85
+  Width = 806
+  Caption = 'Llaves de descuentos'
+  ClientHeight = 561
+  ClientWidth = 806
+  OnShow = FormShow
+  LCLVersion = '5.7'
+  object Shape4: TShape
+    Left = 400
+    Height = 461
+    Top = 24
+    Width = 354
+    Brush.Color = clInfoBk
+  end
+  object Shape3: TShape
+    Left = 0
+    Height = 461
+    Top = 24
+    Width = 354
+    Brush.Color = clInfoBk
+  end
+  object Label3: TLabel
+    Left = 56
+    Height = 37
+    Top = 24
+    Width = 246
+    Caption = 'Entidades Emisoras'
+    Font.Height = -27
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 87
+    Height = 25
+    Top = 360
+    Width = 241
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 25
+    ClientWidth = 241
+    Options = []
+    TabOrder = 0
+    VisibleButtons = [nbPrior, nbNext, nbInsert, nbEdit, nbPost, nbCancel, nbRefresh]
+  end
+  object DBGrid1: TDBGrid
+    Left = 24
+    Height = 288
+    Top = 64
+    Width = 304
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'CODIGO'
+        FieldName = 'CODIGO'
+      end    
+      item
+        Title.Caption = 'DESCRIPCION'
+        Width = 200
+        FieldName = 'DESCRIPCION'
+      end>
+    DataSource = DSEmisores
+    ReadOnly = True
+    TabOrder = 1
+  end
+  object Label4: TLabel
+    Left = 440
+    Height = 37
+    Top = 40
+    Width = 199
+    Caption = 'Estado de Llave'
+    Font.Height = -27
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object DBGrid2: TDBGrid
+    Left = 424
+    Height = 152
+    Top = 88
+    Width = 304
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'CODIGO'
+        FieldName = 'CODIGO'
+      end    
+      item
+        Title.Caption = 'DESCRIPCION'
+        Width = 200
+        FieldName = 'DESCRIPCION'
+      end>
+    DataSource = DSEstado_llave
+    ReadOnly = True
+    TabOrder = 2
+  end
+  object DBNavigator2: TDBNavigator
+    Left = 487
+    Height = 25
+    Top = 248
+    Width = 241
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 25
+    ClientWidth = 241
+    Options = []
+    TabOrder = 3
+    VisibleButtons = [nbPrior, nbNext, nbInsert, nbEdit, nbPost, nbCancel, nbRefresh]
+  end
+  object DSEmisores: TDataSource
+    DataSet = QEmisores
+    left = 248
+    top = 512
+  end
+  object QEmisores: TZQuery
+    Connection = DataModule1.conector_socios
+    Params = <>
+    left = 320
+    top = 512
+  end
+  object DSEstado_llave: TDataSource
+    DataSet = QEstado_llave
+    left = 584
+    top = 512
+  end
+  object QEstado_llave: TZQuery
+    Connection = DataModule1.conector_socios
+    Params = <>
+    left = 696
+    top = 512
+  end
+end

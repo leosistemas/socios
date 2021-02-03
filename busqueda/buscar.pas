@@ -158,8 +158,10 @@ procedure TForm5.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   try
     if DataModule1.QBuscar.IsEmpty=true then sets.f_tit.numero:='0';
+
     exit;
   except
+
     sets.f_tit.numero:='0';
     exit;
   end;
@@ -170,7 +172,6 @@ end;
 procedure TForm5.FormShow(Sender: TObject);
 begin
   DataModule1.QBuscar.close;
-  DataModule1.conector_socios.Reconnect;
 end;
 
 procedure TForm5.busqueda();
@@ -178,12 +179,10 @@ var
   c1:string;
   c2:string;
 begin
-  datamodule1.conector_socios.Reconnect;
   if length(trim(bp.text))=0 then exit;
   if bp.text<>'NOMBRE' then
        begin
           c1:=DataModule1.sql_buscar('buscar_socio.sql',trim(clave.text),'',trim(bp.text)+'=');
-     //      showmessage(c1);
           DataModule1.QBuscar.close;
           DataModule1.QBuscar.SQL.clear;
           DataModule1.QBuscar.SQL.add(c1);

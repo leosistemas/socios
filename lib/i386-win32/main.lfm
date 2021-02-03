@@ -3208,6 +3208,10 @@ object Form1: TForm1
         Caption = 'Fuerzas'
         OnClick = FuerzasClick
       end
+      object item_llaves: TMenuItem
+        Caption = 'Llaves'
+        OnClick = item_llavesClick
+      end
     end
   end
 end

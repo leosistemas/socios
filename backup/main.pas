@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Menus,
-  ExtCtrls, Login,cargos_afiliados,modulo_datos,deleg,promotores,Usuarios,sets,titular,fuerza,registro;
+  ExtCtrls, Login,cargos_afiliados,modulo_datos,deleg,promotores,Usuarios,sets,titular,fuerza,registro,llaves;
 
 type
 
@@ -17,6 +17,7 @@ type
     Image2: TImage;
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
+    item_llaves: TMenuItem;
     urs: TMenuItem;
     MenuItem3: TMenuItem;
     origenes: TMenuItem;
@@ -26,6 +27,7 @@ type
     Fuerzas: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure item_llavesClick(Sender: TObject);
     procedure MenuItem1Click(Sender: TObject);
     procedure ursClick(Sender: TObject);
     procedure origenesClick(Sender: TObject);
@@ -53,14 +55,24 @@ begin
    FAutenticar.ShowModal;
    FAutenticar.Destroy;
    }
+            Application.CreateForm(Tficha_socio,ficha_socio);
+   //ficha_socio.ShowModal;
+   //ficha_socio.Destroy;
 end;
 
 procedure TForm1.FormShow(Sender: TObject);
 begin
 
    DataModule1.Set_conector_socios();
-   //DataModule1.conector_socios.Connect;
+   DataModule1.conector_socios.Connect;
    Form1.Caption:='Gestión de Socios de la Mutual de Suboficiales de Policía Federal Argentina.   -----    USUARIO: ' + sets.Set_flags.usuario;
+end;
+
+procedure TForm1.item_llavesClick(Sender: TObject);
+begin
+        Application.CreateForm(Tllaves,Fllaves);
+   Fllaves.ShowModal;
+   Fllaves.Destroy;
 end;
 
 procedure TForm1.MenuItem1Click(Sender: TObject);

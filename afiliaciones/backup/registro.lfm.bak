@@ -1845,8 +1845,8 @@ object ficha_socio: Tficha_socio
     Height = 576
     Top = 8
     Width = 1214
-    ActivePage = familiares_patrocinados
-    TabIndex = 1
+    ActivePage = titular
+    TabIndex = 0
     TabOrder = 0
     object titular: TTabSheet
       Caption = 'Titular'
@@ -2306,6 +2306,7 @@ object ficha_socio: Tficha_socio
               'Memo1'
             )
             ParentFont = False
+            ReadOnly = True
             TabOrder = 2
           end
           object Memo2: TMemo
@@ -2318,6 +2319,7 @@ object ficha_socio: Tficha_socio
               'Memo1'
             )
             ParentFont = False
+            ReadOnly = True
             TabOrder = 3
           end
         end
@@ -2450,6 +2452,7 @@ object ficha_socio: Tficha_socio
               'Memo1'
             )
             ParentFont = False
+            ReadOnly = True
             TabOrder = 3
             Visible = False
           end
@@ -3310,9 +3313,9 @@ object ficha_socio: Tficha_socio
             FieldName = 'NOMBRE'
           end>
         DataSource = DataModule1.DS_participantes
+        ReadOnly = True
         TabOrder = 0
         OnCellClick = GparticipantesCellClick
-        OnDblClick = GparticipantesDblClick
         OnPrepareCanvas = GparticipantesPrepareCanvas
       end
       object GPatrocinados: TDBGrid
@@ -3338,6 +3341,7 @@ object ficha_socio: Tficha_socio
             FieldName = 'NOMBRE'
           end>
         DataSource = DataModule1.DS_patrocinados
+        ReadOnly = True
         TabOrder = 1
         OnCellClick = GPatrocinadosCellClick
         OnPrepareCanvas = GPatrocinadosPrepareCanvas
@@ -3691,6 +3695,7 @@ object ficha_socio: Tficha_socio
             FieldName = 'NOMBRE'
           end>
         DataSource = DataModule1.DS_partPatrocinado
+        ReadOnly = True
         TabOrder = 15
         OnCellClick = GpartPatCellClick
         OnPrepareCanvas = GparticipantesPrepareCanvas
@@ -4252,7 +4257,66 @@ object ficha_socio: Tficha_socio
           'Memo1'
         )
         ParentFont = False
+        ReadOnly = True
         TabOrder = 29
+      end
+    end
+    object tabConsumos: TTabSheet
+      Caption = 'Consumos y servicios'
+      ClientHeight = 548
+      ClientWidth = 1206
+      object Shape10: TShape
+        Left = 0
+        Height = 520
+        Top = 8
+        Width = 656
+        Brush.Color = 16711390
+      end
+      object Shape11: TShape
+        Left = 680
+        Height = 256
+        Top = 8
+        Width = 504
+        Brush.Color = 16711390
+      end
+      object Shape12: TShape
+        Left = 680
+        Height = 232
+        Top = 296
+        Width = 504
+        Brush.Color = 16711390
+      end
+      object Gayudas: TDBGrid
+        Left = 8
+        Height = 144
+        Top = 24
+        Width = 600
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'ESTADO'
+            Width = 100
+            FieldName = 'ESTADO'
+          end        
+          item
+            Title.Caption = 'PARENTESCO'
+            Width = 100
+            FieldName = 'PARENTESCO'
+          end        
+          item
+            Title.Caption = 'APELLIDO'
+            Width = 200
+            FieldName = 'APELLIDO'
+          end        
+          item
+            Title.Caption = 'NOMBRE'
+            Width = 150
+            FieldName = 'NOMBRE'
+          end>
+        ReadOnly = True
+        TabOrder = 0
+        OnCellClick = GparticipantesCellClick
+        OnPrepareCanvas = GparticipantesPrepareCanvas
       end
     end
   end

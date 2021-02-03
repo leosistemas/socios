@@ -28,6 +28,7 @@ type
     fpemail: TLabeledEdit;
     fptelefono: TLabeledEdit;
     fpcelular: TLabeledEdit;
+    Gayudas: TDBGrid;
     GpartPat: TDBGrid;
     fpfoto: TImage;
     Memo1: TMemo;
@@ -46,8 +47,12 @@ type
     nlegajo: TLabeledEdit;
     email: TLabeledEdit;
     foto: TImage;
+    Shape10: TShape;
+    Shape11: TShape;
+    Shape12: TShape;
     Shape8: TShape;
     Shape9: TShape;
+    tabConsumos: TTabSheet;
     tipodoc: TLabeledEdit;
     edad: TLabeledEdit;
     cuil: TLabeledEdit;
@@ -531,7 +536,7 @@ begin
      DataModule1.Qparticipantes.sql.clear;
      DataModule1.Qparticipantes.sql.add(cl);
      DataModule1.Qparticipantes.Open;
-
+     {
 
      cl:=DataModule1.sql_buscar('vista_patrocinado.sql',sets.f_tit.numero,'','socio');
      DataModule1.Qpatrocinados.close;
@@ -562,8 +567,8 @@ begin
      DataModule1.QAyudas.Open;
 
        tabCargos.Caption:='Cargos Fijos ('+ trim(DataModule1.QCargosFijos.RecordCount.ToString()) + ')';
-     tabCargos.Caption:=tabCargos.Caption+ ' Ayudas Económicas ('+ trim(DataModule1.QAyudas.RecordCount.ToString()) + ')';
-
+     tabCargos.Caption:=tabCargos.Caption+ ' Consumos ('+ trim(DataModule1.QAyudas.RecordCount.ToString()) + ')';
+                          }
      view_buttons('mostrar');
 
 end;

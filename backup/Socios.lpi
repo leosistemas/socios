@@ -25,24 +25,27 @@
         <FormatVersion Value="1"/>
       </local>
     </RunParams>
-    <RequiredPackages Count="5">
+    <RequiredPackages Count="6">
       <Item1>
-        <PackageName Value="pl_HtmlViewer"/>
+        <PackageName Value="pl_astronomy"/>
       </Item1>
       <Item2>
-        <PackageName Value="lz_datetimectrls"/>
+        <PackageName Value="pl_HtmlViewer"/>
       </Item2>
       <Item3>
-        <PackageName Value="pl_zeosdbo"/>
+        <PackageName Value="lz_datetimectrls"/>
       </Item3>
       <Item4>
-        <PackageName Value="FCL"/>
+        <PackageName Value="pl_zeosdbo"/>
       </Item4>
       <Item5>
-        <PackageName Value="LCL"/>
+        <PackageName Value="FCL"/>
       </Item5>
+      <Item6>
+        <PackageName Value="LCL"/>
+      </Item6>
     </RequiredPackages>
-    <Units Count="19">
+    <Units Count="20">
       <Unit0>
         <Filename Value="Socios.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -167,6 +170,13 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Buscar"/>
       </Unit18>
+      <Unit19>
+        <Filename Value="afiliaciones\tablas\llaves.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="llaves"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit19>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
