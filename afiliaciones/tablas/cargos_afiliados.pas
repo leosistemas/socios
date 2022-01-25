@@ -133,8 +133,8 @@ end;
 
 procedure TCargos.Button1Click(Sender: TObject);
 begin
-  html.Load('C:\Users\adminmutual\Desktop\socios\help\config_cargos.html');
-
+  //html.Load('C:\Users\adminmutual\Desktop\socios\help\config_cargos.html');
+                  html.Load('C:\pdftotext\Hremu.html')
 end;
 
 procedure TCargos.Button2Click(Sender: TObject);

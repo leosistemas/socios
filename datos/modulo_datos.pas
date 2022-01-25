@@ -130,6 +130,13 @@ begin
              SQ:=SQ+ renglon+cl2;
              readln(fuente,renglon);
              SQ:=SQ+ renglon;
+             readln(fuente,renglon);
+             SQ:=SQ+renglon + cl;
+             readln(fuente,renglon);
+             SQ:=SQ+ renglon+cl2;
+             readln(fuente,renglon);
+             SQ:=SQ+ renglon;
+
     end;
     if tipo='socio' then
     begin

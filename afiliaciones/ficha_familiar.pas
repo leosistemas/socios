@@ -263,6 +263,7 @@ end;
 
 procedure TFicha_fam.FormShow(Sender: TObject);
 begin
+     showmessage('aca');
   if conf.color_a='S' then
   begin
      if sets.Set_flags.tipo_ficha_fam='insert' then

@@ -1845,8 +1845,8 @@ object ficha_socio: Tficha_socio
     Height = 576
     Top = 8
     Width = 1214
-    ActivePage = titular
-    TabIndex = 0
+    ActivePage = familiares_patrocinados
+    TabIndex = 1
     TabOrder = 0
     object titular: TTabSheet
       Caption = 'Titular'
@@ -1953,11 +1953,11 @@ object ficha_socio: Tficha_socio
         EditLabel.AnchorSideRight.Control = Telefono
         EditLabel.AnchorSideBottom.Control = Telefono
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 29
+        EditLabel.Left = 19
         EditLabel.Height = 15
         EditLabel.Top = 132
-        EditLabel.Width = 49
-        EditLabel.Caption = 'Telefono'
+        EditLabel.Width = 59
+        EditLabel.Caption = 'Telefono 1'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
@@ -1977,11 +1977,11 @@ object ficha_socio: Tficha_socio
         EditLabel.AnchorSideRight.Control = Celular
         EditLabel.AnchorSideBottom.Control = Celular
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 39
+        EditLabel.Left = 18
         EditLabel.Height = 15
         EditLabel.Top = 156
-        EditLabel.Width = 38
-        EditLabel.Caption = 'Celular'
+        EditLabel.Width = 59
+        EditLabel.Caption = 'Telefono 2'
         EditLabel.ParentColor = False
         EditLabel.ParentFont = False
         EditLabel.Font.Style = [fsBold]
@@ -2134,6 +2134,7 @@ object ficha_socio: Tficha_socio
         Text = 'FEgreso'
       end
       object Patrocinador: TLabeledEdit
+        Cursor = crHandPoint
         Left = 328
         Height = 23
         Top = 176
@@ -3344,6 +3345,7 @@ object ficha_socio: Tficha_socio
         ReadOnly = True
         TabOrder = 1
         OnCellClick = GPatrocinadosCellClick
+        OnDblClick = GPatrocinadosDblClick
         OnPrepareCanvas = GPatrocinadosPrepareCanvas
       end
       object Label3: TLabel

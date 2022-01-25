@@ -4,11 +4,11 @@
     <PathDelim Value="\"/>
     <Version Value="9"/>
     <BuildModes Active="Default"/>
-    <Units Count="28">
+    <Units Count="29">
       <Unit0>
         <Filename Value="Socios.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="9"/>
+        <EditorIndex Value="10"/>
         <CursorPos Y="23"/>
         <UsageCount Value="205"/>
         <Loaded Value="True"/>
@@ -19,8 +19,8 @@
         <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <TopLine Value="49"/>
-        <CursorPos X="4" Y="67"/>
+        <TopLine Value="57"/>
+        <CursorPos X="6" Y="60"/>
         <UsageCount Value="205"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -92,7 +92,7 @@
         <Filename Value="utiles\sets.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Sets"/>
-        <EditorIndex Value="10"/>
+        <EditorIndex Value="11"/>
         <CursorPos X="47" Y="50"/>
         <UsageCount Value="205"/>
         <Loaded Value="True"/>
@@ -125,9 +125,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Cargos_afiliados"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="7"/>
-        <TopLine Value="202"/>
-        <CursorPos X="4" Y="20"/>
+        <TopLine Value="134"/>
+        <CursorPos X="53" Y="137"/>
         <UsageCount Value="225"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -139,8 +140,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="Modulo_datos"/>
-        <EditorIndex Value="8"/>
-        <CursorPos X="18"/>
+        <EditorIndex Value="9"/>
+        <TopLine Value="75"/>
+        <CursorPos X="61" Y="80"/>
         <UsageCount Value="225"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -175,8 +177,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="540"/>
-        <CursorPos X="27" Y="571"/>
+        <TopLine Value="747"/>
+        <CursorPos X="53" Y="752"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -213,7 +215,7 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Buscar"/>
         <EditorIndex Value="5"/>
-        <TopLine Value="150"/>
+        <TopLine Value="160"/>
         <CursorPos X="50" Y="164"/>
         <UsageCount Value="177"/>
         <Loaded Value="True"/>
@@ -225,7 +227,6 @@
         <ComponentName Value="llaves"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="6"/>
         <TopLine Value="25"/>
         <CursorPos X="59" Y="54"/>
@@ -294,59 +295,69 @@
         <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit27>
+      <Unit28>
+        <Filename Value="C:\codetyphon\typhon\components\pl_HtmlViewer\source\htmlview.pas"/>
+        <UnitName Value="HtmlView"/>
+        <EditorIndex Value="8"/>
+        <TopLine Value="1045"/>
+        <CursorPos Y="1062"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit28>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="afiliaciones\registro.pas"/>
-        <Caret Line="803" Column="77" TopLine="772"/>
+        <Caret Line="295" Column="55" TopLine="281"/>
       </Position1>
       <Position2>
         <Filename Value="afiliaciones\registro.pas"/>
-        <Caret Line="775" Column="70" TopLine="772"/>
+        <Caret Line="692" Column="4" TopLine="688"/>
       </Position2>
       <Position3>
         <Filename Value="afiliaciones\registro.pas"/>
-        <Caret Line="295" Column="55" TopLine="281"/>
+        <Caret Line="746" Column="117" TopLine="731"/>
       </Position3>
       <Position4>
         <Filename Value="afiliaciones\registro.pas"/>
-        <Caret Line="692" Column="4" TopLine="688"/>
+        <Caret Line="747" Column="80" TopLine="729"/>
       </Position4>
       <Position5>
         <Filename Value="afiliaciones\registro.pas"/>
-        <Caret Line="746" Column="117" TopLine="731"/>
+        <Caret Line="793" Column="54" TopLine="779"/>
       </Position5>
       <Position6>
         <Filename Value="afiliaciones\registro.pas"/>
-        <Caret Line="747" Column="80" TopLine="729"/>
+        <Caret Line="566" Column="54" TopLine="544"/>
       </Position6>
       <Position7>
         <Filename Value="afiliaciones\registro.pas"/>
-        <Caret Line="793" Column="54" TopLine="779"/>
+        <Caret Line="567" Column="54" TopLine="545"/>
       </Position7>
       <Position8>
         <Filename Value="afiliaciones\registro.pas"/>
-        <Caret Line="566" Column="54" TopLine="544"/>
+        <Caret Line="568" Column="54" TopLine="546"/>
       </Position8>
       <Position9>
         <Filename Value="afiliaciones\registro.pas"/>
-        <Caret Line="567" Column="54" TopLine="545"/>
+        <Caret Line="569" Column="54" TopLine="547"/>
       </Position9>
       <Position10>
-        <Filename Value="afiliaciones\registro.pas"/>
-        <Caret Line="568" Column="54" TopLine="546"/>
-      </Position10>
-      <Position11>
-        <Filename Value="afiliaciones\registro.pas"/>
-        <Caret Line="569" Column="54" TopLine="547"/>
-      </Position11>
-      <Position12>
         <Filename Value="Socios.lpr"/>
         <Caret Line="24"/>
-      </Position12>
-      <Position13>
+      </Position10>
+      <Position11>
         <Filename Value="Socios.lpr"/>
         <Caret Line="23" Column="71"/>
+      </Position11>
+      <Position12>
+        <Filename Value="afiliaciones\tablas\llaves.pas"/>
+        <Caret Column="12"/>
+      </Position12>
+      <Position13>
+        <Filename Value="afiliaciones\tablas\llaves.pas"/>
+        <Caret Line="21" Column="102"/>
       </Position13>
       <Position14>
         <Filename Value="afiliaciones\tablas\llaves.pas"/>
@@ -354,7 +365,7 @@
       </Position14>
       <Position15>
         <Filename Value="afiliaciones\tablas\llaves.pas"/>
-        <Caret Line="21" Column="102"/>
+        <Caret Line="12" Column="5"/>
       </Position15>
       <Position16>
         <Filename Value="afiliaciones\tablas\llaves.pas"/>
@@ -362,7 +373,7 @@
       </Position16>
       <Position17>
         <Filename Value="afiliaciones\tablas\llaves.pas"/>
-        <Caret Line="12" Column="5"/>
+        <Caret Line="11" Column="26"/>
       </Position17>
       <Position18>
         <Filename Value="afiliaciones\tablas\llaves.pas"/>
@@ -370,51 +381,51 @@
       </Position18>
       <Position19>
         <Filename Value="afiliaciones\tablas\llaves.pas"/>
-        <Caret Line="11" Column="26"/>
+        <Caret Line="8" Column="84"/>
       </Position19>
       <Position20>
         <Filename Value="afiliaciones\tablas\llaves.pas"/>
-        <Caret Column="12"/>
+        <Caret Line="9" Column="72"/>
       </Position20>
       <Position21>
-        <Filename Value="afiliaciones\tablas\llaves.pas"/>
-        <Caret Line="8" Column="84"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="58" Column="27" TopLine="58"/>
       </Position21>
       <Position22>
-        <Filename Value="afiliaciones\tablas\llaves.pas"/>
-        <Caret Line="9" Column="72"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="60" Column="27" TopLine="60"/>
       </Position22>
       <Position23>
         <Filename Value="main.pas"/>
-        <Caret Line="58" Column="27" TopLine="58"/>
+        <Caret Line="74" Column="10" TopLine="71"/>
       </Position23>
       <Position24>
         <Filename Value="main.pas"/>
-        <Caret Line="60" Column="27" TopLine="60"/>
+        <Caret Line="73" Column="32" TopLine="55"/>
       </Position24>
       <Position25>
-        <Filename Value="main.pas"/>
-        <Caret Line="74" Column="10" TopLine="71"/>
+        <Filename Value="afiliaciones\tablas\llaves.pas"/>
+        <Caret Line="37" Column="4" TopLine="25"/>
       </Position25>
       <Position26>
-        <Filename Value="main.pas"/>
-        <Caret Line="73" Column="32" TopLine="55"/>
+        <Filename Value="afiliaciones\tablas\llaves.pas"/>
+        <Caret Line="54" Column="57" TopLine="25"/>
       </Position26>
       <Position27>
         <Filename Value="afiliaciones\tablas\llaves.pas"/>
-        <Caret Line="37" Column="4" TopLine="25"/>
+        <Caret Line="53" Column="21" TopLine="25"/>
       </Position27>
       <Position28>
-        <Filename Value="afiliaciones\tablas\llaves.pas"/>
-        <Caret Line="54" Column="57" TopLine="25"/>
-      </Position28>
-      <Position29>
-        <Filename Value="afiliaciones\tablas\llaves.pas"/>
-        <Caret Line="53" Column="21" TopLine="25"/>
-      </Position29>
-      <Position30>
         <Filename Value="Socios.lpr"/>
         <Caret Line="17" Column="55"/>
+      </Position28>
+      <Position29>
+        <Filename Value="afiliaciones\tablas\cargos_afiliados.pas"/>
+        <Caret Line="20" Column="4" TopLine="20"/>
+      </Position29>
+      <Position30>
+        <Filename Value="afiliaciones\tablas\cargos_afiliados.pas"/>
+        <Caret Line="137" Column="44" TopLine="134"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>

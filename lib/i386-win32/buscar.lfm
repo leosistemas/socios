@@ -67,6 +67,7 @@ object Form5: TForm5
         FieldName = 'BENEFICIO'
       end    
       item
+        MaxSize = 64
         Title.Caption = 'NLEGAJO'
         FieldName = 'NLEGAJO'
       end    

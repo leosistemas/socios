@@ -159,6 +159,7 @@ type
       Column: TColumn; AState: TGridDrawState);
     procedure GpartPatCellClick(Column: TColumn);
     procedure GPatrocinadosCellClick(Column: TColumn);
+    procedure GPatrocinadosDblClick(Sender: TObject);
     procedure GPatrocinadosPrepareCanvas(sender: TObject; DataCol: Integer;
       Column: TColumn; AState: TGridDrawState);
     procedure grabarClick(Sender: TObject);
@@ -169,6 +170,8 @@ type
     procedure asignar();
     procedure limpiar_ficha_acargo();
     procedure asignar_ficha_acargo(ndoc:string;tipo:string);
+    procedure cerraQs();
+    procedure verificarQs();
   private
     { private declarations }
   public
@@ -198,11 +201,6 @@ begin
   sets.f_tit.numero:='7491';
   asignar();
 end;
-
-
-
-
-
 
 
 procedure Tficha_socio.view_buttons(accion:string);
@@ -430,12 +428,38 @@ begin
   end;
 end;
 
-procedure Tficha_socio.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+procedure Tficha_socio.verificarQs();
+begin
+    if	DataModule1.QAC_Antecedentes.IsEmpty	then	DataModule1.QAC_Antecedentes.close;
+    if	DataModule1.QAcargo.IsEmpty	then	DataModule1.QAcargo.close;
+    if	DataModule1.QCargosFijos.IsEmpty	then	DataModule1.QCargosFijos.close;
+    if	DataModule1.QAyudas.IsEmpty	then	DataModule1.QAyudas.close;
+    if	DataModule1.QAyudasCtas.IsEmpty	then	DataModule1.QAyudasCtas.close;
+    if	DataModule1.Qparticipantes.IsEmpty	then	DataModule1.Qparticipantes.close;
+    if	DataModule1.Qpatrocinados.IsEmpty	then	DataModule1.Qpatrocinados.close;
+    if	DataModule1.QpartPatrocinado.IsEmpty	then	DataModule1.QpartPatrocinado.close;
+    if	DataModule1.QMicroantecedente.IsEmpty	then	DataModule1.QMicroantecedente.close;
+end;
+
+procedure Tficha_socio.cerraQs();
 begin
   DataModule1.QBuscar.close;
   Datamodule1.Qparticipantes.close;
   Datamodule1.Qpatrocinados.close;
   Datamodule1.QSets.close;
+  Datamodule1.QpartPatrocinado.close;
+  Datamodule1.QAcargo.close;
+  Datamodule1.QAC_Antecedentes.close;
+  Datamodule1.QAyudas.close;
+  Datamodule1.QAyudasCtas.close;
+  Datamodule1.QAC_Antecedentes.close;
+  Datamodule1.QCargosEnCuotas.close;
+  DataModule1.QMicroantecedente.close;
+end;
+
+procedure Tficha_socio.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  cerraQs();
   DataModule1.conector_socios.Disconnect;
 end;
 
@@ -458,6 +482,7 @@ procedure Tficha_socio.asignar();
 var
   cl:string;
 begin
+  cerraQs();
     // showmessage('asig' + sets.f_tit.numero);
      if sets.f_tit.numero='0' then
      begin
@@ -538,6 +563,8 @@ begin
      DataModule1.Qparticipantes.Open;
 
 
+
+
      cl:=DataModule1.sql_buscar('vista_patrocinado.sql',sets.f_tit.numero,'','socio');
      DataModule1.Qpatrocinados.close;
      DataModule1.Qpatrocinados.sql.clear;
@@ -570,13 +597,14 @@ begin
      tabCargos.Caption:=tabCargos.Caption+ ' Consumos ('+ trim(DataModule1.QAyudas.RecordCount.ToString()) + ')';
 
      view_buttons('mostrar');
-
+     verificarQs();
 end;
 
 /// ficha participantes a cargos**************************
 
 procedure Tficha_socio.limpiar_ficha_acargo();
 begin
+  fpnombre.Text:='';
   fpnacimiento.text:='';  fpacargo.text:='';     fpincapacidad.text:='';    fpnumeracion.text:='';    fpcalle.text:='';
   fpegreso.text:='';     fpecivil.text:='';    fpalta.text:='';    fpbaja.text:='';    fpingreso.text:='';
   fpfpago.text:='';    fpdocumento.text:='';    fpedad.text:='';    fpdepto.text:='';    fppiso.text:='';
@@ -707,6 +735,7 @@ begin
   if DataModule1.Qparticipantes.IsEmpty then exit;
   if DataModule1.Qparticipantes.RecordCount>0 then
   begin
+       showmessage (datamodule1.Qparticipantes.FieldByName('id_familiar').AsString);
     sets.Set_flags.tipo_ficha_fam:='modificar';
     sets.f_fam.idfamiliar:=DataModule1.Qparticipantes.FieldByName('id_familiar').AsString;
     Application.CreateForm(TFicha_fam, Ficha_fam);
@@ -738,23 +767,38 @@ end;
 
 
 //***************** G PATROCINADOS *************************************
+procedure Tficha_socio.GPatrocinadosDblClick(Sender: TObject);
+begin
+   sets.f_tit.numero:=DataModule1.Qpatrocinados.FieldByName('numero').AsString;
+   limpiar();
+   asignar();
+   limpiar_ficha_acargo();
+   socios.PageIndex:=0;
+end;
 
 procedure Tficha_socio.GPatrocinadosCellClick(Column: TColumn);
 VAR
   cl:string;
 begin
-    limpiar_ficha_acargo();
-   asignar_ficha_acargo(DataModule1.Qpatrocinados.fieldbyname('nrodoc').asstring,'patrocinado');
-   DataModule1.QpartPatrocinado.close;
-   DataModule1.QpartPatrocinado.SQL.Clear;
-   DataModule1.QpartPatrocinado.sql.Add('select * from v_familiares where numero='+trim(DataModule1.Qpatrocinados.fieldbyname('numero').asstring));
-   DataModule1.QpartPatrocinado.Open;
-  cl:=DataModule1.sql_buscar('vista_antecedentes.sql',DataModule1.QPatrocinados.fieldbyname('NUMERO').asstring ,'','socio');
-   DataModule1.QMicroantecedente.Close;
-   DataModule1.QMicroantecedente.sql.clear;
-   DataModule1.QMicroantecedente.sql.add(cl);
-   DataModule1.QMicroantecedente.open;
+   limpiar_ficha_acargo();
+   if DataModule1.Qpatrocinados.RecordCount>0 then
+   begin
+       asignar_ficha_acargo(DataModule1.Qpatrocinados.fieldbyname('nrodoc').asstring,'patrocinado');
+       DataModule1.QpartPatrocinado.close;
+       DataModule1.QpartPatrocinado.SQL.Clear;
+       DataModule1.QpartPatrocinado.sql.Add('select * from v_familiares where numero='+trim(DataModule1.Qpatrocinados.fieldbyname('numero').asstring));
+       DataModule1.QpartPatrocinado.Open;
+      cl:=DataModule1.sql_buscar('vista_antecedentes.sql',DataModule1.QPatrocinados.fieldbyname('NUMERO').asstring ,'','socio');
+       DataModule1.QMicroantecedente.Close;
+       DataModule1.QMicroantecedente.sql.clear;
+       DataModule1.QMicroantecedente.sql.add(cl);
+       DataModule1.QMicroantecedente.open;
+       verificarQs();
+   end;
 end;
+
+
+
 procedure Tficha_socio.GPatrocinadosPrepareCanvas(sender: TObject;
   DataCol: Integer; Column: TColumn; AState: TGridDrawState);
 begin

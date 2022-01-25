@@ -195,6 +195,8 @@ begin
           DataModule1.QBuscar.SQL.clear;
           DataModule1.QBuscar.SQL.add(c1);
           DataModule1.QBuscar.Open;
+          DataModule1.QBuscar.Next;
+          showmessage(DataModule1.QBuscar.FieldByName('nlegajo').AsString);
        end;
 
 end;
