@@ -19,6 +19,9 @@ git checkout nueva_version --- entro en la rama
  git commit
  
  git checkout master
+
+comprobamos it
+
  
  
 git remote add origin https://github.com/leosistemas/socios.git
